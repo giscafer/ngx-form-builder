@@ -6,10 +6,10 @@ import {
   WidgetRegistry,
   Validator,
   DefaultWidgetRegistry
-} from '../angular2-schema-form';
+} from 'angular2-schema-form';
 
 @Component({
-  selector: 'sf-app',
+  selector: 'app-sf',
   templateUrl: './app.component.html',
   encapsulation: ViewEncapsulation.None,
   providers: [{ provide: WidgetRegistry, useClass: DefaultWidgetRegistry }]
@@ -30,7 +30,7 @@ export class AppComponent {
 
     this.fieldValidators['/bornOn'] = (value, property, form) => {
       let errors = null;
-      let dateArr = value.split('-');
+      const dateArr = value.split('-');
 
       if (dateArr.length === 3) {
         const now = new Date();
@@ -61,11 +61,11 @@ export class AppComponent {
     this.fieldValidators['/promotion'] = (value, property, form) => {
 
       if (value === 'student') {
-        let bornOn = form.getProperty('/bornOn');
+        const bornOn = form.getProperty('/bornOn');
 
         if (bornOn.valid) {
-          let date = bornOn.value.split('-');
-          let validYear = new Date().getFullYear() - 17;
+          const date = bornOn.value.split('-');
+          const validYear = new Date().getFullYear() - 17;
 
           try {
             const actualYear = parseInt(date[0], 10);
