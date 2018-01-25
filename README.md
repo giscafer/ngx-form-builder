@@ -5,7 +5,7 @@ primeng form generation based on JSON Schema
 
 ## Usage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:8888/`.
+Run `npm run start` for a dev server. Navigate to `http://localhost:8888/`.
 
 ## Related
 
@@ -17,3 +17,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:8888/`.
 
 MIT
 
+---
+
+> [giscafer.com](http://giscafer.com) &nbsp;&middot;&nbsp;
+> GitHub [@giscafer](https://github.com/giscafer) &nbsp;&middot;&nbsp;
+> Twitter [@nickbinglao](https://twitter.com/nickbinglao) &nbsp;&middot;&nbsp;
+> Weibo [@Nickbing_Lao](https://weibo.com/laohoubin)
