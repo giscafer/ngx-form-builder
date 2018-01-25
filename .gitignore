@@ -7,6 +7,7 @@
 
 # dependencies
 /node_modules
+/angular2-schema-form
 
 # IDEs and editors
 /.idea
