@@ -1,16 +1,19 @@
-# PrimengSchemaForm
+# ng-form-builder
 
-Angular UI form generation based on JSON Schema
+Angular form generation,dynamic template support primeng/zorro/bootstrap UI
 
+## TODO List
 
-## TODO
+- [x] HTML form generation based on JSON Schema
+- [ ] Support download & copy HTML code
+- [ ] Support ng template html & ngModel auto binding
+- [ ] Support `BootStrap` style
+- [ ] Support `PrimeNG` UI
+- [ ] Support `NG-ZORRO` UI
+- [ ] Support form validator
+- [ ] Support `Java vo` —> `json schema` —>generate-> `ng html` 
+- [ ] Support DND (drag and drop)
 
-- [x] 根据json schema动态生成html 模板；
-- [] 实现自动动态绑定ngModel （ng html模板，copy直接可用）
-- [] 实现自动表单验证
-- [] 后端vo或数据库表结构自动生产 ng html 模板（vo—>json schema—>ng html模板）
-- [] 拖拽生成表单
-- [] 支持`NG-ZORRO`
 
 ## Usage
 
@@ -19,8 +22,9 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:8888/`.
 ## Related
 
 - [angular2-schema-form](https://github.com/makinacorpus/angular2-schema-form)
-
+- [formBuilder](https://github.com/kevinchappell/formBuilder)
 - [primeng](https://github.com/primefaces/primeng)
+- [ng-zorro-antd](https://github.com/NG-ZORRO/ng-zorro-antd)
 
 ## License
 
