@@ -1,7 +1,16 @@
 # PrimengSchemaForm
 
-primeng form generation based on JSON Schema
+Angular UI form generation based on JSON Schema
 
+
+## TODO
+
+- [x] 根据json schema动态生成html 模板；
+- [] 实现自动动态绑定ngModel （ng html模板，copy直接可用）
+- [] 实现自动表单验证
+- [] 后端vo或数据库表结构自动生产 ng html 模板（vo—>json schema—>ng html模板）
+- [] 拖拽生成表单
+- [] 支持`NG-ZORRO`
 
 ## Usage
 
