@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { SchemaFormModule, SchemaValidatorFactory, ZSchemaValidatorFactory } from 'angular2-schema-form';
+import { SchemaFormModule } from '../core';
+// import { SchemaFormModule, SchemaValidatorFactory, ZSchemaValidatorFactory } from '../angular2-schema-form';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -16,12 +17,12 @@ import { AppComponent } from './app.component';
     SchemaFormModule,
     HttpModule
   ],
-  providers: [
+ /*  providers: [
     {
       provide: SchemaValidatorFactory,
       useClass: ZSchemaValidatorFactory
     }
-  ],
+  ], */
   bootstrap: [AppComponent]
 })
 export class AppModule { }
