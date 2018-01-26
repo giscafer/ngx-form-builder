@@ -25,6 +25,7 @@ import { TerminatorService } from 'angular2-schema-form/dist/terminator.service'
 import { WidgetFactory } from '../widget-factory';
 import { WidgetRegistry } from '../widget-registry';
 import { BootStrapDefaultWidgetRegistry } from '../widgets/bootstrap/defaultwidget-registry';
+import { BsTmplBuilder } from '../builder/bs-template-builder';
 
 
 
@@ -145,17 +146,7 @@ export class BsFormBuilderComponent implements OnChanges {
 
     }
 
-    _createForm(widgetInfo: any) {
 
-        let widgetTemplate = this.registry.getWidgetType(widgetInfo.id);
-
-        let template = widgetTemplate;
-        this.ref = this.widgetFactory.addWidget(this.container, template, {});
-        this.widgetInstanciated.emit(this.ref.instance);
-        this.widgetInstance = this.ref.instance;
-        this.cdr.detectChanges();
-    }
-    
     private setValidators() {
         this.validatorRegistry.clear();
         if (this.validators) {
@@ -202,5 +193,20 @@ export class BsFormBuilderComponent implements OnChanges {
 
     public reset() {
         this.rootProperty.reset(null, true);
+    }
+
+    _createForm(widgetInfo: any) {
+
+        // let widgetTemplate = BsTmplBuilder();
+        let widgetTemplate = this.registry.getWidgetType(widgetInfo.id);
+
+        let template = widgetTemplate;
+        let properties = {
+            "rootProperty": this.rootProperty
+        }
+        this.ref = this.widgetFactory.addWidget(this.container, template, properties);
+        this.widgetInstanciated.emit(this.ref.instance);
+        this.widgetInstance = this.ref.instance;
+        this.cdr.detectChanges();
     }
 }

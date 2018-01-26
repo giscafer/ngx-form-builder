@@ -1,6 +1,7 @@
 {
-  "name": "primeng-schema-form",
-  "version": "0.0.0",
+  "name": "ng-form-builder",
+  "version": "0.1.0",
+  "description": "Angular form generation,dynamic template support primeng/zorro/bootstrap UI",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -9,6 +10,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giscafer/ng-form-builder"
   },
   "private": true,
   "dependencies": {
