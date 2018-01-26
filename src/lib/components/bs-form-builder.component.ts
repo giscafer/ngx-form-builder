@@ -9,22 +9,24 @@ import {
     ViewChild,
     ViewContainerRef,
 } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 import {
     FormProperty,
     FormPropertyFactory,
     SchemaPreprocessor,
     ValidatorRegistry,
-    Validator
+    Validator,
+    ActionRegistry
 } from 'angular2-schema-form/dist/model';
-
+import { SchemaValidatorFactory, Widget } from 'angular2-schema-form';
+import { TerminatorService } from 'angular2-schema-form/dist/terminator.service';
 
 import { WidgetFactory } from '../widget-factory';
 import { WidgetRegistry } from '../widget-registry';
 import { BootStrapDefaultWidgetRegistry } from '../widgets/bootstrap/defaultwidget-registry';
-import { FormControl } from '@angular/forms';
-import { SchemaValidatorFactory, Widget } from 'angular2-schema-form';
-import { TerminatorService } from 'angular2-schema-form/dist/terminator.service';
+
+
 
 export function useFactory(schemaValidatorFactory, validatorRegistry) {
     return new FormPropertyFactory(schemaValidatorFactory, validatorRegistry);
@@ -82,6 +84,7 @@ export class BsFormBuilderComponent implements OnChanges {
     constructor(
         registry: WidgetRegistry,
         private formPropertyFactory: FormPropertyFactory,
+        private actionRegistry: ActionRegistry,
         private validatorRegistry: ValidatorRegistry,
         private widgetFactory: WidgetFactory = null,
         private cdr: ChangeDetectorRef,
@@ -151,6 +154,7 @@ export class BsFormBuilderComponent implements OnChanges {
         this.widgetInstance = this.ref.instance;
         this.cdr.detectChanges();
     }
+    
     private setValidators() {
         this.validatorRegistry.clear();
         if (this.validators) {
@@ -173,7 +177,7 @@ export class BsFormBuilderComponent implements OnChanges {
     }
 
     private createButtonCallback(button) {
-        /* button.action = (e) => {
+        button.action = (e) => {
             let action;
             if (button.id && (action = this.actionRegistry.get(button.id))) {
                 if (action) {
@@ -181,7 +185,7 @@ export class BsFormBuilderComponent implements OnChanges {
                 }
             }
             e.preventDefault();
-        }; */
+        };
     }
 
     onWidgetInstanciated(widget: Widget<any>) {
