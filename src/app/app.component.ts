@@ -2,10 +2,6 @@ import {
   Component,
   ViewEncapsulation
 } from '@angular/core';
-import {
-  WidgetRegistry,
-  BootStrapDefaultWidgetRegistry
-} from '../core';
 
 @Component({
   selector: 'sf-app',
@@ -19,10 +15,10 @@ export class AppComponent {
   value: any;
   actions = {};
 
-  constructor(registry: WidgetRegistry) {
+  constructor() {
 
-    this.schema = require('./otherschema.json');
-    // this.schema = require('./sampleschema.json');
+    // this.schema = require('./otherschema.json');
+    this.schema = require('./sampleschema.json');
     this.model = require('./samplemodel.json');
   }
 

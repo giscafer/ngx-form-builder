@@ -10,7 +10,7 @@ import { BsFormBuilderComponent } from './components/bs-form-builder.component';
 import { WidgetRegistry } from './widget-registry';
 // import { PrimengDefaultWidgetRegistry } from './widgets/primeng';
 import { BootStrapDefaultWidgetRegistry } from './widgets/bootstrap';
-import { SchemaValidatorFactory, ZSchemaValidatorFactory } from './model';
+import { SchemaValidatorFactory, ZSchemaValidatorFactory } from 'angular2-schema-form';
 
 const moduleProviders = [
  /*  {

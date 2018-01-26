@@ -15,17 +15,16 @@ import {
     FormPropertyFactory,
     SchemaPreprocessor,
     ValidatorRegistry,
-    Validator,
-    SchemaValidatorFactory
-} from '../model';
+    Validator
+} from 'angular2-schema-form/dist/model';
 
 
-import { TerminatorService } from '../terminator.service';
 import { WidgetFactory } from '../widget-factory';
 import { WidgetRegistry } from '../widget-registry';
 import { BootStrapDefaultWidgetRegistry } from '../widgets/bootstrap/defaultwidget-registry';
-import { Widget } from '../widget';
 import { FormControl } from '@angular/forms';
+import { SchemaValidatorFactory, Widget } from 'angular2-schema-form';
+import { TerminatorService } from 'angular2-schema-form/dist/terminator.service';
 
 export function useFactory(schemaValidatorFactory, validatorRegistry) {
     return new FormPropertyFactory(schemaValidatorFactory, validatorRegistry);
