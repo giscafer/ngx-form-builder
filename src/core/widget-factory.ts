@@ -19,11 +19,11 @@ export class WidgetFactory {
     this.registry = registry;
   }
 
-/*   createWidget(container: ViewContainerRef, type: string): ComponentRef<any> {
-   
-
-
-  } */
+  /*   createWidget(container: ViewContainerRef, type: string): ComponentRef<any> {
+     
+  
+  
+    } */
 
   public addWidget(container: ViewContainerRef, template: string, properties: any = {}) {
 
@@ -39,6 +39,8 @@ export class WidgetFactory {
     );
     const component = container.createComponent(factory);
     Object.assign(component.instance, properties);
+
+    return component.instance;
     // If properties are changed at a later stage, the change detection
     // may need to be triggered manually:
     // component.changeDetectorRef.detectChanges();

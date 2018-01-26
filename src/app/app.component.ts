@@ -4,14 +4,13 @@ import {
 } from '@angular/core';
 import {
   WidgetRegistry,
-  PrimengDefaultWidgetRegistry
+  BootStrapDefaultWidgetRegistry
 } from '../core';
 
 @Component({
   selector: 'sf-app',
   templateUrl: './app.component.html',
-  encapsulation: ViewEncapsulation.None,
-  providers: [{ provide: WidgetRegistry, useClass: PrimengDefaultWidgetRegistry }]
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
 

@@ -1,33 +1,38 @@
-import {NgModule, ModuleWithProviders} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   FormsModule,
   ReactiveFormsModule
 } from '@angular/forms';
 
-import {WidgetChooserComponent} from './widget-chooser.component';
+import { BsFormBuilderComponent } from './components/bs-form-builder.component';
 
-import {WidgetRegistry} from './widget-registry';
-import { PrimengDefaultWidgetRegistry } from './primengwidgets';
+import { WidgetRegistry } from './widget-registry';
+// import { PrimengDefaultWidgetRegistry } from './widgets/primeng';
+import { BootStrapDefaultWidgetRegistry } from './widgets/bootstrap';
 
 const moduleProviders = [
-  {
+ /*  {
     provide: WidgetRegistry,
     useClass: PrimengDefaultWidgetRegistry
+  }, */{
+    provide: WidgetRegistry,
+    useClass: BootStrapDefaultWidgetRegistry
   }
 ];
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   declarations: [
-    WidgetChooserComponent
+    BsFormBuilderComponent
   ],
   entryComponents: [
-    WidgetChooserComponent
+    BsFormBuilderComponent
   ],
   exports: [
-    WidgetChooserComponent
-  ]
+    BsFormBuilderComponent
+  ],
+  providers: [...moduleProviders]
 })
 export class SchemaFormModule {
 
