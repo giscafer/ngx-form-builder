@@ -38,6 +38,7 @@ export function useFactory(schemaValidatorFactory, validatorRegistry) {
     providers: [
         WidgetFactory,
         SchemaPreprocessor,
+        ActionRegistry,
         ValidatorRegistry,
         TerminatorService,
         {
