@@ -9,6 +9,8 @@ export interface ISchemaProperty {
     modelName?: string;
     /**
      * 类型
+     * 
+     * 如 <input type="number"/>
      */
     type?: string;
     /**

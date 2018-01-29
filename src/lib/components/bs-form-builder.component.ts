@@ -234,6 +234,7 @@ export class BsFormBuilderComponent implements OnChanges {
         this.ref = this.widgetFactory.addWidget(this.container, template, properties, this);
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
+        this.widgetInstance.id = 'field' + (BsFormBuilderComponent.counter++);
         this.cdr.detectChanges();
     }
 }

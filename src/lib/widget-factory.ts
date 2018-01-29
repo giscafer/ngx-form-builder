@@ -85,7 +85,7 @@ export class WidgetFactory {
     const component = container.createComponent(factory);
     Object.assign(component.instance, properties);
 
-    return component.instance;
+    return component;
     // If properties are changed at a later stage, the change detection
     // may need to be triggered manually:
   }
