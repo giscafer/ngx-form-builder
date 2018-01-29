@@ -17,9 +17,10 @@ export class AppComponent {
 
   constructor() {
 
-    // this.schema = require('./otherschema.json');
-    this.schema = require('./sampleschema.json');
-    this.model = require('./samplemodel.json');
+    this.schema = require('../mock/otherschema.json');
+    // this.schema = require('../mock/sampleschema.json');
+    // this.schema = require('../mock/simpleschema.json');
+    // this.model = require('../mock/samplemodel.json');
   }
 
   logErrors(errors) {
@@ -27,7 +28,7 @@ export class AppComponent {
   }
 
   changeSchema() {
-    this.schema = require('./otherschema.json');
+    this.schema = require('../mock/otherschema.json');
   }
 
   disableAll() {
@@ -36,7 +37,7 @@ export class AppComponent {
     });
   }
 
-  setValue(value) {
+  modelChanged(value) {
     this.value = value;
   }
 }

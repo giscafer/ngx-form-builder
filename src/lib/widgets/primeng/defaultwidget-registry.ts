@@ -1,7 +1,7 @@
 
 
-import { WidgetType } from '../../widget-type';
 import { WidgetRegistry } from '../../widget-registry';
+import { WidgetType } from '../../schema/index';
 
 export class PrimengDefaultWidgetRegistry extends WidgetRegistry {
   constructor() {

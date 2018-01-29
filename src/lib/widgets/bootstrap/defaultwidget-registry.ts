@@ -1,6 +1,5 @@
 
 
-import { WidgetType } from '../../widget-type';
 
 import { ButtonWidget } from './button/button.widget';
 import { StringWidget } from './string/string.widget';
@@ -16,6 +15,7 @@ import { SelectWidget } from './select/select.widget';
 import { TextAreaWidget } from './textarea/textarea.widget';
  */
 import { WidgetRegistry } from '../../widget-registry';
+import { WidgetType } from '../../schema/index';
 
 export class BootStrapDefaultWidgetRegistry extends WidgetRegistry {
   constructor() {

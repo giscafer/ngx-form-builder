@@ -26,6 +26,7 @@ import { WidgetFactory } from '../widget-factory';
 import { WidgetRegistry } from '../widget-registry';
 import { BootStrapDefaultWidgetRegistry } from '../widgets/bootstrap/defaultwidget-registry';
 import { BsTmplBuilder } from '../builder/bs-template-builder';
+import { ISchema } from '../schema/index';
 
 
 
@@ -114,6 +115,13 @@ export class BsFormBuilderComponent implements OnChanges {
         }
 
         if (this.schema && changes.schema) {
+            this[this.schema.modelName] = {};
+            this.coverProperty(this.schema);
+
+            if (this.schema.debug) {
+                console.warn('schema debugger', this.schema);
+            }
+
             if (!changes.schema.firstChange) {
                 this.terminator.destroy();
             }
@@ -146,6 +154,17 @@ export class BsFormBuilderComponent implements OnChanges {
 
     }
 
+    private coverProperty(schema: ISchema) {
+
+        Object.keys(schema.properties).forEach(key => {
+            let property = schema.properties[key];
+            property['name'] = property['name'] ? property['name'] : key;
+            property['modelName'] = schema.modelName || 'model';
+            if (property.items && property.type === 'array') {
+                this.coverProperty(property.items);
+            }
+        });
+    }
 
     private setValidators() {
         this.validatorRegistry.clear();
@@ -195,16 +214,22 @@ export class BsFormBuilderComponent implements OnChanges {
         this.rootProperty.reset(null, true);
     }
 
-    _createForm(widgetInfo: any) {
+    private _createForm(widgetInfo: any) {
 
-        // let widgetTemplate = BsTmplBuilder();
-        let widgetTemplate = this.registry.getWidgetType(widgetInfo.id);
+        let widgetTemplate = BsTmplBuilder(this.registry, this.rootProperty);
+        // let widgetTemplate = this.registry.getWidgetType(widgetInfo.id);
 
         let template = widgetTemplate;
         let properties = {
-            "rootProperty": this.rootProperty
+            "formProperty": this.rootProperty,
+            "control": this.control,
+            "property": { visible: true },
+            "_debug_": this.rootProperty.schema.debug,
+            "modelName": this.rootProperty.schema.modelName || 'model',
+            [this.rootProperty.schema.modelName || 'model']: {}
         }
-        this.ref = this.widgetFactory.addWidget(this.container, template, properties);
+        console.log(template);
+        this.ref = this.widgetFactory.addWidget(this.container, template, properties, this);
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
         this.cdr.detectChanges();

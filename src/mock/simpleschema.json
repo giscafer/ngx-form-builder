@@ -1,0 +1,72 @@
+{
+    "modelName":"testModel",
+    "span_label": 4,
+    "span": 8,
+    "debug": true,
+    "properties": {
+        "email": {
+            "type": "string",
+            "title": "邮箱",
+            "format": "email",
+            "placeholder": "请输入邮箱，最多20个字符",
+            "maxLength": 20,
+            "readOnly": true,
+            "value": "giscafer@outlook.com"
+        },
+        "name": {
+            "type": "string",
+            "title": "姓名",
+            "placeholder": "请输入姓名",
+            "description": "必须大写开头且3个字以上",
+            "maxLength": 30,
+            "minLength": 3,
+            "debug": true
+        },
+        "age": {
+            "type": "number",
+            "title": "年龄"
+        },
+        "remark": {
+            "type": "string",
+            "title": "描述"
+        },
+        "products": {
+            "type": "array",
+            "title": "产品清单",
+            "maxItems": 2,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "pn": {
+                        "title": "产品名称",
+                        "type": "string"
+                    },
+                    "num": {
+                        "title": "件数",
+                        "type": "number",
+                        "minimum": 1,
+                        "maximum": 1000
+                    },
+                    "price": {
+                        "title": "金额",
+                        "type": "number"
+                    }
+                },
+                "required": ["pn", "num", "price"]
+            }
+        }
+    },
+    "required": ["email", "name"],
+    "buttons": [
+        {
+            "label": "Send",
+            "id": "send",
+            "submit": true,
+            "offset": 4
+        },
+        {
+            "label": "Reset",
+            "id": "reset"
+        }
+    ]
+}

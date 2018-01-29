@@ -1,4 +1,5 @@
-import { WidgetType } from './widget-type';
+import { WidgetType } from "./schema/index";
+
 
 export class WidgetRegistry {
 

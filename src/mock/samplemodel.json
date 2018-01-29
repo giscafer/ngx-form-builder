@@ -8,5 +8,7 @@
 	"password": "admin",
 	"category": ["hightech"],
 	"freeShipping": false,
-	"customEmail": "Nothing here..."
+	"customEmail": "Nothing here...",
+	"title": "ng-form-builder",
+	"author": "giscafer"
 }
