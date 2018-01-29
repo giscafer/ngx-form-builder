@@ -1,4 +1,4 @@
-import { PropertyGroup } from "angular2-schema-form/dist/model";
+import { PropertyGroup } from "../model";
 import { WidgetRegistry } from "../widget-registry";
 
 

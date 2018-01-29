@@ -21,7 +21,7 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:8888/`.
 
 ## Related
 
-- [angular2-schema-form](https://github.com/makinacorpus/angular2-schema-form)
+- [angular2-schema-form](https://github.com/makinacorpus/angular2-schema-form) `ng-form-builder` base on angular2-schema-form
 - [formBuilder](https://github.com/kevinchappell/formBuilder)
 - [primeng](https://github.com/primefaces/primeng)
 - [ng-zorro-antd](https://github.com/NG-ZORRO/ng-zorro-antd)

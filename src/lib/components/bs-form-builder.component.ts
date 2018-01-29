@@ -18,15 +18,17 @@ import {
     ValidatorRegistry,
     Validator,
     ActionRegistry
-} from 'angular2-schema-form/dist/model';
-import { SchemaValidatorFactory, Widget } from 'angular2-schema-form';
-import { TerminatorService } from 'angular2-schema-form/dist/terminator.service';
+} from '../model';
+import { Widget } from '../widget';
+import { TerminatorService } from '../terminator.service';
+import { SchemaValidatorFactory } from '../schemavalidator.factory';
+
+import { ISchema } from '../schema/index';
 
 import { WidgetFactory } from '../widget-factory';
 import { WidgetRegistry } from '../widget-registry';
 import { BootStrapDefaultWidgetRegistry } from '../widgets/bootstrap/defaultwidget-registry';
 import { BsTmplBuilder } from '../builder/bs-template-builder';
-import { ISchema } from '../schema/index';
 
 
 

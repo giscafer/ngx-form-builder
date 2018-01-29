@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 
 import { SchemaFormModule } from '../lib';
-// import { SchemaFormModule, SchemaValidatorFactory, ZSchemaValidatorFactory } from 'angular2-schema-form';
 import { AppComponent } from './app.component';
 
 @NgModule({
