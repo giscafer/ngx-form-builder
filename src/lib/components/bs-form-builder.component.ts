@@ -8,6 +8,7 @@ import {
     Output,
     ViewChild,
     ViewContainerRef,
+    ViewEncapsulation,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
@@ -17,7 +18,8 @@ import {
     SchemaPreprocessor,
     ValidatorRegistry,
     Validator,
-    ActionRegistry
+    ActionRegistry,
+    Action
 } from '../model';
 import { Widget } from '../widget';
 import { TerminatorService } from '../terminator.service';
@@ -38,7 +40,8 @@ export function useFactory(schemaValidatorFactory, validatorRegistry) {
 
 @Component({
     selector: 'bs-form-builder',
-    template: `<div #target></div>`,
+    encapsulation: ViewEncapsulation.None,
+    template: `<form><div #target></div></form>`,
     providers: [
         WidgetFactory,
         SchemaPreprocessor,
@@ -66,6 +69,9 @@ export class BsFormBuilderComponent implements OnChanges {
 
     @Input() model: any;
 
+    @Input() actions: { [actionId: string]: Action } = {};
+
+
     @Output() onChange = new EventEmitter<{ value: any }>();
 
     @Output() modelChanged = new EventEmitter<any>();
@@ -75,6 +81,7 @@ export class BsFormBuilderComponent implements OnChanges {
     @Output() onErrorChange = new EventEmitter<{ value: any[] }>();
 
     @Output() onErrorsChange = new EventEmitter<{ value: any }>();
+
 
     control: FormControl = new FormControl('', () => null);
     rootProperty: FormProperty = null;
@@ -104,12 +111,15 @@ export class BsFormBuilderComponent implements OnChanges {
                 this.ref.destroy();
             }
         });
-        this.parseButtons();
     }
 
     ngOnChanges(changes: any) {
         if (changes.validators) {
             this.setValidators();
+        }
+
+        if (changes.actions) {
+            this.setActions();
         }
 
         if (this.schema && !this.schema.type) {
@@ -161,6 +171,7 @@ export class BsFormBuilderComponent implements OnChanges {
         Object.keys(schema.properties).forEach(key => {
             let property = schema.properties[key];
             property['name'] = property['name'] ? property['name'] : key;
+            property['formId'] = 'field' + (BsFormBuilderComponent.counter++);
             property['modelName'] = schema.modelName || 'model';
             if (property.items && property.type === 'array') {
                 this.coverProperty(property.items);
@@ -179,26 +190,15 @@ export class BsFormBuilderComponent implements OnChanges {
         }
     }
 
-    private parseButtons() {
-        if (this.rootProperty.schema.buttons !== undefined) {
-            this.buttons = this.rootProperty.schema.buttons;
-
-            for (let button of this.buttons) {
-                this.createButtonCallback(button);
-            }
-        }
-    }
-
-    private createButtonCallback(button) {
-        button.action = (e) => {
-            let action;
-            if (button.id && (action = this.actionRegistry.get(button.id))) {
-                if (action) {
-                    action(this.rootProperty, button.parameters);
+    private setActions() {
+        this.actionRegistry.clear();
+        if (this.actions) {
+            for (let actionId in this.actions) {
+                if (this.actions.hasOwnProperty(actionId)) {
+                    this.actionRegistry.register(actionId, this.actions[actionId]);
                 }
             }
-            e.preventDefault();
-        };
+        }
     }
 
     onWidgetInstanciated(widget: Widget<any>) {
@@ -234,7 +234,6 @@ export class BsFormBuilderComponent implements OnChanges {
         this.ref = this.widgetFactory.addWidget(this.container, template, properties, this);
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
-        this.widgetInstance.id = 'field' + (BsFormBuilderComponent.counter++);
         this.cdr.detectChanges();
     }
 }

@@ -1,10 +1,11 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4">
-     <!--  <sf-form (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)" [schema]="schema" [model]="model"
+      <!--  <sf-form (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)" [schema]="schema" [model]="model"
         [validators]="fieldValidators" [actions]="actions">
       </sf-form> -->
-      <bs-form-builder [schema]="schema" [model]="model" (modelChanged)="modelChanged($event)"></bs-form-builder>
+      <bs-form-builder [schema]="schema" [model]="model" [actions]="actions" (onErrorChange)="logErrors($event.value)"
+        (onChange)="setValue($event.value)"></bs-form-builder>
     </div>
     <div class="col-md-4">
       <button (click)="changeSchema()">Change schema</button>

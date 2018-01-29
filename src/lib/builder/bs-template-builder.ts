@@ -21,6 +21,13 @@ export function BsTmplBuilder(registry: WidgetRegistry, formProperty: any) {
             }
         }
     }
-
+    if (formProperty.schema.buttons !== undefined) {
+        let buttons = formProperty.schema.buttons;
+        for (let btn of buttons) {
+            let WidgetClass = registry.getWidgetType('button');
+            templ += new WidgetClass().getTemplate(formProperty.schema,btn);
+        }
+    }
+    templ += '</fieldset>';
     return templ;
 }

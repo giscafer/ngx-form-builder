@@ -13,7 +13,7 @@ export class StringWidget extends ControlWidget {
         } else {
             templ = `
             <div class="widget form-group">
-                <label [attr.for]="id" class="horizontal control-label">
+                <label [attr.for]="${schema.formId}" class="horizontal control-label">
                     ${schema.title}
                 </label>
                 ${schema.description ? `<span  class="formHelp"> ${schema.description}</span>` : ''}
@@ -22,12 +22,13 @@ export class StringWidget extends ControlWidget {
                 [name]="'${schema.name}'"
                 [attr.readonly]="('${schema.widget.id}'!=='color') ${schema.readOnly ? ' && true' : '&& null'}"
                 class="text-widget.id textline-widget form-control"
-                [attr.type]="${this.getInputType(schema)}"
-                [attr.id]="id"  [formControl]="control"
+                type="${this.getInputType(schema)}"
+                [attr.id]="${schema.formId}"
+                [formControl]="control"
                 [attr.placeholder]="'${schema.placeholder ? schema.placeholder : ""}'"
-                [attr.maxLength]="${schema.maxLength} || null"
-                [attr.minLength]="${schema.minLength} || null"
-                [attr.disabled]="${(schema.widget.id === 'color' && schema.readOnly) ? true : null}">
+                ${(schema.maxLength || schema.maxLength == 0) ? `[attr.maxLength]="${schema.maxLength}"` : ""}
+                ${(schema.minLength || schema.minLength == 0) ? `[attr.minLength]="${schema.minLength}"` : ""}
+                ${(schema.widget.id === 'color' && schema.readOnly) ? `[attr.disabled]="'true'"` : ""}/>
                 <input *ngIf="${(schema.widget.id === 'color' && schema.readOnly) ? true : null}"
                 [attr.name]="name" type="hidden" [formControl]="control">
             </div>

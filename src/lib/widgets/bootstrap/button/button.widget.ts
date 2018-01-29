@@ -1,9 +1,17 @@
+import { ControlWidget } from "../../../widget";
 
+export class ButtonWidget extends ControlWidget {
+  public button
+  public formProperty
+  constructor() {
+    super();
+  }
 
+  getTemplate(schema, button) {
+    return `
+    <button (click)="action($event,'${button.id}')" class="btn btn-default">${button.label}</button>
+    `;
+  }
 
+}
 
-export const ButtonWidget = buttonTemplate();
-
-function buttonTemplate() {
-    return `<button class="btn btn-default" type="submit">Button</button>`;
-};

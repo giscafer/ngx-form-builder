@@ -29,38 +29,12 @@
         "remark": {
             "type": "string",
             "title": "描述"
-        },
-        "products": {
-            "type": "array",
-            "title": "产品清单",
-            "maxItems": 2,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "pn": {
-                        "title": "产品名称",
-                        "type": "string"
-                    },
-                    "num": {
-                        "title": "件数",
-                        "type": "number",
-                        "minimum": 1,
-                        "maximum": 1000
-                    },
-                    "price": {
-                        "title": "金额",
-                        "type": "number"
-                    }
-                },
-                "required": ["pn", "num", "price"]
-            }
         }
     },
-    "required": ["email", "name"],
     "buttons": [
         {
-            "label": "Send",
-            "id": "send",
+            "label": "Alert",
+            "id": "alert",
             "submit": true,
             "offset": 4
         },

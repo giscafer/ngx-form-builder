@@ -1,5 +1,5 @@
 {
-  "modelName":"testModel",
+  "modelName": "testModel",
   "fieldsets": [
     {
       "fields": [
@@ -23,6 +23,7 @@
       "description": "Short description",
       "placeholder": "input string",
       "minLength": 0,
+      "readOnly": true,
       "title": "Summary",
       "type": "string",
       "widget": "textarea"
@@ -30,6 +31,7 @@
     "title": {
       "description": "",
       "title": "Title",
+      "maxLength": 10,
       "type": "string"
     },
     "author": {
@@ -54,5 +56,19 @@
       "widget": "select"
     }
   },
-  "required": ["title"]
+  "required": [
+    "title"
+  ],
+  "buttons": [
+    {
+      "label": "Alert",
+      "id": "alert",
+      "submit": true,
+      "offset": 4
+    },
+    {
+      "label": "Reset",
+      "id": "reset"
+    }
+  ]
 }

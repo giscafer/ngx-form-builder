@@ -18,13 +18,16 @@ import { WidgetRegistry } from './widget-registry';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { setInterval, clearInterval } from 'timers';
+import { ActionRegistry } from './model/actionregistry';
 
 @Injectable()
 export class WidgetFactory {
 
   private registry: WidgetRegistry;
 
-  constructor(registry: WidgetRegistry, private compiler: Compiler) {
+  constructor(
+    registry: WidgetRegistry,
+    private compiler: Compiler) {
     this.registry = registry;
   }
 
@@ -33,21 +36,29 @@ export class WidgetFactory {
 
     @Component({ template })
     class TemplateComponent implements OnInit, DoCheck, OnDestroy {
+
       interval: any;
+
       _differ: any;
+
+      action: Function;
+      buttons = [];
+
       constructor(
         private _differs: KeyValueDiffers,
+        private actionRegistry: ActionRegistry,
         private changeDetectorRef: ChangeDetectorRef
       ) {
 
       }
+
       ngOnInit(): void {
         this._differ = this._differs.find(this[this['modelName']]).create();
         if (this.interval) {
           clearInterval(this.interval);
           this.interval = null;
         }
-
+        this.parseButtons();
       }
 
       ngDoCheck() {
@@ -62,10 +73,46 @@ export class WidgetFactory {
         }
       }
 
+      private parseButtons() {
+        let schema = properties.formProperty.schema;
+        if (schema.buttons !== undefined) {
+          this.buttons = schema.buttons;
+
+          for (let button of this.buttons) {
+            this.createButtonCallback(button);
+          }
+        }
+      }
+
+      private createButtonCallback(button) {
+        this.action = (e, id) => {
+          let action;
+          if (id && (action = this.actionRegistry.get(id))) {
+            if (action) {
+              action(properties.formProperty, this._getBtnParameters(id));
+              // TODO，临时解决方案
+              if (id === 'reset') {
+                this[this['modelName']] = {};
+              }
+            }
+          }
+          e.preventDefault();
+        };
+      }
+
       _applyChanges(changes) {
+        context.onChange.emit({ value: this[this['modelName']] });
         context.modelChanged.emit(this[this['modelName']]);
       }
-      
+
+      _getBtnParameters(id) {
+        for (let btn of this.buttons) {
+          if (id === btn.id) {
+            return btn.parameters;
+          }
+        }
+      }
+
       ngOnDestroy() {
         if (this.interval) {
           clearInterval(this.interval);
@@ -75,7 +122,11 @@ export class WidgetFactory {
 
     }
 
-    @NgModule({ declarations: [TemplateComponent], imports: [CommonModule, ReactiveFormsModule] })
+    @NgModule({
+      declarations: [TemplateComponent],
+      imports: [CommonModule, ReactiveFormsModule],
+      providers: [ActionRegistry]
+    })
     class TemplateModule { }
 
     const mod = this.compiler.compileModuleAndAllComponentsSync(TemplateModule);
