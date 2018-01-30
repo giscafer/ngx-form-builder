@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { SchemaFormModule } from '../lib';
 import { AppComponent } from './app.component';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     CommonModule,
     SchemaFormModule,
-    HttpModule
+    NgZorroAntdModule.forRoot()
   ],
  /*  providers: [
     {
