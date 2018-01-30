@@ -175,7 +175,7 @@ export class BsFormBuilderComponent implements OnChanges {
             property['name'] = property['name'] ? property['name'] : key;
             property['formId'] = 'field' + (BsFormBuilderComponent.counter++);
             property['modelName'] = schema.modelName || 'model';
-            if (property.items && property.type === 'array') {
+            if (property.items && property.properties && property.type === 'array') {
                 this.coverProperty(property.items);
             }
         });

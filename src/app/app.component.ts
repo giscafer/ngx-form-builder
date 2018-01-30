@@ -21,8 +21,8 @@ export class AppComponent implements AfterViewInit {
 
   constructor() {
 
-    this.schema = require('../mock/otherschema.json');
-    // this.schema = require('../mock/sampleschema.json');
+    // this.schema = require('../mock/otherschema.json');
+    this.schema = require('../mock/sampleschema.json');
     // this.schema = require('../mock/simpleschema.json');
     // this.model = require('../mock/samplemodel.json');
 

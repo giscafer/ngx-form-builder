@@ -14,7 +14,7 @@ export class StringWidget extends ControlWidget {
             templ = `
             <div class="widget form-group">
                 <label for="${schema.formId}" class="horizontal control-label">
-                    ${schema.title}
+                    ${schema.title || ''}
                 </label>
                 ${schema.description ? `<span  class="formHelp"> ${schema.description}</span>` : ''}
                 <input
@@ -24,7 +24,7 @@ export class StringWidget extends ControlWidget {
                 [attr.readonly]="('${schema.widget.id}'!=='color') ${schema.readOnly ? ' && true' : '&& null'}"
                 class="text-widget.id textline-widget form-control"
                 type="${this.getInputType(schema)}"
-                [attr.placeholder]="'${schema.placeholder ? schema.placeholder : ""}'"
+                placeholder="${schema.placeholder ? schema.placeholder : ' '}"
                 ${(schema.maxLength || schema.maxLength == 0) ? `[attr.maxLength]="${schema.maxLength}"` : ""}
                 ${(schema.minLength || schema.minLength == 0) ? `[attr.minLength]="${schema.minLength}"` : ""}
                 ${(schema.widget.id === 'color' && schema.readOnly) ? `[attr.disabled]="'true'"` : ""}/>
