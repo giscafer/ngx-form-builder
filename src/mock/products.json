@@ -1,5 +1,5 @@
 {
-    "modelName":"testModel",
+    "modelName": "testModel",
     "span_label": 4,
     "span": 8,
     "debug": true,
@@ -24,7 +24,9 @@
         },
         "age": {
             "type": "number",
-            "title": "年龄"
+            "title": "年龄",
+            "minimum": 1,
+            "maximum": 100
         },
         "remark": {
             "type": "string",

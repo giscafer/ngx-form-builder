@@ -15,9 +15,9 @@ export function BsTmplBuilder(registry: WidgetRegistry, formProperty: any) {
                 let property = formProperty.getProperty(fieldId);
                 let widgetInfo = property.schema.widget;
                 let WidgetClass = registry.getWidgetType(widgetInfo.id);
-                templ += '<div  *ngIf="property.visible" [class.has-error] = "!control.valid" [class.has-success] = "control.valid">';
+                // templ += '<div  *ngIf="property.visible" [class.has-error] = "!control.valid" [class.has-success] = "control.valid">';
                 templ += new WidgetClass().getTemplate(property.schema);
-                templ += '</div>';
+                // templ += '</div>';
             }
         }
     }

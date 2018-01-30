@@ -16,6 +16,8 @@ import { TextAreaWidget } from './textarea/textarea.widget';
  */
 import { WidgetRegistry } from '../../widget-registry';
 import { WidgetType } from '../../schema/index';
+import { IntegerWidget } from './integer/integer.widget';
+import { RangeWidget } from './range/range.widget';
 
 export class BootStrapDefaultWidgetRegistry extends WidgetRegistry {
   constructor() {
@@ -31,15 +33,14 @@ export class BootStrapDefaultWidgetRegistry extends WidgetRegistry {
     this.register('date', StringWidget);
     this.register('date-time', StringWidget);
     this.register('time', StringWidget);
-
+    this.register('integer', IntegerWidget);
+    this.register('number', IntegerWidget);
     this.register('button', ButtonWidget);
+    this.register('range', RangeWidget);
+    
     /*     
         this.register('array',  ArrayWidget);
         this.register('object',  ObjectWidget);
-    
-        this.register('integer', IntegerWidget);
-        this.register('number', IntegerWidget);
-        this.register('range', RangeWidget);
     
         this.register('textarea', TextAreaWidget);
     

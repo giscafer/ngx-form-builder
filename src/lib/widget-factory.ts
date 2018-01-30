@@ -16,7 +16,7 @@ import {
 
 import { WidgetRegistry } from './widget-registry';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { setInterval, clearInterval } from 'timers';
 import { ActionRegistry } from './model/actionregistry';
 
@@ -124,7 +124,7 @@ export class WidgetFactory {
 
     @NgModule({
       declarations: [TemplateComponent],
-      imports: [CommonModule, ReactiveFormsModule],
+      imports: [CommonModule, FormsModule, ReactiveFormsModule],
       providers: [ActionRegistry]
     })
     class TemplateModule { }

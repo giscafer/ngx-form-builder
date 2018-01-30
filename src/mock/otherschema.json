@@ -12,7 +12,8 @@
     {
       "fields": [
         "author",
-        "language"
+        "language",
+        "numberOfBoxes"
       ],
       "id": "settings",
       "title": "Settings"
@@ -54,6 +55,15 @@
       "title": "Language",
       "type": "string",
       "widget": "select"
+    },
+    "numberOfBoxes": {
+      "type": "number",
+      "widget": {
+        "id": "range"
+      },
+      "description": "Number of boxes required",
+      "minimum": 1,
+      "maximum": 10
     }
   },
   "required": [
