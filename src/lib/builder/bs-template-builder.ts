@@ -5,7 +5,7 @@ export function BsTmplBuilder(registry: WidgetRegistry, formProperty: any) {
     let templ = "";
     let fieldsets = formProperty.schema.fieldsets;
     if (fieldsets && fieldsets.length) {
-        templ = '<fieldset>';
+        templ = '<form><fieldset>';
         for (let fieldset of fieldsets) {
             templ += fieldset.title ? ('<legend>' + fieldset.title + '</legend>') : '';
             for (let fieldId of fieldset.fields) {
@@ -41,6 +41,6 @@ export function BsTmplBuilder(registry: WidgetRegistry, formProperty: any) {
         </div>
         `;
     }
-    templ += '</fieldset>';
+    templ += '</fieldset></form>';
     return templ;
 }

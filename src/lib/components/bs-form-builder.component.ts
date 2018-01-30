@@ -42,7 +42,7 @@ export function useFactory(schemaValidatorFactory, validatorRegistry) {
 @Component({
     selector: 'bs-form-builder',
     encapsulation: ViewEncapsulation.None,
-    template: `<form><div #target></div></form>`,
+    template: `<div #target></div>`,
     providers: [
         WidgetFactory,
         SchemaPreprocessor,
