@@ -28,8 +28,7 @@ export class StringWidget extends ControlWidget {
                 ${(schema.maxLength || schema.maxLength == 0) ? `[attr.maxLength]="${schema.maxLength}"` : ""}
                 ${(schema.minLength || schema.minLength == 0) ? `[attr.minLength]="${schema.minLength}"` : ""}
                 ${(schema.widget.id === 'color' && schema.readOnly) ? `[attr.disabled]="'true'"` : ""}/>
-                <input *ngIf="${(schema.widget.id === 'color' && schema.readOnly) ? true : null}"
-                name="${schema.name}" type="hidden">
+                ${(schema.widget.id === 'color' && schema.readOnly) ? `<input name="${schema.name}" type="hidden">` : ""}
             </div>
             `;
         }

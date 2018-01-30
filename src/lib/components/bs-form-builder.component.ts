@@ -82,6 +82,8 @@ export class BsFormBuilderComponent implements OnChanges {
 
     @Output() onErrorsChange = new EventEmitter<{ value: any }>();
 
+    @Output() onBuilderFinish = new EventEmitter<{ code: any }>();
+
 
     control: FormControl = new FormControl('', () => null);
     rootProperty: FormProperty = null;
@@ -230,10 +232,10 @@ export class BsFormBuilderComponent implements OnChanges {
             "modelName": this.rootProperty.schema.modelName || 'model',
             [this.rootProperty.schema.modelName || 'model']: {}
         }
-        console.log(template);
         this.ref = this.widgetFactory.addWidget(this.container, template, properties, this);
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
         this.cdr.detectChanges();
+        this.onBuilderFinish.emit({ code: template });
     }
 }

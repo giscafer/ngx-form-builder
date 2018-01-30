@@ -1,15 +1,19 @@
 import {
   Component,
-  ViewEncapsulation
+  ViewEncapsulation,
+  AfterViewInit
 } from '@angular/core';
+
+import * as Clipboard from 'clipboard';
 
 @Component({
   selector: 'sf-app',
   templateUrl: './app.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
+  htmlCode: string;
   schema: any;
   model: any;
   value: any;
@@ -37,6 +41,21 @@ export class AppComponent {
 
   }
 
+  ngAfterViewInit(): void {
+    var clipboard = new Clipboard('.copyCodeBtn');
+
+    clipboard.on('success', e => {
+      console.info('Action:', e.action);
+      alert('Copy HTML code success!')
+      e.clearSelection();
+    });
+
+    clipboard.on('error', e => {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+    });
+  }
+
   changeSchema() {
     this.schema = require('../mock/products.json');
   }
@@ -53,5 +72,10 @@ export class AppComponent {
 
   logErrors(errors) {
     console.log('ERRORS', errors);
+  }
+
+  onBuilderFinish($event) {
+    // console.log($event.code);
+    this.htmlCode = $event.code;
   }
 }
