@@ -37,6 +37,8 @@ export class WidgetFactory {
     @Component({ template })
     class TemplateComponent implements OnInit, DoCheck, OnDestroy {
 
+      formProperty: any;
+
       interval: any;
 
       _differ: any;
@@ -58,7 +60,7 @@ export class WidgetFactory {
           clearInterval(this.interval);
           this.interval = null;
         }
-        this.parseButtons();
+        this._parseButtons();
       }
 
       ngDoCheck() {
@@ -73,18 +75,18 @@ export class WidgetFactory {
         }
       }
 
-      private parseButtons() {
+      _parseButtons() {
         let schema = properties.formProperty.schema;
         if (schema.buttons !== undefined) {
           this.buttons = schema.buttons;
 
           for (let button of this.buttons) {
-            this.createButtonCallback(button);
+            this._createButtonCallback(button);
           }
         }
       }
 
-      private createButtonCallback(button) {
+      _createButtonCallback(button) {
         this.action = (e, id) => {
           let action;
           if (id && (action = this.actionRegistry.get(id))) {
@@ -113,6 +115,14 @@ export class WidgetFactory {
         }
       }
 
+      addItem() {
+        this.formProperty.addItem();
+      }
+
+      removeItem(index: number) {
+        this.formProperty.removeItem(index);
+      }
+
       ngOnDestroy() {
         if (this.interval) {
           clearInterval(this.interval);
@@ -137,7 +147,5 @@ export class WidgetFactory {
     Object.assign(component.instance, properties);
 
     return component;
-    // If properties are changed at a later stage, the change detection
-    // may need to be triggered manually:
   }
 }

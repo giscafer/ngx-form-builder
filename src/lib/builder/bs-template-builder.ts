@@ -16,7 +16,12 @@ export function BsTmplBuilder(registry: WidgetRegistry, formProperty: any) {
                 let widgetInfo = property.schema.widget;
                 let WidgetClass = registry.getWidgetType(widgetInfo.id);
                 // templ += '<div  *ngIf="property.visible" [class.has-error] = "!control.valid" [class.has-success] = "control.valid">';
-                templ += new WidgetClass().getTemplate(property.schema);
+                if (widgetInfo.id === 'array') {
+                    // TODO array widget not support yet
+                    templ += new WidgetClass(formProperty, registry).getTemplate(property.schema);
+                } else {
+                    templ += new WidgetClass().getTemplate(property.schema);
+                }
                 // templ += '</div>';
             }
         }
@@ -25,7 +30,7 @@ export function BsTmplBuilder(registry: WidgetRegistry, formProperty: any) {
         let buttons = formProperty.schema.buttons;
         for (let btn of buttons) {
             let WidgetClass = registry.getWidgetType('button');
-            templ += new WidgetClass().getTemplate(formProperty.schema,btn);
+            templ += new WidgetClass().getTemplate(formProperty.schema, btn);
         }
     }
     templ += '</fieldset>';

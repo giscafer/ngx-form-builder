@@ -15,6 +15,9 @@
     "type": "git",
     "url": "git+https://github.com/giscafer/ng-form-builder"
   },
+  "author": {
+    "name": "Nickbing Lao<giscafer@outlook.com>"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.0.0",

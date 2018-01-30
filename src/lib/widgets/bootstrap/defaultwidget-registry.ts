@@ -11,6 +11,8 @@ import { RangeWidget } from './range/range.widget';
 import { TextAreaWidget } from './textarea/textarea.widget';
 import { SelectWidget } from './select/select.widget';
 import { RadioWidget } from './radio/radio.widget';
+import { CheckboxWidget } from './checkbox/checkbox.widget';
+import { ArrayWidget } from './array/array.widget';
 
 export class BootStrapDefaultWidgetRegistry extends WidgetRegistry {
   constructor() {
@@ -33,16 +35,13 @@ export class BootStrapDefaultWidgetRegistry extends WidgetRegistry {
     this.register('textarea', TextAreaWidget);
     this.register('select', SelectWidget);
     this.register('radio', RadioWidget);
+    this.register('checkbox', CheckboxWidget);
+    this.register('boolean', CheckboxWidget);
+    this.register('array', ArrayWidget);
     
     /*     
-        this.register('array',  ArrayWidget);
         this.register('object',  ObjectWidget);
-    
-    
         this.register('file', FileWidget);
-        this.register('radio', RadioWidget);
-        this.register('boolean', CheckboxWidget);
-        this.register('checkbox', CheckboxWidget);
  */
     this.setDefaultWidget(StringWidget);
   }
