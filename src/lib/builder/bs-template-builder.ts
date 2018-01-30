@@ -1,9 +1,6 @@
 import { PropertyGroup } from "../model";
 import { WidgetRegistry } from "../widget-registry";
 
-
-
-
 export function BsTmplBuilder(registry: WidgetRegistry, formProperty: any) {
     let templ = "";
     let fieldsets = formProperty.schema.fieldsets;
@@ -28,10 +25,21 @@ export function BsTmplBuilder(registry: WidgetRegistry, formProperty: any) {
     }
     if (formProperty.schema.buttons !== undefined) {
         let buttons = formProperty.schema.buttons;
+        let WidgetClass = registry.getWidgetType('button');
+        let btnHtml = '', btnWidget = null, btnGrid = {};
         for (let btn of buttons) {
-            let WidgetClass = registry.getWidgetType('button');
-            templ += new WidgetClass().getTemplate(formProperty.schema, btn);
+            btnWidget = new WidgetClass();
+            Object.assign(btnGrid, btn.grid ? btn.grid : {});
+            btnHtml += btnWidget.getTemplate(formProperty.schema, btn);
         }
+        let listOfClassName = btnWidget.getLayoutClass({ grid: btnGrid });
+        templ += `
+        <div class="form-group">
+            <div class="${listOfClassName.join(' ')}">
+                ${btnHtml}
+            </div>
+        </div>
+        `;
     }
     templ += '</fieldset>';
     return templ;

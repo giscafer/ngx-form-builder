@@ -9,8 +9,9 @@ export class TextAreaWidget extends ControlWidget {
 	}
 
 	getTemplate(schema) {
+		let listOfClassName = this.getLayoutClass(schema);
 		return `
-    <div class="widget form-group">
+    	<div class="widget form-group ${listOfClassName.join(' ')}">
 			<label for="${schema.formId}" class="horizontal control-label">
 				${schema.title || ''}
 			</label>

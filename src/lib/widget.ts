@@ -1,6 +1,8 @@
-import {AfterViewInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {ArrayProperty, FormProperty, ObjectProperty} from './model';
+import { AfterViewInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { ArrayProperty, FormProperty, ObjectProperty } from './model';
+import { ISchema } from './schema/index';
+import { getClassMap } from './utils/cls';
 
 export abstract class Widget<T extends FormProperty> {
   formProperty: T;
@@ -10,6 +12,10 @@ export abstract class Widget<T extends FormProperty> {
   id: string = '';
   name: string = '';
   schema: any = {};
+
+  getLayoutClass(widgetSchema: ISchema | Object): string[] {
+    return getClassMap(widgetSchema);
+  }
 }
 
 export class ControlWidget extends Widget<FormProperty> implements AfterViewInit {
@@ -18,7 +24,7 @@ export class ControlWidget extends Widget<FormProperty> implements AfterViewInit
     const control = this.control;
     this.formProperty.valueChanges.subscribe((newValue) => {
       if (control.value !== newValue) {
-        control.setValue(newValue, {emitEvent: false});
+        control.setValue(newValue, { emitEvent: false });
       }
     });
     this.formProperty.errorsChanges.subscribe((errors) => {
@@ -42,7 +48,7 @@ export class ArrayLayoutWidget extends Widget<ArrayProperty> implements AfterVie
   ngAfterViewInit() {
     const control = this.control;
     this.formProperty.errorsChanges.subscribe((errors) => {
-      control.setErrors(errors, {emitEvent: true});
+      control.setErrors(errors, { emitEvent: true });
     });
   }
 }
@@ -52,7 +58,7 @@ export class ObjectLayoutWidget extends Widget<ObjectProperty> implements AfterV
   ngAfterViewInit() {
     const control = this.control;
     this.formProperty.errorsChanges.subscribe((errors) => {
-      control.setErrors(errors, {emitEvent: true});
+      control.setErrors(errors, { emitEvent: true });
     });
   }
 }

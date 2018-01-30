@@ -31,6 +31,7 @@ import { WidgetFactory } from '../widget-factory';
 import { WidgetRegistry } from '../widget-registry';
 import { BootStrapDefaultWidgetRegistry } from '../widgets/bootstrap/defaultwidget-registry';
 import { BsTmplBuilder } from '../builder/bs-template-builder';
+import { ListOfGridSizeName } from '../utils/cls';
 
 
 
@@ -171,12 +172,20 @@ export class BsFormBuilderComponent implements OnChanges {
     private coverProperty(schema: ISchema) {
 
         Object.keys(schema.properties).forEach(key => {
-            let property = schema.properties[key];
-            property['name'] = property['name'] ? property['name'] : key;
-            property['formId'] = 'field' + (BsFormBuilderComponent.counter++);
-            property['modelName'] = schema.modelName || 'model';
-            if (property.items && property.properties && property.type === 'array') {
-                this.coverProperty(property.items);
+            let p = schema.properties[key];
+            p['name'] = p['name'] ? p['name'] : key;
+            p['formId'] = 'field' + (BsFormBuilderComponent.counter++);
+            p['modelName'] = schema.modelName || 'model';
+            if (schema.grid) {
+                Object.assign(p, { grid: schema.grid }, p.grid ? { grid: p.grid } : {});
+            }
+            /*  ListOfGridSizeName.forEach(name => {
+                 if (schema[name]) {
+                     Object.assign(p, { [name]: schema[name] }, p[name] ? { [name]: p[name] } : {});
+                 }
+             }); */
+            if (p.items && p.properties && p.type === 'array') {
+                this.coverProperty(p.items);
             }
         });
     }

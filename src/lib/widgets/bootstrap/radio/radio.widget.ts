@@ -7,8 +7,9 @@ export class RadioWidget extends ControlWidget {
 	}
 
 	getTemplate(schema) {
+		let listOfClassName = this.getLayoutClass(schema);
 		return `
-    	<div class="widget form-group">
+    	<div class="widget form-group ${listOfClassName.join(' ')}">
 			<label class="horizontal control-label">
 				${schema.title || ''}
 			</label>
@@ -22,7 +23,7 @@ export class RadioWidget extends ControlWidget {
 		let htmlStr = '', options = schema.oneOf;
 		for (let option of options) {
 			htmlStr += `
-			<div class="radio">
+			<div class="radio${schema.grid && schema.grid.mode ? ('-' + schema.grid.mode) : ''}">
 				<label class="horizontal control-label">
 					<input name="${schema.name}"
 					type="radio" value="${option.enum[0]}" ${schema.readOnly ? ` disabled="true"` : ""}>

@@ -28,6 +28,13 @@
 		},
 		"categories": {
 			"type": "array",
+			"title": "Categories",
+			"grid": {
+				"mode": "inline",
+				"md": {
+					"span": 12
+				}
+			},
 			"items": {
 				"type": "string",
 				"oneOf": [

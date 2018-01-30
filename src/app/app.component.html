@@ -4,7 +4,7 @@
       <!--  <sf-form (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)" [schema]="schema" [model]="model"
         [validators]="fieldValidators" [actions]="actions">
       </sf-form> -->
-      <button class="btn btn-primary copyCodeBtn" data-clipboard-target="#html-code" >Copy HTML code</button> <br>
+      <button class="btn btn-primary" id="copyCodeBtn" data-clipboard-target="#html-code" >Copy HTML code</button> <br>
       <bs-form-builder [schema]="schema" [model]="model" [actions]="actions" (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)"
         (onBuilderFinish)="onBuilderFinish($event)"></bs-form-builder>
     </div>
@@ -17,5 +17,5 @@
       <pre>{{value | json}}</pre>
     </div>
   </div>
-  <textarea id="html-code" hidden>{{htmlCode}}</textarea>
+  <textarea id="html-code" >{{htmlCode}}</textarea>
 </div>

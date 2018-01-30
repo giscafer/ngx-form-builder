@@ -42,22 +42,11 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    var clipboard = new Clipboard('.copyCodeBtn');
-
-    clipboard.on('success', e => {
-      console.info('Action:', e.action);
-      alert('Copy HTML code success!')
-      e.clearSelection();
-    });
-
-    clipboard.on('error', e => {
-      console.error('Action:', e.action);
-      console.error('Trigger:', e.trigger);
-    });
+    this.initClipboard();
   }
 
   changeSchema() {
-    this.schema = require('../mock/products.json');
+    this.schema = require('../mock/person-info.json');
   }
 
   disableAll() {
@@ -77,5 +66,20 @@ export class AppComponent implements AfterViewInit {
   onBuilderFinish($event) {
     // console.log($event.code);
     this.htmlCode = $event.code;
+  }
+
+  initClipboard(){
+    var clipboard = new Clipboard('#copyCodeBtn');
+    clipboard.on('success', e => {
+      console.info('Action:', e.action);
+      console.info('text:', e.text);
+      alert('Copy HTML code success!')
+      e.clearSelection();
+    });
+
+    clipboard.on('error', e => {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+    });
   }
 }

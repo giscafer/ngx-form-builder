@@ -7,8 +7,9 @@ export class CheckboxWidget extends ControlWidget {
 	}
 
 	getTemplate(schema) {
+		let listOfClassName = this.getLayoutClass(schema);
 		return `
-		<div class="widget form-group">
+    	<div class="widget form-group ${listOfClassName.join(' ')}">
 				<label for="${schema.formId}" class="horizontal control-label">
 					${schema.title || ''}
 				</label>
@@ -30,7 +31,7 @@ export class CheckboxWidget extends ControlWidget {
 		} else if (schema.type === 'array') {
 			for (let option of options) {
 				htmlStr += `
-				<div  class="checkbox">
+				<div  class="checkbox${schema.grid && schema.grid.mode ? ('-' + schema.grid.mode) : ''}">
 					<label class="horizontal control-label">
 						<input  type="checkbox" name="${schema.name}"
 							value="${option.enum[0]}"
