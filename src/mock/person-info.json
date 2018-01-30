@@ -24,7 +24,7 @@
                     "span": 6
                 }
             },
-            "value": "giscafer@outlook.com"
+            "default": "giscafer@outlook.com"
         },
         "name": {
             "type": "string",

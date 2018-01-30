@@ -239,7 +239,7 @@ export class BsFormBuilderComponent implements OnChanges {
             "property": { visible: true },
             "_debug_": this.rootProperty.schema.debug,
             "modelName": this.rootProperty.schema.modelName || 'model',
-            [this.rootProperty.schema.modelName || 'model']: {}
+            [this.rootProperty.schema.modelName || 'model']: this.rootProperty.value || {}
         }
         this.ref = this.widgetFactory.addWidget(this.container, template, properties, this);
         this.widgetInstanciated.emit(this.ref.instance);
