@@ -1,22 +1,24 @@
 <app-nav></app-nav>
 <div id="main-container">
-    <div id="editor">function</div>
   <div id="code-container">
-      <button class="btn btn-primary " (click)="changeSchema()">Change schema</button> <br>
-      <!-- <pre style="height:800px">{{schemaJson | json}}</pre> -->
-      <div ace-editor
-       [text]="schemaString"
-       [mode]="'json'"
-       [theme]="'chrome'"
-       [options]="aceOptions"
-       [readOnly]="false"
-       (textChanged)="onAceChange($event)"
-       style="display:block; height: 80vh; width:100%"></div>
+    <div id="control-panel">
+      <div id="code-info">
+        <span class="code-info-time">{{builderInfo.finishTime}}</span>
+        <span [ngClass]="{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}">{{builderInfo.msg}}</span>
+      </div>
+      <div class="control-btn-panel">
+        <a href="javascript:;" (click)="toggleSchema()" title="点击切换schema" class="btn btn-default btn-sm">Test：Toggle schema</a>
+        <a href="javascript:;" onclick="disposeAndRun()" class="btn btn-default btn-sm">运行</a>
+      </div>
+    </div>
+    <div id="code-panel" ace-editor [text]="schemaString" [mode]="'json'" [theme]="'chrome'" [options]="aceOptions" [readOnly]="false"
+      (textChanged)="onAceChange($event)" style="display:block; height: 80vh; width:100%"></div>
   </div>
   <div id="view-container">
-      <button class="btn btn-primary" id="copyCodeBtn" data-clipboard-target="#html-code" >Copy HTML code</button> <br>
-      <bs-form-builder [schema]="schemaJson" [model]="model" [actions]="actions" (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)"
-        (onBuilderFinish)="onBuilderFinish($event)"></bs-form-builder>
+    <button class="btn btn-primary" id="copyCodeBtn" data-clipboard-target="#html-code">Copy HTML code</button>
+    <br>
+    <bs-form-builder [schema]="schemaJson" [model]="model" [actions]="actions" (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)"
+      (onBuilderFinish)="onBuilderFinish($event)"></bs-form-builder>
   </div>
   <textarea id="html-code" hidden>{{htmlCode}}</textarea>
 </div>

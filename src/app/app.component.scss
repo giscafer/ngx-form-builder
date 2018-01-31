@@ -69,7 +69,7 @@
             margin-left: 10px;
             border: none;
             height: 30px;
-            width: 50px;
+            min-width: 50px;
             &:hover {
                 background-color: #277EAB
             }
@@ -122,13 +122,13 @@
         display: inline-block;
         margin-right: 10px
     }
-    .code-info-type-info {
+    .info {
         color: #333
     }
-    .code-info-type-warn {
+    .warn {
         color: #f93
     }
-    .code-info-type-error {
+    .error {
         color: #e43c59
     }
 }

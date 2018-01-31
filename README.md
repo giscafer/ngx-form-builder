@@ -5,9 +5,9 @@ Angular form generation,dynamic template support primeng/zorro/bootstrap UI
 ## TODO List
 
 - [x] HTML form generation based on JSON Schema
-- [ ] Support download & copy HTML code
-- [ ] Support ng template html & ngModel auto binding
-- [ ] Support `BootStrap` style
+- [-] Support download & copy HTML code
+- [x] Support ng template html & ngModel auto binding
+- [x] Support `BootStrap` style
 - [ ] Support `PrimeNG` UI
 - [ ] Support `NG-ZORRO` UI
 - [ ] Support form validator
