@@ -6,25 +6,38 @@ import {
 
 import * as Clipboard from 'clipboard';
 
+import 'brace/theme/chrome';
+import 'brace/mode/json';
+
 @Component({
   selector: 'sf-app',
   templateUrl: './app.component.html',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements AfterViewInit {
 
   htmlCode: string;
-  schema: any;
+  schemaString: any;
+  schemaJson: any;
   model: any;
   value: any;
   actions = {};
-
+  // ace
+  text = 'test';
+  aceOptions = {
+    printMargin: false,
+    enableBasicAutocompletion: true,
+    enableSnippets: true,
+    enableLiveAutocompletion: true
+  };
   constructor() {
 
-    // this.schema = require('../mock/otherschema.json');
-    this.schema = require('../mock/sampleschema.json');
-    // this.schema = require('../mock/simpleschema.json');
-    // this.model = require('../mock/samplemodel.json');
+    this.schemaString = require('!!raw-loader!../mock/otherschema.json');
+    this.schemaJson = JSON.parse(this.schemaString);
+    // this.schema = require('!!raw-loader!../mock/sampleschema.json');
+    // this.schema = require('!!raw-loader!../mock/simpleschema.json');
+    // this.model = require('!!raw-loader!../mock/samplemodel.json');
 
     // 按钮事件注册
     this.actions['alert'] = (property, options) => {
@@ -46,12 +59,13 @@ export class AppComponent implements AfterViewInit {
   }
 
   changeSchema() {
-    this.schema = require('../mock/person-info.json');
+    this.schemaString = require('!!raw-loader!../mock/person-info.json');
+    this.schemaJson = JSON.parse(this.schemaString);
   }
 
   disableAll() {
-    Object.keys(this.schema.properties).map(prop => {
-      this.schema.properties[prop].readOnly = true;
+    Object.keys(this.schemaJson.properties).map(prop => {
+      this.schemaJson.properties[prop].readOnly = true;
     });
   }
 
@@ -68,7 +82,11 @@ export class AppComponent implements AfterViewInit {
     this.htmlCode = $event.code;
   }
 
-  initClipboard(){
+  onAceChange(data) {
+    // console.log(data);
+  }
+
+  initClipboard() {
     var clipboard = new Clipboard('#copyCodeBtn');
     clipboard.on('success', e => {
       console.info('Action:', e.action);

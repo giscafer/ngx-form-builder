@@ -1,0 +1,134 @@
+#main-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 51px;
+    .handler {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        cursor: col-resize;
+        z-index: 100;
+        background-color: transparent;
+        border-left: 1px solid #ccc
+    }
+    .no-top {
+        top: 0
+    }
+}
+
+#code-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 50%
+}
+#view-container {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    padding: 0;
+    padding-left: 5px;
+    border: none;
+    z-index: 30;
+    background: #ffffff;
+    right-panel {
+        padding: 10px;
+        padding-left: 15px
+    }
+}
+
+#control-panel {
+    height: 30px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 20;
+    padding: 0;
+    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    .setting-panel {
+        display: inline-block;
+        .btn-group+.btn-group {
+            margin-left: 10px
+        }
+    }
+    .control-btn-panel {
+        float: right;
+        .btn {
+            color: #FFF;
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            background-color: #3FA7DC;
+            margin-left: 10px;
+            border: none;
+            height: 30px;
+            width: 50px;
+            &:hover {
+                background-color: #277EAB
+            }
+        }
+    }
+}
+
+#code-panel {
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    & ::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        -webkit-border-radius: 2px;
+        border-radius: 2px
+    }
+    & ::-webkit-scrollbar-button {
+        display: none
+    }
+    & ::-webkit-scrollbar-thumb {
+        width: 8px;
+        min-height: 15px;
+        background: rgba(50, 50, 50, 0.6) !important;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        -webkit-border-radius: 2px;
+        border-radius: 2px
+    }
+    & ::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.5) !important
+    }
+}
+
+#code-info {
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px;
+    font-size: 0.9rem;
+    .code-info-time {
+        color: #333;
+        display: inline-block;
+        margin-right: 10px
+    }
+    .code-info-type-info {
+        color: #333
+    }
+    .code-info-type-warn {
+        color: #f93
+    }
+    .code-info-type-error {
+        color: #e43c59
+    }
+}

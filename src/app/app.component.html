@@ -1,21 +1,22 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4">
-      <!--  <sf-form (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)" [schema]="schema" [model]="model"
-        [validators]="fieldValidators" [actions]="actions">
-      </sf-form> -->
-      <button class="btn btn-primary" id="copyCodeBtn" data-clipboard-target="#html-code" >Copy HTML code</button> <br>
-      <bs-form-builder [schema]="schema" [model]="model" [actions]="actions" (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)"
-        (onBuilderFinish)="onBuilderFinish($event)"></bs-form-builder>
-    </div>
-    <div class="col-md-4">
+<app-nav></app-nav>
+<div id="main-container">
+    <div id="editor">function</div>
+  <div id="code-container">
       <button class="btn btn-primary " (click)="changeSchema()">Change schema</button> <br>
-      <pre style="height:800px">{{schema | json}}</pre>
-    </div>
-    <div class="col-md-4">
-      <h3>Model:</h3>
-      <pre>{{value | json}}</pre>
-    </div>
+      <!-- <pre style="height:800px">{{schemaJson | json}}</pre> -->
+      <div ace-editor
+       [text]="schemaString"
+       [mode]="'json'"
+       [theme]="'chrome'"
+       [options]="aceOptions"
+       [readOnly]="false"
+       (textChanged)="onAceChange($event)"
+       style="display:block; height: 80vh; width:100%"></div>
   </div>
-  <textarea id="html-code" >{{htmlCode}}</textarea>
+  <div id="view-container">
+      <button class="btn btn-primary" id="copyCodeBtn" data-clipboard-target="#html-code" >Copy HTML code</button> <br>
+      <bs-form-builder [schema]="schemaJson" [model]="model" [actions]="actions" (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)"
+        (onBuilderFinish)="onBuilderFinish($event)"></bs-form-builder>
+  </div>
+  <textarea id="html-code" hidden>{{htmlCode}}</textarea>
 </div>

@@ -5,12 +5,19 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 
 import { SchemaFormModule } from '../lib';
-import { AppComponent } from './app.component';
+
+// third part libs
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { AceEditorDirective } from 'ng2-ace';
+
+
+import { AppComponent } from './app.component';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AceEditorDirective
   ],
   imports: [
     BrowserModule,
@@ -18,14 +25,9 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
     HttpModule,
     CommonModule,
     SchemaFormModule,
-    NgZorroAntdModule.forRoot()
+    NgZorroAntdModule.forRoot(),
+    LayoutModule
   ],
- /*  providers: [
-    {
-      provide: SchemaValidatorFactory,
-      useClass: ZSchemaValidatorFactory
-    }
-  ], */
   bootstrap: [AppComponent]
 })
 export class AppModule { }

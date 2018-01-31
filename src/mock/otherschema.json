@@ -43,15 +43,19 @@
     },
     "language": {
       "description": "",
-      "choices": [
-        [
-          "es",
-          "Spanish"
-        ],
-        [
-          "fr",
-          "French"
-        ]
+      "oneOf": [
+        {
+          "description": "English",
+          "enum": [
+            "en"
+          ]
+        },
+        {
+          "description": "Chinese",
+          "enum": [
+            "zh"
+          ]
+        }
       ],
       "title": "Language",
       "type": "string",
