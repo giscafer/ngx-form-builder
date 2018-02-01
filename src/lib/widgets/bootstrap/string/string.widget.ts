@@ -23,7 +23,7 @@ export class StringWidget extends ControlWidget {
                 [(ngModel)]="${schema.modelName}.${schema.name}"
                 id="${schema.formId}"
                 name="${schema.name}"
-                [attr.readonly]="('${schema.widget.id}'!=='color') ${schema.readOnly ? ' && true' : '&& null'}"
+                ${(schema.widget.id !== 'color' && schema.readOnly) ? `readonly="true"` : ""}
                 class="text-widget.id textline-widget form-control"
                 type="${this.getInputType(schema)}"
                 placeholder="${schema.placeholder ? schema.placeholder : ' '}"
