@@ -14,8 +14,28 @@
     <div id="code-panel" ace-editor [text]="schemaString" [mode]="'json'" [theme]="'chrome'" [options]="aceOptions" [readOnly]="false"
       (textChanged)="onAceChange($event)" style="display:block; height: 80vh; width:100%"></div>
   </div>
+  <div id="h-handler" class="handler" style="left: 40%;"></div>
   <div id="view-container">
-    <button class="btn btn-primary" id="copyCodeBtn" data-clipboard-target="#html-code">Copy HTML code</button>
+    <div id="control-panel">
+      <div class="control-btn-panel">
+        <!--  <a href="javascript:;" title="复制HTML模板代码" id="copyCodeBtn" data-clipboard-target="#html-code" class="btn btn-default btn-sm">download HTML</a>
+        <a href="javascript:;" title="复制HTML模板代码" id="copyCodeBtn" data-clipboard-target="#html-code" class="btn btn-default btn-sm">Copy HTML code</a> -->
+        <nz-dropdown>
+          <button nz-button nz-dropdown [nzType]="'primary'">
+            <span>Save</span>
+            <i class="anticon anticon-down"></i>
+          </button>
+          <ul nz-menu>
+            <li nz-menu-item>
+              <a href="javascript:;" title="下载HTML模板"  (click)="copyHTMLCode(1)">Download HTML</a>
+            </li>
+            <li nz-menu-item>
+              <a href="javascript:;" title="复制HTML模板代码" (click)="copyHTMLCode()">Copy HTML code</a>
+            </li>
+          </ul>
+        </nz-dropdown>
+      </div>
+    </div>
     <br>
     <bs-form-builder [schema]="schemaJson" [model]="model" [actions]="actions" (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)"
       (onBuilderFinish)="onBuilderFinish($event)"></bs-form-builder>

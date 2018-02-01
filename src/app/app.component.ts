@@ -4,11 +4,15 @@ import {
   AfterViewInit
 } from '@angular/core';
 
-import * as Clipboard from 'clipboard';
+import * as copy from 'copy-text-to-clipboard';
 
 import 'brace/theme/chrome';
 import 'brace/mode/json';
 import { formatTime } from './utils/formatTime';
+import { initSplitEventHandler } from './utils/setSplitPosition';
+import { funDownload } from './utils/download';
+import { NzMessageService } from 'ng-zorro-antd';
+
 
 @Component({
   selector: 'sf-app',
@@ -43,8 +47,11 @@ export class AppComponent implements AfterViewInit {
     enableLiveAutocompletion: true
   };
 
+  createMessage = (type, text) => {
+    this._message.create(type, `${text}`);
+  };
 
-  constructor() {
+  constructor(private _message: NzMessageService) {
 
     this.schemaString = require('!!raw-loader!../mock/otherschema.json');
     this.schemaJson = JSON.parse(this.schemaString);
@@ -65,12 +72,10 @@ export class AppComponent implements AfterViewInit {
     this.actions['reset'] = (form, options) => {
       form.reset();
     };
-    this.actions['disable'] = this.disableAll.bind(this);
-
   }
 
   ngAfterViewInit(): void {
-    this.initClipboard();
+    initSplitEventHandler();
   }
 
   toggleSchema() {
@@ -82,12 +87,6 @@ export class AppComponent implements AfterViewInit {
     this.schemaJson = JSON.parse(this.schemaString);
     this.count = this.count === 1 ? 2 : 1;
     this.builderInfo._startTime = new Date().getTime();
-  }
-
-  disableAll() {
-    Object.keys(this.schemaJson.properties).map(prop => {
-      this.schemaJson.properties[prop].readOnly = true;
-    });
   }
 
   setValue(value) {
@@ -119,18 +118,19 @@ export class AppComponent implements AfterViewInit {
     // console.log(data);
   }
 
-  initClipboard() {
-    var clipboard = new Clipboard('#copyCodeBtn');
-    clipboard.on('success', e => {
-      console.info('Action:', e.action);
-      console.info('text:', e.text);
-      alert('Copy HTML code success!')
-      e.clearSelection();
-    });
-
-    clipboard.on('error', e => {
-      console.error('Action:', e.action);
-      console.error('Trigger:', e.trigger);
-    });
+  copyHTMLCode(type) {
+    if (type === 1) {
+      if ('download' in document.createElement('a')) {
+        funDownload(this.htmlCode);
+      } else {
+        return this.createMessage('error', '代码下载失败，请使用 Chrome 浏览器');
+      }
+      return this.createMessage('success', '文件下载成功！');
+    }
+    if (copy(this.htmlCode)) {
+      return this.createMessage('success', '代码已经复制到剪贴板！');
+    } else {
+      return this.createMessage('error', '代码复制失败，请使用Chrome浏览器');
+    }
   }
 }
