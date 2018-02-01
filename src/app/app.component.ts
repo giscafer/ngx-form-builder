@@ -124,16 +124,16 @@ export class AppComponent implements AfterViewInit {
   }
 
   run(editor) {
-
     if (this.hasEditorError()) {
       this.log('编辑器内容有误', 'error');
       return;
     }
     let text = this.editorDirective.editor.getValue();
+    this.builderInfo._startTime = new Date().getTime();
     this.schemaJson = JSON.parse(text);
   }
   onAceChange(data) {
-    // console.log(data);
+    console.log('~~~编辑器内容变化~~~');
   }
 
   copyHTMLCode(type) {
