@@ -1,4 +1,5 @@
 import {
+  ViewChild,
   Component,
   ViewEncapsulation,
   AfterViewInit
@@ -13,6 +14,7 @@ import { initSplitEventHandler } from './utils/setSplitPosition';
 import { funDownload } from './utils/download';
 import { NzMessageService } from 'ng-zorro-antd';
 
+import { AceEditorDirective } from 'ng2-ace';
 
 @Component({
   selector: 'sf-app',
@@ -21,6 +23,9 @@ import { NzMessageService } from 'ng-zorro-antd';
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements AfterViewInit {
+
+  @ViewChild(AceEditorDirective)
+  private editorDirective: AceEditorDirective;
   // schema
   actions = {};
 
@@ -75,7 +80,9 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    initSplitEventHandler();
+    setTimeout(() => {
+      initSplitEventHandler();
+    })
   }
 
   toggleSchema() {
@@ -104,6 +111,8 @@ export class AppComponent implements AfterViewInit {
 
     if (type !== 'warn' && type !== 'error') {
       this.builderInfo.msgType = 'info';
+    } else {
+      this.builderInfo.msgType = type;
     }
     this.builderInfo.msg = text;
   }
@@ -114,6 +123,15 @@ export class AppComponent implements AfterViewInit {
     this.log(`页面构建完成，${this.builderInfo._endTime - this.builderInfo._startTime}ms`, 'info');
   }
 
+  run(editor) {
+
+    if (this.hasEditorError()) {
+      this.log('编辑器内容有误', 'error');
+      return;
+    }
+    let text = this.editorDirective.editor.getValue();
+    this.schemaJson = JSON.parse(text);
+  }
   onAceChange(data) {
     // console.log(data);
   }
@@ -132,5 +150,15 @@ export class AppComponent implements AfterViewInit {
     } else {
       return this.createMessage('error', '代码复制失败，请使用Chrome浏览器');
     }
+  }
+
+  private hasEditorError() {
+    var annotations = this.editorDirective.editor.getSession().getAnnotations();
+    for (var aid = 0, alen = annotations.length; aid < alen; ++aid) {
+      if (annotations[aid].type === 'error') {
+        return true;
+      }
+    }
+    return false;
   }
 }

@@ -8,18 +8,16 @@
       </div>
       <div class="control-btn-panel">
         <a href="javascript:;" (click)="toggleSchema()" title="点击切换schema" class="btn btn-default btn-sm">Test：Toggle schema</a>
-        <a href="javascript:;" onclick="disposeAndRun()" class="btn btn-default btn-sm">运行</a>
+        <a href="javascript:;" (click)="run(editor)" class="btn btn-default btn-sm">运行</a>
       </div>
     </div>
-    <div id="code-panel" ace-editor [text]="schemaString" [mode]="'json'" [theme]="'chrome'" [options]="aceOptions" [readOnly]="false"
+    <div #editor id="code-panel" ace-editor [text]="schemaString" [mode]="'json'" [theme]="'chrome'" [options]="aceOptions" [readOnly]="false"
       (textChanged)="onAceChange($event)" style="display:block; height: 80vh; width:100%"></div>
   </div>
   <div id="h-handler" class="handler" style="left: 40%;"></div>
   <div id="view-container">
     <div id="control-panel">
       <div class="control-btn-panel">
-        <!--  <a href="javascript:;" title="复制HTML模板代码" id="copyCodeBtn" data-clipboard-target="#html-code" class="btn btn-default btn-sm">download HTML</a>
-        <a href="javascript:;" title="复制HTML模板代码" id="copyCodeBtn" data-clipboard-target="#html-code" class="btn btn-default btn-sm">Copy HTML code</a> -->
         <nz-dropdown>
           <button nz-button nz-dropdown [nzType]="'primary'">
             <span>Save</span>
