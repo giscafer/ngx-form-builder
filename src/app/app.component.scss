@@ -3,7 +3,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    top: 51px;
+    top: 47px;
     .handler {
         position: absolute;
         left: 40%;
@@ -17,6 +17,25 @@
     }
     .no-top {
         top: 0
+    }
+}
+
+#logo {
+    position: absolute;
+    img {
+        height: 45px;
+    }
+}
+
+.logo-title {
+    position: absolute;
+    margin-left: 120px;
+    color: #fff;
+    font-size: 1.6em;
+    line-height: 40px;
+    a{
+        color: #eeeeee;
+        font-weight: 600;
     }
 }
 
