@@ -1,5 +1,11 @@
 {
+    "debug": true,
     "modelName": "testModel",
+    "grid": {
+        "md": {
+            "span": 6
+        }
+    },
     "properties": {
         "email": {
             "type": "string",
@@ -8,6 +14,14 @@
             "placeholder": "请输入邮箱，最多20个字符",
             "maxLength": 20,
             "readOnly": true,
+            "grid": {
+                "md": {
+                    "span": 4
+                },
+                "lg": {
+                    "span": 6
+                }
+            },
             "default": "giscafer@outlook.com"
         },
         "name": {
@@ -17,7 +31,7 @@
             "description": "必须大写开头且3个字以上",
             "maxLength": 30,
             "minLength": 3,
-            "debug": true
+            "debug": false
         },
         "age": {
             "type": "number",
@@ -34,7 +48,14 @@
         {
             "label": "Alert",
             "id": "alert",
-            "submit": true
+            "submit": true,
+            "offset": 4,
+            "grid": {
+                "md": {
+                    "offset": 4,
+                    "span": 6
+                }
+            }
         },
         {
             "label": "Reset",

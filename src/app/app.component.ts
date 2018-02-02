@@ -43,6 +43,7 @@ export class AppComponent implements AfterViewInit {
     _startTime: 0,
     _endTime: 0
   }
+  demoName: string;
   // ace
   text = 'test';
   aceOptions = {
@@ -58,12 +59,8 @@ export class AppComponent implements AfterViewInit {
 
   constructor(private _message: NzMessageService) {
 
-    this.schemaString = require('!!raw-loader!../mock/otherschema.json');
+    this.schemaString = require('!!raw-loader!../mock/person-info.json');
     this.schemaJson = JSON.parse(this.schemaString);
-
-    // this.schema = require('!!raw-loader!../mock/sampleschema.json');
-    // this.schema = require('!!raw-loader!../mock/simpleschema.json');
-    // this.model = require('!!raw-loader!../mock/samplemodel.json');
     this.builderInfo._startTime = new Date().getTime();
 
     // 按钮事件注册
@@ -85,14 +82,28 @@ export class AppComponent implements AfterViewInit {
     })
   }
 
-  toggleSchema() {
-    if (this.count === 1) {
-      this.schemaString = require('!!raw-loader!../mock/person-info.json');
-    } else {
-      this.schemaString = require('!!raw-loader!../mock/otherschema.json');
+  toggleSchema(type) {
+
+    switch (type) {
+      case 'simple':
+        this.demoName = 'Simple Example';
+        this.schemaString = require('!!raw-loader!../mock/person-info.json');
+        break;
+      case 'other':
+        this.demoName = 'Simple Example2';
+        this.schemaString = require('!!raw-loader!../mock/otherschema.json');
+        break;
+      case 'grid':
+        this.demoName = 'Grid Layout Example';
+        this.schemaString = require('!!raw-loader!../mock/person-info-grid.json');
+        break;
+      case 'full':
+        this.demoName = 'Full Widget Example';
+        this.schemaString = require('!!raw-loader!../mock/sampleschema.json');
+        break;
     }
+
     this.schemaJson = JSON.parse(this.schemaString);
-    this.count = this.count === 1 ? 2 : 1;
     this.builderInfo._startTime = new Date().getTime();
   }
 

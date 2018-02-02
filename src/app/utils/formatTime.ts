@@ -12,6 +12,6 @@ export function formatTime(time) {
             timeStr += ':';
         }
     }
-    return timeStr;
+    return time.getFullYear() + '/' + (time.getMonth() + 1) + '/' + time.getDate() + ' ' + timeStr;
 
 }

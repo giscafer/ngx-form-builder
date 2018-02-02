@@ -69,14 +69,18 @@
             color: #FFF;
             -webkit-border-radius: 0;
             border-radius: 0;
-            background-color: #3FA7DC;
+            background-color: #108ee9;
             margin-left: 10px;
             border: none;
             height: 30px;
             min-width: 50px;
             &:hover {
-                background-color: #277EAB
+                background-color: #49a9ee;
+                border-color: #49a9ee
             }
+        }
+        .ant-btn {
+            line-height: 0;
         }
     }
 }
@@ -124,7 +128,11 @@
     .code-info-time {
         color: #333;
         display: inline-block;
-        margin-right: 10px
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .code-type {
+        font-weight: 600;
     }
     .info {
         color: #333

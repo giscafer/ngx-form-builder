@@ -3,12 +3,33 @@
   <div id="code-container">
     <div id="control-panel">
       <div id="code-info">
+        <span class="code-type">JSON</span>
         <span class="code-info-time">{{builderInfo.finishTime}}</span>
         <span [ngClass]="{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}">{{builderInfo.msg}}</span>
       </div>
       <div class="control-btn-panel">
-        <a href="javascript:;" (click)="toggleSchema()" title="点击切换schema" class="btn btn-default btn-sm">Test：Toggle schema</a>
-        <a href="javascript:;" (click)="run(editor)" class="btn btn-default btn-sm">运行</a>
+        <nz-dropdown>
+          <button nz-button nz-dropdown [nzType]="'primary'" class="btn btn-default btn-sm">
+            <span>{{demoName || 'Example Schema'}}</span>
+            <i class="anticon anticon-down"></i>
+          </button>
+          <ul nz-menu>
+            <li nz-menu-item>
+              <a href="javascript:;" title="简单例子" (click)="toggleSchema('simple')">Simple Example</a>
+            </li>
+            <li nz-menu-item>
+                <a href="javascript:;" title="其他例子" (click)="toggleSchema('other')">Simple Example2</a>
+              </li>
+            <li nz-menu-item>
+              <a href="javascript:;" title="栅格布局例子" (click)="toggleSchema('grid')">Grid Layout Example</a>
+            </li>
+            <li nz-menu-item>
+              <a href="javascript:;" title="全部 widget 例子" (click)="toggleSchema('full')">Full Widget Example</a>
+            </li>
+          </ul>
+        </nz-dropdown>
+        <!-- <a href="javascript:;" (click)="toggleSchema()" title="点击切换schema" class="btn btn-default btn-sm">Test：Toggle schema</a> -->
+        <a href="javascript:;" (click)="run(editor)" class="btn btn-default btn-sm" title="执行代码">RUN</a>
       </div>
     </div>
     <div #editor id="code-panel" ace-editor [text]="schemaString" [mode]="'json'" [theme]="'chrome'" [options]="aceOptions" [readOnly]="false"
@@ -25,7 +46,7 @@
           </button>
           <ul nz-menu>
             <li nz-menu-item>
-              <a href="javascript:;" title="下载HTML模板"  (click)="copyHTMLCode(1)">Download HTML</a>
+              <a href="javascript:;" title="下载HTML模板" (click)="copyHTMLCode(1)">Download HTML</a>
             </li>
             <li nz-menu-item>
               <a href="javascript:;" title="复制HTML模板代码" (click)="copyHTMLCode()">Copy HTML code</a>
