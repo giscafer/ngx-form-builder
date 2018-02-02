@@ -9,7 +9,7 @@ import { SchemaFormModule } from '../lib';
 
 // third part libs
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { AceEditorDirective } from 'ng2-ace';
+import { AceEditorModule } from 'ng-ace';
 
 
 import { AppComponent } from './app.component';
@@ -17,8 +17,7 @@ import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AceEditorDirective
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +25,7 @@ import { LayoutModule } from './layout/layout.module';
     FormsModule,
     HttpModule,
     CommonModule,
+    AceEditorModule,
     SchemaFormModule,
     NgZorroAntdModule.forRoot(),
     LayoutModule

@@ -7,6 +7,7 @@
     "ng": "ng",
     "start": "ng serve --port 8888",
     "build": "ng build",
+    "aot": "ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -56,8 +57,8 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-ace": "^0.1.0",
     "ng-zorro-antd": "^0.6.13",
-    "ng2-ace": "0.0.15",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",

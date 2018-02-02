@@ -14,7 +14,7 @@ import { initSplitEventHandler } from './utils/setSplitPosition';
 import { funDownload } from './utils/download';
 import { NzMessageService } from 'ng-zorro-antd';
 
-import { AceEditorDirective } from 'ng2-ace';
+import { AceEditorDirective } from 'ng-ace';
 
 @Component({
   selector: 'sf-app',
@@ -147,7 +147,7 @@ export class AppComponent implements AfterViewInit {
     console.log('~~~编辑器内容变化~~~');
   }
 
-  copyHTMLCode(type) {
+  copyHTMLCode(type?: number) {
     if (type === 1) {
       if ('download' in document.createElement('a')) {
         funDownload(this.htmlCode);
