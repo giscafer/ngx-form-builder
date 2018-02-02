@@ -34,6 +34,11 @@ __the project is under developing__
 - [primeng](https://github.com/primefaces/primeng)
 - [ng-zorro-antd](https://github.com/NG-ZORRO/ng-zorro-antd)
 
+## Issues
+
+- [build --aot Runtime compiler is not loaded](https://stackoverflow.com/questions/42706113/angular-cli-build-prod-runtime-compiler-is-not-loaded/42843683#42843683)
+- JitCompilerFactory Bug at Angular 5 & not support AOT [angular/angular #20639](https://github.com/angular/angular/issues/20639)
+
 ## License
 
 MIT
