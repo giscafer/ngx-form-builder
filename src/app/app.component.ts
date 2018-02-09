@@ -7,14 +7,12 @@ import {
 
 import * as copy from 'copy-text-to-clipboard';
 
-import 'brace/theme/chrome';
-import 'brace/mode/json';
 import { formatTime } from './utils/formatTime';
 import { initSplitEventHandler } from './utils/setSplitPosition';
 import { funDownload } from './utils/download';
 import { NzMessageService } from 'ng-zorro-antd';
 
-import { AceEditorDirective } from 'ng-ace';
+import { AceEditorDirective } from 'ng-ace-tern';
 
 @Component({
   selector: 'sf-app',

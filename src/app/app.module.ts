@@ -9,7 +9,7 @@ import { SchemaFormModule } from '../lib';
 
 // third part libs
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { AceEditorModule } from 'ng-ace';
+import { AceEditorModule } from 'ng-ace-tern';
 
 
 import { AppComponent } from './app.component';
