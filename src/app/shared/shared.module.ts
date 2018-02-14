@@ -2,17 +2,23 @@ import { NgModule, ModuleWithProviders } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { NgZorroAntdModule } from "ng-zorro-antd";
+import { AceEditorModule } from "ng-ace-tern";
+import { SchemaFormModule } from "../../lib";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         NgZorroAntdModule,
+        AceEditorModule,
+        SchemaFormModule,
     ],
     exports: [
         CommonModule,
         FormsModule,
         NgZorroAntdModule,
+        AceEditorModule,
+        SchemaFormModule
     ]
 })
 export class SharedModule {
@@ -20,9 +26,7 @@ export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule:SharedModule,
-            providers:[
-
-            ]
+            providers:[]
         }
     }
 }
