@@ -39,7 +39,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    // { path: '', redirectTo: 'zorro', pathMatch: 'full' },
+    { path: '', redirectTo: 'bootstrap', pathMatch: 'full' },
     { path: 'bootstrap', component: __WEBPACK_IMPORTED_MODULE_2__pages_bootstrap_form_bootstrap_form_component__["a" /* BootstrapFormComponent */] },
     { path: 'zorro', component: __WEBPACK_IMPORTED_MODULE_3__pages_zorro_form_zorro_form_component__["a" /* ZorroFormComponent */] }
 ];
@@ -52,7 +52,7 @@ var AppRoutingModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__pages_bootstrap_form_bootstrap_form_component__["a" /* BootstrapFormComponent */],
                 __WEBPACK_IMPORTED_MODULE_3__pages_zorro_form_zorro_form_component__["a" /* ZorroFormComponent */]
             ],
-            imports: [__WEBPACK_IMPORTED_MODULE_4__shared_shared_module__["a" /* SharedModule */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes)],
+            imports: [__WEBPACK_IMPORTED_MODULE_4__shared_shared_module__["a" /* SharedModule */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes, { useHash: true })],
             exports: []
         })
     ], AppRoutingModule);
