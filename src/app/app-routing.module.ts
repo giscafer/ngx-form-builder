@@ -6,7 +6,7 @@ import { ZorroFormComponent } from "./pages/zorro-form/zorro-form.component";
 import { SharedModule } from "./shared/shared.module";
 
 const routes: Routes = [
-    // { path: '', redirectTo: 'zorro', pathMatch: 'full' },
+    { path: '', redirectTo: 'bootstrap', pathMatch: 'full' },
     { path: 'bootstrap', component: BootstrapFormComponent },
     { path: 'zorro', component: ZorroFormComponent }
 ];
@@ -16,7 +16,7 @@ const routes: Routes = [
         BootstrapFormComponent,
         ZorroFormComponent
     ],
-    imports: [SharedModule, RouterModule.forRoot(routes)],
+    imports: [SharedModule, RouterModule.forRoot(routes, { useHash: true })],
     exports: []
 })
 export class AppRoutingModule { }
