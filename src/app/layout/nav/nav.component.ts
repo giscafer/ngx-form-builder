@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  _builder_type = 'bootstrap';
+
   constructor() { }
 
   ngOnInit() {
