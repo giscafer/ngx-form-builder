@@ -30,15 +30,17 @@
             "title": "描述"
         }
     },
-    "buttons": [
-        {
-            "label": "Alert",
-            "id": "alert",
-            "submit": true
-        },
-        {
-            "label": "Reset",
-            "id": "reset"
-        }
-    ]
+    "button": {
+        "items": [
+            {
+                "label": "Alert",
+                "id": "alert",
+                "submit": true
+            },
+            {
+                "label": "Reset",
+                "id": "reset"
+            }
+        ]
+    }
 }

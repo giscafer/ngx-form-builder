@@ -3,13 +3,13 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { NgZorroAntdModule } from "ng-zorro-antd";
 import { AceEditorModule } from "ng-ace-tern";
-import { SchemaFormModule } from "../../lib";
+import { SchemaFormModule } from "../../lib/schema-form.module";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        NgZorroAntdModule,
+        NgZorroAntdModule.forRoot(),
         AceEditorModule,
         SchemaFormModule,
     ],

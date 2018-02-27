@@ -5,21 +5,21 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 
-import { BsFormBuilderComponent } from './components/bs-form-builder.component';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { WidgetRegistry } from './widget-registry';
+
+
+import { BsFormBuilderComponent } from './components/bs-form-builder.component';
+import { ZorroFormBuilderComponent } from './components/zorro-form-builder.component';
+
 // import { PrimengDefaultWidgetRegistry } from './widgets/primeng';
 import { BootStrapDefaultWidgetRegistry } from './widgets/bootstrap';
 import { SchemaValidatorFactory, ZSchemaValidatorFactory } from './schemavalidator.factory';
+import { ZorroDefaultWidgetRegistry } from './index';
 
 const moduleProviders = [
- /*  {
-    provide: WidgetRegistry,
-    useClass: PrimengDefaultWidgetRegistry
-  }, */{
-    provide: WidgetRegistry,
-    useClass: BootStrapDefaultWidgetRegistry
-  }, {
+  {
     provide: SchemaValidatorFactory,
     useClass: ZSchemaValidatorFactory
   }
@@ -28,13 +28,16 @@ const moduleProviders = [
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   declarations: [
-    BsFormBuilderComponent
+    BsFormBuilderComponent,
+    ZorroFormBuilderComponent
   ],
   entryComponents: [
-    BsFormBuilderComponent
+    BsFormBuilderComponent,
+    ZorroFormBuilderComponent
   ],
   exports: [
-    BsFormBuilderComponent
+    BsFormBuilderComponent,
+    ZorroFormBuilderComponent
   ],
   providers: [...moduleProviders]
 })

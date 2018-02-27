@@ -44,22 +44,23 @@
             "title": "描述"
         }
     },
-    "buttons": [
-        {
-            "label": "Alert",
-            "id": "alert",
-            "submit": true,
-            "offset": 4,
-            "grid": {
-                "md": {
-                    "offset": 4,
-                    "span": 6
-                }
+    "button": {
+        "grid": {
+            "md": {
+                "offset": 5,
+                "span": 6
             }
         },
-        {
-            "label": "Reset",
-            "id": "reset"
-        }
-    ]
+        "items":[
+            {
+                "label": "Alert",
+                "id": "alert",
+                "submit": true
+            },
+            {
+                "label": "Reset",
+                "id": "reset"
+            }
+        ]
+    }
 }

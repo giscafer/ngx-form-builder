@@ -39,7 +39,7 @@ export class ZorroFormComponent implements AfterViewInit {
     _startTime: 0,
     _endTime: 0
   }
-  demoName: string;
+  demoName: string = 'Horizontal Layout Example';
   // ace
   text = 'test';
   aceOptions = {
@@ -55,7 +55,7 @@ export class ZorroFormComponent implements AfterViewInit {
 
   constructor(private _message: NzMessageService) {
 
-    this.schemaString = require('!!raw-loader!../../../mock/person-info.json');
+    this.schemaString = require('!!raw-loader!../../../mock/horizontal-layout.json');
     this.schemaJson = JSON.parse(this.schemaString);
     this.builderInfo._startTime = new Date().getTime();
 
@@ -81,6 +81,14 @@ export class ZorroFormComponent implements AfterViewInit {
   toggleSchema(type) {
 
     switch (type) {
+      case 'horizontal-layout':
+        this.demoName = 'Horizontal Layout Example';
+        this.schemaString = require('!!raw-loader!../../../mock/horizontal-layout.json');
+        break;
+      case 'vertical-layout':
+        this.demoName = 'Vertical Layout Example';
+        this.schemaString = require('!!raw-loader!../../../mock/vertical-layout.json');
+        break;
       case 'simple':
         this.demoName = 'Simple Example';
         this.schemaString = require('!!raw-loader!../../../mock/person-info.json');

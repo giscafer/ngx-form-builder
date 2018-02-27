@@ -74,16 +74,18 @@
   "required": [
     "title"
   ],
-  "buttons": [
-    {
-      "label": "Alert",
-      "id": "alert",
-      "submit": true,
-      "offset": 4
-    },
-    {
-      "label": "Reset",
-      "id": "reset"
-    }
-  ]
+  "button": {
+    "items": [
+      {
+        "label": "Alert",
+        "id": "alert",
+        "submit": true,
+        "offset": 4
+      },
+      {
+        "label": "Reset",
+        "id": "reset"
+      }
+    ]
+  }
 }

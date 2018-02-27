@@ -335,20 +335,22 @@
 			]
 		}
 	},
-	"buttons": [
-		{
-			"label": "Alert",
-			"id": "alert"
-		},
-		{
-			"label": "Reset",
-			"id": "reset"
-		},
-		{
-			"label": "Disable all",
-			"id": "disable"
-		}
-	],
+	"button": {
+		"items":[
+			{
+				"label": "Alert",
+				"id": "alert"
+			},
+			{
+				"label": "Reset",
+				"id": "reset"
+			},
+			{
+				"label": "Disable all",
+				"id": "disable"
+			}
+		]	
+	},
 	"fieldsets": [
 		{
 			"id": "part_1",

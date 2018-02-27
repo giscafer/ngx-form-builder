@@ -11,26 +11,32 @@ export class StringWidget extends ControlWidget {
         let listOfClassName = this.getLayoutClass(schema);
         let templ = "";
         if (this.getInputType(schema) === 'hidden') {
-            templ = `<input  [attr.name]="name" type="hidden" [ngModel]="${schema.modelName}">`;
+            templ = `<input  nz-input [attr.name]="name" type="hidden" [ngModel]="${schema.modelName}">`;
         } else {
             templ = `
-            <div class="widget form-group ${listOfClassName.join(' ')}">
-                <label for="${schema.formId}" class="horizontal control-label">
-                    ${schema.title || ''}
+            <div nz-form-label nz-col [nzSpan]="${schema.span_label}"  class="${listOfClassName.join(' ')}">
+                <label for="${schema.formId}" nz-form-item-required [nzRequired]="required">
+                    <span> ${schema.title || ''}
+                        ${schema.description ? `<nz-tooltip [nzTitle]="'${schema.description}'"> <i nz-tooltip class="anticon anticon-question-circle-o"></i> </nz-tooltip>` : ''}
+                    </span>
                 </label>
-                ${schema.description ? `<span  class="formHelp"> ${schema.description}</span>` : ''}
-                <input
+            </div>
+            <div nz-form-control nz-col 
+                [nzSpan]="${schema.span_control}"
+                ${schema.span_control ? `[nzSpan]="${schema.span_control}"` : ""}
+                ${schema.offset_control ? `[nzOffset]="${schema.offset_control}"` : ""}
+             nzHasFeedback>
+                <input nz-input
                 [(ngModel)]="${schema.modelName}.${schema.name}"
                 id="${schema.formId}"
                 name="${schema.name}"
-                ${(schema.widget.id !== 'color' && schema.readOnly) ? `readonly="true"` : ""}
-                class="text-widget.id textline-widget form-control"
+                ${(schema.widget.id !== 'color' && schema.readOnly) ? `[nzReadonly]="true"` : ""}
                 type="${this.getInputType(schema)}"
                 placeholder="${schema.placeholder ? schema.placeholder : ' '}"
                 ${(schema.maxLength || schema.maxLength == 0) ? `[attr.maxLength]="${schema.maxLength}"` : ""}
                 ${(schema.minLength || schema.minLength == 0) ? `[attr.minLength]="${schema.minLength}"` : ""}
                 ${(schema.widget.id === 'color' && schema.readOnly) ? `[attr.disabled]="'true'"` : ""}/>
-                ${(schema.widget.id === 'color' && schema.readOnly) ? `<input name="${schema.name}" type="hidden">` : ""}
+                ${(schema.widget.id === 'color' && schema.readOnly) ? `<input  nz-input name="${schema.name}" type="hidden"/>` : ""}
             </div>
             `;
         }

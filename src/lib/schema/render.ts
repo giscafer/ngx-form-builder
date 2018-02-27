@@ -13,4 +13,18 @@ export interface IRenderSchema {
      * 渲染style
      */
     style?: string | Object;
+
+    // 栅格相关
+    /**
+     * label 的nzSpan值
+     */
+    span_label: number;
+    /**
+    * input control 的nzSpan值
+    */
+    span_control: number;
+    /**
+    *  input control 的offset值
+    */
+    offset_control: number;
 }

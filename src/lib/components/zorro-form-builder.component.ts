@@ -27,11 +27,11 @@ import { SchemaValidatorFactory } from '../schemavalidator.factory';
 
 import { ISchema } from '../schema/index';
 
-import { WidgetFactory } from '../widget-factory';
+import { ZorroWidgetFactory } from '../zorro-widget-factory';
 import { WidgetRegistry } from '../widget-registry';
-import { BootStrapDefaultWidgetRegistry } from '../widgets/bootstrap/defaultwidget-registry';
 import { ListOfGridSizeName } from '../utils/cls';
 import { ZorroTmplBuilder } from '../builder/zorro-template-builder';
+import { ZorroDefaultWidgetRegistry } from '../index';
 
 
 
@@ -44,7 +44,7 @@ export function useFactory(schemaValidatorFactory, validatorRegistry) {
     encapsulation: ViewEncapsulation.None,
     template: `<div #target></div>`,
     providers: [
-        WidgetFactory,
+        ZorroWidgetFactory,
         SchemaPreprocessor,
         ActionRegistry,
         ValidatorRegistry,
@@ -54,7 +54,7 @@ export function useFactory(schemaValidatorFactory, validatorRegistry) {
             useFactory: useFactory,
             deps: [SchemaValidatorFactory, ValidatorRegistry]
         },
-        { provide: WidgetRegistry, useClass: BootStrapDefaultWidgetRegistry }]
+        { provide: WidgetRegistry, useClass: ZorroDefaultWidgetRegistry }]
 })
 export class ZorroFormBuilderComponent implements OnChanges {
 
@@ -101,7 +101,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
         private formPropertyFactory: FormPropertyFactory,
         private actionRegistry: ActionRegistry,
         private validatorRegistry: ValidatorRegistry,
-        private widgetFactory: WidgetFactory = null,
+        private ZorroWidgetFactory: ZorroWidgetFactory = null,
         private cdr: ChangeDetectorRef,
         private terminator: TerminatorService,
     ) {
@@ -241,7 +241,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
             "modelName": this.rootProperty.schema.modelName || 'model',
             [this.rootProperty.schema.modelName || 'model']: this.rootProperty.value || {}
         }
-        this.ref = this.widgetFactory.addWidget(this.container, template, properties, this);
+        this.ref = this.ZorroWidgetFactory.addWidget(this.container, template, properties, this);
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
         this.cdr.detectChanges();

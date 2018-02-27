@@ -1,6 +1,7 @@
 import { StringWidget } from "./string/string.widget";
 import { WidgetRegistry } from '../../widget-registry';
 import { WidgetType } from "../../schema";
+import { ButtonWidget } from "./button/button.widget";
 
 export class ZorroDefaultWidgetRegistry extends WidgetRegistry {
     constructor() {
@@ -18,7 +19,7 @@ export class ZorroDefaultWidgetRegistry extends WidgetRegistry {
     //   this.register('time', StringWidget);
     //   this.register('integer', IntegerWidget);
     //   this.register('number', IntegerWidget);
-    //   this.register('button', ButtonWidget);
+      this.register('button', ButtonWidget);
     //   this.register('range', RangeWidget);
     //   this.register('textarea', TextAreaWidget);
     //   this.register('select', SelectWidget);

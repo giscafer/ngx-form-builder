@@ -9,10 +9,16 @@
       <div class="control-btn-panel">
         <nz-dropdown>
           <button nz-button nz-dropdown [nzType]="'primary'" class="btn btn-default btn-sm">
-            <span>{{demoName || 'Example Schema'}}</span>
+            <span>{{demoName}}</span>
             <i class="anticon anticon-down"></i>
           </button>
           <ul nz-menu>
+            <li nz-menu-item>
+              <a href="javascript:;" title="水平布局" (click)="toggleSchema('horizontal-layout')">Horizontal Layout Example</a>
+            </li>
+            <li nz-menu-item>
+              <a href="javascript:;" title="垂直布局" (click)="toggleSchema('vertical-layout')">Vertical Layout Example</a>
+            </li>
             <li nz-menu-item>
               <a href="javascript:;" title="简单例子" (click)="toggleSchema('simple')">Simple Example</a>
             </li>
@@ -55,7 +61,9 @@
       </div>
     </div>
     <br>
-    <bs-form-builder [schema]="schemaJson" [model]="model" [actions]="actions" (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)"
-      (onBuilderFinish)="onBuilderFinish($event)"></bs-form-builder>
+    <div style="padding: 24px;">
+        <zorro-form-builder [schema]="schemaJson" [model]="model" [actions]="actions" (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)"
+          (onBuilderFinish)="onBuilderFinish($event)"></zorro-form-builder>
+    </div>
   </div>
 </div>
