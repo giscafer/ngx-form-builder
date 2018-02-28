@@ -3,6 +3,9 @@ export { ZorroDefaultWidgetRegistry } from './defaultwidget-registry';
 
 export { ButtonWidget } from './button/button.widget';
 export { DateWidget } from "./date/date.widget";
+export { TimeWidget } from "./time/time.widget";
+export { DateRangeWidget } from "./date-range/date-range.widget";
+
 /* export { IntegerWidget } from './integer/integer.widget';
 export { RangeWidget } from './range/range.widget';
 export { StringWidget } from './string/string.widget';

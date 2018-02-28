@@ -4,7 +4,7 @@ title: 日期选择器
 inherit: true
 ---
 
-默认小部件，一般用于日期选择。
+一般用于日期选择。
 
 ## Schema
 
@@ -14,7 +14,7 @@ type | 值类型  | `string` | -
 placeholder | 在文字框中显示提示讯息  | `string` | -
 readOnly | 是否只读状态  | `boolean` | -
 widget | 组件  | `date` | - 
-format | 日期格式  | `string` | - 
+format | 日期格式  | `string` | "YYYY-MM-DD" | 
 showTime | 是否显示时间选择器 | `boolean` | `false`
 
  

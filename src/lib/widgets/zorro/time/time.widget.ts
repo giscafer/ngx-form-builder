@@ -1,6 +1,6 @@
 import { ControlWidget } from "../../../widget";
 
-export class DateWidget extends ControlWidget {
+export class TimeWidget extends ControlWidget {
 
   constructor() {
     super();
@@ -26,15 +26,14 @@ export class DateWidget extends ControlWidget {
     <div nz-form-control nz-col
         ${schema.span_control ? `[nzSpan]="${schema.span_control}"` : ""}
         ${schema.offset_control ? `[nzOffset]="${schema.offset_control}"` : ""}>
-        <nz-datepicker
+        <nz-timepicker
             [(ngModel)]="${schema.modelName}.${schema.name}"
             id="${schema.formId}"
             name="${schema.name}"
             ${schema.readOnly ? `[nzDisabled]="true"` : ""}
             ${schema.size ? `[nzSize]="'${schema.size}'"` : ''}
-            ${schema.format ? `[nzFormat]="'${schema.format}'"` : `[nzFormat]="'YYYY/MM/DD'"`}
-            ${schema.showTime ? `[nzShowTime]="true"` : `[nzShowTime]="false"`}
-            [nzPlaceHolder]="'${schema.placeholder ? schema.placeholder : ''}'"></nz-datepicker>
+            ${schema.format ? `[nzFormat]="'${schema.format}'"` : `[nzFormat]="'HH:mm:ss'"`}
+            [nzPlaceHolder]="'${schema.placeholder ? schema.placeholder : ''}'"></nz-timepicker>
     </div>
     `;
 

@@ -24,7 +24,6 @@ export class ZorroFormComponent implements AfterViewInit {
   private editorDirective: AceEditorDirective;
   // schema
   actions = {};
-
   // form builder
   model: any;
   value: any;
@@ -103,7 +102,7 @@ export class ZorroFormComponent implements AfterViewInit {
         break;
       case 'full':
         this.demoName = 'Full Widget Example';
-        this.schemaString = require('!!raw-loader!../../../mock/sampleschema.json');
+        this.schemaString = require('!!raw-loader!../../../mock/zorro-full-widget.json');
         break;
     }
 

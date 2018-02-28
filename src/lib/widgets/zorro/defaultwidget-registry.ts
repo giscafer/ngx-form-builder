@@ -3,6 +3,8 @@ import { WidgetRegistry } from '../../widget-registry';
 import { WidgetType } from "../../schema";
 import { ButtonWidget } from "./button/button.widget";
 import { DateWidget } from "./date/date.widget";
+import { TimeWidget } from "./time/time.widget";
+import { DateRangeWidget } from "./date-range/date-range.widget";
 
 export class ZorroDefaultWidgetRegistry extends WidgetRegistry {
     constructor() {
@@ -11,6 +13,8 @@ export class ZorroDefaultWidgetRegistry extends WidgetRegistry {
       this.register('string', StringWidget);
       this.register('button', ButtonWidget);
       this.register('date', DateWidget);
+      this.register('time', TimeWidget);
+      this.register('date-range', DateRangeWidget);
       
     //   this.register('search', StringWidget);
     //   this.register('tel', StringWidget);
