@@ -2,6 +2,19 @@
     "$schema": "http://json-schema.org/draft-04/hyper-schema#",
     "type": "object",
     "properties": {
+        "name": {
+            "type": "string",
+            "title": "用户名",
+            "placeholder": "请输入用户名，且2位以上",
+            "minLength": 2
+        },
+        "password": {
+            "type": "string",
+            "widget": "password",
+            "title": "密码",
+            "placeholder": "请输入密码，且6位以上",
+            "minLength": 6
+        },
         "date1": {
             "type": "string",
             "placeholder": "基本日期",
@@ -37,15 +50,21 @@
             "start": "Select start date",
             "end": "Select end date"
         },
+        "checked": {
+            "type": "boolean",
+            "widget": "checkbox",
+            "description": "I agree to the Terms of Service and the Privacy Policy."
+        },
+        "checked1": {
+            "type": "boolean",
+            "widget": "checkbox",
+            "readOnly": true,
+            "default": true,
+            "description": "不可选 - Disabled."
+        },
         "categories": {
             "type": "array",
             "title": "Categories",
-            "grid": {
-                "mode": "inline",
-                "md": {
-                    "span": 12
-                }
-            },
             "items": {
                 "type": "string",
                 "oneOf": [
@@ -70,12 +89,6 @@
                 ]
             },
             "widget": "checkbox"
-        },
-        "moreInfo": {
-            "type": "boolean",
-            "widget": "checkbox",
-            "description": "More information?",
-            "default": true
         },
         "survey": {
             "type": "object",
@@ -186,16 +199,6 @@
                     ]
                 }
             ]
-        },
-        "confirmationMail": {
-            "type": "string",
-            "description": "Email",
-            "format": "email"
-        },
-        "password": {
-            "type": "string",
-            "widget": "password",
-            "description": "Password"
         },
         "numberOfBoxes": {
             "type": "number",
@@ -364,8 +367,16 @@
     },
     "fieldsets": [
         {
-            "id": "part_0",
-            "title": "日期、时间、日期时间段",
+            "id": "input_widget",
+            "title": "input 字符串 部件",
+            "fields": [
+                "name",
+                "password"
+            ]
+        },
+        {
+            "id": "date_widget",
+            "title": "日期、时间、日期时间段 部件",
             "fields": [
                 "date1",
                 "date2",
@@ -375,11 +386,18 @@
             ]
         },
         {
+            "id": "checkbox_widget",
+            "title": "checkbox 部件",
+            "fields": [
+                "checked",
+                "checked1",
+                "categories"
+            ]
+        },
+        {
             "id": "part_1",
             "title": "part1",
             "fields": [
-                "categories",
-                "moreInfo",
                 "favoriteColor",
                 "colors",
                 "survey"
@@ -414,14 +432,6 @@
             "fields": [
                 "useCustomEmail",
                 "customEmail"
-            ]
-        },
-        {
-            "id": "part_5",
-            "title": "Part 5 - Confirmation",
-            "fields": [
-                "confirmationMail",
-                "password"
             ]
         }
     ],

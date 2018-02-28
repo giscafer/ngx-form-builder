@@ -19,7 +19,7 @@ format | 日期格式  | `string` | "HH:mm:ss"、"HH:mm"、"mm:ss" |
  
 ## Demo
 
-**各种格式的配置**
+**配置举例**
 
 ```json
 

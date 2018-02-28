@@ -180,11 +180,20 @@ export class ZorroFormBuilderComponent implements OnChanges {
             if (schema.grid) {
                 Object.assign(p, { grid: schema.grid }, p.grid ? { grid: p.grid } : {});
             }
-            /*  ListOfGridSizeName.forEach(name => {
-                 if (schema[name]) {
-                     Object.assign(p, { [name]: schema[name] }, p[name] ? { [name]: p[name] } : {});
-                 }
-             }); */
+            if (p.type === 'array' && p.widget === 'checkbox') {
+                if (p.items && p.items.oneOf) {
+                    let options = [];
+                    for (let one of p.items.oneOf) {
+                        options.push({
+                            label: one.description,
+                            value: one.enum[0],
+                            checked: one['checked'] || false
+                        });
+                    }
+                    // p['checkOptions'] = options;
+                    schema['checkOptions'] = options;
+                }
+            }
             if (p.items && p.properties && p.type === 'array') {
                 this.coverProperty(p.items);
             }
@@ -240,8 +249,10 @@ export class ZorroFormBuilderComponent implements OnChanges {
             "property": { visible: true },
             "_debug_": this.rootProperty.schema.debug,
             "modelName": this.rootProperty.schema.modelName || 'model',
-            [this.rootProperty.schema.modelName || 'model']: this.rootProperty.value || {}
+            [this.rootProperty.schema.modelName || 'model']: this.rootProperty.value || {},
         }
+        properties[properties['modelName']]['checkOptions'] = this.rootProperty.schema.checkOptions || {};//nz-checkbox-group
+        console.log( properties[properties['modelName']]['checkOptions'])
         this.ref = this.ZorroWidgetFactory.addWidget(this.container, template, properties, this);
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;

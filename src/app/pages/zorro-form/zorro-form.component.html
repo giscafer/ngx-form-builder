@@ -61,7 +61,7 @@
       </div>
     </div>
     <br>
-    <div style="padding: 24px;">
+    <div style="padding: 24px;background: inherit;">
         <zorro-form-builder [schema]="schemaJson" [model]="model" [actions]="actions" (onErrorChange)="logErrors($event.value)" (onChange)="setValue($event.value)"
           (onBuilderFinish)="onBuilderFinish($event)"></zorro-form-builder>
     </div>

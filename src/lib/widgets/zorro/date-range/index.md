@@ -21,7 +21,7 @@ showTime | 是否显示时间选择器 | `boolean` | `false`
  
 ## Demo
 
-**各种格式的配置**
+**配置举例**
 
 ```json
 

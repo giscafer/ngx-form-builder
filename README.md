@@ -7,14 +7,14 @@ Online Demo: http://form.giscafer.com
 ## TODO List
 
 - [x] HTML form generation based on JSON Schema
-- [x] Support download & copy HTML code
+- [x] Support download & copy the generated HTML code
 - [x] Support ng template html & ngModel auto binding
-- [x] Support `BootStrap` style
-- [ ] Support `PrimeNG` UI
-- [ ] Support `NG-ZORRO` UI
-- [ ] Support form validator
+- [x] Support `Bootstrap` style
+- [x] Support `ng-zorro-antd` template
+- [ ] Support `primeng` template
 - [ ] Support `Java vo` —> `json schema` —>generate-> `ng html` 
 - [ ] Support DND (drag and drop)
+- [ ] Support form validator
 
 
 ## Usage
@@ -26,7 +26,7 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:8888/`.
 
 __the project is under developing__
 
-![20180201](./screenshot/20180201.gif)
+![screenshot](./screenshot/screenshot.png)
 
 
 ## Related
