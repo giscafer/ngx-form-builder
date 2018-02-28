@@ -52,7 +52,7 @@ var AppRoutingModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__pages_bootstrap_form_bootstrap_form_component__["a" /* BootstrapFormComponent */],
                 __WEBPACK_IMPORTED_MODULE_3__pages_zorro_form_zorro_form_component__["a" /* ZorroFormComponent */]
             ],
-            imports: [__WEBPACK_IMPORTED_MODULE_4__shared_shared_module__["a" /* SharedModule */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes, { useHash: true })],
+            imports: [__WEBPACK_IMPORTED_MODULE_4__shared_shared_module__["a" /* SharedModule */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes, { useHash: true })],
             exports: []
         })
     ], AppRoutingModule);
@@ -66,7 +66,7 @@ var AppRoutingModule = (function () {
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nz-layout class=\"layout\">\r\n  <app-nav></app-nav>\r\n  <nz-content style=\"padding:0 50px;\">\r\n    <router-outlet></router-outlet>\r\n  </nz-content>\r\n</nz-layout>"
+module.exports = "<nz-layout class=\"layout\">\r\n  <app-nav #nav></app-nav>\r\n  <nz-content style=\"padding:0 50px;\">\r\n    <router-outlet></router-outlet>\r\n  </nz-content>\r\n</nz-layout>"
 
 /***/ }),
 
@@ -94,13 +94,10 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_copy_text_to_clipboard__ = __webpack_require__("../../../../copy-text-to-clipboard/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_copy_text_to_clipboard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_copy_text_to_clipboard__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_formatTime__ = __webpack_require__("../../../../../src/app/utils/formatTime.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_setSplitPosition__ = __webpack_require__("../../../../../src/app/utils/setSplitPosition.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_download__ = __webpack_require__("../../../../../src/app/utils/download.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng_zorro_antd__ = __webpack_require__("../../../../ng-zorro-antd/esm5/antd.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng_ace_tern__ = __webpack_require__("../../../../ng-ace-tern/ng-ace-tern.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_builder_service__ = __webpack_require__("../../../../../src/app/services/builder-service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__layout_nav_nav_component__ = __webpack_require__("../../../../../src/app/layout/nav/nav.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -115,146 +112,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
 var AppComponent = (function () {
-    function AppComponent(_message) {
+    function AppComponent(router, titleService, builderService) {
         var _this = this;
-        this._message = _message;
-        // schema
-        this.actions = {};
-        this.count = 1;
-        this.builderInfo = {
-            msgType: 'info',
-            msg: '',
-            finishTime: '',
-            _startTime: 0,
-            _endTime: 0
-        };
-        // ace
-        this.text = 'test';
-        this.aceOptions = {
-            printMargin: false,
-            enableBasicAutocompletion: true,
-            enableSnippets: true,
-            enableLiveAutocompletion: true
-        };
-        this.createMessage = function (type, text) {
-            _this._message.create(type, "" + text);
-        };
-        this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/person-info.json");
-        this.schemaJson = JSON.parse(this.schemaString);
-        this.builderInfo._startTime = new Date().getTime();
-        // 按钮事件注册
-        this.actions['alert'] = function (property, options) {
-            property.forEachChildRecursive(function (child) {
-                console.log(child.valid, child);
-            });
-            alert(JSON.stringify(_this.value));
-        };
-        this.actions['reset'] = function (form, options) {
-            form.reset();
-        };
+        this.router = router;
+        this.titleService = titleService;
+        this.builderService = builderService;
+        builderService.builderChanged.subscribe(function (value) {
+            _this.navRef._builder_type = value || 'bootstrap';
+        });
     }
-    AppComponent.prototype.ngAfterViewInit = function () {
-        setTimeout(function () {
-            Object(__WEBPACK_IMPORTED_MODULE_3__utils_setSplitPosition__["a" /* initSplitEventHandler */])();
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.router.events
+            .subscribe(function (event) {
+            if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* NavigationEnd */]) {
+                var title = event.url.substr(1);
+                _this.titleService.setTitle(title + " builder");
+                _this.builderService.builderChanged.next(title);
+            }
         });
     };
-    AppComponent.prototype.toggleSchema = function (type) {
-        switch (type) {
-            case 'simple':
-                this.demoName = 'Simple Example';
-                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/person-info.json");
-                break;
-            case 'other':
-                this.demoName = 'Simple Example2';
-                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/otherschema.json");
-                break;
-            case 'grid':
-                this.demoName = 'Grid Layout Example';
-                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/person-info-grid.json");
-                break;
-            case 'full':
-                this.demoName = 'Full Widget Example';
-                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/sampleschema.json");
-                break;
-        }
-        this.schemaJson = JSON.parse(this.schemaString);
-        this.builderInfo._startTime = new Date().getTime();
-    };
-    AppComponent.prototype.setValue = function (value) {
-        this.value = value;
-    };
-    AppComponent.prototype.logErrors = function (errors) {
-        console.log('ERRORS', errors);
-        this.log('页面构建失败，请检查再重试', 'error');
-    };
-    AppComponent.prototype.log = function (text, type) {
-        this.builderInfo.finishTime = Object(__WEBPACK_IMPORTED_MODULE_2__utils_formatTime__["a" /* formatTime */])(new Date());
-        if (type !== 'warn' && type !== 'error') {
-            this.builderInfo.msgType = 'info';
-        }
-        else {
-            this.builderInfo.msgType = type;
-        }
-        this.builderInfo.msg = text;
-    };
-    AppComponent.prototype.onBuilderFinish = function ($event) {
-        this.htmlCode = $event.code;
-        this.builderInfo._endTime = new Date().getTime();
-        this.log("\u9875\u9762\u6784\u5EFA\u5B8C\u6210\uFF0C" + (this.builderInfo._endTime - this.builderInfo._startTime) + "ms", 'info');
-    };
-    AppComponent.prototype.run = function (editor) {
-        if (this.hasEditorError()) {
-            this.log('编辑器内容有误', 'error');
-            return;
-        }
-        var text = this.editorDirective.editor.getValue();
-        this.builderInfo._startTime = new Date().getTime();
-        this.schemaJson = JSON.parse(text);
-    };
-    AppComponent.prototype.onAceChange = function (data) {
-        console.log('~~~编辑器内容变化~~~');
-    };
-    AppComponent.prototype.copyHTMLCode = function (type) {
-        if (type === 1) {
-            if ('download' in document.createElement('a')) {
-                Object(__WEBPACK_IMPORTED_MODULE_4__utils_download__["a" /* funDownload */])(this.htmlCode);
-            }
-            else {
-                return this.createMessage('error', '代码下载失败，请使用 Chrome 浏览器');
-            }
-            return this.createMessage('success', '文件下载成功！');
-        }
-        if (__WEBPACK_IMPORTED_MODULE_1_copy_text_to_clipboard__(this.htmlCode)) {
-            return this.createMessage('success', '代码已经复制到剪贴板！');
-        }
-        else {
-            return this.createMessage('error', '代码复制失败，请使用Chrome浏览器');
-        }
-    };
-    AppComponent.prototype.hasEditorError = function () {
-        var annotations = this.editorDirective.editor.getSession().getAnnotations();
-        for (var aid = 0, alen = annotations.length; aid < alen; ++aid) {
-            if (annotations[aid].type === 'error') {
-                return true;
-            }
-        }
-        return false;
-    };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_6_ng_ace_tern__["a" /* AceEditorDirective */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_6_ng_ace_tern__["a" /* AceEditorDirective */])
-    ], AppComponent.prototype, "editorDirective", void 0);
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewChild */])('nav'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__layout_nav_nav_component__["a" /* NavComponent */])
+    ], AppComponent.prototype, "navRef", void 0);
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'sf-app',
             template: __webpack_require__("../../../../../src/app/app.component.html"),
             encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewEncapsulation */].None,
-            styles: [__webpack_require__("../../../../../src/app/app.component.scss")]
+            styles: [__webpack_require__("../../../../../src/app/app.component.scss")],
+            providers: [__WEBPACK_IMPORTED_MODULE_3__services_builder_service__["a" /* BuilderService */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ng_zorro_antd__["b" /* NzMessageService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["c" /* Title */], __WEBPACK_IMPORTED_MODULE_3__services_builder_service__["a" /* BuilderService */]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -311,7 +202,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_common__["b" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* RouterModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* RouterModule */],
                 __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_7_ng_zorro_antd__["a" /* NgZorroAntdModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_9__layout_layout_module__["a" /* LayoutModule */]
@@ -353,7 +244,7 @@ var LayoutModule = (function () {
     }
     LayoutModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["J" /* NgModule */])({
-            imports: [__WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* RouterModule */], __WEBPACK_IMPORTED_MODULE_0__shared_shared_module__["a" /* SharedModule */]],
+            imports: [__WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */], __WEBPACK_IMPORTED_MODULE_0__shared_shared_module__["a" /* SharedModule */]],
             providers: [],
             declarations: COMPONENTS.slice(),
             exports: COMPONENTS.slice()
@@ -369,7 +260,7 @@ var LayoutModule = (function () {
 /***/ "../../../../../src/app/layout/nav/nav.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"logo\">\r\n  <img  title=\"ng-form-builder\" src=\"data:image/webp;base64,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\"\r\n  />\r\n</div>\r\n<div class=\"logo-title\"><a href=\"./\" title=\"ng-form-builder\">NgFormBuilder</a></div>\r\n<ul nz-menu [nzMode]=\"'horizontal'\" [nzTheme]=\"'dark'\" style=\"padding-left: 280px;\">\r\n  <li nz-submenu>\r\n    <span title>\r\n      <i class=\"anticon anticon-setting\"></i> Builder</span>\r\n    <ul>\r\n      <li nz-menu-item [nzSelected]=\"true\"  [routerLink]=\"'/bootstrap'\">BootStrap Form Builder</li>\r\n      <li nz-menu-item  [routerLink]=\"'/zorro'\">Zorro Form Builder (comming soon)</li>\r\n      <li nz-menu-item [nzDisable]=\"true\">PrimeNG Form Builder (comming soon)</li>\r\n      <li nz-menu-item [nzDisable]=\"true\">Ionic Form Builder (comming soon)</li>\r\n    </ul>\r\n  </li>\r\n  <li nz-submenu>\r\n    <span title>\r\n      <i class=\"anticon anticon-folder\"></i> Document</span>\r\n    <ul>\r\n      <li nz-menu-group>\r\n        <span title>Form</span>\r\n        <ul>\r\n          <li nz-menu-item [nzDisable]=\"true\">How-To Guide</li>\r\n          <li nz-menu-item [nzDisable]=\"true\">Api Reference</li>\r\n        </ul>\r\n      </li>\r\n      <li nz-menu-group>\r\n        <span title>Other</span>\r\n        <ul>\r\n          <li nz-menu-item>\r\n            <a href=\"http://json-schema.org/specification.html\" target=\"_blank\">JSON Schema Specification</a>\r\n          </li>\r\n        </ul>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n\r\n  <li nz-menu-item >\r\n    <i class=\"anticon anticon-github\"></i>  <a href=\"https://github.com/giscafer/ng-form-builder\" style=\"display:inline;color:#fff;\"  target=\"_blank\">Github</a></li>\r\n  <li nz-menu-item>\r\n    <a href=\"https://ng.ant.design\" target=\"_blank\" rel=\"noopener noreferrer\"></a>\r\n  </li>\r\n</ul>"
+module.exports = "<div id=\"logo\">\r\n <!--  <img  *ngIf=\"_builder_type==='bootstrap'\" title=\"bootstrap form builder\" src=\"data:image/webp;base64,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\"\r\n  /> -->\r\n  <img *ngIf=\"_builder_type==='bootstrap'\"  style=\"margin-left: 50px;\" src=\"./assets/images/bootstrap-stack.png\" alt=\"bootstrap form builder\"/>\r\n  <img *ngIf=\"_builder_type==='zorro'\" style=\"margin-left: 50px;\" title=\"zorro form builder\" src=\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwMHB4IiBoZWlnaHQ9IjIwMHB4IiB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNDcuMSAoNDU0MjIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPkdyb3VwIDI4IENvcHkgNTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNjIuMTAyMzI3MyUiIHkxPSIwJSIgeDI9IjEwOC4xOTcxOCUiIHkyPSIzNy44NjM1NzY0JSIgaWQ9ImxpbmVhckdyYWRpZW50LTEiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNDI4NUVCIiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyRUM3RkYiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI2OS42NDQxMTYlIiB5MT0iMCUiIHgyPSI1NC4wNDI4OTc1JSIgeTI9IjEwOC40NTY3MTQlIiBpZD0ibGluZWFyR3JhZGllbnQtMiI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyOUNERkYiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzE0OEVGRiIgb2Zmc2V0PSIzNy44NjAwNjg3JSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMEE2MEZGIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNjkuNjkwODE2NSUiIHkxPSItMTIuOTc0MzU4NyUiIHgyPSIxNi43MjI4OTgxJSIgeTI9IjExNy4zOTEyNDglIiBpZD0ibGluZWFyR3JhZGllbnQtMyI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGQTgxNkUiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0Y3NEE1QyIgb2Zmc2V0PSI0MS40NzI2MDYlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGNTFEMkMiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI2OC4xMjc5ODcyJSIgeTE9Ii0zNS42OTA1NzM3JSIgeDI9IjMwLjQ0MDA5MTQlIiB5Mj0iMTE0Ljk0MjY3OSUiIGlkPSJsaW5lYXJHcmFkaWVudC00Ij4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ZBOEU3RCIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRjc0QTVDIiBvZmZzZXQ9IjUxLjI2MzUxOTElIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGNTFEMkMiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0ibG9nbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwLjAwMDAwMCwgLTIwLjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0iR3JvdXAtMjgtQ29weS01IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMC4wMDAwMDAsIDIwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTI3LUNvcHktMyI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTI1IiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iMiI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOTEuNTg4MDg2Myw0LjE3NjUyODIzIEw0LjE3OTk2NTQ0LDkxLjUxMjc3MjggQy0wLjUxOTI0MDYwNSw5Ni4yMDgxMTQ2IC0wLjUxOTI0MDYwNSwxMDMuNzkxODg1IDQuMTc5OTY1NDQsMTA4LjQ4NzIyNyBMOTEuNTg4MDg2MywxOTUuODIzNDcyIEM5Ni4yODcyOTIzLDIwMC41MTg4MTQgMTAzLjg3NzMwNCwyMDAuNTE4ODE0IDEwOC41NzY1MSwxOTUuODIzNDcyIEwxNDUuMjI1NDg3LDE1OS4yMDQ2MzIgQzE0OS40MzM5NjksMTU0Ljk5OTYxMSAxNDkuNDMzOTY5LDE0OC4xODE5MjQgMTQ1LjIyNTQ4NywxNDMuOTc2OTAzIEMxNDEuMDE3MDA1LDEzOS43NzE4ODEgMTM0LjE5MzcwNywxMzkuNzcxODgxIDEyOS45ODUyMjUsMTQzLjk3NjkwMyBMMTAyLjIwMTkzLDE3MS43MzczNTIgQzEwMS4wMzIzMDUsMTcyLjkwNjAxNSA5OS4yNTcxNjA5LDE3Mi45MDYwMTUgOTguMDg3NTM1OSwxNzEuNzM3MzUyIEwyOC4yODU5MDgsMTAxLjk5MzEyMiBDMjcuMTE2MjgzMSwxMDAuODI0NDU5IDI3LjExNjI4MzEsOTkuMDUwNzc1IDI4LjI4NTkwOCw5Ny44ODIxMTE4IEw5OC4wODc1MzU5LDI4LjEzNzg4MjMgQzk5LjI1NzE2MDksMjYuOTY5MjE5MSAxMDEuMDMyMzA1LDI2Ljk2OTIxOTEgMTAyLjIwMTkzLDI4LjEzNzg4MjMgTDEyOS45ODUyMjUsNTUuODk4MzMxNCBDMTM0LjE5MzcwNyw2MC4xMDMzNTI4IDE0MS4wMTcwMDUsNjAuMTAzMzUyOCAxNDUuMjI1NDg3LDU1Ljg5ODMzMTQgQzE0OS40MzM5NjksNTEuNjkzMzEgMTQ5LjQzMzk2OSw0NC44NzU2MjMyIDE0NS4yMjU0ODcsNDAuNjcwNjAxOCBMMTA4LjU4MDU1LDQuMDU1NzQ1OTIgQzEwMy44NjIwNDksLTAuNTM3OTg2ODQ2IDk2LjI2OTI2MTgsLTAuNTAwNzk3OTA2IDkxLjU4ODA4NjMsNC4xNzY1MjgyMyBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMSkiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik05MS41ODgwODYzLDQuMTc2NTI4MjMgTDQuMTc5OTY1NDQsOTEuNTEyNzcyOCBDLTAuNTE5MjQwNjA1LDk2LjIwODExNDYgLTAuNTE5MjQwNjA1LDEwMy43OTE4ODUgNC4xNzk5NjU0NCwxMDguNDg3MjI3IEw5MS41ODgwODYzLDE5NS44MjM0NzIgQzk2LjI4NzI5MjMsMjAwLjUxODgxNCAxMDMuODc3MzA0LDIwMC41MTg4MTQgMTA4LjU3NjUxLDE5NS44MjM0NzIgTDE0NS4yMjU0ODcsMTU5LjIwNDYzMiBDMTQ5LjQzMzk2OSwxNTQuOTk5NjExIDE0OS40MzM5NjksMTQ4LjE4MTkyNCAxNDUuMjI1NDg3LDE0My45NzY5MDMgQzE0MS4wMTcwMDUsMTM5Ljc3MTg4MSAxMzQuMTkzNzA3LDEzOS43NzE4ODEgMTI5Ljk4NTIyNSwxNDMuOTc2OTAzIEwxMDIuMjAxOTMsMTcxLjczNzM1MiBDMTAxLjAzMjMwNSwxNzIuOTA2MDE1IDk5LjI1NzE2MDksMTcyLjkwNjAxNSA5OC4wODc1MzU5LDE3MS43MzczNTIgTDI4LjI4NTkwOCwxMDEuOTkzMTIyIEMyNy4xMTYyODMxLDEwMC44MjQ0NTkgMjcuMTE2MjgzMSw5OS4wNTA3NzUgMjguMjg1OTA4LDk3Ljg4MjExMTggTDk4LjA4NzUzNTksMjguMTM3ODgyMyBDMTAwLjk5OTg2NCwyNS42MjcxODM2IDEwNS43NTE2NDIsMjAuNTQxODI0IDExMi43Mjk2NTIsMTkuMzUyNDQ4NyBDMTE3LjkxNTU4NSwxOC40Njg1MjYxIDEyMy41ODUyMTksMjAuNDE0MDIzOSAxMjkuNzM4NTU0LDI1LjE4ODk0MjQgQzEyNS42MjQ2NjMsMjEuMDc4NDI5MiAxMTguNTcxOTk1LDE0LjAzNDAzMDQgMTA4LjU4MDU1LDQuMDU1NzQ1OTIgQzEwMy44NjIwNDksLTAuNTM3OTg2ODQ2IDk2LjI2OTI2MTgsLTAuNTAwNzk3OTA2IDkxLjU4ODA4NjMsNC4xNzY1MjgyMyBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMikiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTUzLjY4NTYzMywxMzUuODU0NTc5IEMxNTcuODk0MTE1LDE0MC4wNTk2IDE2NC43MTc0MTIsMTQwLjA1OTYgMTY4LjkyNTg5NCwxMzUuODU0NTc5IEwxOTUuOTU5OTc3LDEwOC44NDI3MjYgQzIwMC42NTkxODMsMTA0LjE0NzM4NCAyMDAuNjU5MTgzLDk2LjU2MzYxMzMgMTk1Ljk2MDUyNyw5MS44Njg4MTk0IEwxNjguNjkwNzc3LDY0LjcxODExNTkgQzE2NC40NzIzMzIsNjAuNTE4MDg1OCAxNTcuNjQ2ODY4LDYwLjUyNDE0MjUgMTUzLjQzNTg5NSw2NC43MzE2NTI2IEMxNDkuMjI3NDEzLDY4LjkzNjY3NCAxNDkuMjI3NDEzLDc1Ljc1NDM2MDcgMTUzLjQzNTg5NSw3OS45NTkzODIxIEwxNzEuODU0MDM1LDk4LjM2MjM3NjUgQzE3My4wMjM2Niw5OS41MzEwMzk2IDE3My4wMjM2NiwxMDEuMzA0NzI0IDE3MS44NTQwMzUsMTAyLjQ3MzM4NyBMMTUzLjY4NTYzMywxMjAuNjI2ODQ5IEMxNDkuNDc3MTUsMTI0LjgzMTg3IDE0OS40NzcxNSwxMzEuNjQ5NTU3IDE1My42ODU2MzMsMTM1Ljg1NDU3OSBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMykiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPGVsbGlwc2UgaWQ9IkNvbWJpbmVkLVNoYXBlIiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTQpIiBjeD0iMTAwLjUxOTMzOSIgY3k9IjEwMC40MzY2ODEiIHJ4PSIyMy42MDAxOTI2IiByeT0iMjMuNTgwNzg2Ij48L2VsbGlwc2U+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==\"\r\n  />\r\n</div>\r\n<div class=\"logo-title\"><a href=\"./\" title=\"ng-form-builder\">NgFormBuilder</a></div>\r\n<ul nz-menu [nzMode]=\"'horizontal'\" [nzTheme]=\"'dark'\" style=\"padding-left: 280px;\">\r\n  <li nz-submenu>\r\n    <span title>\r\n      <i class=\"anticon anticon-setting\"></i> Builder</span>\r\n    <ul>\r\n      <li nz-menu-item [nzSelected]=\"true\"  [routerLink]=\"'/bootstrap'\">BootStrap Form Builder</li>\r\n      <li nz-menu-item  [routerLink]=\"'/zorro'\">Zorro Form Builder (under development)</li>\r\n      <li nz-menu-item [nzDisable]=\"true\">PrimeNG Form Builder (comming soon)</li>\r\n      <li nz-menu-item [nzDisable]=\"true\">Ionic Form Builder (comming soon)</li>\r\n    </ul>\r\n  </li>\r\n  <li nz-submenu>\r\n    <span title>\r\n      <i class=\"anticon anticon-folder\"></i> Document</span>\r\n    <ul>\r\n      <li nz-menu-group>\r\n        <span title>Form</span>\r\n        <ul>\r\n          <li nz-menu-item [nzDisable]=\"true\">How-To Guide</li>\r\n          <li nz-menu-item [nzDisable]=\"true\">Api Reference</li>\r\n        </ul>\r\n      </li>\r\n      <li nz-menu-group>\r\n        <span title>Other</span>\r\n        <ul>\r\n          <li nz-menu-item>\r\n            <a href=\"http://json-schema.org/specification.html\" target=\"_blank\">JSON Schema Specification</a>\r\n          </li>\r\n        </ul>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n\r\n  <li nz-menu-item >\r\n    <i class=\"anticon anticon-github\"></i>  <a href=\"https://github.com/giscafer/ng-form-builder\" style=\"display:inline;color:#fff;\"  target=\"_blank\">Github</a></li>\r\n  <li nz-menu-item>\r\n    <a href=\"https://ng.ant.design\" target=\"_blank\" rel=\"noopener noreferrer\"></a>\r\n  </li>\r\n</ul>"
 
 /***/ }),
 
@@ -409,6 +300,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var NavComponent = (function () {
     function NavComponent() {
+        this._builder_type = 'bootstrap';
     }
     NavComponent.prototype.ngOnInit = function () {
     };
@@ -430,7 +322,7 @@ var NavComponent = (function () {
 /***/ "../../../../../src/app/pages/bootstrap-form/bootstrap-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-container\">\n  <div id=\"code-container\">\n    <div id=\"control-panel\">\n      <div id=\"code-info\">\n        <span class=\"code-type\">JSON</span>\n        <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\n        <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\n      </div>\n      <div class=\"control-btn-panel\">\n        <nz-dropdown>\n          <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\n            <span>{{demoName || 'Example Schema'}}</span>\n            <i class=\"anticon anticon-down\"></i>\n          </button>\n          <ul nz-menu>\n            <li nz-menu-item>\n              <a href=\"javascript:;\" title=\"简单例子\" (click)=\"toggleSchema('simple')\">Simple Example</a>\n            </li>\n            <li nz-menu-item>\n              <a href=\"javascript:;\" title=\"其他例子\" (click)=\"toggleSchema('other')\">Simple Example2</a>\n            </li>\n            <li nz-menu-item>\n              <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('grid')\">Grid Layout Example</a>\n            </li>\n            <li nz-menu-item>\n              <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\n            </li>\n          </ul>\n        </nz-dropdown>\n        <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\n        <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\n      </div>\n    </div>\n    <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\"\n      (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 80vh; width:100%\"></div>\n  </div>\n  <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\n  <div id=\"view-container\">\n    <div id=\"control-panel\">\n      <div class=\"control-btn-panel\">\n        <nz-dropdown>\n          <button nz-button nz-dropdown class=\"btn btn-default btn-sm\">\n            <span>Save</span>\n            <i class=\"anticon anticon-down\"></i>\n          </button>\n          <ul nz-menu>\n            <li nz-menu-item>\n              <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyHTMLCode(1)\">Download HTML</a>\n            </li>\n            <li nz-menu-item>\n              <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyHTMLCode()\">Copy HTML code</a>\n            </li>\n          </ul>\n        </nz-dropdown>\n      </div>\n    </div>\n    <br>\n    <bs-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\"\n      (onBuilderFinish)=\"onBuilderFinish($event)\"></bs-form-builder>\n  </div>\n</div>"
+module.exports = "<div id=\"main-container\">\r\n  <div id=\"code-container\">\r\n    <div id=\"control-panel\">\r\n      <div id=\"code-info\">\r\n        <span class=\"code-type\">JSON</span>\r\n        <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n        <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n      </div>\r\n      <div class=\"control-btn-panel\">\r\n        <nz-dropdown>\r\n          <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n            <span>{{demoName || 'Example Schema'}}</span>\r\n            <i class=\"anticon anticon-down\"></i>\r\n          </button>\r\n          <ul nz-menu>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"简单例子\" (click)=\"toggleSchema('simple')\">Simple Example</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"其他例子\" (click)=\"toggleSchema('other')\">Simple Example2</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('grid')\">Grid Layout Example</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n            </li>\r\n          </ul>\r\n        </nz-dropdown>\r\n        <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n        <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n      </div>\r\n    </div>\r\n    <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\"\r\n      (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 80vh; width:100%\"></div>\r\n  </div>\r\n  <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n  <div id=\"view-container\">\r\n    <div id=\"control-panel\">\r\n      <div class=\"control-btn-panel\">\r\n        <nz-dropdown>\r\n          <button nz-button nz-dropdown class=\"btn btn-default btn-sm\">\r\n            <span>Save</span>\r\n            <i class=\"anticon anticon-down\"></i>\r\n          </button>\r\n          <ul nz-menu>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyHTMLCode(1)\">Download HTML</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyHTMLCode()\">Copy HTML code</a>\r\n            </li>\r\n          </ul>\r\n        </nz-dropdown>\r\n      </div>\r\n    </div>\r\n    <br>\r\n    <bs-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\"\r\n      (onBuilderFinish)=\"onBuilderFinish($event)\"></bs-form-builder>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -611,25 +503,7 @@ var BootstrapFormComponent = (function () {
 /***/ "../../../../../src/app/pages/zorro-form/zorro-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  zorro-form works!\n</p>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/pages/zorro-form/zorro-form.component.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
+module.exports = "<div id=\"main-container\">\r\n  <div id=\"code-container\">\r\n    <div id=\"control-panel\">\r\n      <div id=\"code-info\">\r\n        <span class=\"code-type\">JSON</span>\r\n        <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n        <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n      </div>\r\n      <div class=\"control-btn-panel\">\r\n        <nz-dropdown>\r\n          <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n            <span>{{demoName}}</span>\r\n            <i class=\"anticon anticon-down\"></i>\r\n          </button>\r\n          <ul nz-menu>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"水平布局\" (click)=\"toggleSchema('horizontal-layout')\">Horizontal Layout Example</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"垂直布局\" (click)=\"toggleSchema('vertical-layout')\">Vertical Layout Example</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('grid')\">Grid Layout Example</a>\r\n            </li>\r\n           <!--  <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"简单例子\" (click)=\"toggleSchema('simple')\">Simple Example</a>\r\n            </li> -->\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"其他例子\" (click)=\"toggleSchema('other')\">Other Example</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n            </li>\r\n          </ul>\r\n        </nz-dropdown>\r\n        <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n        <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n      </div>\r\n    </div>\r\n    <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\"\r\n      (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 80vh; width:100%\"></div>\r\n  </div>\r\n  <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n  <div id=\"view-container\">\r\n    <div id=\"control-panel\">\r\n      <div class=\"control-btn-panel\">\r\n        <nz-dropdown>\r\n          <button nz-button nz-dropdown class=\"btn btn-default btn-sm\">\r\n            <span>Save</span>\r\n            <i class=\"anticon anticon-down\"></i>\r\n          </button>\r\n          <ul nz-menu>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyHTMLCode(1)\">Download HTML</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyHTMLCode()\">Copy HTML code</a>\r\n            </li>\r\n          </ul>\r\n        </nz-dropdown>\r\n      </div>\r\n    </div>\r\n    <br>\r\n    <div style=\"padding: 24px;\">\r\n        <zorro-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\"\r\n          (onBuilderFinish)=\"onBuilderFinish($event)\"></zorro-form-builder>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -639,6 +513,13 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ZorroFormComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng_zorro_antd__ = __webpack_require__("../../../../ng-zorro-antd/esm5/antd.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng_ace_tern__ = __webpack_require__("../../../../ng-ace-tern/ng-ace-tern.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_copy_text_to_clipboard__ = __webpack_require__("../../../../copy-text-to-clipboard/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_copy_text_to_clipboard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_copy_text_to_clipboard__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_formatTime__ = __webpack_require__("../../../../../src/app/utils/formatTime.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_setSplitPosition__ = __webpack_require__("../../../../../src/app/utils/setSplitPosition.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_download__ = __webpack_require__("../../../../../src/app/utils/download.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -649,20 +530,193 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
+
 var ZorroFormComponent = (function () {
-    function ZorroFormComponent() {
+    function ZorroFormComponent(_message) {
+        var _this = this;
+        this._message = _message;
+        // schema
+        this.actions = {};
+        this.count = 1;
+        this.builderInfo = {
+            msgType: 'info',
+            msg: '',
+            finishTime: '',
+            _startTime: 0,
+            _endTime: 0
+        };
+        this.demoName = 'Horizontal Layout Example';
+        // ace
+        this.text = 'test';
+        this.aceOptions = {
+            printMargin: false,
+            enableBasicAutocompletion: true,
+            enableSnippets: true,
+            enableLiveAutocompletion: true
+        };
+        this.createMessage = function (type, text) {
+            _this._message.create(type, "" + text);
+        };
+        this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/horizontal-layout.json");
+        this.schemaJson = JSON.parse(this.schemaString);
+        this.builderInfo._startTime = new Date().getTime();
+        // 按钮事件注册
+        this.actions['alert'] = function (property, options) {
+            property.forEachChildRecursive(function (child) {
+                console.log(child.valid, child);
+            });
+            alert(JSON.stringify(_this.value));
+        };
+        this.actions['reset'] = function (form, options) {
+            form.reset();
+        };
     }
-    ZorroFormComponent.prototype.ngOnInit = function () {
+    ZorroFormComponent.prototype.ngAfterViewInit = function () {
+        setTimeout(function () {
+            Object(__WEBPACK_IMPORTED_MODULE_5__utils_setSplitPosition__["a" /* initSplitEventHandler */])();
+        });
     };
+    ZorroFormComponent.prototype.toggleSchema = function (type) {
+        switch (type) {
+            case 'horizontal-layout':
+                this.demoName = 'Horizontal Layout Example';
+                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/horizontal-layout.json");
+                break;
+            case 'vertical-layout':
+                this.demoName = 'Vertical Layout Example';
+                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/vertical-layout.json");
+                break;
+            case 'simple':
+                this.demoName = 'Simple Example';
+                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/person-info.json");
+                break;
+            case 'other':
+                this.demoName = 'Simple Example2';
+                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/otherschema.json");
+                break;
+            case 'grid':
+                this.demoName = 'Grid Layout Example';
+                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/zorro-grid.json");
+                break;
+            case 'full':
+                this.demoName = 'Full Widget Example';
+                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/sampleschema.json");
+                break;
+        }
+        this.schemaJson = JSON.parse(this.schemaString);
+        this.builderInfo._startTime = new Date().getTime();
+    };
+    ZorroFormComponent.prototype.setValue = function (value) {
+        this.value = value;
+    };
+    ZorroFormComponent.prototype.logErrors = function (errors) {
+        console.log('ERRORS', errors);
+        this.log('页面构建失败，请检查再重试', 'error');
+    };
+    ZorroFormComponent.prototype.log = function (text, type) {
+        this.builderInfo.finishTime = Object(__WEBPACK_IMPORTED_MODULE_4__utils_formatTime__["a" /* formatTime */])(new Date());
+        if (type !== 'warn' && type !== 'error') {
+            this.builderInfo.msgType = 'info';
+        }
+        else {
+            this.builderInfo.msgType = type;
+        }
+        this.builderInfo.msg = text;
+    };
+    ZorroFormComponent.prototype.onBuilderFinish = function ($event) {
+        this.htmlCode = $event.code;
+        this.builderInfo._endTime = new Date().getTime();
+        this.log("\u9875\u9762\u6784\u5EFA\u5B8C\u6210\uFF0C" + (this.builderInfo._endTime - this.builderInfo._startTime) + "ms", 'info');
+    };
+    ZorroFormComponent.prototype.run = function (editor) {
+        if (this.hasEditorError()) {
+            this.log('编辑器内容有误', 'error');
+            return;
+        }
+        var text = this.editorDirective.editor.getValue();
+        this.builderInfo._startTime = new Date().getTime();
+        this.schemaJson = JSON.parse(text);
+    };
+    ZorroFormComponent.prototype.onAceChange = function (data) {
+        console.log('~~~编辑器内容变化~~~');
+    };
+    ZorroFormComponent.prototype.copyHTMLCode = function (type) {
+        if (type === 1) {
+            if ('download' in document.createElement('a')) {
+                Object(__WEBPACK_IMPORTED_MODULE_6__utils_download__["a" /* funDownload */])(this.htmlCode);
+            }
+            else {
+                return this.createMessage('error', '代码下载失败，请使用 Chrome 浏览器');
+            }
+            return this.createMessage('success', '文件下载成功！');
+        }
+        if (__WEBPACK_IMPORTED_MODULE_3_copy_text_to_clipboard__(this.htmlCode)) {
+            return this.createMessage('success', '代码已经复制到剪贴板！');
+        }
+        else {
+            return this.createMessage('error', '代码复制失败，请使用Chrome浏览器');
+        }
+    };
+    ZorroFormComponent.prototype.hasEditorError = function () {
+        var annotations = this.editorDirective.editor.getSession().getAnnotations();
+        for (var aid = 0, alen = annotations.length; aid < alen; ++aid) {
+            if (annotations[aid].type === 'error') {
+                return true;
+            }
+        }
+        return false;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2_ng_ace_tern__["a" /* AceEditorDirective */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2_ng_ace_tern__["a" /* AceEditorDirective */])
+    ], ZorroFormComponent.prototype, "editorDirective", void 0);
     ZorroFormComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-zorro-form',
             template: __webpack_require__("../../../../../src/app/pages/zorro-form/zorro-form.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/pages/zorro-form/zorro-form.component.scss")]
+            styleUrls: []
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ng_zorro_antd__["b" /* NzMessageService */]])
     ], ZorroFormComponent);
     return ZorroFormComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/builder-service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuilderService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var BuilderService = (function () {
+    function BuilderService() {
+        this.builderChanged = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["a" /* Subject */]();
+    }
+    BuilderService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], BuilderService);
+    return BuilderService;
 }());
 
 
@@ -679,7 +733,7 @@ var ZorroFormComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_zorro_antd__ = __webpack_require__("../../../../ng-zorro-antd/esm5/antd.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng_ace_tern__ = __webpack_require__("../../../../ng-ace-tern/ng-ace-tern.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib__ = __webpack_require__("../../../../../src/lib/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_schema_form_module__ = __webpack_require__("../../../../../src/lib/schema-form.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -707,16 +761,16 @@ var SharedModule = (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_3_ng_zorro_antd__["a" /* NgZorroAntdModule */],
+                __WEBPACK_IMPORTED_MODULE_3_ng_zorro_antd__["a" /* NgZorroAntdModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_4_ng_ace_tern__["b" /* AceEditorModule */],
-                __WEBPACK_IMPORTED_MODULE_5__lib__["a" /* SchemaFormModule */],
+                __WEBPACK_IMPORTED_MODULE_5__lib_schema_form_module__["a" /* SchemaFormModule */],
             ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3_ng_zorro_antd__["a" /* NgZorroAntdModule */],
                 __WEBPACK_IMPORTED_MODULE_4_ng_ace_tern__["b" /* AceEditorModule */],
-                __WEBPACK_IMPORTED_MODULE_5__lib__["a" /* SchemaFormModule */]
+                __WEBPACK_IMPORTED_MODULE_5__lib_schema_form_module__["a" /* SchemaFormModule */]
             ]
         })
     ], SharedModule);
@@ -856,20 +910,73 @@ function BsTmplBuilder(registry, formProperty) {
             }
         }
     }
-    if (formProperty.schema.buttons !== undefined) {
-        var buttons = formProperty.schema.buttons;
+    if (formProperty.schema.button !== undefined) {
+        var button = formProperty.schema.button;
         var WidgetClass = registry.getWidgetType('button');
-        var btnHtml = '', btnWidget = null, btnGrid = {};
-        for (var _c = 0, buttons_1 = buttons; _c < buttons_1.length; _c++) {
-            var btn = buttons_1[_c];
+        var btnHtml = '', btnWidget = null, btnGrid = button.grid || {};
+        for (var _c = 0, _d = button.items; _c < _d.length; _c++) {
+            var btn = _d[_c];
             btnWidget = new WidgetClass();
-            Object.assign(btnGrid, btn.grid ? btn.grid : {});
             btnHtml += btnWidget.getTemplate(formProperty.schema, btn);
         }
         var listOfClassName = btnWidget.getLayoutClass({ grid: btnGrid });
         templ += "\n        <div class=\"form-group\">\n            <div class=\"" + listOfClassName.join(' ') + "\">\n                " + btnHtml + "\n            </div>\n        </div>\n        ";
     }
     templ += '</fieldset></form>';
+    return templ;
+}
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/builder/zorro-template-builder.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = ZorroTmplBuilder;
+function ZorroTmplBuilder(registry, formProperty) {
+    var templ = "";
+    var fieldsets = formProperty.schema.fieldsets;
+    var layout = formProperty.schema.layout;
+    var col_num = formProperty.schema.col_num;
+    var col_gutter = formProperty.schema.col_gutter || 0;
+    var span = col_num ? 24 / col_num : 0;
+    if (fieldsets && fieldsets.length) {
+        templ = "<form nz-form " + (layout ? "[nzLayout]=\"'" + layout + "'\"" : '') + "><div nz-row [nzGutter]=\"" + col_gutter + "\">";
+        for (var _i = 0, fieldsets_1 = fieldsets; _i < fieldsets_1.length; _i++) {
+            var fieldset = fieldsets_1[_i];
+            templ += fieldset.title ? ('<legend>' + fieldset.title + '</legend>') : '';
+            for (var _a = 0, _b = fieldset.fields; _a < _b.length; _a++) {
+                var fieldId = _b[_a];
+                var property = formProperty.getProperty(fieldId);
+                var widgetInfo = property.schema.widget;
+                var WidgetClass = registry.getWidgetType(widgetInfo.id || widgetInfo);
+                templ += col_num ? "<div nz-col [nzSpan]=\"" + span + "\" nz-form-item>" : '<div  nz-row nz-form-item>';
+                if (widgetInfo.id === 'array') {
+                    // TODO array widget not support yet
+                    templ += new WidgetClass(formProperty, registry).getTemplate(property.schema);
+                }
+                else {
+                    templ += new WidgetClass().getTemplate(property.schema);
+                }
+                templ += '</div>';
+            }
+        }
+        templ += '</div>';
+    }
+    if (formProperty.schema.button !== undefined) {
+        var button = formProperty.schema.button;
+        var WidgetClass = registry.getWidgetType('button');
+        var btnHtml = '', btnWidget = null, btnGrid = button.grid || {};
+        for (var _c = 0, _d = button.items; _c < _d.length; _c++) {
+            var btn = _d[_c];
+            btnWidget = new WidgetClass();
+            btnHtml += btnWidget.getTemplate(formProperty.schema, btn);
+        }
+        var listOfClassName = btnWidget.getLayoutClass({ grid: btnGrid, _prefixCls: 'ant-col' });
+        templ += "\n        <div  nz-form-item nz-row>\n            <div  nz-col class=\"" + listOfClassName.join(' ') + "\">\n                " + btnHtml + "\n            </div>\n        </div>\n        ";
+    }
+    templ += '</form>';
     return templ;
 }
 
@@ -1152,21 +1259,295 @@ var BsFormBuilderComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/lib/components/zorro-form-builder.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export useFactory */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ZorroFormBuilderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model__ = __webpack_require__("../../../../../src/lib/model/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__terminator_service__ = __webpack_require__("../../../../../src/lib/terminator.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__schemavalidator_factory__ = __webpack_require__("../../../../../src/lib/schemavalidator.factory.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__zorro_widget_factory__ = __webpack_require__("../../../../../src/lib/zorro-widget-factory.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__widget_registry__ = __webpack_require__("../../../../../src/lib/widget-registry.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__builder_zorro_template_builder__ = __webpack_require__("../../../../../src/lib/builder/zorro-template-builder.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__index__ = __webpack_require__("../../../../../src/lib/index.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+function useFactory(schemaValidatorFactory, validatorRegistry) {
+    return new __WEBPACK_IMPORTED_MODULE_2__model__["b" /* FormPropertyFactory */](schemaValidatorFactory, validatorRegistry);
+}
+;
+var ZorroFormBuilderComponent = (function () {
+    function ZorroFormBuilderComponent(registry, formPropertyFactory, actionRegistry, validatorRegistry, ZorroWidgetFactory, cdr, terminator) {
+        if (ZorroWidgetFactory === void 0) { ZorroWidgetFactory = null; }
+        this.formPropertyFactory = formPropertyFactory;
+        this.actionRegistry = actionRegistry;
+        this.validatorRegistry = validatorRegistry;
+        this.ZorroWidgetFactory = ZorroWidgetFactory;
+        this.cdr = cdr;
+        this.terminator = terminator;
+        this.widgetInstanciated = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        this.validators = {};
+        this.schema = null;
+        this.actions = {};
+        this.onChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        this.modelChanged = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        this.isValid = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        this.onErrorChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        this.onErrorsChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        this.onBuilderFinish = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        this.control = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */]('', function () { return null; });
+        this.rootProperty = null;
+        this.widget = null;
+        this.buttons = [];
+        this.registry = registry;
+    }
+    ZorroFormBuilderComponent_1 = ZorroFormBuilderComponent;
+    ZorroFormBuilderComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.terminator.onDestroy.subscribe(function (destroy) {
+            if (destroy) {
+                _this.ref.destroy();
+            }
+        });
+    };
+    ZorroFormBuilderComponent.prototype.ngOnChanges = function (changes) {
+        var _this = this;
+        if (changes.validators) {
+            this.setValidators();
+        }
+        if (changes.actions) {
+            this.setActions();
+        }
+        if (this.schema && !this.schema.type) {
+            this.schema.type = 'object';
+        }
+        if (this.schema && changes.schema) {
+            this[this.schema.modelName] = {};
+            this.coverProperty(this.schema);
+            if (this.schema.debug) {
+                console.warn('schema debugger', this.schema);
+            }
+            if (!changes.schema.firstChange) {
+                this.terminator.destroy();
+            }
+            __WEBPACK_IMPORTED_MODULE_2__model__["c" /* SchemaPreprocessor */].preprocess(this.schema);
+            this.rootProperty = this.formPropertyFactory.createProperty(this.schema);
+            this.rootProperty.valueChanges.subscribe(function (value) {
+                if (_this.modelChanged.observers.length > 0) {
+                    if (_this.model) {
+                        Object.assign(_this.model, value);
+                    }
+                    else {
+                        _this.model = value;
+                    }
+                    _this.modelChanged.emit(value);
+                }
+                _this.onChange.emit({ value: value });
+            });
+            this.rootProperty.errorsChanges.subscribe(function (value) {
+                _this.onErrorChange.emit({ value: value });
+                _this.isValid.emit(!(value && value.length));
+            });
+        }
+        if (this.schema && (changes.model || changes.schema)) {
+            this.rootProperty.reset(this.model, false);
+            this.cdr.detectChanges();
+        }
+        this._createForm(this.rootProperty.schema.widget);
+    };
+    ZorroFormBuilderComponent.prototype.coverProperty = function (schema) {
+        var _this = this;
+        Object.keys(schema.properties).forEach(function (key) {
+            var p = schema.properties[key];
+            p['name'] = p['name'] ? p['name'] : key;
+            p['formId'] = 'field' + (ZorroFormBuilderComponent_1.counter++);
+            p['modelName'] = schema.modelName || 'model';
+            p['_prefixCls'] = 'ant-col';
+            if (schema.grid) {
+                Object.assign(p, { grid: schema.grid }, p.grid ? { grid: p.grid } : {});
+            }
+            /*  ListOfGridSizeName.forEach(name => {
+                 if (schema[name]) {
+                     Object.assign(p, { [name]: schema[name] }, p[name] ? { [name]: p[name] } : {});
+                 }
+             }); */
+            if (p.items && p.properties && p.type === 'array') {
+                _this.coverProperty(p.items);
+            }
+        });
+    };
+    ZorroFormBuilderComponent.prototype.setValidators = function () {
+        this.validatorRegistry.clear();
+        if (this.validators) {
+            for (var validatorId in this.validators) {
+                if (this.validators.hasOwnProperty(validatorId)) {
+                    this.validatorRegistry.register(validatorId, this.validators[validatorId]);
+                }
+            }
+        }
+    };
+    ZorroFormBuilderComponent.prototype.setActions = function () {
+        this.actionRegistry.clear();
+        if (this.actions) {
+            for (var actionId in this.actions) {
+                if (this.actions.hasOwnProperty(actionId)) {
+                    this.actionRegistry.register(actionId, this.actions[actionId]);
+                }
+            }
+        }
+    };
+    ZorroFormBuilderComponent.prototype.onWidgetInstanciated = function (widget) {
+        this.widget = widget;
+        var id = 'field' + (ZorroFormBuilderComponent_1.counter++);
+        this.widget.formProperty = this.rootProperty;
+        this.widget.schema = this.rootProperty.schema;
+        this.widget.name = id;
+        this.widget.id = id;
+        this.widget.control = this.control;
+    };
+    ZorroFormBuilderComponent.prototype.reset = function () {
+        this.rootProperty.reset(null, true);
+    };
+    ZorroFormBuilderComponent.prototype._createForm = function (widgetInfo) {
+        var widgetTemplate = Object(__WEBPACK_IMPORTED_MODULE_7__builder_zorro_template_builder__["a" /* ZorroTmplBuilder */])(this.registry, this.rootProperty);
+        // let widgetTemplate = this.registry.getWidgetType(widgetInfo.id);
+        var template = widgetTemplate;
+        var properties = (_a = {
+                "formProperty": this.rootProperty,
+                "control": this.control,
+                "property": { visible: true },
+                "_debug_": this.rootProperty.schema.debug,
+                "modelName": this.rootProperty.schema.modelName || 'model'
+            },
+            _a[this.rootProperty.schema.modelName || 'model'] = this.rootProperty.value || {},
+            _a);
+        this.ref = this.ZorroWidgetFactory.addWidget(this.container, template, properties, this);
+        this.widgetInstanciated.emit(this.ref.instance);
+        this.widgetInstance = this.ref.instance;
+        this.cdr.detectChanges();
+        this.onBuilderFinish.emit({ code: template });
+        var _a;
+    };
+    ZorroFormBuilderComponent.counter = 0;
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "widgetInfo", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "widgetInstanciated", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewChild */])('target', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewContainerRef */] }),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewContainerRef */])
+    ], ZorroFormBuilderComponent.prototype, "container", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "validators", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "schema", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "model", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "actions", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "onChange", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "modelChanged", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "isValid", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "onErrorChange", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "onErrorsChange", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ZorroFormBuilderComponent.prototype, "onBuilderFinish", void 0);
+    ZorroFormBuilderComponent = ZorroFormBuilderComponent_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'zorro-form-builder',
+            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewEncapsulation */].None,
+            template: "<div #target></div>",
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_5__zorro_widget_factory__["a" /* ZorroWidgetFactory */],
+                __WEBPACK_IMPORTED_MODULE_2__model__["c" /* SchemaPreprocessor */],
+                __WEBPACK_IMPORTED_MODULE_2__model__["a" /* ActionRegistry */],
+                __WEBPACK_IMPORTED_MODULE_2__model__["d" /* ValidatorRegistry */],
+                __WEBPACK_IMPORTED_MODULE_3__terminator_service__["a" /* TerminatorService */],
+                {
+                    provide: __WEBPACK_IMPORTED_MODULE_2__model__["b" /* FormPropertyFactory */],
+                    useFactory: useFactory,
+                    deps: [__WEBPACK_IMPORTED_MODULE_4__schemavalidator_factory__["a" /* SchemaValidatorFactory */], __WEBPACK_IMPORTED_MODULE_2__model__["d" /* ValidatorRegistry */]]
+                },
+                { provide: __WEBPACK_IMPORTED_MODULE_6__widget_registry__["a" /* WidgetRegistry */], useClass: __WEBPACK_IMPORTED_MODULE_8__index__["a" /* ZorroDefaultWidgetRegistry */] }
+            ]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__widget_registry__["a" /* WidgetRegistry */],
+            __WEBPACK_IMPORTED_MODULE_2__model__["b" /* FormPropertyFactory */],
+            __WEBPACK_IMPORTED_MODULE_2__model__["a" /* ActionRegistry */],
+            __WEBPACK_IMPORTED_MODULE_2__model__["d" /* ValidatorRegistry */],
+            __WEBPACK_IMPORTED_MODULE_5__zorro_widget_factory__["a" /* ZorroWidgetFactory */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */],
+            __WEBPACK_IMPORTED_MODULE_3__terminator_service__["a" /* TerminatorService */]])
+    ], ZorroFormBuilderComponent);
+    return ZorroFormBuilderComponent;
+    var ZorroFormBuilderComponent_1;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/lib/index.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_bs_form_builder_component__ = __webpack_require__("../../../../../src/lib/components/bs-form-builder.component.ts");
-/* unused harmony reexport BsFormBuilderComponent */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__widget_registry__ = __webpack_require__("../../../../../src/lib/widget-registry.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__widget_registry__ = __webpack_require__("../../../../../src/lib/widget-registry.ts");
 /* unused harmony reexport WidgetRegistry */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__widgets_primeng__ = __webpack_require__("../../../../../src/lib/widgets/primeng/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__widgets_primeng__ = __webpack_require__("../../../../../src/lib/widgets/primeng/index.ts");
 /* unused harmony reexport PrimengDefaultWidgetRegistry */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__widgets_bootstrap__ = __webpack_require__("../../../../../src/lib/widgets/bootstrap/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__widgets_bootstrap__ = __webpack_require__("../../../../../src/lib/widgets/bootstrap/index.ts");
 /* unused harmony reexport BootStrapDefaultWidgetRegistry */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__schema_form_module__ = __webpack_require__("../../../../../src/lib/schema-form.module.ts");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__schema_form_module__["a"]; });
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__widgets_zorro__ = __webpack_require__("../../../../../src/lib/widgets/zorro/index.ts");
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__widgets_zorro__["a"]; });
 
 
 
@@ -2158,9 +2539,8 @@ var ValidatorRegistry = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_bs_form_builder_component__ = __webpack_require__("../../../../../src/lib/components/bs-form-builder.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__widget_registry__ = __webpack_require__("../../../../../src/lib/widget-registry.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__widgets_bootstrap__ = __webpack_require__("../../../../../src/lib/widgets/bootstrap/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__schemavalidator_factory__ = __webpack_require__("../../../../../src/lib/schemavalidator.factory.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_zorro_form_builder_component__ = __webpack_require__("../../../../../src/lib/components/zorro-form-builder.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__schemavalidator_factory__ = __webpack_require__("../../../../../src/lib/schemavalidator.factory.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2172,19 +2552,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-// import { PrimengDefaultWidgetRegistry } from './widgets/primeng';
-
 
 var moduleProviders = [
-    /*  {
-       provide: WidgetRegistry,
-       useClass: PrimengDefaultWidgetRegistry
-     }, */ {
-        provide: __WEBPACK_IMPORTED_MODULE_4__widget_registry__["a" /* WidgetRegistry */],
-        useClass: __WEBPACK_IMPORTED_MODULE_5__widgets_bootstrap__["a" /* BootStrapDefaultWidgetRegistry */]
-    }, {
-        provide: __WEBPACK_IMPORTED_MODULE_6__schemavalidator_factory__["a" /* SchemaValidatorFactory */],
-        useClass: __WEBPACK_IMPORTED_MODULE_6__schemavalidator_factory__["b" /* ZSchemaValidatorFactory */]
+    {
+        provide: __WEBPACK_IMPORTED_MODULE_5__schemavalidator_factory__["a" /* SchemaValidatorFactory */],
+        useClass: __WEBPACK_IMPORTED_MODULE_5__schemavalidator_factory__["b" /* ZSchemaValidatorFactory */]
     }
 ];
 var SchemaFormModule = (function () {
@@ -2201,13 +2573,16 @@ var SchemaFormModule = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* ReactiveFormsModule */]],
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__components_bs_form_builder_component__["a" /* BsFormBuilderComponent */]
+                __WEBPACK_IMPORTED_MODULE_3__components_bs_form_builder_component__["a" /* BsFormBuilderComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__components_zorro_form_builder_component__["a" /* ZorroFormBuilderComponent */]
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_3__components_bs_form_builder_component__["a" /* BsFormBuilderComponent */]
+                __WEBPACK_IMPORTED_MODULE_3__components_bs_form_builder_component__["a" /* BsFormBuilderComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__components_zorro_form_builder_component__["a" /* ZorroFormBuilderComponent */]
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_3__components_bs_form_builder_component__["a" /* BsFormBuilderComponent */]
+                __WEBPACK_IMPORTED_MODULE_3__components_bs_form_builder_component__["a" /* BsFormBuilderComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__components_zorro_form_builder_component__["a" /* ZorroFormBuilderComponent */]
             ],
             providers: moduleProviders.slice()
         })
@@ -2934,7 +3309,7 @@ var BootStrapDefaultWidgetRegistry = (function (_super) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__defaultwidget_registry__ = __webpack_require__("../../../../../src/lib/widgets/bootstrap/defaultwidget-registry.ts");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__defaultwidget_registry__["a"]; });
+/* unused harmony reexport BootStrapDefaultWidgetRegistry */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__integer_integer_widget__ = __webpack_require__("../../../../../src/lib/widgets/bootstrap/integer/integer.widget.ts");
 /* unused harmony reexport IntegerWidget */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__range_range_widget__ = __webpack_require__("../../../../../src/lib/widgets/bootstrap/range/range.widget.ts");
@@ -3246,6 +3621,362 @@ var PrimengDefaultWidgetRegistry = (function (_super) {
 
 /***/ }),
 
+/***/ "../../../../../src/lib/widgets/zorro/button/button.widget.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonWidget; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__widget__ = __webpack_require__("../../../../../src/lib/widget.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var ButtonWidget = (function (_super) {
+    __extends(ButtonWidget, _super);
+    function ButtonWidget() {
+        return _super.call(this) || this;
+    }
+    ButtonWidget.prototype.getTemplate = function (schema, button) {
+        return "\n    <button nz-button (click)=\"action($event,'" + button.id + "')\" class=\"btn btn-default\">" + button.label + "</button>\n    ";
+    };
+    return ButtonWidget;
+}(__WEBPACK_IMPORTED_MODULE_0__widget__["b" /* ControlWidget */]));
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/widgets/zorro/date/date.widget.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DateWidget; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__widget__ = __webpack_require__("../../../../../src/lib/widget.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var DateWidget = (function (_super) {
+    __extends(DateWidget, _super);
+    function DateWidget() {
+        return _super.call(this) || this;
+    }
+    DateWidget.prototype.getTemplate = function (schema) {
+        var templ = '';
+        var listOfClassName = this.getLayoutClass(schema);
+        if (schema.title) {
+            templ += "\n        <div nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\">\n            <label for=\"" + schema.formId + "\" nz-form-item-required [nzRequired]=\"required\">\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n            </label>\n        </div>\n      ";
+        }
+        templ += "\n    <div nz-form-control nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-datepicker\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + ((schema.widget.id !== 'color' && schema.readOnly) ? "[nzReadonly]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'YYYY/MM/DD'\"") + "\n            " + (schema.showTime ? "[nzShowTime]=\"true\"" : "[nzShowTime]=\"false\"") + "\n            [nzPlaceHolder]=\"'" + (schema.placeholder ? schema.placeholder : '') + "'\"\n            " + ((schema.widget.id === 'color' && schema.readOnly) ? "[attr.disabled]=\"'true'\"" : "") + "></nz-datepicker>\n    </div>\n    ";
+        return templ;
+    };
+    return DateWidget;
+}(__WEBPACK_IMPORTED_MODULE_0__widget__["b" /* ControlWidget */]));
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/widgets/zorro/defaultwidget-registry.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ZorroDefaultWidgetRegistry; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__string_string_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/string/string.widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__widget_registry__ = __webpack_require__("../../../../../src/lib/widget-registry.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__schema__ = __webpack_require__("../../../../../src/lib/schema/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__button_button_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/button/button.widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__date_date_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/date/date.widget.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+
+
+var ZorroDefaultWidgetRegistry = (function (_super) {
+    __extends(ZorroDefaultWidgetRegistry, _super);
+    function ZorroDefaultWidgetRegistry() {
+        var _this = _super.call(this) || this;
+        _this.setType(__WEBPACK_IMPORTED_MODULE_2__schema__["a" /* WidgetType */].ZORRO);
+        _this.register('string', __WEBPACK_IMPORTED_MODULE_0__string_string_widget__["a" /* StringWidget */]);
+        _this.register('button', __WEBPACK_IMPORTED_MODULE_3__button_button_widget__["a" /* ButtonWidget */]);
+        _this.register('date', __WEBPACK_IMPORTED_MODULE_4__date_date_widget__["a" /* DateWidget */]);
+        //   this.register('search', StringWidget);
+        //   this.register('tel', StringWidget);
+        //   this.register('url', StringWidget);
+        //   this.register('email', StringWidget);
+        //   this.register('password', StringWidget);
+        //   this.register('color', StringWidget);
+        //   this.register('date', StringWidget);
+        //   this.register('date-time', StringWidget);
+        //   this.register('time', StringWidget);
+        //   this.register('integer', IntegerWidget);
+        //   this.register('number', IntegerWidget);
+        //   this.register('range', RangeWidget);
+        //   this.register('textarea', TextAreaWidget);
+        //   this.register('select', SelectWidget);
+        //   this.register('radio', RadioWidget);
+        //   this.register('checkbox', CheckboxWidget);
+        //   this.register('boolean', CheckboxWidget);
+        //   this.register('array', ArrayWidget);
+        _this.setDefaultWidget(__WEBPACK_IMPORTED_MODULE_0__string_string_widget__["a" /* StringWidget */]);
+        return _this;
+    }
+    return ZorroDefaultWidgetRegistry;
+}(__WEBPACK_IMPORTED_MODULE_1__widget_registry__["a" /* WidgetRegistry */]));
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/widgets/zorro/index.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__defaultwidget_registry__ = __webpack_require__("../../../../../src/lib/widgets/zorro/defaultwidget-registry.ts");
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__defaultwidget_registry__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__button_button_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/button/button.widget.ts");
+/* unused harmony reexport ButtonWidget */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__date_date_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/date/date.widget.ts");
+/* unused harmony reexport DateWidget */
+
+
+
+/* export { IntegerWidget } from './integer/integer.widget';
+export { RangeWidget } from './range/range.widget';
+export { StringWidget } from './string/string.widget';
+export { TextAreaWidget } from './textarea/textarea.widget';
+export { ArrayWidget } from './array/array.widget';
+export { CheckboxWidget } from './checkbox/checkbox.widget';
+export { RadioWidget } from './radio/radio.widget';
+export { SelectWidget } from './select/select.widget'; */
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/widgets/zorro/string/string.widget.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StringWidget; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__widget__ = __webpack_require__("../../../../../src/lib/widget.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var StringWidget = (function (_super) {
+    __extends(StringWidget, _super);
+    function StringWidget() {
+        return _super.call(this) || this;
+    }
+    StringWidget.prototype.getTemplate = function (schema) {
+        var listOfClassName = this.getLayoutClass(schema);
+        var templ = "";
+        if (this.getInputType(schema) === 'hidden') {
+            templ = "<input  nz-input [attr.name]=\"name\" type=\"hidden\" [ngModel]=\"" + schema.modelName + "\">";
+        }
+        else {
+            templ = "\n            <div nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\">\n                <label for=\"" + schema.formId + "\" nz-form-item-required [nzRequired]=\"required\">\n                    <span> " + (schema.title || '') + "\n                        " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                    </span>\n                </label>\n            </div>\n            <div nz-form-control nz-col\n                " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n                " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + "\n             nzHasFeedback>\n                <input nz-input\n                [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n                id=\"" + schema.formId + "\"\n                name=\"" + schema.name + "\"\n                " + ((schema.widget.id !== 'color' && schema.readOnly) ? "[nzReadonly]=\"true\"" : "") + "\n                type=\"" + this.getInputType(schema) + "\"\n                placeholder=\"" + (schema.placeholder ? schema.placeholder : ' ') + "\"\n                " + ((schema.maxLength || schema.maxLength == 0) ? "[attr.maxLength]=\"" + schema.maxLength + "\"" : "") + "\n                " + ((schema.minLength || schema.minLength == 0) ? "[attr.minLength]=\"" + schema.minLength + "\"" : "") + "\n                " + ((schema.widget.id === 'color' && schema.readOnly) ? "[attr.disabled]=\"'true'\"" : "") + "/>\n                " + ((schema.widget.id === 'color' && schema.readOnly) ? "<input  nz-input name=\"" + schema.name + "\" type=\"hidden\"/>" : "") + "\n            </div>\n            ";
+        }
+        return templ;
+    };
+    StringWidget.prototype.getInputType = function (widgetInfo) {
+        if (!widgetInfo.widget.id || widgetInfo.widget.id === 'string') {
+            return 'text';
+        }
+        else {
+            return widgetInfo.widget.id;
+        }
+    };
+    return StringWidget;
+}(__WEBPACK_IMPORTED_MODULE_0__widget__["b" /* ControlWidget */]));
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/zorro-widget-factory.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ZorroWidgetFactory; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__widget_registry__ = __webpack_require__("../../../../../src/lib/widget-registry.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_timers__ = __webpack_require__("../../../../timers-browserify/main.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_timers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_timers__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__model_actionregistry__ = __webpack_require__("../../../../../src/lib/model/actionregistry.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng_zorro_antd__ = __webpack_require__("../../../../ng-zorro-antd/esm5/antd.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var ZorroWidgetFactory = (function () {
+    function ZorroWidgetFactory(registry, compiler) {
+        this.compiler = compiler;
+        this.registry = registry;
+    }
+    ZorroWidgetFactory.prototype.addWidget = function (container, template, properties, context) {
+        if (properties === void 0) { properties = {}; }
+        var TemplateComponent = (function () {
+            function TemplateComponent(_differs, actionRegistry, changeDetectorRef) {
+                this._differs = _differs;
+                this.actionRegistry = actionRegistry;
+                this.changeDetectorRef = changeDetectorRef;
+                this.buttons = [];
+            }
+            TemplateComponent.prototype.ngOnInit = function () {
+                this._differ = this._differs.find(this[this['modelName']]).create();
+                if (this.interval) {
+                    Object(__WEBPACK_IMPORTED_MODULE_4_timers__["clearInterval"])(this.interval);
+                    this.interval = null;
+                }
+                this._parseButtons();
+            };
+            TemplateComponent.prototype.ngDoCheck = function () {
+                if (this._differ) {
+                    var changes = this._differ.diff(this[this['modelName']]);
+                    if (changes) {
+                        this._applyChanges(changes);
+                        if (this['_debug_']) {
+                            console.warn('model changes', this[this['modelName']]);
+                        }
+                    }
+                }
+            };
+            TemplateComponent.prototype._parseButtons = function () {
+                var schema = properties.formProperty.schema;
+                if (schema.buttons !== undefined) {
+                    this.buttons = schema.buttons;
+                    for (var _i = 0, _a = this.buttons; _i < _a.length; _i++) {
+                        var button = _a[_i];
+                        this._createButtonCallback(button);
+                    }
+                }
+            };
+            TemplateComponent.prototype._createButtonCallback = function (button) {
+                var _this = this;
+                this.action = function (e, id) {
+                    var action;
+                    if (id && (action = _this.actionRegistry.get(id))) {
+                        if (action) {
+                            action(properties.formProperty, _this._getBtnParameters(id));
+                            // TODO，临时解决方案
+                            if (id === 'reset') {
+                                _this[_this['modelName']] = {};
+                            }
+                        }
+                    }
+                    e.preventDefault();
+                };
+            };
+            TemplateComponent.prototype._applyChanges = function (changes) {
+                context.onChange.emit({ value: this[this['modelName']] });
+                context.modelChanged.emit(this[this['modelName']]);
+            };
+            TemplateComponent.prototype._getBtnParameters = function (id) {
+                for (var _i = 0, _a = this.buttons; _i < _a.length; _i++) {
+                    var btn = _a[_i];
+                    if (id === btn.id) {
+                        return btn.parameters;
+                    }
+                }
+            };
+            TemplateComponent.prototype.addItem = function () {
+                this.formProperty.addItem();
+            };
+            TemplateComponent.prototype.removeItem = function (index) {
+                this.formProperty.removeItem(index);
+            };
+            TemplateComponent.prototype.ngOnDestroy = function () {
+                if (this.interval) {
+                    Object(__WEBPACK_IMPORTED_MODULE_4_timers__["clearInterval"])(this.interval);
+                    this.interval = null;
+                }
+            };
+            TemplateComponent = __decorate([
+                Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({ template: template }),
+                __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* KeyValueDiffers */],
+                    __WEBPACK_IMPORTED_MODULE_5__model_actionregistry__["a" /* ActionRegistry */],
+                    __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */]])
+            ], TemplateComponent);
+            return TemplateComponent;
+        }());
+        var TemplateModule = (function () {
+            function TemplateModule() {
+            }
+            TemplateModule = __decorate([
+                Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+                    declarations: [TemplateComponent],
+                    imports: [__WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* ReactiveFormsModule */], __WEBPACK_IMPORTED_MODULE_6_ng_zorro_antd__["a" /* NgZorroAntdModule */]],
+                    providers: [__WEBPACK_IMPORTED_MODULE_5__model_actionregistry__["a" /* ActionRegistry */]]
+                })
+            ], TemplateModule);
+            return TemplateModule;
+        }());
+        var mod = this.compiler.compileModuleAndAllComponentsSync(TemplateModule);
+        var factory = mod.componentFactories.find(function (comp) {
+            return comp.componentType === TemplateComponent;
+        });
+        var component = container.createComponent(factory);
+        Object.assign(component.instance, properties);
+        return component;
+    };
+    ZorroWidgetFactory = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__widget_registry__["a" /* WidgetRegistry */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Compiler */]])
+    ], ZorroWidgetFactory);
+    return ZorroWidgetFactory;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/main.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3529,31 +4260,52 @@ webpackContext.id = "../../../../moment/locale recursive ^\\.\\/.*$";
 
 /***/ }),
 
+/***/ "../../../../raw-loader/index.js!../../../../../src/mock/horizontal-layout.json":
+/***/ (function(module, exports) {
+
+module.exports = "{\r\n    \"debug\": true,\r\n    \"layout\": \"horizontal\",\r\n    \"properties\": {\r\n        \"name\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"用户名\",\r\n            \"placeholder\": \"请输入用户名，且2位以上\",\r\n            \"minLength\": 2,\r\n            \"span_label\": 5,\r\n            \"span_control\": 16\r\n        },\r\n        \"password\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"password\",\r\n            \"title\": \"密码\",\r\n            \"placeholder\": \"请输入密码，且6位以上\",\r\n            \"minLength\": 6,\r\n            \"span_label\": 5,\r\n            \"span_control\": 16\r\n        }\r\n    },\r\n    \"required\": [\r\n        \"name\",\r\n        \"password\"\r\n    ],\r\n    \"button\": {\r\n        \"grid\": {\r\n            \"offset\": 5\r\n        },\r\n        \"items\": [\r\n            {\r\n                \"label\": \"登录\",\r\n                \"id\": \"send\",\r\n                \"submit\": true\r\n            },\r\n            {\r\n                \"label\": \"重置\",\r\n                \"id\": \"reset\"\r\n            }\r\n        ]\r\n    }\r\n}"
+
+/***/ }),
+
 /***/ "../../../../raw-loader/index.js!../../../../../src/mock/otherschema.json":
 /***/ (function(module, exports) {
 
-module.exports = "{\r\n  \"debug\": true,\r\n  \"modelName\": \"testModel\",\r\n  \"fieldsets\": [\r\n    {\r\n      \"fields\": [\r\n        \"title\",\r\n        \"description\"\r\n      ],\r\n      \"id\": \"default\",\r\n      \"title\": \"Default\"\r\n    },\r\n    {\r\n      \"fields\": [\r\n        \"author\",\r\n        \"language\",\r\n        \"numberOfBoxes\"\r\n      ],\r\n      \"id\": \"settings\",\r\n      \"title\": \"Settings\"\r\n    }\r\n  ],\r\n  \"properties\": {\r\n    \"description\": {\r\n      \"description\": \"Short description\",\r\n      \"placeholder\": \"input string\",\r\n      \"minLength\": 0,\r\n      \"readOnly\": true,\r\n      \"title\": \"Summary\",\r\n      \"type\": \"string\",\r\n      \"widget\": \"textarea\"\r\n    },\r\n    \"title\": {\r\n      \"description\": \"\",\r\n      \"title\": \"Title\",\r\n      \"maxLength\": 10,\r\n      \"type\": \"string\"\r\n    },\r\n    \"author\": {\r\n      \"description\": \"\",\r\n      \"title\": \"Author\",\r\n      \"type\": \"string\"\r\n    },\r\n    \"language\": {\r\n      \"description\": \"\",\r\n      \"oneOf\": [\r\n        {\r\n          \"description\": \"English\",\r\n          \"enum\": [\r\n            \"en\"\r\n          ]\r\n        },\r\n        {\r\n          \"description\": \"Chinese\",\r\n          \"enum\": [\r\n            \"zh\"\r\n          ]\r\n        }\r\n      ],\r\n      \"title\": \"Language\",\r\n      \"type\": \"string\",\r\n      \"widget\": \"select\"\r\n    },\r\n    \"numberOfBoxes\": {\r\n      \"type\": \"number\",\r\n      \"widget\": {\r\n        \"id\": \"range\"\r\n      },\r\n      \"description\": \"Number of boxes required\",\r\n      \"minimum\": 1,\r\n      \"maximum\": 10\r\n    }\r\n  },\r\n  \"required\": [\r\n    \"title\"\r\n  ],\r\n  \"buttons\": [\r\n    {\r\n      \"label\": \"Alert\",\r\n      \"id\": \"alert\",\r\n      \"submit\": true,\r\n      \"offset\": 4\r\n    },\r\n    {\r\n      \"label\": \"Reset\",\r\n      \"id\": \"reset\"\r\n    }\r\n  ]\r\n}"
+module.exports = "{\r\n  \"debug\": true,\r\n  \"modelName\": \"testModel\",\r\n  \"fieldsets\": [\r\n    {\r\n      \"fields\": [\r\n        \"title\",\r\n        \"description\"\r\n      ],\r\n      \"id\": \"default\",\r\n      \"title\": \"Default\"\r\n    },\r\n    {\r\n      \"fields\": [\r\n        \"author\",\r\n        \"language\",\r\n        \"numberOfBoxes\"\r\n      ],\r\n      \"id\": \"settings\",\r\n      \"title\": \"Settings\"\r\n    }\r\n  ],\r\n  \"properties\": {\r\n    \"description\": {\r\n      \"description\": \"Short description\",\r\n      \"placeholder\": \"input string\",\r\n      \"minLength\": 0,\r\n      \"readOnly\": true,\r\n      \"title\": \"Summary\",\r\n      \"type\": \"string\",\r\n      \"widget\": \"textarea\"\r\n    },\r\n    \"title\": {\r\n      \"description\": \"\",\r\n      \"title\": \"Title\",\r\n      \"maxLength\": 10,\r\n      \"type\": \"string\"\r\n    },\r\n    \"author\": {\r\n      \"description\": \"\",\r\n      \"title\": \"Author\",\r\n      \"type\": \"string\"\r\n    },\r\n    \"language\": {\r\n      \"description\": \"\",\r\n      \"oneOf\": [\r\n        {\r\n          \"description\": \"English\",\r\n          \"enum\": [\r\n            \"en\"\r\n          ]\r\n        },\r\n        {\r\n          \"description\": \"Chinese\",\r\n          \"enum\": [\r\n            \"zh\"\r\n          ]\r\n        }\r\n      ],\r\n      \"title\": \"Language\",\r\n      \"type\": \"string\",\r\n      \"widget\": \"select\"\r\n    },\r\n    \"numberOfBoxes\": {\r\n      \"type\": \"number\",\r\n      \"widget\": {\r\n        \"id\": \"range\"\r\n      },\r\n      \"description\": \"Number of boxes required\",\r\n      \"minimum\": 1,\r\n      \"maximum\": 10\r\n    }\r\n  },\r\n  \"required\": [\r\n    \"title\"\r\n  ],\r\n  \"button\": {\r\n    \"items\": [\r\n      {\r\n        \"label\": \"Alert\",\r\n        \"id\": \"alert\",\r\n        \"submit\": true,\r\n        \"offset\": 4\r\n      },\r\n      {\r\n        \"label\": \"Reset\",\r\n        \"id\": \"reset\"\r\n      }\r\n    ]\r\n  }\r\n}"
 
 /***/ }),
 
 /***/ "../../../../raw-loader/index.js!../../../../../src/mock/person-info-grid.json":
 /***/ (function(module, exports) {
 
-module.exports = "{\r\n    \"debug\": true,\r\n    \"modelName\": \"testModel\",\r\n    \"grid\": {\r\n        \"md\": {\r\n            \"span\": 6\r\n        }\r\n    },\r\n    \"properties\": {\r\n        \"email\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"邮箱\",\r\n            \"format\": \"email\",\r\n            \"placeholder\": \"请输入邮箱，最多20个字符\",\r\n            \"maxLength\": 20,\r\n            \"readOnly\": true,\r\n            \"grid\": {\r\n                \"md\": {\r\n                    \"span\": 4\r\n                },\r\n                \"lg\": {\r\n                    \"span\": 6\r\n                }\r\n            },\r\n            \"default\": \"giscafer@outlook.com\"\r\n        },\r\n        \"name\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"姓名\",\r\n            \"placeholder\": \"请输入姓名\",\r\n            \"description\": \"必须大写开头且3个字以上\",\r\n            \"maxLength\": 30,\r\n            \"minLength\": 3,\r\n            \"debug\": false\r\n        },\r\n        \"age\": {\r\n            \"type\": \"number\",\r\n            \"title\": \"年龄\",\r\n            \"minimum\": 1,\r\n            \"maximum\": 100\r\n        },\r\n        \"remark\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"描述\"\r\n        }\r\n    },\r\n    \"buttons\": [\r\n        {\r\n            \"label\": \"Alert\",\r\n            \"id\": \"alert\",\r\n            \"submit\": true,\r\n            \"offset\": 4,\r\n            \"grid\": {\r\n                \"md\": {\r\n                    \"offset\": 4,\r\n                    \"span\": 6\r\n                }\r\n            }\r\n        },\r\n        {\r\n            \"label\": \"Reset\",\r\n            \"id\": \"reset\"\r\n        }\r\n    ]\r\n}"
+module.exports = "{\r\n    \"debug\": true,\r\n    \"modelName\": \"testModel\",\r\n    \"grid\": {\r\n        \"md\": {\r\n            \"span\": 6\r\n        }\r\n    },\r\n    \"properties\": {\r\n        \"email\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"邮箱\",\r\n            \"format\": \"email\",\r\n            \"placeholder\": \"请输入邮箱，最多20个字符\",\r\n            \"maxLength\": 20,\r\n            \"readOnly\": true,\r\n            \"grid\": {\r\n                \"md\": {\r\n                    \"span\": 4\r\n                },\r\n                \"lg\": {\r\n                    \"span\": 6\r\n                }\r\n            },\r\n            \"default\": \"giscafer@outlook.com\"\r\n        },\r\n        \"name\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"姓名\",\r\n            \"placeholder\": \"请输入姓名\",\r\n            \"description\": \"必须大写开头且3个字以上\",\r\n            \"maxLength\": 30,\r\n            \"minLength\": 3,\r\n            \"debug\": false\r\n        },\r\n        \"age\": {\r\n            \"type\": \"number\",\r\n            \"title\": \"年龄\",\r\n            \"minimum\": 1,\r\n            \"maximum\": 100\r\n        },\r\n        \"remark\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"描述\"\r\n        }\r\n    },\r\n    \"button\": {\r\n        \"grid\": {\r\n            \"md\": {\r\n                \"offset\": 5,\r\n                \"span\": 6\r\n            }\r\n        },\r\n        \"items\":[\r\n            {\r\n                \"label\": \"Alert\",\r\n                \"id\": \"alert\",\r\n                \"submit\": true\r\n            },\r\n            {\r\n                \"label\": \"Reset\",\r\n                \"id\": \"reset\"\r\n            }\r\n        ]\r\n    }\r\n}"
 
 /***/ }),
 
 /***/ "../../../../raw-loader/index.js!../../../../../src/mock/person-info.json":
 /***/ (function(module, exports) {
 
-module.exports = "{\r\n    \"modelName\": \"testModel\",\r\n    \"properties\": {\r\n        \"email\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"邮箱\",\r\n            \"format\": \"email\",\r\n            \"placeholder\": \"请输入邮箱，最多20个字符\",\r\n            \"maxLength\": 20,\r\n            \"readOnly\": true,\r\n            \"default\": \"giscafer@outlook.com\"\r\n        },\r\n        \"name\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"姓名\",\r\n            \"placeholder\": \"请输入姓名\",\r\n            \"description\": \"必须大写开头且3个字以上\",\r\n            \"maxLength\": 30,\r\n            \"minLength\": 3,\r\n            \"debug\": true\r\n        },\r\n        \"age\": {\r\n            \"type\": \"number\",\r\n            \"title\": \"年龄\",\r\n            \"minimum\": 1,\r\n            \"maximum\": 100\r\n        },\r\n        \"remark\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"描述\"\r\n        }\r\n    },\r\n    \"buttons\": [\r\n        {\r\n            \"label\": \"Alert\",\r\n            \"id\": \"alert\",\r\n            \"submit\": true\r\n        },\r\n        {\r\n            \"label\": \"Reset\",\r\n            \"id\": \"reset\"\r\n        }\r\n    ]\r\n}"
+module.exports = "{\r\n    \"modelName\": \"testModel\",\r\n    \"properties\": {\r\n        \"email\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"邮箱\",\r\n            \"format\": \"email\",\r\n            \"placeholder\": \"请输入邮箱，最多20个字符\",\r\n            \"maxLength\": 20,\r\n            \"readOnly\": true,\r\n            \"default\": \"giscafer@outlook.com\"\r\n        },\r\n        \"name\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"姓名\",\r\n            \"placeholder\": \"请输入姓名\",\r\n            \"description\": \"必须大写开头且3个字以上\",\r\n            \"maxLength\": 30,\r\n            \"minLength\": 3,\r\n            \"debug\": true\r\n        },\r\n        \"age\": {\r\n            \"type\": \"number\",\r\n            \"title\": \"年龄\",\r\n            \"minimum\": 1,\r\n            \"maximum\": 100\r\n        },\r\n        \"remark\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"描述\"\r\n        }\r\n    },\r\n    \"button\": {\r\n        \"items\": [\r\n            {\r\n                \"label\": \"Alert\",\r\n                \"id\": \"alert\",\r\n                \"submit\": true\r\n            },\r\n            {\r\n                \"label\": \"Reset\",\r\n                \"id\": \"reset\"\r\n            }\r\n        ]\r\n    }\r\n}"
 
 /***/ }),
 
 /***/ "../../../../raw-loader/index.js!../../../../../src/mock/sampleschema.json":
 /***/ (function(module, exports) {
 
-module.exports = "{\r\n\t\"$schema\": \"http://json-schema.org/draft-04/hyper-schema#\",\r\n\t\"type\": \"object\",\r\n\t\"properties\": {\r\n\t\t\"firstName\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"placeholder\": \"First name\",\r\n\t\t\t\"minLength\": 2,\r\n\t\t\t\"maxLength\": 40,\r\n\t\t\t\"title\": \"First name\",\r\n\t\t\t\"description\": \"First name\"\r\n\t\t},\r\n\t\t\"lastName\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"placeholder\": \"Last name\",\r\n\t\t\t\"minLength\": 2,\r\n\t\t\t\"maxLength\": 40,\r\n\t\t\t\"title\": \"Last name\",\r\n\t\t\t\"description\": \"Last name\"\r\n\t\t},\r\n\t\t\"bornOn\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"format\": \"date\",\r\n\t\t\t\"widget\": \"date\",\r\n\t\t\t\"default\": \"1800-12-12\",\r\n\t\t\t\"placeholder\": \"Ex: 2009-03-11\",\r\n\t\t\t\"description\": \"Born on\"\r\n\t\t},\r\n\t\t\"categories\": {\r\n\t\t\t\"type\": \"array\",\r\n\t\t\t\"title\": \"Categories\",\r\n\t\t\t\"grid\": {\r\n\t\t\t\t\"mode\": \"inline\",\r\n\t\t\t\t\"md\": {\r\n\t\t\t\t\t\"span\": 12\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"items\": {\r\n\t\t\t\t\"type\": \"string\",\r\n\t\t\t\t\"oneOf\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Dog\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"dog\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Cat\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"cat\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Daulphin\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"daulphin\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t},\r\n\t\t\t\"widget\": \"checkbox\"\r\n\t\t},\r\n\t\t\"moreInfo\": {\r\n\t\t\t\"type\": \"boolean\",\r\n\t\t\t\"widget\": \"checkbox\",\r\n\t\t\t\"description\": \"More information?\",\r\n\t\t\t\"default\": true\r\n\t\t},\r\n\t\t\"survey\": {\r\n\t\t\t\"type\": \"object\",\r\n\t\t\t\"description\": \"Little survey\",\r\n\t\t\t\"properties\": {\r\n\t\t\t\t\"q1\": {\r\n\t\t\t\t\t\"type\": \"string\",\r\n\t\t\t\t\t\"description\": \"Enter a number\"\r\n\t\t\t\t},\r\n\t\t\t\t\"q2\": {\r\n\t\t\t\t\t\"type\": \"object\",\r\n\t\t\t\t\t\"description\": \"Address\",\r\n\t\t\t\t\t\"properties\": {\r\n\t\t\t\t\t\t\"color\": {\r\n\t\t\t\t\t\t\t\"description\": \"color\",\r\n\t\t\t\t\t\t\t\"type\": \"string\",\r\n\t\t\t\t\t\t\t\"default\": \"#aaa000\",\r\n\t\t\t\t\t\t\t\"pattern\": \"ff$\",\r\n\t\t\t\t\t\t\t\"widget\": \"color\"\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\"zip\": {\r\n\t\t\t\t\t\t\t\"description\": \"zip\",\r\n\t\t\t\t\t\t\t\"type\": \"number\",\r\n\t\t\t\t\t\t\t\"default\": 15\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"favoriteColor\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"pattern\": \"^#[0-9a-fA-F]{6}$\",\r\n\t\t\t\"widget\": \"color\",\r\n\t\t\t\"default\": \"#aaa111\",\r\n\t\t\t\"description\": \"Favorite color\",\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"moreInfo\": [\r\n\t\t\t\t\ttrue\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"transactionNumber\": {\r\n\t\t\t\"type\": \"integer\",\r\n\t\t\t\"minimum\": 0,\r\n\t\t\t\"readOnly\": \"true\",\r\n\t\t\t\"description\": \"Transaction number\"\r\n\t\t},\r\n\t\t\"transactionDescription\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"widget\": \"textline\",\r\n\t\t\t\"description\": \"What is being transacted\"\r\n\t\t},\r\n\t\t\"category\": {\r\n\t\t\t\"type\": \"array\",\r\n\t\t\t\"widget\": \"select\",\r\n\t\t\t\"items\": {\r\n\t\t\t\t\"type\": \"string\",\r\n\t\t\t\t\"oneOf\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Design\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"design\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"High-Tech\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"hightech\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Materials\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"materials\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Services\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"services\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t},\r\n\t\t\t\"description\": \"Category\"\r\n\t\t},\r\n\t\t\"promotion\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"description\": \"Promotion\",\r\n\t\t\t\"widget\": \"radio\",\r\n\t\t\t\"oneOf\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"Student discount (20%)\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"student\"\r\n\t\t\t\t\t]\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"Summer 2016 discount (15%)\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"summer\"\r\n\t\t\t\t\t]\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"None\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"none\"\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t},\r\n\t\t\"confirmationMail\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"description\": \"Email\",\r\n\t\t\t\"format\": \"email\"\r\n\t\t},\r\n\t\t\"password\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"widget\": \"password\",\r\n\t\t\t\"description\": \"Password\"\r\n\t\t},\r\n\t\t\"numberOfBoxes\": {\r\n\t\t\t\"type\": \"number\",\r\n\t\t\t\"widget\": {\r\n\t\t\t\t\"id\": \"range\"\r\n\t\t\t},\r\n\t\t\t\"description\": \"Number of boxes required\",\r\n\t\t\t\"minimum\": 1,\r\n\t\t\t\"maximum\": 10\r\n\t\t},\r\n\t\t\"deliveryService\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"widget\": \"select\",\r\n\t\t\t\"description\": \"Delivery service\",\r\n\t\t\t\"oneOf\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"UPS\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"ups\"\r\n\t\t\t\t\t]\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"FedEx\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"fedex\"\r\n\t\t\t\t\t]\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"Other\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"other\"\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"default\": \"fedex\"\r\n\t\t},\r\n\t\t\"otherDeliveryService\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"minLength\": 2,\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"deliveryService\": [\r\n\t\t\t\t\t\"other\"\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"freeShipping\": {\r\n\t\t\t\"type\": \"boolean\",\r\n\t\t\t\"widget\": \"checkbox\",\r\n\t\t\t\"description\": \"Free shipping\",\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"deliveryService\": [\r\n\t\t\t\t\t\"other\",\r\n\t\t\t\t\t\"ups\"\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"shippingPrice\": {\r\n\t\t\t\"type\": \"number\",\r\n\t\t\t\"description\": \"ShippingCost\",\r\n\t\t\t\"minimum\": 0,\r\n\t\t\t\"maximum\": 200,\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"freeShipping\": [\r\n\t\t\t\t\tfalse\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"sendApologies\": {\r\n\t\t\t\"type\": \"boolean\",\r\n\t\t\t\"widget\": \"checkbox\",\r\n\t\t\t\"description\": \"Send apologies for the shipping cost\",\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"shippingPrice\": [\r\n\t\t\t\t\t22,\r\n\t\t\t\t\t23\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"useCustomEmail\": {\r\n\t\t\t\"type\": \"boolean\",\r\n\t\t\t\"description\": \"Write a custom email ?\"\r\n\t\t},\r\n\t\t\"customEmail\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"widget\": \"textarea\",\r\n\t\t\t\"description\": \"Email to send\",\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"useCustomEmail\": [\r\n\t\t\t\t\ttrue\r\n\t\t\t\t]\r\n\t\t\t},\r\n\t\t\t\"pattern\": \"^<h1>\"\r\n\t\t},\r\n\t\t\"userManual\": {\r\n\t\t\t\"type\": \"object\",\r\n\t\t\t\"widget\": \"file\",\r\n\t\t\t\"properties\": {\r\n\t\t\t\t\"content-type\": {\r\n\t\t\t\t\t\"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t\"filename\": {\r\n\t\t\t\t\t\"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t\"size\": {\r\n\t\t\t\t\t\"type\": \"integer\"\r\n\t\t\t\t},\r\n\t\t\t\t\"encoding\": {\r\n\t\t\t\t\t\"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"description\": \"Add a manual for the delivered items\",\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"category\": [\r\n\t\t\t\t\t\"hightech\"\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"colors\": {\r\n\t\t\t\"type\": \"array\",\r\n\t\t\t\"description\": \"Colors\",\r\n\t\t\t\"index\": \"i\",\r\n\t\t\t\"items\": {\r\n\t\t\t\t\"type\": \"string\",\r\n\t\t\t\t\"description\": \"Color $i\",\r\n\t\t\t\t\"widget\": \"color\",\r\n\t\t\t\t\"buttons\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"label\": \"Supprimer\",\r\n\t\t\t\t\t\t\"id\": \"Remove\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t},\r\n\t\t\t\"buttons\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"label\": \"Ajouter\",\r\n\t\t\t\t\t\"id\": \"addItem\",\r\n\t\t\t\t\t\"parameters\": {\r\n\t\t\t\t\t\t\"value\": \"#afeadd\"\r\n\t\t\t\t\t}\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"label\": \"Reset\",\r\n\t\t\t\t\t\"id\": \"reset\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t},\r\n\t\"buttons\": [\r\n\t\t{\r\n\t\t\t\"label\": \"Alert\",\r\n\t\t\t\"id\": \"alert\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"label\": \"Reset\",\r\n\t\t\t\"id\": \"reset\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"label\": \"Disable all\",\r\n\t\t\t\"id\": \"disable\"\r\n\t\t}\r\n\t],\r\n\t\"fieldsets\": [\r\n\t\t{\r\n\t\t\t\"id\": \"part_1\",\r\n\t\t\t\"title\": \"Part 1 - Recipient\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t\"firstName\",\r\n\t\t\t\t\"lastName\",\r\n\t\t\t\t\"categories\",\r\n\t\t\t\t\"bornOn\",\r\n\t\t\t\t\"moreInfo\",\r\n\t\t\t\t\"favoriteColor\",\r\n\t\t\t\t\"colors\",\r\n\t\t\t\t\"survey\"\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"part_2\",\r\n\t\t\t\"title\": \"Part 2 - Transaction\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t\"transactionNumber\",\r\n\t\t\t\t\"transactionDescription\",\r\n\t\t\t\t\"promotion\",\r\n\t\t\t\t\"category\",\r\n\t\t\t\t\"userManual\"\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"part_3\",\r\n\t\t\t\"title\": \"Part 3 - Shipping\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t\"numberOfBoxes\",\r\n\t\t\t\t\"deliveryService\",\r\n\t\t\t\t\"otherDeliveryService\",\r\n\t\t\t\t\"freeShipping\",\r\n\t\t\t\t\"shippingPrice\",\r\n\t\t\t\t\"sendApologies\"\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"part_4\",\r\n\t\t\t\"title\": \"Part 4 - Email\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t\"useCustomEmail\",\r\n\t\t\t\t\"customEmail\"\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"part_5\",\r\n\t\t\t\"title\": \"Part 5 - Confirmation\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t\"confirmationMail\",\r\n\t\t\t\t\"password\"\r\n\t\t\t]\r\n\t\t}\r\n\t],\r\n\t\"required\": [\r\n\t\t\"firstName\",\r\n\t\t\"lastName\",\r\n\t\t\"transactionNumber\",\r\n\t\t\"password\"\r\n\t]\r\n}"
+module.exports = "{\r\n\t\"$schema\": \"http://json-schema.org/draft-04/hyper-schema#\",\r\n\t\"type\": \"object\",\r\n\t\"properties\": {\r\n\t\t\"firstName\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"placeholder\": \"First name\",\r\n\t\t\t\"minLength\": 2,\r\n\t\t\t\"maxLength\": 40,\r\n\t\t\t\"title\": \"First name\",\r\n\t\t\t\"description\": \"First name\"\r\n\t\t},\r\n\t\t\"lastName\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"placeholder\": \"Last name\",\r\n\t\t\t\"minLength\": 2,\r\n\t\t\t\"maxLength\": 40,\r\n\t\t\t\"title\": \"Last name\",\r\n\t\t\t\"description\": \"Last name\"\r\n\t\t},\r\n\t\t\"bornOn\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"format\": \"date\",\r\n\t\t\t\"widget\": \"date\",\r\n\t\t\t\"default\": \"1800-12-12\",\r\n\t\t\t\"placeholder\": \"Ex: 2009-03-11\",\r\n\t\t\t\"description\": \"Born on\"\r\n\t\t},\r\n\t\t\"categories\": {\r\n\t\t\t\"type\": \"array\",\r\n\t\t\t\"title\": \"Categories\",\r\n\t\t\t\"grid\": {\r\n\t\t\t\t\"mode\": \"inline\",\r\n\t\t\t\t\"md\": {\r\n\t\t\t\t\t\"span\": 12\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"items\": {\r\n\t\t\t\t\"type\": \"string\",\r\n\t\t\t\t\"oneOf\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Dog\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"dog\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Cat\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"cat\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Daulphin\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"daulphin\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t},\r\n\t\t\t\"widget\": \"checkbox\"\r\n\t\t},\r\n\t\t\"moreInfo\": {\r\n\t\t\t\"type\": \"boolean\",\r\n\t\t\t\"widget\": \"checkbox\",\r\n\t\t\t\"description\": \"More information?\",\r\n\t\t\t\"default\": true\r\n\t\t},\r\n\t\t\"survey\": {\r\n\t\t\t\"type\": \"object\",\r\n\t\t\t\"description\": \"Little survey\",\r\n\t\t\t\"properties\": {\r\n\t\t\t\t\"q1\": {\r\n\t\t\t\t\t\"type\": \"string\",\r\n\t\t\t\t\t\"description\": \"Enter a number\"\r\n\t\t\t\t},\r\n\t\t\t\t\"q2\": {\r\n\t\t\t\t\t\"type\": \"object\",\r\n\t\t\t\t\t\"description\": \"Address\",\r\n\t\t\t\t\t\"properties\": {\r\n\t\t\t\t\t\t\"color\": {\r\n\t\t\t\t\t\t\t\"description\": \"color\",\r\n\t\t\t\t\t\t\t\"type\": \"string\",\r\n\t\t\t\t\t\t\t\"default\": \"#aaa000\",\r\n\t\t\t\t\t\t\t\"pattern\": \"ff$\",\r\n\t\t\t\t\t\t\t\"widget\": \"color\"\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\"zip\": {\r\n\t\t\t\t\t\t\t\"description\": \"zip\",\r\n\t\t\t\t\t\t\t\"type\": \"number\",\r\n\t\t\t\t\t\t\t\"default\": 15\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"favoriteColor\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"pattern\": \"^#[0-9a-fA-F]{6}$\",\r\n\t\t\t\"widget\": \"color\",\r\n\t\t\t\"default\": \"#aaa111\",\r\n\t\t\t\"description\": \"Favorite color\",\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"moreInfo\": [\r\n\t\t\t\t\ttrue\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"transactionNumber\": {\r\n\t\t\t\"type\": \"integer\",\r\n\t\t\t\"minimum\": 0,\r\n\t\t\t\"readOnly\": \"true\",\r\n\t\t\t\"description\": \"Transaction number\"\r\n\t\t},\r\n\t\t\"transactionDescription\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"widget\": \"textline\",\r\n\t\t\t\"description\": \"What is being transacted\"\r\n\t\t},\r\n\t\t\"category\": {\r\n\t\t\t\"type\": \"array\",\r\n\t\t\t\"widget\": \"select\",\r\n\t\t\t\"items\": {\r\n\t\t\t\t\"type\": \"string\",\r\n\t\t\t\t\"oneOf\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Design\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"design\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"High-Tech\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"hightech\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Materials\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"materials\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"description\": \"Services\",\r\n\t\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\t\"services\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t},\r\n\t\t\t\"description\": \"Category\"\r\n\t\t},\r\n\t\t\"promotion\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"description\": \"Promotion\",\r\n\t\t\t\"widget\": \"radio\",\r\n\t\t\t\"oneOf\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"Student discount (20%)\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"student\"\r\n\t\t\t\t\t]\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"Summer 2016 discount (15%)\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"summer\"\r\n\t\t\t\t\t]\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"None\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"none\"\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t},\r\n\t\t\"confirmationMail\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"description\": \"Email\",\r\n\t\t\t\"format\": \"email\"\r\n\t\t},\r\n\t\t\"password\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"widget\": \"password\",\r\n\t\t\t\"description\": \"Password\"\r\n\t\t},\r\n\t\t\"numberOfBoxes\": {\r\n\t\t\t\"type\": \"number\",\r\n\t\t\t\"widget\": {\r\n\t\t\t\t\"id\": \"range\"\r\n\t\t\t},\r\n\t\t\t\"description\": \"Number of boxes required\",\r\n\t\t\t\"minimum\": 1,\r\n\t\t\t\"maximum\": 10\r\n\t\t},\r\n\t\t\"deliveryService\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"widget\": \"select\",\r\n\t\t\t\"description\": \"Delivery service\",\r\n\t\t\t\"oneOf\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"UPS\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"ups\"\r\n\t\t\t\t\t]\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"FedEx\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"fedex\"\r\n\t\t\t\t\t]\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"description\": \"Other\",\r\n\t\t\t\t\t\"enum\": [\r\n\t\t\t\t\t\t\"other\"\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"default\": \"fedex\"\r\n\t\t},\r\n\t\t\"otherDeliveryService\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"minLength\": 2,\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"deliveryService\": [\r\n\t\t\t\t\t\"other\"\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"freeShipping\": {\r\n\t\t\t\"type\": \"boolean\",\r\n\t\t\t\"widget\": \"checkbox\",\r\n\t\t\t\"description\": \"Free shipping\",\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"deliveryService\": [\r\n\t\t\t\t\t\"other\",\r\n\t\t\t\t\t\"ups\"\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"shippingPrice\": {\r\n\t\t\t\"type\": \"number\",\r\n\t\t\t\"description\": \"ShippingCost\",\r\n\t\t\t\"minimum\": 0,\r\n\t\t\t\"maximum\": 200,\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"freeShipping\": [\r\n\t\t\t\t\tfalse\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"sendApologies\": {\r\n\t\t\t\"type\": \"boolean\",\r\n\t\t\t\"widget\": \"checkbox\",\r\n\t\t\t\"description\": \"Send apologies for the shipping cost\",\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"shippingPrice\": [\r\n\t\t\t\t\t22,\r\n\t\t\t\t\t23\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"useCustomEmail\": {\r\n\t\t\t\"type\": \"boolean\",\r\n\t\t\t\"description\": \"Write a custom email ?\"\r\n\t\t},\r\n\t\t\"customEmail\": {\r\n\t\t\t\"type\": \"string\",\r\n\t\t\t\"widget\": \"textarea\",\r\n\t\t\t\"description\": \"Email to send\",\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"useCustomEmail\": [\r\n\t\t\t\t\ttrue\r\n\t\t\t\t]\r\n\t\t\t},\r\n\t\t\t\"pattern\": \"^<h1>\"\r\n\t\t},\r\n\t\t\"userManual\": {\r\n\t\t\t\"type\": \"object\",\r\n\t\t\t\"widget\": \"file\",\r\n\t\t\t\"properties\": {\r\n\t\t\t\t\"content-type\": {\r\n\t\t\t\t\t\"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t\"filename\": {\r\n\t\t\t\t\t\"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t\"size\": {\r\n\t\t\t\t\t\"type\": \"integer\"\r\n\t\t\t\t},\r\n\t\t\t\t\"encoding\": {\r\n\t\t\t\t\t\"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"description\": \"Add a manual for the delivered items\",\r\n\t\t\t\"visibleIf\": {\r\n\t\t\t\t\"category\": [\r\n\t\t\t\t\t\"hightech\"\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"colors\": {\r\n\t\t\t\"type\": \"array\",\r\n\t\t\t\"description\": \"Colors\",\r\n\t\t\t\"index\": \"i\",\r\n\t\t\t\"items\": {\r\n\t\t\t\t\"type\": \"string\",\r\n\t\t\t\t\"description\": \"Color $i\",\r\n\t\t\t\t\"widget\": \"color\",\r\n\t\t\t\t\"buttons\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"label\": \"Supprimer\",\r\n\t\t\t\t\t\t\"id\": \"Remove\"\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t},\r\n\t\t\t\"buttons\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"label\": \"Ajouter\",\r\n\t\t\t\t\t\"id\": \"addItem\",\r\n\t\t\t\t\t\"parameters\": {\r\n\t\t\t\t\t\t\"value\": \"#afeadd\"\r\n\t\t\t\t\t}\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"label\": \"Reset\",\r\n\t\t\t\t\t\"id\": \"reset\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t},\r\n\t\"button\": {\r\n\t\t\"items\":[\r\n\t\t\t{\r\n\t\t\t\t\"label\": \"Alert\",\r\n\t\t\t\t\"id\": \"alert\"\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"label\": \"Reset\",\r\n\t\t\t\t\"id\": \"reset\"\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"label\": \"Disable all\",\r\n\t\t\t\t\"id\": \"disable\"\r\n\t\t\t}\r\n\t\t]\t\r\n\t},\r\n\t\"fieldsets\": [\r\n\t\t{\r\n\t\t\t\"id\": \"part_1\",\r\n\t\t\t\"title\": \"Part 1 - Recipient\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t\"firstName\",\r\n\t\t\t\t\"lastName\",\r\n\t\t\t\t\"categories\",\r\n\t\t\t\t\"bornOn\",\r\n\t\t\t\t\"moreInfo\",\r\n\t\t\t\t\"favoriteColor\",\r\n\t\t\t\t\"colors\",\r\n\t\t\t\t\"survey\"\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"part_2\",\r\n\t\t\t\"title\": \"Part 2 - Transaction\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t\"transactionNumber\",\r\n\t\t\t\t\"transactionDescription\",\r\n\t\t\t\t\"promotion\",\r\n\t\t\t\t\"category\",\r\n\t\t\t\t\"userManual\"\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"part_3\",\r\n\t\t\t\"title\": \"Part 3 - Shipping\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t\"numberOfBoxes\",\r\n\t\t\t\t\"deliveryService\",\r\n\t\t\t\t\"otherDeliveryService\",\r\n\t\t\t\t\"freeShipping\",\r\n\t\t\t\t\"shippingPrice\",\r\n\t\t\t\t\"sendApologies\"\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"part_4\",\r\n\t\t\t\"title\": \"Part 4 - Email\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t\"useCustomEmail\",\r\n\t\t\t\t\"customEmail\"\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"part_5\",\r\n\t\t\t\"title\": \"Part 5 - Confirmation\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t\"confirmationMail\",\r\n\t\t\t\t\"password\"\r\n\t\t\t]\r\n\t\t}\r\n\t],\r\n\t\"required\": [\r\n\t\t\"firstName\",\r\n\t\t\"lastName\",\r\n\t\t\"transactionNumber\",\r\n\t\t\"password\"\r\n\t]\r\n}"
+
+/***/ }),
+
+/***/ "../../../../raw-loader/index.js!../../../../../src/mock/vertical-layout.json":
+/***/ (function(module, exports) {
+
+module.exports = "{\r\n    \"debug\": true,\r\n    \"layout\": \"vertical\",\r\n    \"properties\": {\r\n        \"name\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"用户名\",\r\n            \"placeholder\": \"请输入用户名，且2位以上\",\r\n            \"minLength\": 2\r\n        },\r\n        \"password\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"password\",\r\n            \"title\": \"密码\",\r\n            \"placeholder\": \"请输入密码，且6位以上\",\r\n            \"minLength\": 6\r\n        }\r\n    },\r\n    \"required\": [\r\n        \"name\",\r\n        \"password\"\r\n    ],\r\n    \"button\": {\r\n        \"grid\": {\r\n            \"offset\": 5\r\n        },\r\n        \"items\": [\r\n            {\r\n                \"label\": \"登录\",\r\n                \"id\": \"send\",\r\n                \"submit\": true\r\n            },\r\n            {\r\n                \"label\": \"重置\",\r\n                \"id\": \"reset\"\r\n            }\r\n        ]\r\n    }\r\n}"
+
+/***/ }),
+
+/***/ "../../../../raw-loader/index.js!../../../../../src/mock/zorro-grid.json":
+/***/ (function(module, exports) {
+
+module.exports = "{\r\n    \"debug\": true,\r\n    \"modelName\": \"testModel\",\r\n    \"col_num\": 2,\r\n    \"col_gutter\": 10,\r\n    \"properties\": {\r\n        \"email\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"邮箱\",\r\n            \"format\": \"email\",\r\n            \"placeholder\": \"请输入邮箱，最多20个字符\",\r\n            \"maxLength\": 20,\r\n            \"readOnly\": true,\r\n            \"span_label\": 5,\r\n            \"span_control\": 19,\r\n            \"default\": \"giscafer@outlook.com\"\r\n        },\r\n        \"name\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"姓名\",\r\n            \"placeholder\": \"请输入姓名\",\r\n            \"description\": \"必须大写开头且3个字以上\",\r\n            \"maxLength\": 30,\r\n            \"minLength\": 3,\r\n            \"span_label\": 5,\r\n            \"span_control\": 19\r\n        },\r\n        \"birthday\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"出生日期\",\r\n            \"widget\": \"date\",\r\n            \"span_label\": 5,\r\n            \"default\": 662688000000,\r\n            \"span_control\": 19\r\n        },\r\n        \"age\": {\r\n            \"type\": \"number\",\r\n            \"title\": \"年龄\",\r\n            \"minimum\": 1,\r\n            \"maximum\": 100,\r\n            \"span_label\": 5,\r\n            \"span_control\": 19\r\n        },\r\n        \"remark\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"描述\",\r\n            \"span_label\": 5,\r\n            \"span_control\": 19\r\n        }\r\n    },\r\n    \"button\": {\r\n        \"grid\": {\r\n            \"md\": {\r\n                \"offset\": 11,\r\n                \"span\": 6\r\n            }\r\n        },\r\n        \"items\": [\r\n            {\r\n                \"label\": \"Alert\",\r\n                \"id\": \"alert\",\r\n                \"submit\": true\r\n            },\r\n            {\r\n                \"label\": \"Reset\",\r\n                \"id\": \"reset\"\r\n            }\r\n        ]\r\n    }\r\n}"
 
 /***/ }),
 

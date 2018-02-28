@@ -25,18 +25,19 @@
             "span_label": 5,
             "span_control": 19
         },
+        "birthday": {
+            "type": "string",
+            "title": "出生日期",
+            "widget": "date",
+            "span_label": 5,
+            "default": 662688000000,
+            "span_control": 19
+        },
         "age": {
             "type": "number",
             "title": "年龄",
             "minimum": 1,
             "maximum": 100,
-            "span_label": 5,
-            "span_control": 19
-        },
-        "birthyear": {
-            "type": "string",
-            "title": "出生年月",
-            "widget":"date",
             "span_label": 5,
             "span_control": 19
         },

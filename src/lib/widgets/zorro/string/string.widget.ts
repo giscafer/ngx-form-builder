@@ -22,7 +22,6 @@ export class StringWidget extends ControlWidget {
                 </label>
             </div>
             <div nz-form-control nz-col
-                [nzSpan]="${schema.span_control}"
                 ${schema.span_control ? `[nzSpan]="${schema.span_control}"` : ""}
                 ${schema.offset_control ? `[nzOffset]="${schema.offset_control}"` : ""}
              nzHasFeedback>

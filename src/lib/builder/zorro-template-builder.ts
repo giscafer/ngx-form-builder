@@ -19,7 +19,7 @@ export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
 
                 let property = formProperty.getProperty(fieldId);
                 let widgetInfo = property.schema.widget;
-                let WidgetClass = registry.getWidgetType(widgetInfo.id);
+                let WidgetClass = registry.getWidgetType(widgetInfo.id || widgetInfo);
 
                 templ += col_num ? `<div nz-col [nzSpan]="${span}" nz-form-item>` : '<div  nz-row nz-form-item>';
 
