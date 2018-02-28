@@ -99,7 +99,7 @@ export class ZorroFormComponent implements AfterViewInit {
         break;
       case 'grid':
         this.demoName = 'Grid Layout Example';
-        this.schemaString = require('!!raw-loader!../../../mock/person-info-grid.json');
+        this.schemaString = require('!!raw-loader!../../../mock/zorro-grid.json');
         break;
       case 'full':
         this.demoName = 'Full Widget Example';

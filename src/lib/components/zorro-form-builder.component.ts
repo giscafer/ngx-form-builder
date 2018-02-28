@@ -176,6 +176,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
             p['name'] = p['name'] ? p['name'] : key;
             p['formId'] = 'field' + (ZorroFormBuilderComponent.counter++);
             p['modelName'] = schema.modelName || 'model';
+            p['_prefixCls'] = 'ant-col';
             if (schema.grid) {
                 Object.assign(p, { grid: schema.grid }, p.grid ? { grid: p.grid } : {});
             }

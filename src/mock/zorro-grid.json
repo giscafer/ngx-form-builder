@@ -1,0 +1,69 @@
+{
+    "debug": true,
+    "modelName": "testModel",
+    "col_num": 2,
+    "col_gutter": 10,
+    "properties": {
+        "email": {
+            "type": "string",
+            "title": "邮箱",
+            "format": "email",
+            "placeholder": "请输入邮箱，最多20个字符",
+            "maxLength": 20,
+            "readOnly": true,
+            "span_label": 5,
+            "span_control": 19,
+            "default": "giscafer@outlook.com"
+        },
+        "name": {
+            "type": "string",
+            "title": "姓名",
+            "placeholder": "请输入姓名",
+            "description": "必须大写开头且3个字以上",
+            "maxLength": 30,
+            "minLength": 3,
+            "span_label": 5,
+            "span_control": 19
+        },
+        "age": {
+            "type": "number",
+            "title": "年龄",
+            "minimum": 1,
+            "maximum": 100,
+            "span_label": 5,
+            "span_control": 19
+        },
+        "birthyear": {
+            "type": "string",
+            "title": "出生年月",
+            "widget":"date",
+            "span_label": 5,
+            "span_control": 19
+        },
+        "remark": {
+            "type": "string",
+            "title": "描述",
+            "span_label": 5,
+            "span_control": 19
+        }
+    },
+    "button": {
+        "grid": {
+            "md": {
+                "offset": 11,
+                "span": 6
+            }
+        },
+        "items": [
+            {
+                "label": "Alert",
+                "id": "alert",
+                "submit": true
+            },
+            {
+                "label": "Reset",
+                "id": "reset"
+            }
+        ]
+    }
+}

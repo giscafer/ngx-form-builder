@@ -16,6 +16,14 @@ export interface IRenderSchema {
 
     // 栅格相关
     /**
+     * 栅格列数
+     */
+    col_num: number;
+    /**
+    * 栅格间隔
+    */
+    col_gutter: number;
+    /**
      * label 的nzSpan值
      */
     span_label: number;
