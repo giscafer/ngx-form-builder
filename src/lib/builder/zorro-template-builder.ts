@@ -1,3 +1,9 @@
+/*--------------------------------------------------------------
+ *  Copyright (c) Nickbing Lao<giscafer@outlook.com>. All rights reserved.
+ *  Licensed under the MIT License.
+ *-------------------------------------------------------------*/
+
+
 import { PropertyGroup } from "../model";
 import { WidgetRegistry } from "../widget-registry";
 import { WidgetType } from "../schema/widget-type";

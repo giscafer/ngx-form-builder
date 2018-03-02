@@ -1,3 +1,8 @@
+/*--------------------------------------------------------------
+ *  Copyright (c) Nickbing Lao<giscafer@outlook.com>. All rights reserved.
+ *  Licensed under the MIT License.
+ *-------------------------------------------------------------*/
+
 import {
     Component,
     ComponentRef,

@@ -90,6 +90,37 @@
             },
             "widget": "checkbox"
         },
+        "promotion": {
+            "type": "string",
+            "description": "独立使用 true",
+            "default":true,
+            "widget": "radio"
+        },
+        "promotions": {
+            "type": "string",
+            "description": "Promotion",
+            "widget": "radio",
+            "oneOf": [
+                {
+                    "description": "Student discount (20%)",
+                    "enum": [
+                        "student"
+                    ]
+                },
+                {
+                    "description": "Summer 2016 discount (15%)",
+                    "enum": [
+                        "summer"
+                    ]
+                },
+                {
+                    "description": "None",
+                    "enum": [
+                        "none"
+                    ]
+                }
+            ]
+        },
         "survey": {
             "type": "object",
             "description": "Little survey",
@@ -175,31 +206,7 @@
             },
             "description": "Category"
         },
-        "promotion": {
-            "type": "string",
-            "description": "Promotion",
-            "widget": "radio",
-            "oneOf": [
-                {
-                    "description": "Student discount (20%)",
-                    "enum": [
-                        "student"
-                    ]
-                },
-                {
-                    "description": "Summer 2016 discount (15%)",
-                    "enum": [
-                        "summer"
-                    ]
-                },
-                {
-                    "description": "None",
-                    "enum": [
-                        "none"
-                    ]
-                }
-            ]
-        },
+     
         "numberOfBoxes": {
             "type": "number",
             "widget": {
@@ -395,6 +402,14 @@
             ]
         },
         {
+            "id": "radio_widget",
+            "title": "radio 部件",
+            "fields": [
+                "promotion",
+                "promotions"
+            ]
+        },
+        {
             "id": "part_1",
             "title": "part1",
             "fields": [
@@ -409,7 +424,6 @@
             "fields": [
                 "transactionNumber",
                 "transactionDescription",
-                "promotion",
                 "category",
                 "userManual"
             ]
