@@ -503,7 +503,7 @@ var BootstrapFormComponent = (function () {
 /***/ "../../../../../src/app/pages/zorro-form/zorro-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-container\">\r\n  <div id=\"code-container\">\r\n    <div id=\"control-panel\">\r\n      <div id=\"code-info\">\r\n        <span class=\"code-type\">JSON</span>\r\n        <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n        <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n      </div>\r\n      <div class=\"control-btn-panel\">\r\n        <nz-dropdown>\r\n          <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n            <span>{{demoName}}</span>\r\n            <i class=\"anticon anticon-down\"></i>\r\n          </button>\r\n          <ul nz-menu>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"水平布局\" (click)=\"toggleSchema('horizontal-layout')\">Horizontal Layout Example</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"垂直布局\" (click)=\"toggleSchema('vertical-layout')\">Vertical Layout Example</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('grid')\">Grid Layout Example</a>\r\n            </li>\r\n           <!--  <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"简单例子\" (click)=\"toggleSchema('simple')\">Simple Example</a>\r\n            </li> -->\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"其他例子\" (click)=\"toggleSchema('other')\">Other Example</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n            </li>\r\n          </ul>\r\n        </nz-dropdown>\r\n        <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n        <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n      </div>\r\n    </div>\r\n    <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\"\r\n      (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 80vh; width:100%\"></div>\r\n  </div>\r\n  <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n  <div id=\"view-container\">\r\n    <div id=\"control-panel\">\r\n      <div class=\"control-btn-panel\">\r\n        <nz-dropdown>\r\n          <button nz-button nz-dropdown class=\"btn btn-default btn-sm\">\r\n            <span>Save</span>\r\n            <i class=\"anticon anticon-down\"></i>\r\n          </button>\r\n          <ul nz-menu>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyHTMLCode(1)\">Download HTML</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyHTMLCode()\">Copy HTML code</a>\r\n            </li>\r\n          </ul>\r\n        </nz-dropdown>\r\n      </div>\r\n    </div>\r\n    <br>\r\n    <div style=\"padding: 24px;\">\r\n        <zorro-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\"\r\n          (onBuilderFinish)=\"onBuilderFinish($event)\"></zorro-form-builder>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div id=\"main-container\">\r\n  <div id=\"code-container\">\r\n    <div id=\"control-panel\">\r\n      <div id=\"code-info\">\r\n        <span class=\"code-type\">JSON</span>\r\n        <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n        <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n      </div>\r\n      <div class=\"control-btn-panel\">\r\n        <nz-dropdown>\r\n          <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n            <span>{{demoName}}</span>\r\n            <i class=\"anticon anticon-down\"></i>\r\n          </button>\r\n          <ul nz-menu>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"水平布局\" (click)=\"toggleSchema('horizontal-layout')\">Horizontal Layout Example</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"垂直布局\" (click)=\"toggleSchema('vertical-layout')\">Vertical Layout Example</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('grid')\">Grid Layout Example</a>\r\n            </li>\r\n           <!--  <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"简单例子\" (click)=\"toggleSchema('simple')\">Simple Example</a>\r\n            </li> -->\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"其他例子\" (click)=\"toggleSchema('other')\">Other Example</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n            </li>\r\n          </ul>\r\n        </nz-dropdown>\r\n        <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n        <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n      </div>\r\n    </div>\r\n    <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\"\r\n      (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 80vh; width:100%\"></div>\r\n  </div>\r\n  <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n  <div id=\"view-container\">\r\n    <div id=\"control-panel\">\r\n      <div class=\"control-btn-panel\">\r\n        <nz-dropdown>\r\n          <button nz-button nz-dropdown class=\"btn btn-default btn-sm\">\r\n            <span>Save</span>\r\n            <i class=\"anticon anticon-down\"></i>\r\n          </button>\r\n          <ul nz-menu>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyHTMLCode(1)\">Download HTML</a>\r\n            </li>\r\n            <li nz-menu-item>\r\n              <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyHTMLCode()\">Copy HTML code</a>\r\n            </li>\r\n          </ul>\r\n        </nz-dropdown>\r\n      </div>\r\n    </div>\r\n    <br>\r\n    <div style=\"padding: 24px;background: inherit;\">\r\n        <zorro-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\"\r\n          (onBuilderFinish)=\"onBuilderFinish($event)\"></zorro-form-builder>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -605,7 +605,7 @@ var ZorroFormComponent = (function () {
                 break;
             case 'full':
                 this.demoName = 'Full Widget Example';
-                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/sampleschema.json");
+                this.schemaString = __webpack_require__("../../../../raw-loader/index.js!../../../../../src/mock/zorro-full-widget.json");
                 break;
         }
         this.schemaJson = JSON.parse(this.schemaString);
@@ -885,6 +885,10 @@ var environment = {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = BsTmplBuilder;
+/*--------------------------------------------------------------
+ *  Copyright (c) Nickbing Lao<giscafer@outlook.com>. All rights reserved.
+ *  Licensed under the MIT License.
+ *-------------------------------------------------------------*/
 function BsTmplBuilder(registry, formProperty) {
     var templ = "";
     var fieldsets = formProperty.schema.fieldsets;
@@ -934,6 +938,10 @@ function BsTmplBuilder(registry, formProperty) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = ZorroTmplBuilder;
+/*--------------------------------------------------------------
+ *  Copyright (c) Nickbing Lao<giscafer@outlook.com>. All rights reserved.
+ *  Licensed under the MIT License.
+ *-------------------------------------------------------------*/
 function ZorroTmplBuilder(registry, formProperty) {
     var templ = "";
     var fieldsets = formProperty.schema.fieldsets;
@@ -998,6 +1006,10 @@ function ZorroTmplBuilder(registry, formProperty) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__widget_registry__ = __webpack_require__("../../../../../src/lib/widget-registry.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__widgets_bootstrap_defaultwidget_registry__ = __webpack_require__("../../../../../src/lib/widgets/bootstrap/defaultwidget-registry.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__builder_bs_template_builder__ = __webpack_require__("../../../../../src/lib/builder/bs-template-builder.ts");
+/*--------------------------------------------------------------
+ *  Copyright (c) Nickbing Lao<giscafer@outlook.com>. All rights reserved.
+ *  Licensed under the MIT License.
+ *-------------------------------------------------------------*/
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1274,6 +1286,10 @@ var BsFormBuilderComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__widget_registry__ = __webpack_require__("../../../../../src/lib/widget-registry.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__builder_zorro_template_builder__ = __webpack_require__("../../../../../src/lib/builder/zorro-template-builder.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__index__ = __webpack_require__("../../../../../src/lib/index.ts");
+/*--------------------------------------------------------------
+ *  Copyright (c) Nickbing Lao<giscafer@outlook.com>. All rights reserved.
+ *  Licensed under the MIT License.
+ *-------------------------------------------------------------*/
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1386,11 +1402,21 @@ var ZorroFormBuilderComponent = (function () {
             if (schema.grid) {
                 Object.assign(p, { grid: schema.grid }, p.grid ? { grid: p.grid } : {});
             }
-            /*  ListOfGridSizeName.forEach(name => {
-                 if (schema[name]) {
-                     Object.assign(p, { [name]: schema[name] }, p[name] ? { [name]: p[name] } : {});
-                 }
-             }); */
+            if (p.type === 'array' && p.widget === 'checkbox') {
+                if (p.items && p.items.oneOf) {
+                    var options = [];
+                    for (var _i = 0, _a = p.items.oneOf; _i < _a.length; _i++) {
+                        var one = _a[_i];
+                        options.push({
+                            label: one.description,
+                            value: one.enum[0],
+                            checked: one['checked'] || false
+                        });
+                    }
+                    // p['checkOptions'] = options;
+                    schema['checkOptions'] = options;
+                }
+            }
             if (p.items && p.properties && p.type === 'array') {
                 _this.coverProperty(p.items);
             }
@@ -1441,6 +1467,8 @@ var ZorroFormBuilderComponent = (function () {
             },
             _a[this.rootProperty.schema.modelName || 'model'] = this.rootProperty.value || {},
             _a);
+        properties[properties['modelName']]['checkOptions'] = this.rootProperty.schema.checkOptions || {}; //nz-checkbox-group
+        console.log(properties[properties['modelName']]['checkOptions']);
         this.ref = this.ZorroWidgetFactory.addWidget(this.container, template, properties, this);
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
@@ -3621,6 +3649,52 @@ var PrimengDefaultWidgetRegistry = (function (_super) {
 
 /***/ }),
 
+/***/ "../../../../../src/lib/widgets/zorro/array/array.widget.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArrayWidget; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__widget__ = __webpack_require__("../../../../../src/lib/widget.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var ArrayWidget = (function (_super) {
+    __extends(ArrayWidget, _super);
+    function ArrayWidget(_formProperty, registry) {
+        var _this = _super.call(this) || this;
+        _this._formProperty = _formProperty;
+        _this.registry = registry;
+        _this.formProperty = _formProperty;
+        return _this;
+    }
+    ArrayWidget.prototype.getTemplate = function (schema) {
+        return "\n\t\t<div class=\"widget form-group\">\n\t\t\t\t<label for=\"" + schema.formId + "\" class=\"horizontal control-label\">\n\t\t\t\t\t" + (schema.title || '') + "\n\t\t\t\t</label>\n\t\t\t\t" + (schema.description ? "<span class=\"formHelp\">" + schema.description + "</span>" : '') + "\n\t\t\t\t" + this.iterateOptions(schema) + "\n\t\t\t\t\n\t\t\t\t<button (click)=\"addItem()\" class=\"btn btn-default array-add-button\">\n\t\t\t\t\t<span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> Add\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t";
+    };
+    ArrayWidget.prototype.iterateOptions = function (schema) {
+        var htmlStr = '', properties = this.formProperty.properties;
+        for (var _i = 0, _a = properties; _i < _a.length; _i++) {
+            var itemProperty = _a[_i];
+            var widgetInfo = itemProperty.schema.widget;
+            var WidgetClass = this.registry.getWidgetType(widgetInfo.id);
+            htmlStr += "\n\t\t\t<div>\n\t\t\t\t" + new WidgetClass().getTemplate(itemProperty.schema) + "\n\t\t\t\t<button (click)=\"removeItem(i)\" class=\"btn btn-default array-remove-button\">\n\t\t\t\t\t<span class=\"glyphicon glyphicon-minus\" aria-hidden=\"true\"></span> Remove\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t";
+        }
+        return htmlStr;
+    };
+    return ArrayWidget;
+}(__WEBPACK_IMPORTED_MODULE_0__widget__["a" /* ArrayLayoutWidget */]));
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/lib/widgets/zorro/button/button.widget.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3647,6 +3721,93 @@ var ButtonWidget = (function (_super) {
         return "\n    <button nz-button (click)=\"action($event,'" + button.id + "')\" class=\"btn btn-default\">" + button.label + "</button>\n    ";
     };
     return ButtonWidget;
+}(__WEBPACK_IMPORTED_MODULE_0__widget__["b" /* ControlWidget */]));
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/widgets/zorro/checkbox/checkbox.widget.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CheckboxWidget; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__widget__ = __webpack_require__("../../../../../src/lib/widget.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var CheckboxWidget = (function (_super) {
+    __extends(CheckboxWidget, _super);
+    function CheckboxWidget() {
+        return _super.call(this) || this;
+    }
+    CheckboxWidget.prototype.getTemplate = function (schema) {
+        var templ = '';
+        var listOfClassName = this.getLayoutClass(schema);
+        if (schema.title) {
+            templ += "\n        <div nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\">\n            <label for=\"" + schema.formId + "\" nz-form-item-required [nzRequired]=\"required\">\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n            </label>\n        </div>\n      ";
+        }
+        templ += "\n    <div nz-form-control nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        " + this.iterateOptions(schema) + "\n    </div>\n    ";
+        return templ;
+    };
+    // ${this.iterateOptions(schema)}
+    CheckboxWidget.prototype.iterateOptions = function (schema) {
+        var htmlStr = '', options = schema.items && schema.items.oneOf;
+        if (schema.type != 'array') {
+            htmlStr = "\n            <label nz-checkbox\n                [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n                id=\"" + schema.formId + "\"\n                name=\"" + schema.name + "\"\n                " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + ">\n                <span>" + schema.description + "</span>\n            </label>\n\t\t\t";
+        }
+        else if (schema.type === 'array') {
+            htmlStr = "<nz-checkbox-group  name=\"" + schema.name + "\" [(ngModel)]=\"" + schema.modelName + ".checkOptions\"></nz-checkbox-group> \n            {{" + schema.modelName + ".checkOptions | json}}\n            ";
+        }
+        return htmlStr;
+    };
+    return CheckboxWidget;
+}(__WEBPACK_IMPORTED_MODULE_0__widget__["b" /* ControlWidget */]));
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/widgets/zorro/date-range/date-range.widget.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DateRangeWidget; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__widget__ = __webpack_require__("../../../../../src/lib/widget.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var DateRangeWidget = (function (_super) {
+    __extends(DateRangeWidget, _super);
+    function DateRangeWidget() {
+        return _super.call(this) || this;
+    }
+    DateRangeWidget.prototype.getTemplate = function (schema) {
+        var templ = '';
+        var listOfClassName = this.getLayoutClass(schema);
+        if (schema.title) {
+            templ += "\n        <div nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\">\n            <label for=\"" + schema.formId + "\" nz-form-item-required [nzRequired]=\"required\">\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n            </label>\n        </div>\n      ";
+        }
+        templ += "\n    <div nz-form-control nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-rangepicker \n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + (schema.readOnl ? "[nzReadonly]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'YYYY/MM/DD'\"") + "\n            " + (schema.showTime ? "[nzShowTime]=\"true\"" : "[nzShowTime]=\"false\"") + "\n            [nzPlaceholder]=\"['" + schema.start + "', '" + schema.end + "']\"></nz-rangepicker>\n    </div>\n    ";
+        return templ;
+    };
+    return DateRangeWidget;
 }(__WEBPACK_IMPORTED_MODULE_0__widget__["b" /* ControlWidget */]));
 
 
@@ -3681,7 +3842,7 @@ var DateWidget = (function (_super) {
         if (schema.title) {
             templ += "\n        <div nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\">\n            <label for=\"" + schema.formId + "\" nz-form-item-required [nzRequired]=\"required\">\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n            </label>\n        </div>\n      ";
         }
-        templ += "\n    <div nz-form-control nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-datepicker\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + ((schema.widget.id !== 'color' && schema.readOnly) ? "[nzReadonly]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'YYYY/MM/DD'\"") + "\n            " + (schema.showTime ? "[nzShowTime]=\"true\"" : "[nzShowTime]=\"false\"") + "\n            [nzPlaceHolder]=\"'" + (schema.placeholder ? schema.placeholder : '') + "'\"\n            " + ((schema.widget.id === 'color' && schema.readOnly) ? "[attr.disabled]=\"'true'\"" : "") + "></nz-datepicker>\n    </div>\n    ";
+        templ += "\n    <div nz-form-control nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-datepicker\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'YYYY/MM/DD'\"") + "\n            " + (schema.showTime ? "[nzShowTime]=\"true\"" : "[nzShowTime]=\"false\"") + "\n            [nzPlaceHolder]=\"'" + (schema.placeholder ? schema.placeholder : '') + "'\"></nz-datepicker>\n    </div>\n    ";
         return templ;
     };
     return DateWidget;
@@ -3701,6 +3862,11 @@ var DateWidget = (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__schema__ = __webpack_require__("../../../../../src/lib/schema/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__button_button_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/button/button.widget.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__date_date_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/date/date.widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__time_time_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/time/time.widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__date_range_date_range_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/date-range/date-range.widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__checkbox_checkbox_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/checkbox/checkbox.widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__array_array_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/array/array.widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__radio_radio_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/radio/radio.widget.ts");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3716,6 +3882,11 @@ var __extends = (this && this.__extends) || (function () {
 
 
 
+
+
+
+
+
 var ZorroDefaultWidgetRegistry = (function (_super) {
     __extends(ZorroDefaultWidgetRegistry, _super);
     function ZorroDefaultWidgetRegistry() {
@@ -3724,6 +3895,11 @@ var ZorroDefaultWidgetRegistry = (function (_super) {
         _this.register('string', __WEBPACK_IMPORTED_MODULE_0__string_string_widget__["a" /* StringWidget */]);
         _this.register('button', __WEBPACK_IMPORTED_MODULE_3__button_button_widget__["a" /* ButtonWidget */]);
         _this.register('date', __WEBPACK_IMPORTED_MODULE_4__date_date_widget__["a" /* DateWidget */]);
+        _this.register('time', __WEBPACK_IMPORTED_MODULE_5__time_time_widget__["a" /* TimeWidget */]);
+        _this.register('date-range', __WEBPACK_IMPORTED_MODULE_6__date_range_date_range_widget__["a" /* DateRangeWidget */]);
+        _this.register('checkbox', __WEBPACK_IMPORTED_MODULE_7__checkbox_checkbox_widget__["a" /* CheckboxWidget */]);
+        _this.register('radio', __WEBPACK_IMPORTED_MODULE_9__radio_radio_widget__["a" /* RadioWidget */]);
+        _this.register('array', __WEBPACK_IMPORTED_MODULE_8__array_array_widget__["a" /* ArrayWidget */]);
         //   this.register('search', StringWidget);
         //   this.register('tel', StringWidget);
         //   this.register('url', StringWidget);
@@ -3738,10 +3914,7 @@ var ZorroDefaultWidgetRegistry = (function (_super) {
         //   this.register('range', RangeWidget);
         //   this.register('textarea', TextAreaWidget);
         //   this.register('select', SelectWidget);
-        //   this.register('radio', RadioWidget);
-        //   this.register('checkbox', CheckboxWidget);
         //   this.register('boolean', CheckboxWidget);
-        //   this.register('array', ArrayWidget);
         _this.setDefaultWidget(__WEBPACK_IMPORTED_MODULE_0__string_string_widget__["a" /* StringWidget */]);
         return _this;
     }
@@ -3762,6 +3935,15 @@ var ZorroDefaultWidgetRegistry = (function (_super) {
 /* unused harmony reexport ButtonWidget */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__date_date_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/date/date.widget.ts");
 /* unused harmony reexport DateWidget */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__time_time_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/time/time.widget.ts");
+/* unused harmony reexport TimeWidget */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__date_range_date_range_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/date-range/date-range.widget.ts");
+/* unused harmony reexport DateRangeWidget */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__checkbox_checkbox_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/checkbox/checkbox.widget.ts");
+/* unused harmony reexport CheckboxWidget */
+
+
+
 
 
 
@@ -3770,9 +3952,62 @@ export { RangeWidget } from './range/range.widget';
 export { StringWidget } from './string/string.widget';
 export { TextAreaWidget } from './textarea/textarea.widget';
 export { ArrayWidget } from './array/array.widget';
-export { CheckboxWidget } from './checkbox/checkbox.widget';
 export { RadioWidget } from './radio/radio.widget';
 export { SelectWidget } from './select/select.widget'; */
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/widgets/zorro/radio/radio.widget.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RadioWidget; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__widget__ = __webpack_require__("../../../../../src/lib/widget.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var RadioWidget = (function (_super) {
+    __extends(RadioWidget, _super);
+    function RadioWidget() {
+        return _super.call(this) || this;
+    }
+    RadioWidget.prototype.getTemplate = function (schema) {
+        var templ = '';
+        var listOfClassName = this.getLayoutClass(schema);
+        if (schema.title) {
+            templ += "\n        <div nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\">\n            <label for=\"" + schema.formId + "\" nz-form-item-required [nzRequired]=\"required\">\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n            </label>\n        </div>\n      ";
+        }
+        templ += "\n    <div nz-form-control nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        " + this.iterateOptions(schema) + "\n    </div>\n    ";
+        return templ;
+    };
+    // ${this.iterateOptions(schema)}
+    RadioWidget.prototype.iterateOptions = function (schema) {
+        var htmlStr = '', options = schema.oneOf || [];
+        if (!options.length) {
+            htmlStr = "\n            <label nz-radio\n                [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n                id=\"" + schema.formId + "\"\n                name=\"" + schema.name + "\"\n                " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + ">\n                <span>" + schema.description + "</span>\n            </label>\n\t\t\t";
+        }
+        else {
+            htmlStr = "<nz-radio-group  name=\"" + schema.name + "\" [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\">";
+            for (var _i = 0, options_1 = options; _i < options_1.length; _i++) {
+                var option = options_1[_i];
+                htmlStr += "\n                <label nz-radio [nzValue]=\"'" + option.enum[0] + "'\">\n                    <span>" + option.description + "</span>\n                </label>\n\t\t\t\t";
+            }
+            htmlStr += "</nz-radio-group>";
+        }
+        return htmlStr;
+    };
+    return RadioWidget;
+}(__WEBPACK_IMPORTED_MODULE_0__widget__["b" /* ControlWidget */]));
+
 
 
 /***/ }),
@@ -3819,6 +4054,44 @@ var StringWidget = (function (_super) {
         }
     };
     return StringWidget;
+}(__WEBPACK_IMPORTED_MODULE_0__widget__["b" /* ControlWidget */]));
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/widgets/zorro/time/time.widget.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimeWidget; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__widget__ = __webpack_require__("../../../../../src/lib/widget.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var TimeWidget = (function (_super) {
+    __extends(TimeWidget, _super);
+    function TimeWidget() {
+        return _super.call(this) || this;
+    }
+    TimeWidget.prototype.getTemplate = function (schema) {
+        var templ = '';
+        var listOfClassName = this.getLayoutClass(schema);
+        if (schema.title) {
+            templ += "\n        <div nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\">\n            <label for=\"" + schema.formId + "\" nz-form-item-required [nzRequired]=\"required\">\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n            </label>\n        </div>\n      ";
+        }
+        templ += "\n    <div nz-form-control nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-timepicker\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'HH:mm:ss'\"") + "\n            [nzPlaceHolder]=\"'" + (schema.placeholder ? schema.placeholder : '') + "'\"></nz-timepicker>\n    </div>\n    ";
+        return templ;
+    };
+    return TimeWidget;
 }(__WEBPACK_IMPORTED_MODULE_0__widget__["b" /* ControlWidget */]));
 
 
@@ -4299,6 +4572,13 @@ module.exports = "{\r\n\t\"$schema\": \"http://json-schema.org/draft-04/hyper-sc
 /***/ (function(module, exports) {
 
 module.exports = "{\r\n    \"debug\": true,\r\n    \"layout\": \"vertical\",\r\n    \"properties\": {\r\n        \"name\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"用户名\",\r\n            \"placeholder\": \"请输入用户名，且2位以上\",\r\n            \"minLength\": 2\r\n        },\r\n        \"password\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"password\",\r\n            \"title\": \"密码\",\r\n            \"placeholder\": \"请输入密码，且6位以上\",\r\n            \"minLength\": 6\r\n        }\r\n    },\r\n    \"required\": [\r\n        \"name\",\r\n        \"password\"\r\n    ],\r\n    \"button\": {\r\n        \"grid\": {\r\n            \"offset\": 5\r\n        },\r\n        \"items\": [\r\n            {\r\n                \"label\": \"登录\",\r\n                \"id\": \"send\",\r\n                \"submit\": true\r\n            },\r\n            {\r\n                \"label\": \"重置\",\r\n                \"id\": \"reset\"\r\n            }\r\n        ]\r\n    }\r\n}"
+
+/***/ }),
+
+/***/ "../../../../raw-loader/index.js!../../../../../src/mock/zorro-full-widget.json":
+/***/ (function(module, exports) {
+
+module.exports = "{\r\n    \"$schema\": \"http://json-schema.org/draft-04/hyper-schema#\",\r\n    \"type\": \"object\",\r\n    \"properties\": {\r\n        \"name\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"用户名\",\r\n            \"placeholder\": \"请输入用户名，且2位以上\",\r\n            \"minLength\": 2\r\n        },\r\n        \"password\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"password\",\r\n            \"title\": \"密码\",\r\n            \"placeholder\": \"请输入密码，且6位以上\",\r\n            \"minLength\": 6\r\n        },\r\n        \"date1\": {\r\n            \"type\": \"string\",\r\n            \"placeholder\": \"基本日期\",\r\n            \"widget\": \"date\",\r\n            \"title\": \"基本日期\"\r\n        },\r\n        \"date2\": {\r\n            \"type\": \"string\",\r\n            \"placeholder\": \"可选时间\",\r\n            \"format\": \"YYYY/MM/DD HH:mm:ss\",\r\n            \"widget\": \"date\",\r\n            \"showTime\": true,\r\n            \"title\": \"带时间日期\",\r\n            \"description\": \"showTime: true\"\r\n        },\r\n        \"date3\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"date\",\r\n            \"default\": \"2000-03-12\",\r\n            \"title\": \"默认值\",\r\n            \"placeholder\": \"Ex: 2000-03-12\"\r\n        },\r\n        \"datetime1\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"time\",\r\n            \"title\": \"时间选择\",\r\n            \"placeholder\": \"时间选择\"\r\n        },\r\n        \"daterange\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"date-range\",\r\n            \"title\": \"日期段\",\r\n            \"start\": \"Select start date\",\r\n            \"end\": \"Select end date\"\r\n        },\r\n        \"checked\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"description\": \"I agree to the Terms of Service and the Privacy Policy.\"\r\n        },\r\n        \"checked1\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"readOnly\": true,\r\n            \"default\": true,\r\n            \"description\": \"不可选 - Disabled.\"\r\n        },\r\n        \"categories\": {\r\n            \"type\": \"array\",\r\n            \"title\": \"Categories\",\r\n            \"items\": {\r\n                \"type\": \"string\",\r\n                \"oneOf\": [\r\n                    {\r\n                        \"description\": \"Dog\",\r\n                        \"enum\": [\r\n                            \"dog\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Cat\",\r\n                        \"enum\": [\r\n                            \"cat\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Daulphin\",\r\n                        \"enum\": [\r\n                            \"daulphin\"\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            \"widget\": \"checkbox\"\r\n        },\r\n        \"promotion\": {\r\n            \"type\": \"string\",\r\n            \"description\": \"独立使用 true\",\r\n            \"default\":true,\r\n            \"widget\": \"radio\"\r\n        },\r\n        \"promotions\": {\r\n            \"type\": \"string\",\r\n            \"description\": \"Promotion\",\r\n            \"widget\": \"radio\",\r\n            \"oneOf\": [\r\n                {\r\n                    \"description\": \"Student discount (20%)\",\r\n                    \"enum\": [\r\n                        \"student\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"Summer 2016 discount (15%)\",\r\n                    \"enum\": [\r\n                        \"summer\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"None\",\r\n                    \"enum\": [\r\n                        \"none\"\r\n                    ]\r\n                }\r\n            ]\r\n        },\r\n        \"survey\": {\r\n            \"type\": \"object\",\r\n            \"description\": \"Little survey\",\r\n            \"properties\": {\r\n                \"q1\": {\r\n                    \"type\": \"string\",\r\n                    \"description\": \"Enter a number\"\r\n                },\r\n                \"q2\": {\r\n                    \"type\": \"object\",\r\n                    \"description\": \"Address\",\r\n                    \"properties\": {\r\n                        \"color\": {\r\n                            \"description\": \"color\",\r\n                            \"type\": \"string\",\r\n                            \"default\": \"#aaa000\",\r\n                            \"pattern\": \"ff$\",\r\n                            \"widget\": \"color\"\r\n                        },\r\n                        \"zip\": {\r\n                            \"description\": \"zip\",\r\n                            \"type\": \"number\",\r\n                            \"default\": 15\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        },\r\n        \"favoriteColor\": {\r\n            \"type\": \"string\",\r\n            \"pattern\": \"^#[0-9a-fA-F]{6}$\",\r\n            \"widget\": \"color\",\r\n            \"default\": \"#aaa111\",\r\n            \"description\": \"Favorite color\",\r\n            \"visibleIf\": {\r\n                \"moreInfo\": [\r\n                    true\r\n                ]\r\n            }\r\n        },\r\n        \"transactionNumber\": {\r\n            \"type\": \"integer\",\r\n            \"minimum\": 0,\r\n            \"readOnly\": \"true\",\r\n            \"description\": \"Transaction number\"\r\n        },\r\n        \"transactionDescription\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"textline\",\r\n            \"description\": \"What is being transacted\"\r\n        },\r\n        \"category\": {\r\n            \"type\": \"array\",\r\n            \"widget\": \"select\",\r\n            \"items\": {\r\n                \"type\": \"string\",\r\n                \"oneOf\": [\r\n                    {\r\n                        \"description\": \"Design\",\r\n                        \"enum\": [\r\n                            \"design\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"High-Tech\",\r\n                        \"enum\": [\r\n                            \"hightech\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Materials\",\r\n                        \"enum\": [\r\n                            \"materials\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Services\",\r\n                        \"enum\": [\r\n                            \"services\"\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            \"description\": \"Category\"\r\n        },\r\n     \r\n        \"numberOfBoxes\": {\r\n            \"type\": \"number\",\r\n            \"widget\": {\r\n                \"id\": \"range\"\r\n            },\r\n            \"description\": \"Number of boxes required\",\r\n            \"minimum\": 1,\r\n            \"maximum\": 10\r\n        },\r\n        \"deliveryService\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"select\",\r\n            \"description\": \"Delivery service\",\r\n            \"oneOf\": [\r\n                {\r\n                    \"description\": \"UPS\",\r\n                    \"enum\": [\r\n                        \"ups\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"FedEx\",\r\n                    \"enum\": [\r\n                        \"fedex\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"Other\",\r\n                    \"enum\": [\r\n                        \"other\"\r\n                    ]\r\n                }\r\n            ],\r\n            \"default\": \"fedex\"\r\n        },\r\n        \"otherDeliveryService\": {\r\n            \"type\": \"string\",\r\n            \"minLength\": 2,\r\n            \"visibleIf\": {\r\n                \"deliveryService\": [\r\n                    \"other\"\r\n                ]\r\n            }\r\n        },\r\n        \"freeShipping\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"description\": \"Free shipping\",\r\n            \"visibleIf\": {\r\n                \"deliveryService\": [\r\n                    \"other\",\r\n                    \"ups\"\r\n                ]\r\n            }\r\n        },\r\n        \"shippingPrice\": {\r\n            \"type\": \"number\",\r\n            \"description\": \"ShippingCost\",\r\n            \"minimum\": 0,\r\n            \"maximum\": 200,\r\n            \"visibleIf\": {\r\n                \"freeShipping\": [\r\n                    false\r\n                ]\r\n            }\r\n        },\r\n        \"sendApologies\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"description\": \"Send apologies for the shipping cost\",\r\n            \"visibleIf\": {\r\n                \"shippingPrice\": [\r\n                    22,\r\n                    23\r\n                ]\r\n            }\r\n        },\r\n        \"useCustomEmail\": {\r\n            \"type\": \"boolean\",\r\n            \"description\": \"Write a custom email ?\"\r\n        },\r\n        \"customEmail\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"textarea\",\r\n            \"description\": \"Email to send\",\r\n            \"visibleIf\": {\r\n                \"useCustomEmail\": [\r\n                    true\r\n                ]\r\n            },\r\n            \"pattern\": \"^<h1>\"\r\n        },\r\n        \"userManual\": {\r\n            \"type\": \"object\",\r\n            \"widget\": \"file\",\r\n            \"properties\": {\r\n                \"content-type\": {\r\n                    \"type\": \"string\"\r\n                },\r\n                \"filename\": {\r\n                    \"type\": \"string\"\r\n                },\r\n                \"size\": {\r\n                    \"type\": \"integer\"\r\n                },\r\n                \"encoding\": {\r\n                    \"type\": \"string\"\r\n                },\r\n                \"data\": {\r\n                    \"type\": \"string\"\r\n                }\r\n            },\r\n            \"description\": \"Add a manual for the delivered items\",\r\n            \"visibleIf\": {\r\n                \"category\": [\r\n                    \"hightech\"\r\n                ]\r\n            }\r\n        },\r\n        \"colors\": {\r\n            \"type\": \"array\",\r\n            \"description\": \"Colors\",\r\n            \"index\": \"i\",\r\n            \"items\": {\r\n                \"type\": \"string\",\r\n                \"description\": \"Color $i\",\r\n                \"widget\": \"color\",\r\n                \"buttons\": [\r\n                    {\r\n                        \"label\": \"Supprimer\",\r\n                        \"id\": \"Remove\"\r\n                    }\r\n                ]\r\n            },\r\n            \"buttons\": [\r\n                {\r\n                    \"label\": \"Ajouter\",\r\n                    \"id\": \"addItem\",\r\n                    \"parameters\": {\r\n                        \"value\": \"#afeadd\"\r\n                    }\r\n                },\r\n                {\r\n                    \"label\": \"Reset\",\r\n                    \"id\": \"reset\"\r\n                }\r\n            ]\r\n        }\r\n    },\r\n    \"button\": {\r\n        \"items\": [\r\n            {\r\n                \"label\": \"Alert\",\r\n                \"id\": \"alert\"\r\n            },\r\n            {\r\n                \"label\": \"Reset\",\r\n                \"id\": \"reset\"\r\n            },\r\n            {\r\n                \"label\": \"Disable all\",\r\n                \"id\": \"disable\"\r\n            }\r\n        ]\r\n    },\r\n    \"fieldsets\": [\r\n        {\r\n            \"id\": \"input_widget\",\r\n            \"title\": \"input 字符串 部件\",\r\n            \"fields\": [\r\n                \"name\",\r\n                \"password\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"date_widget\",\r\n            \"title\": \"日期、时间、日期时间段 部件\",\r\n            \"fields\": [\r\n                \"date1\",\r\n                \"date2\",\r\n                \"date3\",\r\n                \"datetime1\",\r\n                \"daterange\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"checkbox_widget\",\r\n            \"title\": \"checkbox 部件\",\r\n            \"fields\": [\r\n                \"checked\",\r\n                \"checked1\",\r\n                \"categories\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"radio_widget\",\r\n            \"title\": \"radio 部件\",\r\n            \"fields\": [\r\n                \"promotion\",\r\n                \"promotions\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_1\",\r\n            \"title\": \"part1\",\r\n            \"fields\": [\r\n                \"favoriteColor\",\r\n                \"colors\",\r\n                \"survey\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_2\",\r\n            \"title\": \"Part 2 - Transaction\",\r\n            \"fields\": [\r\n                \"transactionNumber\",\r\n                \"transactionDescription\",\r\n                \"category\",\r\n                \"userManual\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_3\",\r\n            \"title\": \"Part 3 - Shipping\",\r\n            \"fields\": [\r\n                \"numberOfBoxes\",\r\n                \"deliveryService\",\r\n                \"otherDeliveryService\",\r\n                \"freeShipping\",\r\n                \"shippingPrice\",\r\n                \"sendApologies\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_4\",\r\n            \"title\": \"Part 4 - Email\",\r\n            \"fields\": [\r\n                \"useCustomEmail\",\r\n                \"customEmail\"\r\n            ]\r\n        }\r\n    ],\r\n    \"required\": [\r\n        \"transactionNumber\",\r\n        \"password\"\r\n    ]\r\n}"
 
 /***/ }),
 
