@@ -15,6 +15,12 @@
             "placeholder": "请输入密码，且6位以上",
             "minLength": 6
         },
+        "remark": {
+            "type": "string",
+            "widget": "textarea",
+            "title": "备注",
+            "placeholder": "Autosize height with minimum and maximum number of lines"
+        },
         "date1": {
             "type": "string",
             "placeholder": "基本日期",
@@ -27,8 +33,7 @@
             "format": "YYYY/MM/DD HH:mm:ss",
             "widget": "date",
             "showTime": true,
-            "title": "带时间日期",
-            "description": "showTime: true"
+            "title": "带时间日期"
         },
         "date3": {
             "type": "string",
@@ -67,8 +72,7 @@
             "title": "Categories",
             "items": {
                 "type": "string",
-                "oneOf": [
-                    {
+                "oneOf": [{
                         "description": "Dog",
                         "enum": [
                             "dog"
@@ -93,15 +97,14 @@
         "promotion": {
             "type": "string",
             "description": "独立使用 true",
-            "default":true,
+            "default": true,
             "widget": "radio"
         },
         "promotions": {
             "type": "string",
             "description": "Promotion",
             "widget": "radio",
-            "oneOf": [
-                {
+            "oneOf": [{
                     "description": "Student discount (20%)",
                     "enum": [
                         "student"
@@ -121,6 +124,7 @@
                 }
             ]
         },
+
         "survey": {
             "type": "object",
             "description": "Little survey",
@@ -177,8 +181,7 @@
             "widget": "select",
             "items": {
                 "type": "string",
-                "oneOf": [
-                    {
+                "oneOf": [{
                         "description": "Design",
                         "enum": [
                             "design"
@@ -206,7 +209,7 @@
             },
             "description": "Category"
         },
-     
+
         "numberOfBoxes": {
             "type": "number",
             "widget": {
@@ -220,8 +223,7 @@
             "type": "string",
             "widget": "select",
             "description": "Delivery service",
-            "oneOf": [
-                {
+            "oneOf": [{
                     "description": "UPS",
                     "enum": [
                         "ups"
@@ -334,15 +336,12 @@
                 "type": "string",
                 "description": "Color $i",
                 "widget": "color",
-                "buttons": [
-                    {
-                        "label": "Supprimer",
-                        "id": "Remove"
-                    }
-                ]
+                "buttons": [{
+                    "label": "Supprimer",
+                    "id": "Remove"
+                }]
             },
-            "buttons": [
-                {
+            "buttons": [{
                     "label": "Ajouter",
                     "id": "addItem",
                     "parameters": {
@@ -357,8 +356,7 @@
         }
     },
     "button": {
-        "items": [
-            {
+        "items": [{
                 "label": "Alert",
                 "id": "alert"
             },
@@ -372,13 +370,13 @@
             }
         ]
     },
-    "fieldsets": [
-        {
+    "fieldsets": [{
             "id": "input_widget",
             "title": "input 字符串 部件",
             "fields": [
                 "name",
-                "password"
+                "password",
+                "remark"
             ]
         },
         {

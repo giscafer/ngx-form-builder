@@ -8,21 +8,23 @@ import { DateRangeWidget } from "./date-range/date-range.widget";
 import { CheckboxWidget } from "./checkbox/checkbox.widget";
 import { ArrayWidget } from "./array/array.widget";
 import { RadioWidget } from "./radio/radio.widget";
+import { TextAreaWidget } from "./textarea/textarea.widget";
 
 export class ZorroDefaultWidgetRegistry extends WidgetRegistry {
-    constructor() {
-      super();
-      this.setType(WidgetType.ZORRO);
-      this.register('string', StringWidget);
-      this.register('button', ButtonWidget);
-      this.register('date', DateWidget);
-      this.register('time', TimeWidget);
-      this.register('date-range', DateRangeWidget);
-      this.register('checkbox', CheckboxWidget);
-      this.register('radio', RadioWidget);
-      
-      this.register('array', ArrayWidget);
-      
+  constructor() {
+    super();
+    this.setType(WidgetType.ZORRO);
+    this.register('string', StringWidget);
+    this.register('button', ButtonWidget);
+    this.register('date', DateWidget);
+    this.register('time', TimeWidget);
+    this.register('date-range', DateRangeWidget);
+    this.register('checkbox', CheckboxWidget);
+    this.register('radio', RadioWidget);
+    this.register('textarea', TextAreaWidget);
+
+    this.register('array', ArrayWidget);
+
     //   this.register('search', StringWidget);
     //   this.register('tel', StringWidget);
     //   this.register('url', StringWidget);
@@ -35,12 +37,10 @@ export class ZorroDefaultWidgetRegistry extends WidgetRegistry {
     //   this.register('integer', IntegerWidget);
     //   this.register('number', IntegerWidget);
     //   this.register('range', RangeWidget);
-    //   this.register('textarea', TextAreaWidget);
     //   this.register('select', SelectWidget);
     //   this.register('boolean', CheckboxWidget);
-      
-      this.setDefaultWidget(StringWidget);
-    }
+
+    this.setDefaultWidget(StringWidget);
   }
-  
-  
+}
+
