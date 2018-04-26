@@ -1,10 +1,11 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { BootstrapFormComponent } from "./pages/bootstrap-form/bootstrap-form.component";
-import { ZorroFormComponent } from "./pages/zorro-form/zorro-form.component";
 import { SharedModule } from "./shared/shared.module";
-import { DndComponent } from "./pages/dnd/dnd.component";
+import { DndModule } from "../lib/dnd/dnd.module";
+import { ZorroFormComponent } from "./pages/zorro-form/zorro-form.component";
+import { BootstrapFormComponent } from "./pages/bootstrap-form/bootstrap-form.component";
+import { DndComponent } from "./pages/dnd-form/dnd.component";
 
 const routes: Routes = [
     { path: '', redirectTo: 'bootstrap', pathMatch: 'full' },
@@ -19,7 +20,7 @@ const routes: Routes = [
         ZorroFormComponent,
         DndComponent
     ],
-    imports: [SharedModule, RouterModule.forRoot(routes, { useHash: true })],
+    imports: [SharedModule, DndModule.forRoot(), RouterModule.forRoot(routes, { useHash: true })],
     exports: []
 })
 export class AppRoutingModule { }

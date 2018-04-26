@@ -1,0 +1,29 @@
+<div class="dnd-container">
+    <div class="animated-taglines">
+        <h2 class="tagline">
+            <span>Drag</span>
+            <span>and</span>
+            <span>Drop</span>
+        </h2>
+        <h2 class="tagline full-featured">
+            <strong>Full-featured</strong> Form Editing</h2>
+    </div>
+    <section id="main_content" class="inner clearfix">
+        <div class="build-form">
+            <div class="form-wrap form-builder">
+                <div class="stage-wrap pull-right empty" data-content="Drag a field from the right to this area">
+                    <ul class="frmb ui-sortable" style="min-height: 508px;" dnd-sortable-container  [sortableData]="targetList" (onDropSuccess)="addTo($event)">
+                        <li  dnd-sortable  [sortableIndex]="i" *ngFor="let item of targetList; let i = index" class="list-group-item">{{item.label}}</li>
+                    </ul>
+                </div>
+                <div class="cb-wrap pull-left">
+                    <ul class="frmb-control ui-sortable">
+                        <li dnd-draggable [dragEnabled]="true" [dragData]="transferData" *ngFor="let item of listCtrls; let i = index" class="{{item.icon}} input-control ui-sortable-handle">
+                            <span>{{item.label}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

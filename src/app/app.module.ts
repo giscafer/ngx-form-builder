@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 // third part libs
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
+import { DndModule } from '../lib/dnd/dnd.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     RouterModule,
     AppRoutingModule,
     NgZorroAntdModule.forRoot(),
+    DndModule.forRoot(),
     LayoutModule
   ],
   bootstrap: [AppComponent]
