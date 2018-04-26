@@ -1,0 +1,100 @@
+.pull-left {
+    float: left!important;
+}
+
+.pull-right {
+    float: right!important;
+}
+
+#main_content hr,
+.build-form,
+.clearfix:after,
+.render-form {
+    clear: both;
+}
+
+.dnd-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url('/assets/images/dnd-background.svg'), linear-gradient(to bottom, #000, #92278F);
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed, scroll;
+    #main_content {
+        padding: 0 0 30px;
+        margin: 20px auto;
+        max-width: 1080px;
+    }
+    .animated-taglines {
+        margin: 40px auto;
+        .tagline {
+            color: #fff;
+            text-align: center;
+            font-weight: 100;
+            font-size: 3em;
+        }
+    }
+}
+
+.form-wrap.form-builder {
+    position: relative;
+    * {
+        box-sizing: border-box;
+    }
+    .frmb-control {
+        margin: 0;
+        padding: 0;
+        border-radius: 5px;
+        li {
+            cursor: move;
+            list-style: none;
+            margin: 0 0 -1px;
+            padding: 10px;
+            text-align: left;
+            background: #fff;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            box-shadow: inset 0 0 0 1px #c5c5c5;
+        }
+    }
+    .btn-group {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .form-actions {
+        float: right;
+        margin-top: 5px;
+    }
+    .stage-wrap {
+        vertical-align: top;
+        position: relative;
+        float: left;
+        width: 74%;
+    }
+    .cb-wrap {
+        vertical-align: top;
+        float: right;
+        width: 26%;
+        transition: transform .25s;
+    }
+    .empty .frmb {
+        border: 3px dashed #ccc;
+        margin-right: 5px;
+        background-color: hsla(0, 0%, 100%, .25);
+    }
+    .frmb {
+        list-style-type: none;
+        min-height: 200px;
+        margin: 0 6px 0 0;
+        padding: 0;
+        transition: background-color .5s ease-in-out;
+    }
+}
