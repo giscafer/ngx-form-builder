@@ -24,9 +24,11 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_bootstrap_form_bootstrap_form_component__ = __webpack_require__("../../../../../src/app/pages/bootstrap-form/bootstrap-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_zorro_form_zorro_form_component__ = __webpack_require__("../../../../../src/app/pages/zorro-form/zorro-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_dnd_dnd_module__ = __webpack_require__("../../../../../src/lib/dnd/dnd.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_zorro_form_zorro_form_component__ = __webpack_require__("../../../../../src/app/pages/zorro-form/zorro-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_bootstrap_form_bootstrap_form_component__ = __webpack_require__("../../../../../src/app/pages/bootstrap-form/bootstrap-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_dnd_form_dnd_component__ = __webpack_require__("../../../../../src/app/pages/dnd-form/dnd.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,10 +40,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var routes = [
     { path: '', redirectTo: 'bootstrap', pathMatch: 'full' },
-    { path: 'bootstrap', component: __WEBPACK_IMPORTED_MODULE_2__pages_bootstrap_form_bootstrap_form_component__["a" /* BootstrapFormComponent */] },
-    { path: 'zorro', component: __WEBPACK_IMPORTED_MODULE_3__pages_zorro_form_zorro_form_component__["a" /* ZorroFormComponent */] }
+    { path: 'dnd', component: __WEBPACK_IMPORTED_MODULE_6__pages_dnd_form_dnd_component__["a" /* DndComponent */] },
+    { path: 'bootstrap', component: __WEBPACK_IMPORTED_MODULE_5__pages_bootstrap_form_bootstrap_form_component__["a" /* BootstrapFormComponent */] },
+    { path: 'zorro', component: __WEBPACK_IMPORTED_MODULE_4__pages_zorro_form_zorro_form_component__["a" /* ZorroFormComponent */] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
@@ -49,10 +54,11 @@ var AppRoutingModule = (function () {
     AppRoutingModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__pages_bootstrap_form_bootstrap_form_component__["a" /* BootstrapFormComponent */],
-                __WEBPACK_IMPORTED_MODULE_3__pages_zorro_form_zorro_form_component__["a" /* ZorroFormComponent */]
+                __WEBPACK_IMPORTED_MODULE_5__pages_bootstrap_form_bootstrap_form_component__["a" /* BootstrapFormComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__pages_zorro_form_zorro_form_component__["a" /* ZorroFormComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_dnd_form_dnd_component__["a" /* DndComponent */]
             ],
-            imports: [__WEBPACK_IMPORTED_MODULE_4__shared_shared_module__["a" /* SharedModule */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes, { useHash: true })],
+            imports: [__WEBPACK_IMPORTED_MODULE_2__shared_shared_module__["a" /* SharedModule */], __WEBPACK_IMPORTED_MODULE_3__lib_dnd_dnd_module__["a" /* DndModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes, { useHash: true })],
             exports: []
         })
     ], AppRoutingModule);
@@ -78,7 +84,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "nz-content {\n  padding: 0 !important; }\n", ""]);
 
 // exports
 
@@ -167,9 +173,10 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng_zorro_antd__ = __webpack_require__("../../../../ng-zorro-antd/esm5/antd.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__layout_layout_module__ = __webpack_require__("../../../../../src/app/layout/layout.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lib_dnd_dnd_module__ = __webpack_require__("../../../../../src/lib/dnd/dnd.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__layout_layout_module__ = __webpack_require__("../../../../../src/app/layout/layout.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -188,26 +195,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["J" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["c" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_common__["b" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* RouterModule */],
-                __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_11__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_7_ng_zorro_antd__["a" /* NgZorroAntdModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_9__layout_layout_module__["a" /* LayoutModule */]
+                __WEBPACK_IMPORTED_MODULE_8__lib_dnd_dnd_module__["a" /* DndModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_10__layout_layout_module__["a" /* LayoutModule */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -260,7 +269,7 @@ var LayoutModule = (function () {
 /***/ "../../../../../src/app/layout/nav/nav.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"logo\">\r\n <!--  <img  *ngIf=\"_builder_type==='bootstrap'\" title=\"bootstrap form builder\" src=\"data:image/webp;base64,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\"\r\n  /> -->\r\n  <img *ngIf=\"_builder_type==='bootstrap'\"  style=\"margin-left: 50px;\" src=\"./assets/images/bootstrap-stack.png\" alt=\"bootstrap form builder\"/>\r\n  <img *ngIf=\"_builder_type==='zorro'\" style=\"margin-left: 50px;\" title=\"zorro form builder\" src=\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwMHB4IiBoZWlnaHQ9IjIwMHB4IiB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNDcuMSAoNDU0MjIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPkdyb3VwIDI4IENvcHkgNTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNjIuMTAyMzI3MyUiIHkxPSIwJSIgeDI9IjEwOC4xOTcxOCUiIHkyPSIzNy44NjM1NzY0JSIgaWQ9ImxpbmVhckdyYWRpZW50LTEiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNDI4NUVCIiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyRUM3RkYiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI2OS42NDQxMTYlIiB5MT0iMCUiIHgyPSI1NC4wNDI4OTc1JSIgeTI9IjEwOC40NTY3MTQlIiBpZD0ibGluZWFyR3JhZGllbnQtMiI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyOUNERkYiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzE0OEVGRiIgb2Zmc2V0PSIzNy44NjAwNjg3JSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMEE2MEZGIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNjkuNjkwODE2NSUiIHkxPSItMTIuOTc0MzU4NyUiIHgyPSIxNi43MjI4OTgxJSIgeTI9IjExNy4zOTEyNDglIiBpZD0ibGluZWFyR3JhZGllbnQtMyI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGQTgxNkUiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0Y3NEE1QyIgb2Zmc2V0PSI0MS40NzI2MDYlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGNTFEMkMiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI2OC4xMjc5ODcyJSIgeTE9Ii0zNS42OTA1NzM3JSIgeDI9IjMwLjQ0MDA5MTQlIiB5Mj0iMTE0Ljk0MjY3OSUiIGlkPSJsaW5lYXJHcmFkaWVudC00Ij4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ZBOEU3RCIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRjc0QTVDIiBvZmZzZXQ9IjUxLjI2MzUxOTElIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGNTFEMkMiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0ibG9nbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwLjAwMDAwMCwgLTIwLjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0iR3JvdXAtMjgtQ29weS01IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMC4wMDAwMDAsIDIwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTI3LUNvcHktMyI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTI1IiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iMiI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOTEuNTg4MDg2Myw0LjE3NjUyODIzIEw0LjE3OTk2NTQ0LDkxLjUxMjc3MjggQy0wLjUxOTI0MDYwNSw5Ni4yMDgxMTQ2IC0wLjUxOTI0MDYwNSwxMDMuNzkxODg1IDQuMTc5OTY1NDQsMTA4LjQ4NzIyNyBMOTEuNTg4MDg2MywxOTUuODIzNDcyIEM5Ni4yODcyOTIzLDIwMC41MTg4MTQgMTAzLjg3NzMwNCwyMDAuNTE4ODE0IDEwOC41NzY1MSwxOTUuODIzNDcyIEwxNDUuMjI1NDg3LDE1OS4yMDQ2MzIgQzE0OS40MzM5NjksMTU0Ljk5OTYxMSAxNDkuNDMzOTY5LDE0OC4xODE5MjQgMTQ1LjIyNTQ4NywxNDMuOTc2OTAzIEMxNDEuMDE3MDA1LDEzOS43NzE4ODEgMTM0LjE5MzcwNywxMzkuNzcxODgxIDEyOS45ODUyMjUsMTQzLjk3NjkwMyBMMTAyLjIwMTkzLDE3MS43MzczNTIgQzEwMS4wMzIzMDUsMTcyLjkwNjAxNSA5OS4yNTcxNjA5LDE3Mi45MDYwMTUgOTguMDg3NTM1OSwxNzEuNzM3MzUyIEwyOC4yODU5MDgsMTAxLjk5MzEyMiBDMjcuMTE2MjgzMSwxMDAuODI0NDU5IDI3LjExNjI4MzEsOTkuMDUwNzc1IDI4LjI4NTkwOCw5Ny44ODIxMTE4IEw5OC4wODc1MzU5LDI4LjEzNzg4MjMgQzk5LjI1NzE2MDksMjYuOTY5MjE5MSAxMDEuMDMyMzA1LDI2Ljk2OTIxOTEgMTAyLjIwMTkzLDI4LjEzNzg4MjMgTDEyOS45ODUyMjUsNTUuODk4MzMxNCBDMTM0LjE5MzcwNyw2MC4xMDMzNTI4IDE0MS4wMTcwMDUsNjAuMTAzMzUyOCAxNDUuMjI1NDg3LDU1Ljg5ODMzMTQgQzE0OS40MzM5NjksNTEuNjkzMzEgMTQ5LjQzMzk2OSw0NC44NzU2MjMyIDE0NS4yMjU0ODcsNDAuNjcwNjAxOCBMMTA4LjU4MDU1LDQuMDU1NzQ1OTIgQzEwMy44NjIwNDksLTAuNTM3OTg2ODQ2IDk2LjI2OTI2MTgsLTAuNTAwNzk3OTA2IDkxLjU4ODA4NjMsNC4xNzY1MjgyMyBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMSkiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik05MS41ODgwODYzLDQuMTc2NTI4MjMgTDQuMTc5OTY1NDQsOTEuNTEyNzcyOCBDLTAuNTE5MjQwNjA1LDk2LjIwODExNDYgLTAuNTE5MjQwNjA1LDEwMy43OTE4ODUgNC4xNzk5NjU0NCwxMDguNDg3MjI3IEw5MS41ODgwODYzLDE5NS44MjM0NzIgQzk2LjI4NzI5MjMsMjAwLjUxODgxNCAxMDMuODc3MzA0LDIwMC41MTg4MTQgMTA4LjU3NjUxLDE5NS44MjM0NzIgTDE0NS4yMjU0ODcsMTU5LjIwNDYzMiBDMTQ5LjQzMzk2OSwxNTQuOTk5NjExIDE0OS40MzM5NjksMTQ4LjE4MTkyNCAxNDUuMjI1NDg3LDE0My45NzY5MDMgQzE0MS4wMTcwMDUsMTM5Ljc3MTg4MSAxMzQuMTkzNzA3LDEzOS43NzE4ODEgMTI5Ljk4NTIyNSwxNDMuOTc2OTAzIEwxMDIuMjAxOTMsMTcxLjczNzM1MiBDMTAxLjAzMjMwNSwxNzIuOTA2MDE1IDk5LjI1NzE2MDksMTcyLjkwNjAxNSA5OC4wODc1MzU5LDE3MS43MzczNTIgTDI4LjI4NTkwOCwxMDEuOTkzMTIyIEMyNy4xMTYyODMxLDEwMC44MjQ0NTkgMjcuMTE2MjgzMSw5OS4wNTA3NzUgMjguMjg1OTA4LDk3Ljg4MjExMTggTDk4LjA4NzUzNTksMjguMTM3ODgyMyBDMTAwLjk5OTg2NCwyNS42MjcxODM2IDEwNS43NTE2NDIsMjAuNTQxODI0IDExMi43Mjk2NTIsMTkuMzUyNDQ4NyBDMTE3LjkxNTU4NSwxOC40Njg1MjYxIDEyMy41ODUyMTksMjAuNDE0MDIzOSAxMjkuNzM4NTU0LDI1LjE4ODk0MjQgQzEyNS42MjQ2NjMsMjEuMDc4NDI5MiAxMTguNTcxOTk1LDE0LjAzNDAzMDQgMTA4LjU4MDU1LDQuMDU1NzQ1OTIgQzEwMy44NjIwNDksLTAuNTM3OTg2ODQ2IDk2LjI2OTI2MTgsLTAuNTAwNzk3OTA2IDkxLjU4ODA4NjMsNC4xNzY1MjgyMyBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMikiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTUzLjY4NTYzMywxMzUuODU0NTc5IEMxNTcuODk0MTE1LDE0MC4wNTk2IDE2NC43MTc0MTIsMTQwLjA1OTYgMTY4LjkyNTg5NCwxMzUuODU0NTc5IEwxOTUuOTU5OTc3LDEwOC44NDI3MjYgQzIwMC42NTkxODMsMTA0LjE0NzM4NCAyMDAuNjU5MTgzLDk2LjU2MzYxMzMgMTk1Ljk2MDUyNyw5MS44Njg4MTk0IEwxNjguNjkwNzc3LDY0LjcxODExNTkgQzE2NC40NzIzMzIsNjAuNTE4MDg1OCAxNTcuNjQ2ODY4LDYwLjUyNDE0MjUgMTUzLjQzNTg5NSw2NC43MzE2NTI2IEMxNDkuMjI3NDEzLDY4LjkzNjY3NCAxNDkuMjI3NDEzLDc1Ljc1NDM2MDcgMTUzLjQzNTg5NSw3OS45NTkzODIxIEwxNzEuODU0MDM1LDk4LjM2MjM3NjUgQzE3My4wMjM2Niw5OS41MzEwMzk2IDE3My4wMjM2NiwxMDEuMzA0NzI0IDE3MS44NTQwMzUsMTAyLjQ3MzM4NyBMMTUzLjY4NTYzMywxMjAuNjI2ODQ5IEMxNDkuNDc3MTUsMTI0LjgzMTg3IDE0OS40NzcxNSwxMzEuNjQ5NTU3IDE1My42ODU2MzMsMTM1Ljg1NDU3OSBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMykiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPGVsbGlwc2UgaWQ9IkNvbWJpbmVkLVNoYXBlIiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTQpIiBjeD0iMTAwLjUxOTMzOSIgY3k9IjEwMC40MzY2ODEiIHJ4PSIyMy42MDAxOTI2IiByeT0iMjMuNTgwNzg2Ij48L2VsbGlwc2U+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==\"\r\n  />\r\n</div>\r\n<div class=\"logo-title\"><a href=\"./\" title=\"ng-form-builder\">NgFormBuilder</a></div>\r\n<ul nz-menu [nzMode]=\"'horizontal'\" [nzTheme]=\"'dark'\" style=\"padding-left: 280px;\">\r\n  <li nz-submenu>\r\n    <span title>\r\n      <i class=\"anticon anticon-setting\"></i> Builder</span>\r\n    <ul>\r\n      <li nz-menu-item [nzSelected]=\"true\"  [routerLink]=\"'/bootstrap'\">BootStrap Form Builder</li>\r\n      <li nz-menu-item  [routerLink]=\"'/zorro'\">Zorro Form Builder (under development)</li>\r\n      <li nz-menu-item [nzDisable]=\"true\">PrimeNG Form Builder (comming soon)</li>\r\n      <li nz-menu-item [nzDisable]=\"true\">Ionic Form Builder (comming soon)</li>\r\n    </ul>\r\n  </li>\r\n  <li nz-submenu>\r\n    <span title>\r\n      <i class=\"anticon anticon-folder\"></i> Document</span>\r\n    <ul>\r\n      <li nz-menu-group>\r\n        <span title>Form</span>\r\n        <ul>\r\n          <li nz-menu-item [nzDisable]=\"true\">How-To Guide</li>\r\n          <li nz-menu-item [nzDisable]=\"true\">Api Reference</li>\r\n        </ul>\r\n      </li>\r\n      <li nz-menu-group>\r\n        <span title>Other</span>\r\n        <ul>\r\n          <li nz-menu-item>\r\n            <a href=\"http://json-schema.org/specification.html\" target=\"_blank\">JSON Schema Specification</a>\r\n          </li>\r\n        </ul>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n\r\n  <li nz-menu-item >\r\n    <i class=\"anticon anticon-github\"></i>  <a href=\"https://github.com/giscafer/ng-form-builder\" style=\"display:inline;color:#fff;\"  target=\"_blank\">Github</a></li>\r\n  <li nz-menu-item>\r\n    <a href=\"https://ng.ant.design\" target=\"_blank\" rel=\"noopener noreferrer\"></a>\r\n  </li>\r\n</ul>"
+module.exports = "<div id=\"logo\">\r\n    <!--  <img  *ngIf=\"_builder_type==='bootstrap'\" title=\"bootstrap form builder\" src=\"data:image/webp;base64,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\"\r\n  /> -->\r\n    <img *ngIf=\"_builder_type==='bootstrap'\" style=\"margin-left: 50px;\" src=\"./assets/images/bootstrap-stack.png\" alt=\"bootstrap form builder\" />\r\n    <img *ngIf=\"_builder_type==='zorro'\" style=\"margin-left: 50px;\" title=\"zorro form builder\" src=\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwMHB4IiBoZWlnaHQ9IjIwMHB4IiB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNDcuMSAoNDU0MjIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPkdyb3VwIDI4IENvcHkgNTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNjIuMTAyMzI3MyUiIHkxPSIwJSIgeDI9IjEwOC4xOTcxOCUiIHkyPSIzNy44NjM1NzY0JSIgaWQ9ImxpbmVhckdyYWRpZW50LTEiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNDI4NUVCIiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyRUM3RkYiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI2OS42NDQxMTYlIiB5MT0iMCUiIHgyPSI1NC4wNDI4OTc1JSIgeTI9IjEwOC40NTY3MTQlIiBpZD0ibGluZWFyR3JhZGllbnQtMiI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyOUNERkYiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzE0OEVGRiIgb2Zmc2V0PSIzNy44NjAwNjg3JSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMEE2MEZGIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNjkuNjkwODE2NSUiIHkxPSItMTIuOTc0MzU4NyUiIHgyPSIxNi43MjI4OTgxJSIgeTI9IjExNy4zOTEyNDglIiBpZD0ibGluZWFyR3JhZGllbnQtMyI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGQTgxNkUiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0Y3NEE1QyIgb2Zmc2V0PSI0MS40NzI2MDYlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGNTFEMkMiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI2OC4xMjc5ODcyJSIgeTE9Ii0zNS42OTA1NzM3JSIgeDI9IjMwLjQ0MDA5MTQlIiB5Mj0iMTE0Ljk0MjY3OSUiIGlkPSJsaW5lYXJHcmFkaWVudC00Ij4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ZBOEU3RCIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRjc0QTVDIiBvZmZzZXQ9IjUxLjI2MzUxOTElIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGNTFEMkMiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0ibG9nbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwLjAwMDAwMCwgLTIwLjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0iR3JvdXAtMjgtQ29weS01IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMC4wMDAwMDAsIDIwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTI3LUNvcHktMyI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTI1IiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iMiI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOTEuNTg4MDg2Myw0LjE3NjUyODIzIEw0LjE3OTk2NTQ0LDkxLjUxMjc3MjggQy0wLjUxOTI0MDYwNSw5Ni4yMDgxMTQ2IC0wLjUxOTI0MDYwNSwxMDMuNzkxODg1IDQuMTc5OTY1NDQsMTA4LjQ4NzIyNyBMOTEuNTg4MDg2MywxOTUuODIzNDcyIEM5Ni4yODcyOTIzLDIwMC41MTg4MTQgMTAzLjg3NzMwNCwyMDAuNTE4ODE0IDEwOC41NzY1MSwxOTUuODIzNDcyIEwxNDUuMjI1NDg3LDE1OS4yMDQ2MzIgQzE0OS40MzM5NjksMTU0Ljk5OTYxMSAxNDkuNDMzOTY5LDE0OC4xODE5MjQgMTQ1LjIyNTQ4NywxNDMuOTc2OTAzIEMxNDEuMDE3MDA1LDEzOS43NzE4ODEgMTM0LjE5MzcwNywxMzkuNzcxODgxIDEyOS45ODUyMjUsMTQzLjk3NjkwMyBMMTAyLjIwMTkzLDE3MS43MzczNTIgQzEwMS4wMzIzMDUsMTcyLjkwNjAxNSA5OS4yNTcxNjA5LDE3Mi45MDYwMTUgOTguMDg3NTM1OSwxNzEuNzM3MzUyIEwyOC4yODU5MDgsMTAxLjk5MzEyMiBDMjcuMTE2MjgzMSwxMDAuODI0NDU5IDI3LjExNjI4MzEsOTkuMDUwNzc1IDI4LjI4NTkwOCw5Ny44ODIxMTE4IEw5OC4wODc1MzU5LDI4LjEzNzg4MjMgQzk5LjI1NzE2MDksMjYuOTY5MjE5MSAxMDEuMDMyMzA1LDI2Ljk2OTIxOTEgMTAyLjIwMTkzLDI4LjEzNzg4MjMgTDEyOS45ODUyMjUsNTUuODk4MzMxNCBDMTM0LjE5MzcwNyw2MC4xMDMzNTI4IDE0MS4wMTcwMDUsNjAuMTAzMzUyOCAxNDUuMjI1NDg3LDU1Ljg5ODMzMTQgQzE0OS40MzM5NjksNTEuNjkzMzEgMTQ5LjQzMzk2OSw0NC44NzU2MjMyIDE0NS4yMjU0ODcsNDAuNjcwNjAxOCBMMTA4LjU4MDU1LDQuMDU1NzQ1OTIgQzEwMy44NjIwNDksLTAuNTM3OTg2ODQ2IDk2LjI2OTI2MTgsLTAuNTAwNzk3OTA2IDkxLjU4ODA4NjMsNC4xNzY1MjgyMyBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMSkiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik05MS41ODgwODYzLDQuMTc2NTI4MjMgTDQuMTc5OTY1NDQsOTEuNTEyNzcyOCBDLTAuNTE5MjQwNjA1LDk2LjIwODExNDYgLTAuNTE5MjQwNjA1LDEwMy43OTE4ODUgNC4xNzk5NjU0NCwxMDguNDg3MjI3IEw5MS41ODgwODYzLDE5NS44MjM0NzIgQzk2LjI4NzI5MjMsMjAwLjUxODgxNCAxMDMuODc3MzA0LDIwMC41MTg4MTQgMTA4LjU3NjUxLDE5NS44MjM0NzIgTDE0NS4yMjU0ODcsMTU5LjIwNDYzMiBDMTQ5LjQzMzk2OSwxNTQuOTk5NjExIDE0OS40MzM5NjksMTQ4LjE4MTkyNCAxNDUuMjI1NDg3LDE0My45NzY5MDMgQzE0MS4wMTcwMDUsMTM5Ljc3MTg4MSAxMzQuMTkzNzA3LDEzOS43NzE4ODEgMTI5Ljk4NTIyNSwxNDMuOTc2OTAzIEwxMDIuMjAxOTMsMTcxLjczNzM1MiBDMTAxLjAzMjMwNSwxNzIuOTA2MDE1IDk5LjI1NzE2MDksMTcyLjkwNjAxNSA5OC4wODc1MzU5LDE3MS43MzczNTIgTDI4LjI4NTkwOCwxMDEuOTkzMTIyIEMyNy4xMTYyODMxLDEwMC44MjQ0NTkgMjcuMTE2MjgzMSw5OS4wNTA3NzUgMjguMjg1OTA4LDk3Ljg4MjExMTggTDk4LjA4NzUzNTksMjguMTM3ODgyMyBDMTAwLjk5OTg2NCwyNS42MjcxODM2IDEwNS43NTE2NDIsMjAuNTQxODI0IDExMi43Mjk2NTIsMTkuMzUyNDQ4NyBDMTE3LjkxNTU4NSwxOC40Njg1MjYxIDEyMy41ODUyMTksMjAuNDE0MDIzOSAxMjkuNzM4NTU0LDI1LjE4ODk0MjQgQzEyNS42MjQ2NjMsMjEuMDc4NDI5MiAxMTguNTcxOTk1LDE0LjAzNDAzMDQgMTA4LjU4MDU1LDQuMDU1NzQ1OTIgQzEwMy44NjIwNDksLTAuNTM3OTg2ODQ2IDk2LjI2OTI2MTgsLTAuNTAwNzk3OTA2IDkxLjU4ODA4NjMsNC4xNzY1MjgyMyBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMikiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTUzLjY4NTYzMywxMzUuODU0NTc5IEMxNTcuODk0MTE1LDE0MC4wNTk2IDE2NC43MTc0MTIsMTQwLjA1OTYgMTY4LjkyNTg5NCwxMzUuODU0NTc5IEwxOTUuOTU5OTc3LDEwOC44NDI3MjYgQzIwMC42NTkxODMsMTA0LjE0NzM4NCAyMDAuNjU5MTgzLDk2LjU2MzYxMzMgMTk1Ljk2MDUyNyw5MS44Njg4MTk0IEwxNjguNjkwNzc3LDY0LjcxODExNTkgQzE2NC40NzIzMzIsNjAuNTE4MDg1OCAxNTcuNjQ2ODY4LDYwLjUyNDE0MjUgMTUzLjQzNTg5NSw2NC43MzE2NTI2IEMxNDkuMjI3NDEzLDY4LjkzNjY3NCAxNDkuMjI3NDEzLDc1Ljc1NDM2MDcgMTUzLjQzNTg5NSw3OS45NTkzODIxIEwxNzEuODU0MDM1LDk4LjM2MjM3NjUgQzE3My4wMjM2Niw5OS41MzEwMzk2IDE3My4wMjM2NiwxMDEuMzA0NzI0IDE3MS44NTQwMzUsMTAyLjQ3MzM4NyBMMTUzLjY4NTYzMywxMjAuNjI2ODQ5IEMxNDkuNDc3MTUsMTI0LjgzMTg3IDE0OS40NzcxNSwxMzEuNjQ5NTU3IDE1My42ODU2MzMsMTM1Ljg1NDU3OSBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMykiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPGVsbGlwc2UgaWQ9IkNvbWJpbmVkLVNoYXBlIiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTQpIiBjeD0iMTAwLjUxOTMzOSIgY3k9IjEwMC40MzY2ODEiIHJ4PSIyMy42MDAxOTI2IiByeT0iMjMuNTgwNzg2Ij48L2VsbGlwc2U+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==\"\r\n    />\r\n</div>\r\n<div class=\"logo-title\"><a href=\"./\" title=\"ng-form-builder\">NgFormBuilder</a></div>\r\n<ul nz-menu [nzMode]=\"'horizontal'\" [nzTheme]=\"'dark'\" style=\"padding-left: 280px;\">\r\n\r\n    <li nz-submenu>\r\n        <span title>\r\n      <i class=\"anticon anticon-setting\"></i> Builder</span>\r\n        <ul>\r\n            <li nz-menu-item [nzSelected]=\"true\" [routerLink]=\"'/bootstrap'\">BootStrap Form Builder</li>\r\n            <li nz-menu-item [routerLink]=\"'/zorro'\">Zorro Form Builder (under development)</li>\r\n            <li nz-menu-item [nzDisable]=\"true\">PrimeNG Form Builder (comming soon)</li>\r\n            <li nz-menu-item [nzDisable]=\"true\">Ionic Form Builder (comming soon)</li>\r\n        </ul>\r\n    </li>\r\n    <li nz-menu-item [routerLink]=\"'/dnd'\">\r\n        <i class=\"anticon anticon-layout\"></i> Drag&Drop\r\n    </li>\r\n    <li nz-submenu>\r\n        <span title>\r\n      <i class=\"anticon anticon-folder\"></i> Document</span>\r\n        <ul>\r\n            <li nz-menu-group>\r\n                <span title>Form</span>\r\n                <ul>\r\n                    <li nz-menu-item [nzDisable]=\"true\">How-To Guide</li>\r\n                    <li nz-menu-item [nzDisable]=\"true\">Api Reference</li>\r\n                </ul>\r\n            </li>\r\n            <li nz-menu-group>\r\n                <span title>Other</span>\r\n                <ul>\r\n                    <li nz-menu-item>\r\n                        <a href=\"http://json-schema.org/specification.html\" target=\"_blank\">JSON Schema Specification</a>\r\n                    </li>\r\n                </ul>\r\n            </li>\r\n        </ul>\r\n    </li>\r\n\r\n    <li nz-menu-item>\r\n        <i class=\"anticon anticon-github\"></i> <a href=\"https://github.com/giscafer/ng-form-builder\" style=\"display:inline;color:#fff;\" target=\"_blank\">Github</a></li>\r\n    <li nz-menu-item>\r\n        <a href=\"https://ng.ant.design\" target=\"_blank\" rel=\"noopener noreferrer\"></a>\r\n    </li>\r\n</ul>"
 
 /***/ }),
 
@@ -496,6 +505,100 @@ var BootstrapFormComponent = (function () {
     return BootstrapFormComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/dnd-form/dnd.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"dnd-container\">\r\n    <div class=\"animated-taglines\">\r\n        <h2 class=\"tagline\">\r\n            <span>Drag</span>\r\n            <span>and</span>\r\n            <span>Drop</span>\r\n        </h2>\r\n        <h2 class=\"tagline full-featured\">\r\n            <strong>Full-featured</strong> Form Editing</h2>\r\n    </div>\r\n    <section id=\"main_content\" class=\"inner clearfix\">\r\n        <div class=\"build-form\">\r\n            <div class=\"form-wrap form-builder\">\r\n                <div class=\"stage-wrap pull-right empty\" data-content=\"Drag a field from the right to this area\" id=\"drogbox\">\r\n                    <ul class=\"frmb ui-sortable\" style=\"min-height: 508px;\" dnd-sortable-container [sortableData]=\"targetList\" (onDropSuccess)=\"addTo($event)\">\r\n                        <li dnd-sortable [sortableIndex]=\"i\" *ngFor=\"let item of targetList; let i = index\" class=\"list-group-item\">{{item.label}}</li>\r\n                    </ul>\r\n                </div>\r\n                <div class=\"cb-wrap pull-left\" dnd-sortable-container [sortableData]=\"listCtrls\" [dragCopy]=\"true\" id=\"dragbox\">\r\n                    <ul class=\"frmb-control ui-sortable\">\r\n                        <li *ngFor=\"let item of listCtrls; let i = index\" dnd-sortable [sortableIndex]=\"i\" class=\"{{item.icon}} input-control ui-sortable-handle\">\r\n                            <span>{{item.label}}</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </section>\r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/dnd-form/dnd.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "#main_content hr,\n.build-form,\n.clearfix:after,\n.render-form {\n  clear: both; }\n\n.dnd-container {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  background-image: url(\"/assets/images/dnd-background.svg\"), linear-gradient(to bottom, #000, #92278F);\n  background-size: 100% 100%;\n  background-position: 50% 50%;\n  background-repeat: no-repeat;\n  background-attachment: fixed, scroll; }\n  .dnd-container #main_content {\n    padding: 0 0 30px;\n    margin: 20px auto;\n    max-width: 1280px; }\n  .dnd-container .animated-taglines {\n    margin: 40px auto; }\n    .dnd-container .animated-taglines .tagline {\n      color: #fff;\n      text-align: center;\n      font-weight: 100;\n      font-size: 3em; }\n\n.form-wrap.form-builder {\n  position: relative; }\n  .form-wrap.form-builder * {\n    box-sizing: border-box; }\n  .form-wrap.form-builder .frmb-control {\n    margin: 0;\n    padding: 0;\n    border-radius: 5px; }\n    .form-wrap.form-builder .frmb-control li {\n      cursor: move;\n      list-style: none;\n      margin: 0 0 -1px;\n      padding: 10px;\n      text-align: left;\n      background: #fff;\n      -webkit-user-select: none;\n      -moz-user-select: none;\n      -ms-user-select: none;\n      user-select: none;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      box-shadow: inset 0 0 0 1px #c5c5c5; }\n  .form-wrap.form-builder .btn-group {\n    position: relative;\n    display: inline-block;\n    vertical-align: middle; }\n  .form-wrap.form-builder .form-actions {\n    float: right;\n    margin-top: 5px; }\n  .form-wrap.form-builder .stage-wrap {\n    vertical-align: top;\n    position: relative;\n    float: left;\n    width: 74%; }\n  .form-wrap.form-builder .cb-wrap {\n    vertical-align: top;\n    float: right;\n    width: 26%;\n    transition: -webkit-transform .25s;\n    transition: transform .25s;\n    transition: transform .25s, -webkit-transform .25s; }\n  .form-wrap.form-builder .empty .frmb {\n    border: 3px dashed #ccc;\n    margin-right: 5px;\n    background-color: rgba(255, 255, 255, 0.25); }\n  .form-wrap.form-builder .frmb {\n    list-style-type: none;\n    min-height: 200px;\n    margin: 0 6px 0 0;\n    padding: 0;\n    transition: background-color .5s ease-in-out; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/dnd-form/dnd.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DndComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__frmb_controls__ = __webpack_require__("../../../../../src/app/pages/dnd-form/frmb-controls.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DndComponent = (function () {
+    function DndComponent() {
+        this.transferData = { id: 1, label: 'Hello' };
+        this.listCtrls = __WEBPACK_IMPORTED_MODULE_1__frmb_controls__["a" /* FRMB_CONTROL_LIST */];
+        this.targetList = [];
+    }
+    DndComponent.prototype.ngOnInit = function () {
+    };
+    DndComponent.prototype.addTo = function ($event) {
+        // this.targetList.push($event.dragData);
+        console.log($event);
+    };
+    DndComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-dnd',
+            template: __webpack_require__("../../../../../src/app/pages/dnd-form/dnd.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/pages/dnd-form/dnd.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DndComponent);
+    return DndComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/dnd-form/frmb-controls.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FRMB_CONTROL_LIST; });
+var FRMB_CONTROL_LIST = [
+    { label: 'Autocomplete', icon: 'icon-autocomplete' },
+    { label: 'Button', icon: 'icon-button' },
+    { label: 'Checkbox Group', icon: 'icon-checkbox' },
+    { label: 'Date Field', icon: 'icon-date' },
+    { label: 'File Upload', icon: 'icon-file' },
+    { label: 'Header', icon: 'icon-header' },
+    { label: 'Hidden Input', icon: 'icon-hidden' },
+    { label: 'Paragraph', icon: 'icon-paragraph' },
+    { label: 'Number', icon: 'icon-number' },
+    { label: 'Radio Group', icon: 'icon-radio' },
+    { label: 'Select', icon: 'icon-select' },
+    { label: 'Text Field', icon: 'icon-text' },
+    { label: 'Text Area', icon: 'icon-textarea' },
+];
 
 
 /***/ }),
@@ -760,14 +863,14 @@ var SharedModule = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3_ng_zorro_antd__["a" /* NgZorroAntdModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_4_ng_ace_tern__["b" /* AceEditorModule */],
                 __WEBPACK_IMPORTED_MODULE_5__lib_schema_form_module__["a" /* SchemaFormModule */],
             ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3_ng_zorro_antd__["a" /* NgZorroAntdModule */],
                 __WEBPACK_IMPORTED_MODULE_4_ng_ace_tern__["b" /* AceEditorModule */],
                 __WEBPACK_IMPORTED_MODULE_5__lib_schema_form_module__["a" /* SchemaFormModule */]
@@ -1051,7 +1154,7 @@ var BsFormBuilderComponent = (function () {
         this.onErrorChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this.onErrorsChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this.onBuilderFinish = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
-        this.control = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */]('', function () { return null; });
+        this.control = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', function () { return null; });
         this.rootProperty = null;
         this.widget = null;
         this.buttons = [];
@@ -1331,7 +1434,7 @@ var ZorroFormBuilderComponent = (function () {
         this.onErrorChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this.onErrorsChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this.onBuilderFinish = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
-        this.control = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */]('', function () { return null; });
+        this.control = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', function () { return null; });
         this.rootProperty = null;
         this.widget = null;
         this.buttons = [];
@@ -1559,6 +1662,1286 @@ var ZorroFormBuilderComponent = (function () {
     return ZorroFormBuilderComponent;
     var ZorroFormBuilderComponent_1;
 }());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/dnd/abstract.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AbstractComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AbstractHandleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dnd_config__ = __webpack_require__("../../../../../src/lib/dnd/dnd.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dnd_service__ = __webpack_require__("../../../../../src/lib/dnd/dnd.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dnd_utils__ = __webpack_require__("../../../../../src/lib/dnd/dnd.utils.ts");
+// Copyright (C) 2016-2018 Sergey Akopkokhyants
+// This project is licensed under the terms of the MIT license.
+// https://github.com/akserg/ng2-dnd
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AbstractComponent = (function () {
+    function AbstractComponent(elemRef, _dragDropService, _config, _cdr) {
+        var _this = this;
+        this._dragDropService = _dragDropService;
+        this._config = _config;
+        this._cdr = _cdr;
+        /**
+         * Whether the object is draggable. Default is true.
+         */
+        this._dragEnabled = false;
+        /**
+         * Allows drop on this element
+         */
+        this.dropEnabled = false;
+        this.dropZones = [];
+        this.cloneItem = false;
+        // Assign default cursor unless overridden
+        this._defaultCursor = _config.defaultCursor;
+        this._elem = elemRef.nativeElement;
+        this._elem.style.cursor = this._defaultCursor; // set default cursor on our element
+        //
+        // DROP events
+        //
+        this._elem.ondragenter = function (event) {
+            _this._onDragEnter(event);
+        };
+        this._elem.ondragover = function (event) {
+            _this._onDragOver(event);
+            //
+            if (event.dataTransfer != null) {
+                event.dataTransfer.dropEffect = _this._config.dropEffect.name;
+            }
+            return false;
+        };
+        this._elem.ondragleave = function (event) {
+            _this._onDragLeave(event);
+        };
+        this._elem.ondrop = function (event) {
+            _this._onDrop(event);
+        };
+        //
+        // Drag events
+        //
+        this._elem.onmousedown = function (event) {
+            _this._target = event.target;
+        };
+        this._elem.ondragstart = function (event) {
+            if (_this._dragHandle) {
+                if (!_this._dragHandle.contains(_this._target)) {
+                    event.preventDefault();
+                    return;
+                }
+            }
+            _this._onDragStart(event);
+            //
+            if (event.dataTransfer != null) {
+                event.dataTransfer.setData('text', '');
+                // Change drag effect
+                event.dataTransfer.effectAllowed = _this.effectAllowed || _this._config.dragEffect.name;
+                // Change drag image
+                if (Object(__WEBPACK_IMPORTED_MODULE_3__dnd_utils__["d" /* isPresent */])(_this.dragImage)) {
+                    if (Object(__WEBPACK_IMPORTED_MODULE_3__dnd_utils__["e" /* isString */])(_this.dragImage)) {
+                        event.dataTransfer.setDragImage(Object(__WEBPACK_IMPORTED_MODULE_3__dnd_utils__["b" /* createImage */])(_this.dragImage));
+                    }
+                    else if (Object(__WEBPACK_IMPORTED_MODULE_3__dnd_utils__["c" /* isFunction */])(_this.dragImage)) {
+                        event.dataTransfer.setDragImage(Object(__WEBPACK_IMPORTED_MODULE_3__dnd_utils__["a" /* callFun */])(_this.dragImage));
+                    }
+                    else {
+                        var img = _this.dragImage;
+                        event.dataTransfer.setDragImage(img.imageElement, img.x_offset, img.y_offset);
+                    }
+                }
+                else if (Object(__WEBPACK_IMPORTED_MODULE_3__dnd_utils__["d" /* isPresent */])(_this._config.dragImage)) {
+                    var dragImage = _this._config.dragImage;
+                    event.dataTransfer.setDragImage(dragImage.imageElement, dragImage.x_offset, dragImage.y_offset);
+                }
+                else if (_this.cloneItem) {
+                    _this._dragHelper = _this._elem.cloneNode(true);
+                    _this._dragHelper.classList.add('dnd-drag-item');
+                    _this._dragHelper.style.position = "absolute";
+                    _this._dragHelper.style.top = "0px";
+                    _this._dragHelper.style.left = "-1000px";
+                    _this._elem.parentElement.appendChild(_this._dragHelper);
+                    event.dataTransfer.setDragImage(_this._dragHelper, event.offsetX, event.offsetY);
+                }
+                // Change drag cursor
+                var cursorelem = (_this._dragHandle) ? _this._dragHandle : _this._elem;
+                if (_this._dragEnabled) {
+                    cursorelem.style.cursor = _this.effectCursor ? _this.effectCursor : _this._config.dragCursor;
+                }
+                else {
+                    cursorelem.style.cursor = _this._defaultCursor;
+                }
+            }
+        };
+        this._elem.ondragend = function (event) {
+            if (_this._elem.parentElement && _this._dragHelper) {
+                _this._elem.parentElement.removeChild(_this._dragHelper);
+            }
+            // console.log('ondragend', event.target);
+            _this._onDragEnd(event);
+            // Restore style of dragged element
+            var cursorelem = (_this._dragHandle) ? _this._dragHandle : _this._elem;
+            cursorelem.style.cursor = _this._defaultCursor;
+        };
+    }
+    Object.defineProperty(AbstractComponent.prototype, "dragEnabled", {
+        get: function () {
+            return this._dragEnabled;
+        },
+        set: function (enabled) {
+            this._dragEnabled = !!enabled;
+            this._elem.draggable = this._dragEnabled;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AbstractComponent.prototype.setDragHandle = function (elem) {
+        this._dragHandle = elem;
+    };
+    /******* Change detection ******/
+    AbstractComponent.prototype.detectChanges = function () {
+        var _this = this;
+        // Programmatically run change detection to fix issue in Safari
+        setTimeout(function () {
+            if (_this._cdr && !_this._cdr.destroyed) {
+                _this._cdr.detectChanges();
+            }
+        }, 250);
+    };
+    //****** Droppable *******//
+    AbstractComponent.prototype._onDragEnter = function (event) {
+        // console.log('ondragenter._isDropAllowed', this._isDropAllowed);
+        if (this._isDropAllowed(event)) {
+            // event.preventDefault();
+            this._onDragEnterCallback(event);
+        }
+    };
+    AbstractComponent.prototype._onDragOver = function (event) {
+        // // console.log('ondragover._isDropAllowed', this._isDropAllowed);
+        if (this._isDropAllowed(event)) {
+            // The element is over the same source element - do nothing
+            if (event.preventDefault) {
+                // Necessary. Allows us to drop.
+                event.preventDefault();
+            }
+            this._onDragOverCallback(event);
+        }
+    };
+    AbstractComponent.prototype._onDragLeave = function (event) {
+        // console.log('ondragleave._isDropAllowed', this._isDropAllowed);
+        if (this._isDropAllowed(event)) {
+            // event.preventDefault();
+            this._onDragLeaveCallback(event);
+        }
+    };
+    AbstractComponent.prototype._onDrop = function (event) {
+        // console.log('ondrop._isDropAllowed', this._isDropAllowed);
+        if (this._isDropAllowed(event)) {
+            // Necessary. Allows us to drop.
+            this._preventAndStop(event);
+            this._onDropCallback(event);
+            this.detectChanges();
+        }
+    };
+    AbstractComponent.prototype._isDropAllowed = function (event) {
+        if ((this._dragDropService.isDragged || (event.dataTransfer && event.dataTransfer.files)) && this.dropEnabled) {
+            // First, if `allowDrop` is set, call it to determine whether the
+            // dragged element can be dropped here.
+            if (this.allowDrop) {
+                return this.allowDrop(this._dragDropService.dragData);
+            }
+            // Otherwise, use dropZones if they are set.
+            if (this.dropZones.length === 0 && this._dragDropService.allowedDropZones.length === 0) {
+                return true;
+            }
+            for (var i = 0; i < this._dragDropService.allowedDropZones.length; i++) {
+                var dragZone = this._dragDropService.allowedDropZones[i];
+                if (this.dropZones.indexOf(dragZone) !== -1) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+    AbstractComponent.prototype._preventAndStop = function (event) {
+        if (event.preventDefault) {
+            event.preventDefault();
+        }
+        if (event.stopPropagation) {
+            event.stopPropagation();
+        }
+    };
+    //*********** Draggable **********//
+    AbstractComponent.prototype._onDragStart = function (event) {
+        //console.log('ondragstart.dragEnabled', this._dragEnabled);
+        if (this._dragEnabled) {
+            this._dragDropService.allowedDropZones = this.dropZones;
+            // console.log('ondragstart.allowedDropZones', this._dragDropService.allowedDropZones);
+            this._onDragStartCallback(event);
+        }
+    };
+    AbstractComponent.prototype._onDragEnd = function (event) {
+        this._dragDropService.allowedDropZones = [];
+        // console.log('ondragend.allowedDropZones', this._dragDropService.allowedDropZones);
+        this._onDragEndCallback(event);
+    };
+    //**** Drop Callbacks ****//
+    AbstractComponent.prototype._onDragEnterCallback = function (event) { };
+    AbstractComponent.prototype._onDragOverCallback = function (event) { };
+    AbstractComponent.prototype._onDragLeaveCallback = function (event) { };
+    AbstractComponent.prototype._onDropCallback = function (event) { };
+    //**** Drag Callbacks ****//
+    AbstractComponent.prototype._onDragStartCallback = function (event) { };
+    AbstractComponent.prototype._onDragEndCallback = function (event) { };
+    AbstractComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_2__dnd_service__["a" /* DragDropService */], __WEBPACK_IMPORTED_MODULE_1__dnd_config__["a" /* DragDropConfig */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */]])
+    ], AbstractComponent);
+    return AbstractComponent;
+}());
+
+var AbstractHandleComponent = (function () {
+    function AbstractHandleComponent(elemRef, _dragDropService, _config, _Component, _cdr) {
+        this._dragDropService = _dragDropService;
+        this._config = _config;
+        this._Component = _Component;
+        this._cdr = _cdr;
+        this._elem = elemRef.nativeElement;
+        this._Component.setDragHandle(this._elem);
+    }
+    return AbstractHandleComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/dnd/dnd.config.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export DataTransferEffect */
+/* unused harmony export DragImage */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DragDropConfig; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dnd_utils__ = __webpack_require__("../../../../../src/lib/dnd/dnd.utils.ts");
+// Copyright (C) 2016-2018 Sergey Akopkokhyants
+// This project is licensed under the terms of the MIT license.
+// https://github.com/akserg/ng2-dnd
+
+var DataTransferEffect = (function () {
+    function DataTransferEffect(name) {
+        this.name = name;
+    }
+    DataTransferEffect.COPY = new DataTransferEffect('copy');
+    DataTransferEffect.LINK = new DataTransferEffect('link');
+    DataTransferEffect.MOVE = new DataTransferEffect('move');
+    DataTransferEffect.NONE = new DataTransferEffect('none');
+    return DataTransferEffect;
+}());
+
+var DragImage = (function () {
+    function DragImage(imageElement, x_offset, y_offset) {
+        if (x_offset === void 0) { x_offset = 0; }
+        if (y_offset === void 0) { y_offset = 0; }
+        this.imageElement = imageElement;
+        this.x_offset = x_offset;
+        this.y_offset = y_offset;
+        if (Object(__WEBPACK_IMPORTED_MODULE_0__dnd_utils__["e" /* isString */])(this.imageElement)) {
+            // Create real image from string source
+            var imgScr = this.imageElement;
+            this.imageElement = new HTMLImageElement();
+            this.imageElement.src = imgScr;
+        }
+    }
+    return DragImage;
+}());
+
+var DragDropConfig = (function () {
+    function DragDropConfig() {
+        this.onDragStartClass = "dnd-drag-start";
+        this.onDragEnterClass = "dnd-drag-enter";
+        this.onDragOverClass = "dnd-drag-over";
+        this.onSortableDragClass = "dnd-sortable-drag";
+        this.dragEffect = DataTransferEffect.MOVE;
+        this.dropEffect = DataTransferEffect.MOVE;
+        this.dragCursor = "move";
+        this.defaultCursor = "pointer";
+    }
+    return DragDropConfig;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/dnd/dnd.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export providers */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DndModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dnd_config__ = __webpack_require__("../../../../../src/lib/dnd/dnd.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dnd_service__ = __webpack_require__("../../../../../src/lib/dnd/dnd.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__draggable_component__ = __webpack_require__("../../../../../src/lib/dnd/draggable.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__droppable_component__ = __webpack_require__("../../../../../src/lib/dnd/droppable.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sortable_component__ = __webpack_require__("../../../../../src/lib/dnd/sortable.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__abstract_component__ = __webpack_require__("../../../../../src/lib/dnd/abstract.component.ts");
+/* unused harmony namespace reexport */
+/* unused harmony namespace reexport */
+/* unused harmony namespace reexport */
+/* unused harmony namespace reexport */
+/* unused harmony namespace reexport */
+/* unused harmony namespace reexport */
+// Copyright (C) 2016-2018 Sergey Akopkokhyants
+// This project is licensed under the terms of the MIT license.
+// https://github.com/akserg/ng2-dnd
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+var providers = [
+    __WEBPACK_IMPORTED_MODULE_1__dnd_config__["a" /* DragDropConfig */],
+    { provide: __WEBPACK_IMPORTED_MODULE_2__dnd_service__["a" /* DragDropService */], useFactory: __WEBPACK_IMPORTED_MODULE_2__dnd_service__["c" /* dragDropServiceFactory */] },
+    { provide: __WEBPACK_IMPORTED_MODULE_2__dnd_service__["b" /* DragDropSortableService */], useFactory: __WEBPACK_IMPORTED_MODULE_2__dnd_service__["d" /* dragDropSortableServiceFactory */], deps: [__WEBPACK_IMPORTED_MODULE_1__dnd_config__["a" /* DragDropConfig */]] }
+];
+var DndModule = (function () {
+    function DndModule() {
+    }
+    DndModule_1 = DndModule;
+    DndModule.forRoot = function () {
+        return {
+            ngModule: DndModule_1,
+            providers: providers
+        };
+    };
+    DndModule = DndModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_3__draggable_component__["a" /* DraggableComponent */], __WEBPACK_IMPORTED_MODULE_3__draggable_component__["b" /* DraggableHandleComponent */], __WEBPACK_IMPORTED_MODULE_4__droppable_component__["a" /* DroppableComponent */], __WEBPACK_IMPORTED_MODULE_5__sortable_component__["b" /* SortableContainer */], __WEBPACK_IMPORTED_MODULE_5__sortable_component__["a" /* SortableComponent */], __WEBPACK_IMPORTED_MODULE_5__sortable_component__["c" /* SortableHandleComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_3__draggable_component__["a" /* DraggableComponent */], __WEBPACK_IMPORTED_MODULE_3__draggable_component__["b" /* DraggableHandleComponent */], __WEBPACK_IMPORTED_MODULE_4__droppable_component__["a" /* DroppableComponent */], __WEBPACK_IMPORTED_MODULE_5__sortable_component__["b" /* SortableContainer */], __WEBPACK_IMPORTED_MODULE_5__sortable_component__["a" /* SortableComponent */], __WEBPACK_IMPORTED_MODULE_5__sortable_component__["c" /* SortableHandleComponent */]],
+        })
+    ], DndModule);
+    return DndModule;
+    var DndModule_1;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/dnd/dnd.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export DragDropData */
+/* harmony export (immutable) */ __webpack_exports__["c"] = dragDropServiceFactory;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DragDropService; });
+/* harmony export (immutable) */ __webpack_exports__["d"] = dragDropSortableServiceFactory;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return DragDropSortableService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dnd_config__ = __webpack_require__("../../../../../src/lib/dnd/dnd.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dnd_utils__ = __webpack_require__("../../../../../src/lib/dnd/dnd.utils.ts");
+// Copyright (C) 2016-2018 Sergey Akopkokhyants
+// This project is licensed under the terms of the MIT license.
+// https://github.com/akserg/ng2-dnd
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DragDropData = (function () {
+    function DragDropData() {
+    }
+    return DragDropData;
+}());
+
+function dragDropServiceFactory() {
+    return new DragDropService();
+}
+var DragDropService = (function () {
+    function DragDropService() {
+        this.allowedDropZones = [];
+    }
+    DragDropService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])()
+    ], DragDropService);
+    return DragDropService;
+}());
+
+function dragDropSortableServiceFactory(config) {
+    return new DragDropSortableService(config);
+}
+var DragDropSortableService = (function () {
+    function DragDropSortableService(_config) {
+        this._config = _config;
+    }
+    Object.defineProperty(DragDropSortableService.prototype, "elem", {
+        get: function () {
+            return this._elem;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DragDropSortableService.prototype.markSortable = function (elem) {
+        if (Object(__WEBPACK_IMPORTED_MODULE_2__dnd_utils__["d" /* isPresent */])(this._elem)) {
+            this._elem.classList.remove(this._config.onSortableDragClass);
+        }
+        if (Object(__WEBPACK_IMPORTED_MODULE_2__dnd_utils__["d" /* isPresent */])(elem)) {
+            this._elem = elem;
+            this._elem.classList.add(this._config.onSortableDragClass);
+        }
+    };
+    DragDropSortableService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__dnd_config__["a" /* DragDropConfig */]])
+    ], DragDropSortableService);
+    return DragDropSortableService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/dnd/dnd.utils.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["e"] = isString;
+/* harmony export (immutable) */ __webpack_exports__["d"] = isPresent;
+/* harmony export (immutable) */ __webpack_exports__["c"] = isFunction;
+/* harmony export (immutable) */ __webpack_exports__["b"] = createImage;
+/* harmony export (immutable) */ __webpack_exports__["a"] = callFun;
+// Copyright (C) 2016-2018 Sergey Akopkokhyants
+// This project is licensed under the terms of the MIT license.
+// https://github.com/akserg/ng2-dnd
+/**
+ * Check and return true if an object is type of string
+ */
+function isString(obj) {
+    return typeof obj === "string";
+}
+/**
+ * Check and return true if an object not undefined or null
+ */
+function isPresent(obj) {
+    return obj !== undefined && obj !== null;
+}
+/**
+ * Check and return true if an object is type of Function
+ */
+function isFunction(obj) {
+    return typeof obj === "function";
+}
+/**
+ * Create Image element with specified url string
+ */
+function createImage(src) {
+    var img = new HTMLImageElement();
+    img.src = src;
+    return img;
+}
+/**
+ * Call the function
+ */
+function callFun(fun) {
+    return fun();
+}
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/dnd/draggable.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DraggableComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return DraggableHandleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__abstract_component__ = __webpack_require__("../../../../../src/lib/dnd/abstract.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dnd_config__ = __webpack_require__("../../../../../src/lib/dnd/dnd.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dnd_service__ = __webpack_require__("../../../../../src/lib/dnd/dnd.service.ts");
+// Copyright (C) 2016-2018 Sergey Akopkokhyants
+// This project is licensed under the terms of the MIT license.
+// https://github.com/akserg/ng2-dnd
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var DraggableComponent = (function (_super) {
+    __extends(DraggableComponent, _super);
+    function DraggableComponent(elemRef, dragDropService, config, cdr) {
+        var _this = _super.call(this, elemRef, dragDropService, config, cdr) || this;
+        /**
+         * Callback function called when the drag actions happened.
+         */
+        _this.onDragStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        _this.onDragEnd = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        /**
+         * Callback function called when the drag action ends with a valid drop action.
+         * It is activated after the on-drop-success callback
+         */
+        _this.onDragSuccessCallback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        _this._defaultCursor = _this._elem.style.cursor;
+        _this.dragEnabled = true;
+        return _this;
+    }
+    Object.defineProperty(DraggableComponent.prototype, "draggable", {
+        set: function (value) {
+            this.dragEnabled = !!value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DraggableComponent.prototype, "dropzones", {
+        set: function (value) {
+            this.dropZones = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DraggableComponent.prototype, "effectallowed", {
+        /**
+         * Drag allowed effect
+         */
+        set: function (value) {
+            this.effectAllowed = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DraggableComponent.prototype, "effectcursor", {
+        /**
+         * Drag effect cursor
+         */
+        set: function (value) {
+            this.effectCursor = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DraggableComponent.prototype._onDragStartCallback = function (event) {
+        this._dragDropService.isDragged = true;
+        this._dragDropService.dragData = this.dragData;
+        this._dragDropService.onDragSuccessCallback = this.onDragSuccessCallback;
+        this._elem.classList.add(this._config.onDragStartClass);
+        //
+        this.onDragStart.emit({ dragData: this.dragData, mouseEvent: event });
+    };
+    DraggableComponent.prototype._onDragEndCallback = function (event) {
+        this._dragDropService.isDragged = false;
+        this._dragDropService.dragData = null;
+        this._dragDropService.onDragSuccessCallback = null;
+        this._elem.classList.remove(this._config.onDragStartClass);
+        //
+        this.onDragEnd.emit({ dragData: this.dragData, mouseEvent: event });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("dragEnabled"),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], DraggableComponent.prototype, "draggable", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], DraggableComponent.prototype, "onDragStart", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], DraggableComponent.prototype, "onDragEnd", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DraggableComponent.prototype, "dragData", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])("onDragSuccess"),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], DraggableComponent.prototype, "onDragSuccessCallback", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("dropZones"),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], DraggableComponent.prototype, "dropzones", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("effectAllowed"),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], DraggableComponent.prototype, "effectallowed", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("effectCursor"),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], DraggableComponent.prototype, "effectcursor", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DraggableComponent.prototype, "dragImage", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Boolean)
+    ], DraggableComponent.prototype, "cloneItem", void 0);
+    DraggableComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Directive */])({ selector: '[dnd-draggable]' }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_3__dnd_service__["a" /* DragDropService */], __WEBPACK_IMPORTED_MODULE_2__dnd_config__["a" /* DragDropConfig */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */]])
+    ], DraggableComponent);
+    return DraggableComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__abstract_component__["a" /* AbstractComponent */]));
+
+var DraggableHandleComponent = (function (_super) {
+    __extends(DraggableHandleComponent, _super);
+    function DraggableHandleComponent(elemRef, dragDropService, config, _Component, cdr) {
+        return _super.call(this, elemRef, dragDropService, config, _Component, cdr) || this;
+    }
+    DraggableHandleComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Directive */])({ selector: '[dnd-draggable-handle]' }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_3__dnd_service__["a" /* DragDropService */], __WEBPACK_IMPORTED_MODULE_2__dnd_config__["a" /* DragDropConfig */], DraggableComponent,
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */]])
+    ], DraggableHandleComponent);
+    return DraggableHandleComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__abstract_component__["b" /* AbstractHandleComponent */]));
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/dnd/droppable.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DroppableComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__abstract_component__ = __webpack_require__("../../../../../src/lib/dnd/abstract.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dnd_config__ = __webpack_require__("../../../../../src/lib/dnd/dnd.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dnd_service__ = __webpack_require__("../../../../../src/lib/dnd/dnd.service.ts");
+// Copyright (C) 2016-2018 Sergey Akopkokhyants
+// This project is licensed under the terms of the MIT license.
+// https://github.com/akserg/ng2-dnd
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var DroppableComponent = (function (_super) {
+    __extends(DroppableComponent, _super);
+    function DroppableComponent(elemRef, dragDropService, config, cdr) {
+        var _this = _super.call(this, elemRef, dragDropService, config, cdr) || this;
+        /**
+         * Callback function called when the drop action completes correctly.
+         * It is activated before the on-drag-success callback.
+         */
+        _this.onDropSuccess = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        _this.onDragEnter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        _this.onDragOver = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        _this.onDragLeave = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        _this.dropEnabled = true;
+        return _this;
+    }
+    Object.defineProperty(DroppableComponent.prototype, "droppable", {
+        set: function (value) {
+            this.dropEnabled = !!value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DroppableComponent.prototype, "allowdrop", {
+        set: function (value) {
+            this.allowDrop = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DroppableComponent.prototype, "dropzones", {
+        set: function (value) {
+            this.dropZones = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DroppableComponent.prototype, "effectallowed", {
+        /**
+         * Drag allowed effect
+         */
+        set: function (value) {
+            this.effectAllowed = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DroppableComponent.prototype, "effectcursor", {
+        /**
+         * Drag effect cursor
+         */
+        set: function (value) {
+            this.effectCursor = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DroppableComponent.prototype._onDragEnterCallback = function (event) {
+        if (this._dragDropService.isDragged) {
+            this._elem.classList.add(this._config.onDragEnterClass);
+            this.onDragEnter.emit({ dragData: this._dragDropService.dragData, mouseEvent: event });
+        }
+    };
+    DroppableComponent.prototype._onDragOverCallback = function (event) {
+        if (this._dragDropService.isDragged) {
+            this._elem.classList.add(this._config.onDragOverClass);
+            this.onDragOver.emit({ dragData: this._dragDropService.dragData, mouseEvent: event });
+        }
+    };
+    ;
+    DroppableComponent.prototype._onDragLeaveCallback = function (event) {
+        if (this._dragDropService.isDragged) {
+            this._elem.classList.remove(this._config.onDragOverClass);
+            this._elem.classList.remove(this._config.onDragEnterClass);
+            this.onDragLeave.emit({ dragData: this._dragDropService.dragData, mouseEvent: event });
+        }
+    };
+    ;
+    DroppableComponent.prototype._onDropCallback = function (event) {
+        var dataTransfer = event.dataTransfer;
+        if (this._dragDropService.isDragged || (dataTransfer && dataTransfer.files)) {
+            this.onDropSuccess.emit({ dragData: this._dragDropService.dragData, mouseEvent: event });
+            if (this._dragDropService.onDragSuccessCallback) {
+                this._dragDropService.onDragSuccessCallback.emit({ dragData: this._dragDropService.dragData, mouseEvent: event });
+            }
+            this._elem.classList.remove(this._config.onDragOverClass);
+            this._elem.classList.remove(this._config.onDragEnterClass);
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("dropEnabled"),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], DroppableComponent.prototype, "droppable", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], DroppableComponent.prototype, "onDropSuccess", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], DroppableComponent.prototype, "onDragEnter", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], DroppableComponent.prototype, "onDragOver", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], DroppableComponent.prototype, "onDragLeave", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("allowDrop"),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Function])
+    ], DroppableComponent.prototype, "allowdrop", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("dropZones"),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], DroppableComponent.prototype, "dropzones", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("effectAllowed"),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], DroppableComponent.prototype, "effectallowed", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("effectCursor"),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], DroppableComponent.prototype, "effectcursor", null);
+    DroppableComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Directive */])({ selector: '[dnd-droppable]' }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_3__dnd_service__["a" /* DragDropService */], __WEBPACK_IMPORTED_MODULE_2__dnd_config__["a" /* DragDropConfig */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */]])
+    ], DroppableComponent);
+    return DroppableComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__abstract_component__["a" /* AbstractComponent */]));
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/dnd/sortable.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SortableContainer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SortableComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return SortableHandleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__abstract_component__ = __webpack_require__("../../../../../src/lib/dnd/abstract.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dnd_config__ = __webpack_require__("../../../../../src/lib/dnd/dnd.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dnd_service__ = __webpack_require__("../../../../../src/lib/dnd/dnd.service.ts");
+// Copyright (C) 2016-2018 Sergey Akopkokhyants
+// This project is licensed under the terms of the MIT license.
+// https://github.com/akserg/ng2-dnd
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var SortableContainer = (function (_super) {
+    __extends(SortableContainer, _super);
+    function SortableContainer(elemRef, dragDropService, config, cdr, _sortableDataService) {
+        var _this = _super.call(this, elemRef, dragDropService, config, cdr) || this;
+        _this.elemRef = elemRef;
+        _this._sortableDataService = _sortableDataService;
+        _this._dragCopy = false;
+        _this._sortableData = [];
+        _this.dragEnabled = false;
+        return _this;
+    }
+    Object.defineProperty(SortableContainer.prototype, "draggable", {
+        set: function (value) {
+            this.dragEnabled = !!value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SortableContainer.prototype, "dragCopy", {
+        get: function () {
+            return this._dragCopy;
+        },
+        set: function (value) {
+            this._dragCopy = !!value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SortableContainer.prototype, "sortableData", {
+        get: function () {
+            return this._sortableData;
+        },
+        set: function (sortableData) {
+            this._sortableData = sortableData;
+            if (sortableData instanceof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormArray */]) {
+                this.sortableHandler = new SortableFormArrayHandler();
+            }
+            else {
+                this.sortableHandler = new SortableArrayHandler();
+            }
+            //
+            this.dropEnabled = !!this._sortableData;
+            // console.log("collection is changed, drop enabled: " + this.dropEnabled);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SortableContainer.prototype, "dropzones", {
+        set: function (value) {
+            this.dropZones = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SortableContainer.prototype.getId = function () {
+        return this.elemRef.nativeElement.getAttribute('id');
+    };
+    SortableContainer.prototype._onDragEnterCallback = function (event) {
+        if (this._sortableDataService.isDragged) {
+            var item = this._sortableDataService.sortableContainer.getItemAt(this._sortableDataService.index);
+            // Check does element exist in sortableData of this Container
+            if (this.indexOf(item) === -1) {
+                // Let's add it
+                // console.log('Container._onDragEnterCallback. drag node [' + this._sortableDataService.index.toString() + '] over parent node');
+                // Remove item from previouse list except that sourceList dragCopy is true
+                if (!this._sortableDataService.sortableContainer.dragCopy) {
+                    this._sortableDataService.sortableContainer.removeItemAt(this._sortableDataService.index);
+                }
+                else {
+                    if (this._sortableDataService.sortableContainer.getId() === this.getId()) {
+                        return;
+                    }
+                }
+                if (this._sortableDataService.sortableContainer._sortableData.length === 0) {
+                    this._sortableDataService.sortableContainer.dropEnabled = true;
+                }
+                // Add item to new list
+                this.insertItemAt(item, 0);
+                this._sortableDataService.sortableContainer = this;
+                this._sortableDataService.index = 0;
+            }
+            // Refresh changes in properties of container component
+            this.detectChanges();
+        }
+    };
+    SortableContainer.prototype.getItemAt = function (index) {
+        return this.sortableHandler.getItemAt(this._sortableData, index);
+    };
+    SortableContainer.prototype.indexOf = function (item) {
+        return this.sortableHandler.indexOf(this._sortableData, item);
+    };
+    SortableContainer.prototype.removeItemAt = function (index) {
+        this.sortableHandler.removeItemAt(this._sortableData, index);
+    };
+    SortableContainer.prototype.insertItemAt = function (item, index) {
+        this.sortableHandler.insertItemAt(this._sortableData, item, index);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("dragEnabled"),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], SortableContainer.prototype, "draggable", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], SortableContainer.prototype, "dragCopy", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], SortableContainer.prototype, "sortableData", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("dropZones"),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], SortableContainer.prototype, "dropzones", null);
+    SortableContainer = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Directive */])({ selector: '[dnd-sortable-container]' }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_4__dnd_service__["a" /* DragDropService */], __WEBPACK_IMPORTED_MODULE_3__dnd_config__["a" /* DragDropConfig */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */],
+            __WEBPACK_IMPORTED_MODULE_4__dnd_service__["b" /* DragDropSortableService */]])
+    ], SortableContainer);
+    return SortableContainer;
+}(__WEBPACK_IMPORTED_MODULE_2__abstract_component__["a" /* AbstractComponent */]));
+
+var SortableArrayHandler = (function () {
+    function SortableArrayHandler() {
+    }
+    SortableArrayHandler.prototype.getItemAt = function (sortableData, index) {
+        return sortableData[index];
+    };
+    SortableArrayHandler.prototype.indexOf = function (sortableData, item) {
+        return sortableData.indexOf(item);
+    };
+    SortableArrayHandler.prototype.removeItemAt = function (sortableData, index) {
+        sortableData.splice(index, 1);
+    };
+    SortableArrayHandler.prototype.insertItemAt = function (sortableData, item, index) {
+        sortableData.splice(index, 0, item);
+    };
+    return SortableArrayHandler;
+}());
+var SortableFormArrayHandler = (function () {
+    function SortableFormArrayHandler() {
+    }
+    SortableFormArrayHandler.prototype.getItemAt = function (sortableData, index) {
+        return sortableData.at(index);
+    };
+    SortableFormArrayHandler.prototype.indexOf = function (sortableData, item) {
+        return sortableData.controls.indexOf(item);
+    };
+    SortableFormArrayHandler.prototype.removeItemAt = function (sortableData, index) {
+        sortableData.removeAt(index);
+    };
+    SortableFormArrayHandler.prototype.insertItemAt = function (sortableData, item, index) {
+        sortableData.insert(index, item);
+    };
+    return SortableFormArrayHandler;
+}());
+var SortableComponent = (function (_super) {
+    __extends(SortableComponent, _super);
+    function SortableComponent(elemRef, dragDropService, config, _sortableContainer, _sortableDataService, cdr) {
+        var _this = _super.call(this, elemRef, dragDropService, config, cdr) || this;
+        _this._sortableContainer = _sortableContainer;
+        _this._sortableDataService = _sortableDataService;
+        /**
+         * Callback function called when the drag action ends with a valid drop action.
+         * It is activated after the on-drop-success callback
+         */
+        _this.onDragSuccessCallback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        _this.onDragStartCallback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        _this.onDragOverCallback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        _this.onDragEndCallback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        _this.onDropSuccessCallback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        _this.dropZones = _this._sortableContainer.dropZones;
+        _this.dragEnabled = true;
+        _this.dropEnabled = true;
+        return _this;
+    }
+    Object.defineProperty(SortableComponent.prototype, "draggable", {
+        set: function (value) {
+            this.dragEnabled = !!value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SortableComponent.prototype, "droppable", {
+        set: function (value) {
+            this.dropEnabled = !!value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SortableComponent.prototype, "effectallowed", {
+        /**
+         * Drag allowed effect
+         */
+        set: function (value) {
+            this.effectAllowed = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SortableComponent.prototype, "effectcursor", {
+        /**
+         * Drag effect cursor
+         */
+        set: function (value) {
+            this.effectCursor = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SortableComponent.prototype._onDragStartCallback = function (event) {
+        // console.log('_onDragStartCallback. dragging elem with index ' + this.index);
+        this._sortableDataService.sortableContainer = this._sortableContainer;
+        this._sortableDataService.index = this.index;
+        this._sortableDataService.isDragged = true;
+        this._sortableDataService.markSortable(this._elem);
+        // Add dragData
+        this._dragDropService.isDragged = true;
+        this._dragDropService.dragData = this.dragData;
+        this._dragDropService.onDragSuccessCallback = this.onDragSuccessCallback;
+        //
+        this.onDragStartCallback.emit(this._dragDropService.dragData);
+    };
+    SortableComponent.prototype._onDragOverCallback = function (event) {
+        if (this._sortableDataService.isDragged && this._elem !== this._sortableDataService.elem) {
+            // console.log('_onDragOverCallback. dragging elem with index ' + this.index);
+            this._sortableDataService.sortableContainer = this._sortableContainer;
+            this._sortableDataService.index = this.index;
+            this._sortableDataService.markSortable(this._elem);
+            this.onDragOverCallback.emit(this._dragDropService.dragData);
+        }
+    };
+    SortableComponent.prototype._onDragEndCallback = function (event) {
+        // console.log('_onDragEndCallback. end dragging elem with index ' + this.index);
+        this._sortableDataService.isDragged = false;
+        this._sortableDataService.sortableContainer = null;
+        this._sortableDataService.index = null;
+        this._sortableDataService.markSortable(null);
+        // Add dragGata
+        this._dragDropService.isDragged = false;
+        this._dragDropService.dragData = null;
+        this._dragDropService.onDragSuccessCallback = null;
+        //
+        this.onDragEndCallback.emit(this._dragDropService.dragData);
+    };
+    SortableComponent.prototype._onDragEnterCallback = function (event) {
+        if (this._sortableDataService.isDragged) {
+            // console.log(this._sortableDataService.sortableContainer.getId())
+            this._sortableDataService.markSortable(this._elem);
+            if ((this.index !== this._sortableDataService.index) ||
+                (this._sortableDataService.sortableContainer.sortableData !== this._sortableContainer.sortableData)) {
+                // console.log('Component._onDragEnterCallback. drag node [' + this.index + '] over node [' + this._sortableDataService.index + ']');
+                // Get item
+                var item = this._sortableDataService.sortableContainer.getItemAt(this._sortableDataService.index);
+                // Remove item from previouse list
+                if (!this._sortableDataService.sortableContainer.dragCopy) {
+                    this._sortableDataService.sortableContainer.removeItemAt(this._sortableDataService.index);
+                    // console.log(this._sortableDataService.sortableContainer.getId(),this._sortableDataService.sortableContainer.dragCopy)
+                }
+                else {
+                    if (this._sortableDataService.sortableContainer.getId() === this._sortableContainer.getId()) {
+                        return;
+                    }
+                }
+                if (this._sortableDataService.sortableContainer.sortableData.length === 0) {
+                    this._sortableDataService.sortableContainer.dropEnabled = true;
+                }
+                // Add item to new list
+                this._sortableContainer.insertItemAt(item, this.index);
+                if (this._sortableContainer.dropEnabled) {
+                    this._sortableContainer.dropEnabled = false;
+                }
+                this._sortableDataService.sortableContainer = this._sortableContainer;
+                this._sortableDataService.index = this.index;
+                this.detectChanges();
+            }
+        }
+    };
+    SortableComponent.prototype._onDropCallback = function (event) {
+        if (this._sortableDataService.isDragged) {
+            // console.log('onDropCallback.onDropSuccessCallback.dragData', this._dragDropService.dragData);
+            this.onDropSuccessCallback.emit(this._dragDropService.dragData);
+            if (this._dragDropService.onDragSuccessCallback) {
+                // console.log('onDropCallback.onDragSuccessCallback.dragData', this._dragDropService.dragData);
+                this._dragDropService.onDragSuccessCallback.emit(this._dragDropService.dragData);
+            }
+            // Refresh changes in properties of container component
+            this._sortableContainer.detectChanges();
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])('sortableIndex'),
+        __metadata("design:type", Number)
+    ], SortableComponent.prototype, "index", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("dragEnabled"),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], SortableComponent.prototype, "draggable", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("dropEnabled"),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], SortableComponent.prototype, "droppable", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Object)
+    ], SortableComponent.prototype, "dragData", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("effectAllowed"),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], SortableComponent.prototype, "effectallowed", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])("effectCursor"),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], SortableComponent.prototype, "effectcursor", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])("onDragSuccess"),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], SortableComponent.prototype, "onDragSuccessCallback", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])("onDragStart"),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], SortableComponent.prototype, "onDragStartCallback", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])("onDragOver"),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], SortableComponent.prototype, "onDragOverCallback", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])("onDragEnd"),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], SortableComponent.prototype, "onDragEndCallback", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Output */])("onDropSuccess"),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
+    ], SortableComponent.prototype, "onDropSuccessCallback", void 0);
+    SortableComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Directive */])({ selector: '[dnd-sortable]' }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_4__dnd_service__["a" /* DragDropService */], __WEBPACK_IMPORTED_MODULE_3__dnd_config__["a" /* DragDropConfig */],
+            SortableContainer,
+            __WEBPACK_IMPORTED_MODULE_4__dnd_service__["b" /* DragDropSortableService */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */]])
+    ], SortableComponent);
+    return SortableComponent;
+}(__WEBPACK_IMPORTED_MODULE_2__abstract_component__["a" /* AbstractComponent */]));
+
+var SortableHandleComponent = (function (_super) {
+    __extends(SortableHandleComponent, _super);
+    function SortableHandleComponent(elemRef, dragDropService, config, _Component, cdr) {
+        return _super.call(this, elemRef, dragDropService, config, _Component, cdr) || this;
+    }
+    SortableHandleComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Directive */])({ selector: '[dnd-sortable-handle]' }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_4__dnd_service__["a" /* DragDropService */], __WEBPACK_IMPORTED_MODULE_3__dnd_config__["a" /* DragDropConfig */], SortableComponent,
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */]])
+    ], SortableHandleComponent);
+    return SortableHandleComponent;
+}(__WEBPACK_IMPORTED_MODULE_2__abstract_component__["b" /* AbstractHandleComponent */]));
 
 
 
@@ -2599,7 +3982,7 @@ var SchemaFormModule = (function () {
     };
     SchemaFormModule = SchemaFormModule_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* ReactiveFormsModule */]],
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* ReactiveFormsModule */]],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_3__components_bs_form_builder_component__["a" /* BsFormBuilderComponent */],
                 __WEBPACK_IMPORTED_MODULE_4__components_zorro_form_builder_component__["a" /* ZorroFormBuilderComponent */]
@@ -2955,7 +4338,7 @@ var WidgetFactory = (function () {
             TemplateModule = __decorate([
                 Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
                     declarations: [TemplateComponent],
-                    imports: [__WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* ReactiveFormsModule */]],
+                    imports: [__WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["c" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* ReactiveFormsModule */]],
                     providers: [__WEBPACK_IMPORTED_MODULE_5__model_actionregistry__["a" /* ActionRegistry */]]
                 })
             ], TemplateModule);
@@ -3867,6 +5250,7 @@ var DateWidget = (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__checkbox_checkbox_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/checkbox/checkbox.widget.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__array_array_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/array/array.widget.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__radio_radio_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/radio/radio.widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__textarea_textarea_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/textarea/textarea.widget.ts");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3877,6 +5261,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+
 
 
 
@@ -3899,6 +5284,7 @@ var ZorroDefaultWidgetRegistry = (function (_super) {
         _this.register('date-range', __WEBPACK_IMPORTED_MODULE_6__date_range_date_range_widget__["a" /* DateRangeWidget */]);
         _this.register('checkbox', __WEBPACK_IMPORTED_MODULE_7__checkbox_checkbox_widget__["a" /* CheckboxWidget */]);
         _this.register('radio', __WEBPACK_IMPORTED_MODULE_9__radio_radio_widget__["a" /* RadioWidget */]);
+        _this.register('textarea', __WEBPACK_IMPORTED_MODULE_10__textarea_textarea_widget__["a" /* TextAreaWidget */]);
         _this.register('array', __WEBPACK_IMPORTED_MODULE_8__array_array_widget__["a" /* ArrayWidget */]);
         //   this.register('search', StringWidget);
         //   this.register('tel', StringWidget);
@@ -3912,7 +5298,6 @@ var ZorroDefaultWidgetRegistry = (function (_super) {
         //   this.register('integer', IntegerWidget);
         //   this.register('number', IntegerWidget);
         //   this.register('range', RangeWidget);
-        //   this.register('textarea', TextAreaWidget);
         //   this.register('select', SelectWidget);
         //   this.register('boolean', CheckboxWidget);
         _this.setDefaultWidget(__WEBPACK_IMPORTED_MODULE_0__string_string_widget__["a" /* StringWidget */]);
@@ -3941,6 +5326,9 @@ var ZorroDefaultWidgetRegistry = (function (_super) {
 /* unused harmony reexport DateRangeWidget */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__checkbox_checkbox_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/checkbox/checkbox.widget.ts");
 /* unused harmony reexport CheckboxWidget */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__textarea_textarea_widget__ = __webpack_require__("../../../../../src/lib/widgets/zorro/textarea/textarea.widget.ts");
+/* unused harmony reexport TextAreaWidget */
+
 
 
 
@@ -3950,7 +5338,6 @@ var ZorroDefaultWidgetRegistry = (function (_super) {
 /* export { IntegerWidget } from './integer/integer.widget';
 export { RangeWidget } from './range/range.widget';
 export { StringWidget } from './string/string.widget';
-export { TextAreaWidget } from './textarea/textarea.widget';
 export { ArrayWidget } from './array/array.widget';
 export { RadioWidget } from './radio/radio.widget';
 export { SelectWidget } from './select/select.widget'; */
@@ -4054,6 +5441,40 @@ var StringWidget = (function (_super) {
         }
     };
     return StringWidget;
+}(__WEBPACK_IMPORTED_MODULE_0__widget__["b" /* ControlWidget */]));
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/lib/widgets/zorro/textarea/textarea.widget.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TextAreaWidget; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__widget__ = __webpack_require__("../../../../../src/lib/widget.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var TextAreaWidget = (function (_super) {
+    __extends(TextAreaWidget, _super);
+    function TextAreaWidget() {
+        return _super.call(this) || this;
+    }
+    TextAreaWidget.prototype.getTemplate = function (schema) {
+        var listOfClassName = this.getLayoutClass(schema);
+        var templ = "\n        <div nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\">\n            <label for=\"" + schema.formId + "\" nz-form-item-required [nzRequired]=\"required\">\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n            </label>\n        </div>\n        <div nz-form-control nz-col\n            " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n            " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + "\n         nzHasFeedback>\n            <nz-input\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            nzType=\"textarea\"\n            placeholder=\"" + (schema.placeholder ? schema.placeholder : ' ') + "\"\n            " + (schema.readOnly ? "[nzReadonly]=\"true\"" : "") + "\n            " + ((schema.autosize) ? "[nzAutosize]=\"" + schema.autosize + "\"" : "") + "></nz-input>\n        </div>\n        ";
+        return templ;
+    };
+    return TextAreaWidget;
 }(__WEBPACK_IMPORTED_MODULE_0__widget__["b" /* ControlWidget */]));
 
 
@@ -4224,7 +5645,7 @@ var ZorroWidgetFactory = (function () {
             TemplateModule = __decorate([
                 Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
                     declarations: [TemplateComponent],
-                    imports: [__WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* ReactiveFormsModule */], __WEBPACK_IMPORTED_MODULE_6_ng_zorro_antd__["a" /* NgZorroAntdModule */]],
+                    imports: [__WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["c" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* ReactiveFormsModule */], __WEBPACK_IMPORTED_MODULE_6_ng_zorro_antd__["a" /* NgZorroAntdModule */]],
                     providers: [__WEBPACK_IMPORTED_MODULE_5__model_actionregistry__["a" /* ActionRegistry */]]
                 })
             ], TemplateModule);
@@ -4336,6 +5757,8 @@ var map = {
 	"./en-gb.js": "../../../../moment/locale/en-gb.js",
 	"./en-ie": "../../../../moment/locale/en-ie.js",
 	"./en-ie.js": "../../../../moment/locale/en-ie.js",
+	"./en-il": "../../../../moment/locale/en-il.js",
+	"./en-il.js": "../../../../moment/locale/en-il.js",
 	"./en-nz": "../../../../moment/locale/en-nz.js",
 	"./en-nz.js": "../../../../moment/locale/en-nz.js",
 	"./eo": "../../../../moment/locale/eo.js",
@@ -4420,6 +5843,8 @@ var map = {
 	"./mk.js": "../../../../moment/locale/mk.js",
 	"./ml": "../../../../moment/locale/ml.js",
 	"./ml.js": "../../../../moment/locale/ml.js",
+	"./mn": "../../../../moment/locale/mn.js",
+	"./mn.js": "../../../../moment/locale/mn.js",
 	"./mr": "../../../../moment/locale/mr.js",
 	"./mr.js": "../../../../moment/locale/mr.js",
 	"./ms": "../../../../moment/locale/ms.js",
@@ -4480,6 +5905,8 @@ var map = {
 	"./te.js": "../../../../moment/locale/te.js",
 	"./tet": "../../../../moment/locale/tet.js",
 	"./tet.js": "../../../../moment/locale/tet.js",
+	"./tg": "../../../../moment/locale/tg.js",
+	"./tg.js": "../../../../moment/locale/tg.js",
 	"./th": "../../../../moment/locale/th.js",
 	"./th.js": "../../../../moment/locale/th.js",
 	"./tl-ph": "../../../../moment/locale/tl-ph.js",
@@ -4494,6 +5921,8 @@ var map = {
 	"./tzm-latn": "../../../../moment/locale/tzm-latn.js",
 	"./tzm-latn.js": "../../../../moment/locale/tzm-latn.js",
 	"./tzm.js": "../../../../moment/locale/tzm.js",
+	"./ug-cn": "../../../../moment/locale/ug-cn.js",
+	"./ug-cn.js": "../../../../moment/locale/ug-cn.js",
 	"./uk": "../../../../moment/locale/uk.js",
 	"./uk.js": "../../../../moment/locale/uk.js",
 	"./ur": "../../../../moment/locale/ur.js",
@@ -4578,7 +6007,7 @@ module.exports = "{\r\n    \"debug\": true,\r\n    \"layout\": \"vertical\",\r\n
 /***/ "../../../../raw-loader/index.js!../../../../../src/mock/zorro-full-widget.json":
 /***/ (function(module, exports) {
 
-module.exports = "{\r\n    \"$schema\": \"http://json-schema.org/draft-04/hyper-schema#\",\r\n    \"type\": \"object\",\r\n    \"properties\": {\r\n        \"name\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"用户名\",\r\n            \"placeholder\": \"请输入用户名，且2位以上\",\r\n            \"minLength\": 2\r\n        },\r\n        \"password\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"password\",\r\n            \"title\": \"密码\",\r\n            \"placeholder\": \"请输入密码，且6位以上\",\r\n            \"minLength\": 6\r\n        },\r\n        \"date1\": {\r\n            \"type\": \"string\",\r\n            \"placeholder\": \"基本日期\",\r\n            \"widget\": \"date\",\r\n            \"title\": \"基本日期\"\r\n        },\r\n        \"date2\": {\r\n            \"type\": \"string\",\r\n            \"placeholder\": \"可选时间\",\r\n            \"format\": \"YYYY/MM/DD HH:mm:ss\",\r\n            \"widget\": \"date\",\r\n            \"showTime\": true,\r\n            \"title\": \"带时间日期\",\r\n            \"description\": \"showTime: true\"\r\n        },\r\n        \"date3\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"date\",\r\n            \"default\": \"2000-03-12\",\r\n            \"title\": \"默认值\",\r\n            \"placeholder\": \"Ex: 2000-03-12\"\r\n        },\r\n        \"datetime1\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"time\",\r\n            \"title\": \"时间选择\",\r\n            \"placeholder\": \"时间选择\"\r\n        },\r\n        \"daterange\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"date-range\",\r\n            \"title\": \"日期段\",\r\n            \"start\": \"Select start date\",\r\n            \"end\": \"Select end date\"\r\n        },\r\n        \"checked\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"description\": \"I agree to the Terms of Service and the Privacy Policy.\"\r\n        },\r\n        \"checked1\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"readOnly\": true,\r\n            \"default\": true,\r\n            \"description\": \"不可选 - Disabled.\"\r\n        },\r\n        \"categories\": {\r\n            \"type\": \"array\",\r\n            \"title\": \"Categories\",\r\n            \"items\": {\r\n                \"type\": \"string\",\r\n                \"oneOf\": [\r\n                    {\r\n                        \"description\": \"Dog\",\r\n                        \"enum\": [\r\n                            \"dog\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Cat\",\r\n                        \"enum\": [\r\n                            \"cat\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Daulphin\",\r\n                        \"enum\": [\r\n                            \"daulphin\"\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            \"widget\": \"checkbox\"\r\n        },\r\n        \"promotion\": {\r\n            \"type\": \"string\",\r\n            \"description\": \"独立使用 true\",\r\n            \"default\":true,\r\n            \"widget\": \"radio\"\r\n        },\r\n        \"promotions\": {\r\n            \"type\": \"string\",\r\n            \"description\": \"Promotion\",\r\n            \"widget\": \"radio\",\r\n            \"oneOf\": [\r\n                {\r\n                    \"description\": \"Student discount (20%)\",\r\n                    \"enum\": [\r\n                        \"student\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"Summer 2016 discount (15%)\",\r\n                    \"enum\": [\r\n                        \"summer\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"None\",\r\n                    \"enum\": [\r\n                        \"none\"\r\n                    ]\r\n                }\r\n            ]\r\n        },\r\n        \"survey\": {\r\n            \"type\": \"object\",\r\n            \"description\": \"Little survey\",\r\n            \"properties\": {\r\n                \"q1\": {\r\n                    \"type\": \"string\",\r\n                    \"description\": \"Enter a number\"\r\n                },\r\n                \"q2\": {\r\n                    \"type\": \"object\",\r\n                    \"description\": \"Address\",\r\n                    \"properties\": {\r\n                        \"color\": {\r\n                            \"description\": \"color\",\r\n                            \"type\": \"string\",\r\n                            \"default\": \"#aaa000\",\r\n                            \"pattern\": \"ff$\",\r\n                            \"widget\": \"color\"\r\n                        },\r\n                        \"zip\": {\r\n                            \"description\": \"zip\",\r\n                            \"type\": \"number\",\r\n                            \"default\": 15\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        },\r\n        \"favoriteColor\": {\r\n            \"type\": \"string\",\r\n            \"pattern\": \"^#[0-9a-fA-F]{6}$\",\r\n            \"widget\": \"color\",\r\n            \"default\": \"#aaa111\",\r\n            \"description\": \"Favorite color\",\r\n            \"visibleIf\": {\r\n                \"moreInfo\": [\r\n                    true\r\n                ]\r\n            }\r\n        },\r\n        \"transactionNumber\": {\r\n            \"type\": \"integer\",\r\n            \"minimum\": 0,\r\n            \"readOnly\": \"true\",\r\n            \"description\": \"Transaction number\"\r\n        },\r\n        \"transactionDescription\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"textline\",\r\n            \"description\": \"What is being transacted\"\r\n        },\r\n        \"category\": {\r\n            \"type\": \"array\",\r\n            \"widget\": \"select\",\r\n            \"items\": {\r\n                \"type\": \"string\",\r\n                \"oneOf\": [\r\n                    {\r\n                        \"description\": \"Design\",\r\n                        \"enum\": [\r\n                            \"design\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"High-Tech\",\r\n                        \"enum\": [\r\n                            \"hightech\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Materials\",\r\n                        \"enum\": [\r\n                            \"materials\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Services\",\r\n                        \"enum\": [\r\n                            \"services\"\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            \"description\": \"Category\"\r\n        },\r\n     \r\n        \"numberOfBoxes\": {\r\n            \"type\": \"number\",\r\n            \"widget\": {\r\n                \"id\": \"range\"\r\n            },\r\n            \"description\": \"Number of boxes required\",\r\n            \"minimum\": 1,\r\n            \"maximum\": 10\r\n        },\r\n        \"deliveryService\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"select\",\r\n            \"description\": \"Delivery service\",\r\n            \"oneOf\": [\r\n                {\r\n                    \"description\": \"UPS\",\r\n                    \"enum\": [\r\n                        \"ups\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"FedEx\",\r\n                    \"enum\": [\r\n                        \"fedex\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"Other\",\r\n                    \"enum\": [\r\n                        \"other\"\r\n                    ]\r\n                }\r\n            ],\r\n            \"default\": \"fedex\"\r\n        },\r\n        \"otherDeliveryService\": {\r\n            \"type\": \"string\",\r\n            \"minLength\": 2,\r\n            \"visibleIf\": {\r\n                \"deliveryService\": [\r\n                    \"other\"\r\n                ]\r\n            }\r\n        },\r\n        \"freeShipping\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"description\": \"Free shipping\",\r\n            \"visibleIf\": {\r\n                \"deliveryService\": [\r\n                    \"other\",\r\n                    \"ups\"\r\n                ]\r\n            }\r\n        },\r\n        \"shippingPrice\": {\r\n            \"type\": \"number\",\r\n            \"description\": \"ShippingCost\",\r\n            \"minimum\": 0,\r\n            \"maximum\": 200,\r\n            \"visibleIf\": {\r\n                \"freeShipping\": [\r\n                    false\r\n                ]\r\n            }\r\n        },\r\n        \"sendApologies\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"description\": \"Send apologies for the shipping cost\",\r\n            \"visibleIf\": {\r\n                \"shippingPrice\": [\r\n                    22,\r\n                    23\r\n                ]\r\n            }\r\n        },\r\n        \"useCustomEmail\": {\r\n            \"type\": \"boolean\",\r\n            \"description\": \"Write a custom email ?\"\r\n        },\r\n        \"customEmail\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"textarea\",\r\n            \"description\": \"Email to send\",\r\n            \"visibleIf\": {\r\n                \"useCustomEmail\": [\r\n                    true\r\n                ]\r\n            },\r\n            \"pattern\": \"^<h1>\"\r\n        },\r\n        \"userManual\": {\r\n            \"type\": \"object\",\r\n            \"widget\": \"file\",\r\n            \"properties\": {\r\n                \"content-type\": {\r\n                    \"type\": \"string\"\r\n                },\r\n                \"filename\": {\r\n                    \"type\": \"string\"\r\n                },\r\n                \"size\": {\r\n                    \"type\": \"integer\"\r\n                },\r\n                \"encoding\": {\r\n                    \"type\": \"string\"\r\n                },\r\n                \"data\": {\r\n                    \"type\": \"string\"\r\n                }\r\n            },\r\n            \"description\": \"Add a manual for the delivered items\",\r\n            \"visibleIf\": {\r\n                \"category\": [\r\n                    \"hightech\"\r\n                ]\r\n            }\r\n        },\r\n        \"colors\": {\r\n            \"type\": \"array\",\r\n            \"description\": \"Colors\",\r\n            \"index\": \"i\",\r\n            \"items\": {\r\n                \"type\": \"string\",\r\n                \"description\": \"Color $i\",\r\n                \"widget\": \"color\",\r\n                \"buttons\": [\r\n                    {\r\n                        \"label\": \"Supprimer\",\r\n                        \"id\": \"Remove\"\r\n                    }\r\n                ]\r\n            },\r\n            \"buttons\": [\r\n                {\r\n                    \"label\": \"Ajouter\",\r\n                    \"id\": \"addItem\",\r\n                    \"parameters\": {\r\n                        \"value\": \"#afeadd\"\r\n                    }\r\n                },\r\n                {\r\n                    \"label\": \"Reset\",\r\n                    \"id\": \"reset\"\r\n                }\r\n            ]\r\n        }\r\n    },\r\n    \"button\": {\r\n        \"items\": [\r\n            {\r\n                \"label\": \"Alert\",\r\n                \"id\": \"alert\"\r\n            },\r\n            {\r\n                \"label\": \"Reset\",\r\n                \"id\": \"reset\"\r\n            },\r\n            {\r\n                \"label\": \"Disable all\",\r\n                \"id\": \"disable\"\r\n            }\r\n        ]\r\n    },\r\n    \"fieldsets\": [\r\n        {\r\n            \"id\": \"input_widget\",\r\n            \"title\": \"input 字符串 部件\",\r\n            \"fields\": [\r\n                \"name\",\r\n                \"password\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"date_widget\",\r\n            \"title\": \"日期、时间、日期时间段 部件\",\r\n            \"fields\": [\r\n                \"date1\",\r\n                \"date2\",\r\n                \"date3\",\r\n                \"datetime1\",\r\n                \"daterange\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"checkbox_widget\",\r\n            \"title\": \"checkbox 部件\",\r\n            \"fields\": [\r\n                \"checked\",\r\n                \"checked1\",\r\n                \"categories\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"radio_widget\",\r\n            \"title\": \"radio 部件\",\r\n            \"fields\": [\r\n                \"promotion\",\r\n                \"promotions\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_1\",\r\n            \"title\": \"part1\",\r\n            \"fields\": [\r\n                \"favoriteColor\",\r\n                \"colors\",\r\n                \"survey\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_2\",\r\n            \"title\": \"Part 2 - Transaction\",\r\n            \"fields\": [\r\n                \"transactionNumber\",\r\n                \"transactionDescription\",\r\n                \"category\",\r\n                \"userManual\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_3\",\r\n            \"title\": \"Part 3 - Shipping\",\r\n            \"fields\": [\r\n                \"numberOfBoxes\",\r\n                \"deliveryService\",\r\n                \"otherDeliveryService\",\r\n                \"freeShipping\",\r\n                \"shippingPrice\",\r\n                \"sendApologies\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_4\",\r\n            \"title\": \"Part 4 - Email\",\r\n            \"fields\": [\r\n                \"useCustomEmail\",\r\n                \"customEmail\"\r\n            ]\r\n        }\r\n    ],\r\n    \"required\": [\r\n        \"transactionNumber\",\r\n        \"password\"\r\n    ]\r\n}"
+module.exports = "{\r\n    \"$schema\": \"http://json-schema.org/draft-04/hyper-schema#\",\r\n    \"type\": \"object\",\r\n    \"properties\": {\r\n        \"name\": {\r\n            \"type\": \"string\",\r\n            \"title\": \"用户名\",\r\n            \"placeholder\": \"请输入用户名，且2位以上\",\r\n            \"minLength\": 2\r\n        },\r\n        \"password\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"password\",\r\n            \"title\": \"密码\",\r\n            \"placeholder\": \"请输入密码，且6位以上\",\r\n            \"minLength\": 6\r\n        },\r\n        \"remark\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"textarea\",\r\n            \"title\": \"备注\",\r\n            \"placeholder\": \"Autosize height with minimum and maximum number of lines\"\r\n        },\r\n        \"date1\": {\r\n            \"type\": \"string\",\r\n            \"placeholder\": \"基本日期\",\r\n            \"widget\": \"date\",\r\n            \"title\": \"基本日期\"\r\n        },\r\n        \"date2\": {\r\n            \"type\": \"string\",\r\n            \"placeholder\": \"可选时间\",\r\n            \"format\": \"YYYY/MM/DD HH:mm:ss\",\r\n            \"widget\": \"date\",\r\n            \"showTime\": true,\r\n            \"title\": \"带时间日期\"\r\n        },\r\n        \"date3\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"date\",\r\n            \"default\": \"2000-03-12\",\r\n            \"title\": \"默认值\",\r\n            \"placeholder\": \"Ex: 2000-03-12\"\r\n        },\r\n        \"datetime1\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"time\",\r\n            \"title\": \"时间选择\",\r\n            \"placeholder\": \"时间选择\"\r\n        },\r\n        \"daterange\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"date-range\",\r\n            \"title\": \"日期段\",\r\n            \"start\": \"Select start date\",\r\n            \"end\": \"Select end date\"\r\n        },\r\n        \"checked\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"description\": \"I agree to the Terms of Service and the Privacy Policy.\"\r\n        },\r\n        \"checked1\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"readOnly\": true,\r\n            \"default\": true,\r\n            \"description\": \"不可选 - Disabled.\"\r\n        },\r\n        \"categories\": {\r\n            \"type\": \"array\",\r\n            \"title\": \"Categories\",\r\n            \"items\": {\r\n                \"type\": \"string\",\r\n                \"oneOf\": [{\r\n                        \"description\": \"Dog\",\r\n                        \"enum\": [\r\n                            \"dog\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Cat\",\r\n                        \"enum\": [\r\n                            \"cat\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Daulphin\",\r\n                        \"enum\": [\r\n                            \"daulphin\"\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            \"widget\": \"checkbox\"\r\n        },\r\n        \"promotion\": {\r\n            \"type\": \"string\",\r\n            \"description\": \"独立使用 true\",\r\n            \"default\": true,\r\n            \"widget\": \"radio\"\r\n        },\r\n        \"promotions\": {\r\n            \"type\": \"string\",\r\n            \"description\": \"Promotion\",\r\n            \"widget\": \"radio\",\r\n            \"oneOf\": [{\r\n                    \"description\": \"Student discount (20%)\",\r\n                    \"enum\": [\r\n                        \"student\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"Summer 2016 discount (15%)\",\r\n                    \"enum\": [\r\n                        \"summer\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"None\",\r\n                    \"enum\": [\r\n                        \"none\"\r\n                    ]\r\n                }\r\n            ]\r\n        },\r\n\r\n        \"survey\": {\r\n            \"type\": \"object\",\r\n            \"description\": \"Little survey\",\r\n            \"properties\": {\r\n                \"q1\": {\r\n                    \"type\": \"string\",\r\n                    \"description\": \"Enter a number\"\r\n                },\r\n                \"q2\": {\r\n                    \"type\": \"object\",\r\n                    \"description\": \"Address\",\r\n                    \"properties\": {\r\n                        \"color\": {\r\n                            \"description\": \"color\",\r\n                            \"type\": \"string\",\r\n                            \"default\": \"#aaa000\",\r\n                            \"pattern\": \"ff$\",\r\n                            \"widget\": \"color\"\r\n                        },\r\n                        \"zip\": {\r\n                            \"description\": \"zip\",\r\n                            \"type\": \"number\",\r\n                            \"default\": 15\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        },\r\n        \"favoriteColor\": {\r\n            \"type\": \"string\",\r\n            \"pattern\": \"^#[0-9a-fA-F]{6}$\",\r\n            \"widget\": \"color\",\r\n            \"default\": \"#aaa111\",\r\n            \"description\": \"Favorite color\",\r\n            \"visibleIf\": {\r\n                \"moreInfo\": [\r\n                    true\r\n                ]\r\n            }\r\n        },\r\n        \"transactionNumber\": {\r\n            \"type\": \"integer\",\r\n            \"minimum\": 0,\r\n            \"readOnly\": \"true\",\r\n            \"description\": \"Transaction number\"\r\n        },\r\n        \"transactionDescription\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"textline\",\r\n            \"description\": \"What is being transacted\"\r\n        },\r\n        \"category\": {\r\n            \"type\": \"array\",\r\n            \"widget\": \"select\",\r\n            \"items\": {\r\n                \"type\": \"string\",\r\n                \"oneOf\": [{\r\n                        \"description\": \"Design\",\r\n                        \"enum\": [\r\n                            \"design\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"High-Tech\",\r\n                        \"enum\": [\r\n                            \"hightech\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Materials\",\r\n                        \"enum\": [\r\n                            \"materials\"\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"description\": \"Services\",\r\n                        \"enum\": [\r\n                            \"services\"\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            \"description\": \"Category\"\r\n        },\r\n\r\n        \"numberOfBoxes\": {\r\n            \"type\": \"number\",\r\n            \"widget\": {\r\n                \"id\": \"range\"\r\n            },\r\n            \"description\": \"Number of boxes required\",\r\n            \"minimum\": 1,\r\n            \"maximum\": 10\r\n        },\r\n        \"deliveryService\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"select\",\r\n            \"description\": \"Delivery service\",\r\n            \"oneOf\": [{\r\n                    \"description\": \"UPS\",\r\n                    \"enum\": [\r\n                        \"ups\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"FedEx\",\r\n                    \"enum\": [\r\n                        \"fedex\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"Other\",\r\n                    \"enum\": [\r\n                        \"other\"\r\n                    ]\r\n                }\r\n            ],\r\n            \"default\": \"fedex\"\r\n        },\r\n        \"otherDeliveryService\": {\r\n            \"type\": \"string\",\r\n            \"minLength\": 2,\r\n            \"visibleIf\": {\r\n                \"deliveryService\": [\r\n                    \"other\"\r\n                ]\r\n            }\r\n        },\r\n        \"freeShipping\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"description\": \"Free shipping\",\r\n            \"visibleIf\": {\r\n                \"deliveryService\": [\r\n                    \"other\",\r\n                    \"ups\"\r\n                ]\r\n            }\r\n        },\r\n        \"shippingPrice\": {\r\n            \"type\": \"number\",\r\n            \"description\": \"ShippingCost\",\r\n            \"minimum\": 0,\r\n            \"maximum\": 200,\r\n            \"visibleIf\": {\r\n                \"freeShipping\": [\r\n                    false\r\n                ]\r\n            }\r\n        },\r\n        \"sendApologies\": {\r\n            \"type\": \"boolean\",\r\n            \"widget\": \"checkbox\",\r\n            \"description\": \"Send apologies for the shipping cost\",\r\n            \"visibleIf\": {\r\n                \"shippingPrice\": [\r\n                    22,\r\n                    23\r\n                ]\r\n            }\r\n        },\r\n        \"useCustomEmail\": {\r\n            \"type\": \"boolean\",\r\n            \"description\": \"Write a custom email ?\"\r\n        },\r\n        \"customEmail\": {\r\n            \"type\": \"string\",\r\n            \"widget\": \"textarea\",\r\n            \"description\": \"Email to send\",\r\n            \"visibleIf\": {\r\n                \"useCustomEmail\": [\r\n                    true\r\n                ]\r\n            },\r\n            \"pattern\": \"^<h1>\"\r\n        },\r\n        \"userManual\": {\r\n            \"type\": \"object\",\r\n            \"widget\": \"file\",\r\n            \"properties\": {\r\n                \"content-type\": {\r\n                    \"type\": \"string\"\r\n                },\r\n                \"filename\": {\r\n                    \"type\": \"string\"\r\n                },\r\n                \"size\": {\r\n                    \"type\": \"integer\"\r\n                },\r\n                \"encoding\": {\r\n                    \"type\": \"string\"\r\n                },\r\n                \"data\": {\r\n                    \"type\": \"string\"\r\n                }\r\n            },\r\n            \"description\": \"Add a manual for the delivered items\",\r\n            \"visibleIf\": {\r\n                \"category\": [\r\n                    \"hightech\"\r\n                ]\r\n            }\r\n        },\r\n        \"colors\": {\r\n            \"type\": \"array\",\r\n            \"description\": \"Colors\",\r\n            \"index\": \"i\",\r\n            \"items\": {\r\n                \"type\": \"string\",\r\n                \"description\": \"Color $i\",\r\n                \"widget\": \"color\",\r\n                \"buttons\": [{\r\n                    \"label\": \"Supprimer\",\r\n                    \"id\": \"Remove\"\r\n                }]\r\n            },\r\n            \"buttons\": [{\r\n                    \"label\": \"Ajouter\",\r\n                    \"id\": \"addItem\",\r\n                    \"parameters\": {\r\n                        \"value\": \"#afeadd\"\r\n                    }\r\n                },\r\n                {\r\n                    \"label\": \"Reset\",\r\n                    \"id\": \"reset\"\r\n                }\r\n            ]\r\n        }\r\n    },\r\n    \"button\": {\r\n        \"items\": [{\r\n                \"label\": \"Alert\",\r\n                \"id\": \"alert\"\r\n            },\r\n            {\r\n                \"label\": \"Reset\",\r\n                \"id\": \"reset\"\r\n            },\r\n            {\r\n                \"label\": \"Disable all\",\r\n                \"id\": \"disable\"\r\n            }\r\n        ]\r\n    },\r\n    \"fieldsets\": [{\r\n            \"id\": \"input_widget\",\r\n            \"title\": \"input 字符串 部件\",\r\n            \"fields\": [\r\n                \"name\",\r\n                \"password\",\r\n                \"remark\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"date_widget\",\r\n            \"title\": \"日期、时间、日期时间段 部件\",\r\n            \"fields\": [\r\n                \"date1\",\r\n                \"date2\",\r\n                \"date3\",\r\n                \"datetime1\",\r\n                \"daterange\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"checkbox_widget\",\r\n            \"title\": \"checkbox 部件\",\r\n            \"fields\": [\r\n                \"checked\",\r\n                \"checked1\",\r\n                \"categories\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"radio_widget\",\r\n            \"title\": \"radio 部件\",\r\n            \"fields\": [\r\n                \"promotion\",\r\n                \"promotions\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_1\",\r\n            \"title\": \"part1\",\r\n            \"fields\": [\r\n                \"favoriteColor\",\r\n                \"colors\",\r\n                \"survey\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_2\",\r\n            \"title\": \"Part 2 - Transaction\",\r\n            \"fields\": [\r\n                \"transactionNumber\",\r\n                \"transactionDescription\",\r\n                \"category\",\r\n                \"userManual\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_3\",\r\n            \"title\": \"Part 3 - Shipping\",\r\n            \"fields\": [\r\n                \"numberOfBoxes\",\r\n                \"deliveryService\",\r\n                \"otherDeliveryService\",\r\n                \"freeShipping\",\r\n                \"shippingPrice\",\r\n                \"sendApologies\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"part_4\",\r\n            \"title\": \"Part 4 - Email\",\r\n            \"fields\": [\r\n                \"useCustomEmail\",\r\n                \"customEmail\"\r\n            ]\r\n        }\r\n    ],\r\n    \"required\": [\r\n        \"transactionNumber\",\r\n        \"password\"\r\n    ]\r\n}"
 
 /***/ }),
 

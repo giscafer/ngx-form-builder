@@ -2,25 +2,35 @@
 // This project is licensed under the terms of the MIT license.
 // https://github.com/akserg/ng2-dnd
 
-import {ChangeDetectorRef} from '@angular/core';
-import {Directive, Input, Output, EventEmitter, ElementRef} from '@angular/core';
-import {FormArray} from '@angular/forms';
+import { ChangeDetectorRef } from '@angular/core';
+import { Directive, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { FormArray } from '@angular/forms';
 
-import {AbstractComponent, AbstractHandleComponent} from './abstract.component';
-import {DragDropConfig} from './dnd.config';
-import {DragDropService, DragDropSortableService} from './dnd.service';
+import { AbstractComponent, AbstractHandleComponent } from './abstract.component';
+import { DragDropConfig } from './dnd.config';
+import { DragDropService, DragDropSortableService } from './dnd.service';
 
 @Directive({ selector: '[dnd-sortable-container]' })
 export class SortableContainer extends AbstractComponent {
 
-    @Input("dragEnabled") set draggable(value:boolean) {
+    _dragCopy: boolean = false;
+
+    @Input("dragEnabled") set draggable(value: boolean) {
         this.dragEnabled = !!value;
     }
 
-    private _sortableData: Array<any>|FormArray = [];
-    private sortableHandler: SortableFormArrayHandler|SortableArrayHandler;
+    @Input() set dragCopy(value: boolean) {
+        this._dragCopy = !!value;
+    }
 
-    @Input() set sortableData(sortableData: Array<any>|FormArray) {
+    get dragCopy(): boolean {
+        return this._dragCopy;
+    }
+
+    private _sortableData: Array<any> | FormArray = [];
+    private sortableHandler: SortableFormArrayHandler | SortableArrayHandler;
+
+    @Input() set sortableData(sortableData: Array<any> | FormArray) {
         this._sortableData = sortableData;
         if (sortableData instanceof FormArray) {
             this.sortableHandler = new SortableFormArrayHandler();
@@ -31,30 +41,41 @@ export class SortableContainer extends AbstractComponent {
         this.dropEnabled = !!this._sortableData;
         // console.log("collection is changed, drop enabled: " + this.dropEnabled);
     }
-    get sortableData(): Array<any>|FormArray {
+    get sortableData(): Array<any> | FormArray {
         return this._sortableData;
     }
 
-    @Input("dropZones") set dropzones(value:Array<string>) {
+    @Input("dropZones") set dropzones(value: Array<string>) {
         this.dropZones = value;
     }
 
-    constructor(elemRef: ElementRef, dragDropService: DragDropService, config:DragDropConfig, cdr:ChangeDetectorRef,
+    constructor(private elemRef: ElementRef, dragDropService: DragDropService, config: DragDropConfig, cdr: ChangeDetectorRef,
         private _sortableDataService: DragDropSortableService) {
 
         super(elemRef, dragDropService, config, cdr);
         this.dragEnabled = false;
     }
 
+    getId() {
+        return this.elemRef.nativeElement.getAttribute('id');
+    }
+
     _onDragEnterCallback(event: Event) {
         if (this._sortableDataService.isDragged) {
-            let item:any = this._sortableDataService.sortableContainer.getItemAt(this._sortableDataService.index);
+            let item: any = this._sortableDataService.sortableContainer.getItemAt(this._sortableDataService.index);
             // Check does element exist in sortableData of this Container
             if (this.indexOf(item) === -1) {
                 // Let's add it
                 // console.log('Container._onDragEnterCallback. drag node [' + this._sortableDataService.index.toString() + '] over parent node');
-                // Remove item from previouse list
-                this._sortableDataService.sortableContainer.removeItemAt(this._sortableDataService.index);
+                // Remove item from previouse list except that sourceList dragCopy is true
+                if (!this._sortableDataService.sortableContainer.dragCopy) {
+                    this._sortableDataService.sortableContainer.removeItemAt(this._sortableDataService.index);
+                }else{
+                    if(this._sortableDataService.sortableContainer.getId()===this.getId()){
+                        return;
+                    }
+                }
+
                 if (this._sortableDataService.sortableContainer._sortableData.length === 0) {
                     this._sortableDataService.sortableContainer.dropEnabled = true;
                 }
@@ -126,11 +147,11 @@ export class SortableComponent extends AbstractComponent {
 
     @Input('sortableIndex') index: number;
 
-    @Input("dragEnabled") set draggable(value:boolean) {
+    @Input("dragEnabled") set draggable(value: boolean) {
         this.dragEnabled = !!value;
     }
 
-    @Input("dropEnabled") set droppable(value:boolean) {
+    @Input("dropEnabled") set droppable(value: boolean) {
         this.dropEnabled = !!value;
     }
 
@@ -164,10 +185,10 @@ export class SortableComponent extends AbstractComponent {
     @Output("onDragEnd") onDragEndCallback: EventEmitter<any> = new EventEmitter<any>();
     @Output("onDropSuccess") onDropSuccessCallback: EventEmitter<any> = new EventEmitter<any>();
 
-    constructor(elemRef: ElementRef, dragDropService: DragDropService, config:DragDropConfig,
+    constructor(elemRef: ElementRef, dragDropService: DragDropService, config: DragDropConfig,
         private _sortableContainer: SortableContainer,
         private _sortableDataService: DragDropSortableService,
-        cdr:ChangeDetectorRef) {
+        cdr: ChangeDetectorRef) {
         super(elemRef, dragDropService, config, cdr);
         this.dropZones = this._sortableContainer.dropZones;
         this.dragEnabled = true;
@@ -175,11 +196,13 @@ export class SortableComponent extends AbstractComponent {
     }
 
     _onDragStartCallback(event: Event) {
+       
         // console.log('_onDragStartCallback. dragging elem with index ' + this.index);
-        this._sortableDataService.isDragged = true;
         this._sortableDataService.sortableContainer = this._sortableContainer;
         this._sortableDataService.index = this.index;
+        this._sortableDataService.isDragged = true;
         this._sortableDataService.markSortable(this._elem);
+       
         // Add dragData
         this._dragDropService.isDragged = true;
         this._dragDropService.dragData = this.dragData;
@@ -214,14 +237,22 @@ export class SortableComponent extends AbstractComponent {
 
     _onDragEnterCallback(event: Event) {
         if (this._sortableDataService.isDragged) {
+            // console.log(this._sortableDataService.sortableContainer.getId())
             this._sortableDataService.markSortable(this._elem);
             if ((this.index !== this._sortableDataService.index) ||
                 (this._sortableDataService.sortableContainer.sortableData !== this._sortableContainer.sortableData)) {
                 // console.log('Component._onDragEnterCallback. drag node [' + this.index + '] over node [' + this._sortableDataService.index + ']');
                 // Get item
-                let item:any = this._sortableDataService.sortableContainer.getItemAt(this._sortableDataService.index);
+                let item: any = this._sortableDataService.sortableContainer.getItemAt(this._sortableDataService.index);
                 // Remove item from previouse list
-                this._sortableDataService.sortableContainer.removeItemAt(this._sortableDataService.index);
+                if (!this._sortableDataService.sortableContainer.dragCopy) {
+                    this._sortableDataService.sortableContainer.removeItemAt(this._sortableDataService.index);
+                    // console.log(this._sortableDataService.sortableContainer.getId(),this._sortableDataService.sortableContainer.dragCopy)
+                }else{
+                    if(this._sortableDataService.sortableContainer.getId()===this._sortableContainer.getId()){
+                        return;
+                    }
+                }
                 if (this._sortableDataService.sortableContainer.sortableData.length === 0) {
                     this._sortableDataService.sortableContainer.dropEnabled = true;
                 }
@@ -237,7 +268,7 @@ export class SortableComponent extends AbstractComponent {
         }
     }
 
-    _onDropCallback (event: Event) {
+    _onDropCallback(event: Event) {
         if (this._sortableDataService.isDragged) {
             // console.log('onDropCallback.onDropSuccessCallback.dragData', this._dragDropService.dragData);
             this.onDropSuccessCallback.emit(this._dragDropService.dragData);
@@ -253,8 +284,8 @@ export class SortableComponent extends AbstractComponent {
 
 @Directive({ selector: '[dnd-sortable-handle]' })
 export class SortableHandleComponent extends AbstractHandleComponent {
-    constructor(elemRef: ElementRef, dragDropService: DragDropService, config:DragDropConfig, _Component: SortableComponent,
-        cdr:ChangeDetectorRef) {
+    constructor(elemRef: ElementRef, dragDropService: DragDropService, config: DragDropConfig, _Component: SortableComponent,
+        cdr: ChangeDetectorRef) {
 
         super(elemRef, dragDropService, config, _Component, cdr);
     }

@@ -11,14 +11,14 @@
     <section id="main_content" class="inner clearfix">
         <div class="build-form">
             <div class="form-wrap form-builder">
-                <div class="stage-wrap pull-right empty" data-content="Drag a field from the right to this area">
-                    <ul class="frmb ui-sortable" style="min-height: 508px;" dnd-sortable-container  [sortableData]="targetList" (onDropSuccess)="addTo($event)">
-                        <li  dnd-sortable  [sortableIndex]="i" *ngFor="let item of targetList; let i = index" class="list-group-item">{{item.label}}</li>
+                <div class="stage-wrap pull-right empty" data-content="Drag a field from the right to this area" id="drogbox">
+                    <ul class="frmb ui-sortable" style="min-height: 508px;" dnd-sortable-container [sortableData]="targetList" (onDropSuccess)="addTo($event)">
+                        <li dnd-sortable [sortableIndex]="i" *ngFor="let item of targetList; let i = index" class="list-group-item">{{item.label}}</li>
                     </ul>
                 </div>
-                <div class="cb-wrap pull-left">
+                <div class="cb-wrap pull-left" dnd-sortable-container [sortableData]="listCtrls" [dragCopy]="true" id="dragbox">
                     <ul class="frmb-control ui-sortable">
-                        <li dnd-draggable [dragEnabled]="true" [dragData]="transferData" *ngFor="let item of listCtrls; let i = index" class="{{item.icon}} input-control ui-sortable-handle">
+                        <li *ngFor="let item of listCtrls; let i = index" dnd-sortable [sortableIndex]="i" class="{{item.icon}} input-control ui-sortable-handle">
                             <span>{{item.label}}</span>
                         </li>
                     </ul>
