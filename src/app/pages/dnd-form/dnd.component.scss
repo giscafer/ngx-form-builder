@@ -14,6 +14,9 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-attachment: fixed, scroll;
+    .label {
+        color: #fff;
+    }
     #main_content {
         padding: 0 0 30px;
         margin: 20px auto;
@@ -69,23 +72,37 @@
         vertical-align: top;
         position: relative;
         float: left;
-        width: 74%;
+        width: 80%;
+        &.empty {
+            &:after {
+                content: attr(data-content);
+                position: absolute;
+                text-align: center;
+                color: #fff;
+                font-size: 16px;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                margin-top: -1em;
+            }
+        }
     }
     .cb-wrap {
         vertical-align: top;
         float: right;
-        width: 26%;
+        padding-right: 10px;
+        width: 20%;
         transition: transform .25s;
     }
-    .empty .frmb {
-        border: 3px dashed #ccc;
-        margin-right: 5px;
+    .box .frmb {
+        border: 2px dashed #ccc;
+        // margin-right: 5px;
         background-color: hsla(0, 0%, 100%, .25);
     }
     .frmb {
         list-style-type: none;
         min-height: 200px;
-        margin: 0 6px 0 0;
+        // margin: 0 6px 0 0;
         padding: 0;
         transition: background-color .5s ease-in-out;
     }

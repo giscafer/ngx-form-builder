@@ -9,13 +9,35 @@
             <strong>Full-featured</strong> Form Editing</h2>
     </div>
     <section id="main_content" class="inner clearfix">
+        <div class="pull-right" style="margin-bottom:10px;">
+            <label class="label">  Gutter :</label>
+            <nz-select [(ngModel)]="grid.colGutter" [nzPlaceHolder]="''" name="colGutter" [nzDisabled]="grid.colNum==1">
+                <nz-option nzLabel="10px" [nzValue]="10"></nz-option>
+                <nz-option nzLabel="20px" [nzValue]="20"></nz-option>
+                <nz-option nzLabel="30px" [nzValue]="30"></nz-option>
+                <nz-option nzLabel="40px" [nzValue]="40"></nz-option>
+            </nz-select>
+        </div>
+        <div class="pull-right" style="margin-bottom:10px;">
+            <label class="label"> Columns :</label>
+            <nz-select [(ngModel)]="grid.colNum" [nzPlaceHolder]="''" name="colNum" (ngModelChange)="colNumChanged($event)">
+                <nz-option *ngFor="let col of colNumList;let i=index;" [nzLabel]="col.label" [nzValue]="col.value"></nz-option>
+            </nz-select>
+        </div>
+        <!-- form builder -->
         <div class="build-form">
             <div class="form-wrap form-builder">
-                <div class="stage-wrap pull-right empty" data-content="Drag a field from the right to this area" id="drogbox">
-                    <ul class="frmb ui-sortable" style="min-height: 508px;" dnd-sortable-container [sortableData]="targetList" (onDropSuccess)="addTo($event)">
-                        <li dnd-sortable [sortableIndex]="i" *ngFor="let item of targetList; let i = index" class="list-group-item">{{item.label}}</li>
-                    </ul>
+                <!-- dropping list -->
+                <div class="stage-wrap pull-right box" [ngClass]="{'empty':grid.colNum==1}" data-content="Drag a field from the right to this area" id="drogbox">
+                    <div nz-row [nzGutter]="grid.colGutter">
+                        <ng-container *ngFor="let p of dropPanels;let pi=index">
+                            <ul nz-col [nzSpan]="[24/grid.colNum]" class="frmb ui-sortable" style="min-height: 508px;" dnd-sortable-container [sortableData]="p.targetList" (onDropSuccess)="addTo($event)">
+                                <li dnd-sortable [sortableIndex]="i" *ngFor="let item of p.targetList; let i = index" class="list-group-item">{{item.label}}</li>
+                            </ul>
+                        </ng-container>
+                    </div>
                 </div>
+                <!-- drag box -->
                 <div class="cb-wrap pull-left" dnd-sortable-container [sortableData]="listCtrls" [dragCopy]="true" id="dragbox">
                     <ul class="frmb-control ui-sortable">
                         <li *ngFor="let item of listCtrls; let i = index" dnd-sortable [sortableIndex]="i" class="{{item.icon}} input-control ui-sortable-handle">
