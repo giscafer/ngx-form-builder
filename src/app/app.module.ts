@@ -13,7 +13,7 @@ import { DndModule } from '../lib/dnd/dnd.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
-
+import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { AppRoutingModule } from './app-routing.module';
     DndModule.forRoot(),
     LayoutModule
   ],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

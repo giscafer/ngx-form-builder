@@ -12,7 +12,7 @@ export class CheckboxWidget extends ControlWidget {
         if (schema.title) {
             templ += `
         <div nz-form-label nz-col [nzSpan]="${schema.span_label}"  class="${listOfClassName.join(' ')}">
-            <label for="${schema.formId}" nz-form-item-required [nzRequired]="required">
+            <label for="${schema.formId}" nzRequired>
                 <span> ${schema.title || ''}
                     ${schema.description ? `<nz-tooltip [nzTitle]="'${schema.description}'"> <i nz-tooltip class="anticon anticon-question-circle-o"></i> </nz-tooltip>` : ''}
                 </span>

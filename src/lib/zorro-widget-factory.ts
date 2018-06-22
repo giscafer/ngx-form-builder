@@ -1,25 +1,10 @@
-import {
-    ViewContainerRef,
-    ComponentRef,
-    ComponentFactoryResolver,
-    Injectable,
-    Component,
-    NgModule,
-    Compiler,
-    OnChanges,
-    ChangeDetectorRef,
-    OnDestroy,
-    OnInit,
-    DoCheck,
-    KeyValueDiffers
-} from '@angular/core';
-
-import { WidgetRegistry } from './widget-registry';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef, Compiler, Component, DoCheck, Injectable, KeyValueDiffers, NgModule, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { setInterval, clearInterval } from 'timers';
-import { ActionRegistry } from './model/actionregistry';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { ActionRegistry } from './model/actionregistry';
+import { WidgetRegistry } from './widget-registry';
+
 
 @Injectable()
 export class ZorroWidgetFactory {

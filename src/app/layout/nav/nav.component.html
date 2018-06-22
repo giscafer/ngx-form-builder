@@ -7,15 +7,14 @@
 </div>
 <div class="logo-title"><a href="./" title="ng-form-builder">NgFormBuilder</a></div>
 <ul nz-menu [nzMode]="'horizontal'" [nzTheme]="'dark'" style="padding-left: 280px;">
-
     <li nz-submenu>
         <span title>
-      <i class="anticon anticon-setting"></i> Builder</span>
+      <i class="anticon anticon-setting"></i> Form Type Builder</span>
         <ul>
-            <li nz-menu-item [nzSelected]="true" [routerLink]="'/bootstrap'">BootStrap Form Builder</li>
-            <li nz-menu-item [routerLink]="'/zorro'">Zorro Form Builder (under development)</li>
-            <li nz-menu-item [nzDisable]="true">PrimeNG Form Builder (comming soon)</li>
-            <li nz-menu-item [nzDisable]="true">Ionic Form Builder (comming soon)</li>
+            <li nz-menu-item [nzSelected]="true" [routerLink]="'/bootstrap'">BootStrap Builder</li>
+            <li nz-menu-item [routerLink]="'/zorro'">Zorro Builder</li>
+            <li nz-menu-item [nzDisabled]="true">PrimeNG Builder</li>
+            <li nz-menu-item [nzDisabled]="true">Ionic Builder</li>
         </ul>
     </li>
     <li nz-menu-item [routerLink]="'/dnd'">
@@ -25,14 +24,14 @@
         <span title>
       <i class="anticon anticon-folder"></i> Document</span>
         <ul>
-            <li nz-menu-group>
+            <li nz-submenu>
                 <span title>Form</span>
                 <ul>
-                    <li nz-menu-item [nzDisable]="true">How-To Guide</li>
-                    <li nz-menu-item [nzDisable]="true">Api Reference</li>
+                    <li nz-menu-item [nzDisabled]="true">How-To Guide</li>
+                    <li nz-menu-item [nzDisabled]="true">Api Reference</li>
                 </ul>
             </li>
-            <li nz-menu-group>
+            <li nz-submenu>
                 <span title>Other</span>
                 <ul>
                     <li nz-menu-item>

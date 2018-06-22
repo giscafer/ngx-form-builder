@@ -19,7 +19,7 @@ export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
         templ = `<form nz-form ${layout ? `[nzLayout]="'${layout}'"` : ''}><div nz-row [nzGutter]="${col_gutter}">`;
 
         for (let fieldset of fieldsets) {
-            templ += fieldset.title ? ('<legend>' + fieldset.title + '</legend>') : '';
+            templ += fieldset.title ? ('<legend style="margin-top:20px;">' + fieldset.title + '</legend>') : '';
 
             for (let fieldId of fieldset.fields) {
 
@@ -50,11 +50,11 @@ export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
         }
         let listOfClassName = btnWidget.getLayoutClass({ grid: btnGrid, _prefixCls: 'ant-col' });
         templ += `
-        <div  nz-form-item nz-row>
-            <div  nz-col class="${listOfClassName.join(' ')}">
+        <nz-form-item nz-row>
+            <nz-form-control  [nzOffset]="7" [nzSpan]="12" class="${listOfClassName.join(' ')}">
                 ${btnHtml}
-            </div>
-        </div>
+            </nz-form-control>
+        </nz-form-item>
         `;
     }
     templ += '</form>';

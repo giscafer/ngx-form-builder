@@ -1,17 +1,12 @@
-import {
-  ViewChild,
-  Component,
-  ViewEncapsulation,
-  AfterViewInit
-} from '@angular/core';
-
-import { NzMessageService } from 'ng-zorro-antd';
-import { AceEditorDirective } from 'ng-ace-tern';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import * as copy from 'copy-text-to-clipboard';
-
+import { AceEditorDirective } from 'ng-ace-tern';
+import { NzMessageService } from 'ng-zorro-antd';
+import { funDownload } from '../../utils/download';
 import { formatTime } from '../../utils/formatTime';
 import { initSplitEventHandler } from '../../utils/setSplitPosition';
-import { funDownload } from '../../utils/download';
+
+
 
 @Component({
   selector: 'app-bootstrap-form',
@@ -55,7 +50,7 @@ export class BootstrapFormComponent implements AfterViewInit {
 
   constructor(private _message: NzMessageService) {
 
-    this.schemaString = require('!!raw-loader!../../../mock/person-info.json');
+    this.schemaString = require('!!raw-loader!../../../mock/person-info.js');
     this.schemaJson = JSON.parse(this.schemaString);
     this.builderInfo._startTime = new Date().getTime();
 
@@ -83,19 +78,19 @@ export class BootstrapFormComponent implements AfterViewInit {
     switch (type) {
       case 'simple':
         this.demoName = 'Simple Example';
-        this.schemaString = require('!!raw-loader!../../../mock/person-info.json');
+        this.schemaString = require('!!raw-loader!../../../mock/person-info.js');
         break;
       case 'other':
         this.demoName = 'Simple Example2';
-        this.schemaString = require('!!raw-loader!../../../mock/otherschema.json');
+        this.schemaString = require('!!raw-loader!../../../mock/otherschema.js');
         break;
       case 'grid':
         this.demoName = 'Grid Layout Example';
-        this.schemaString = require('!!raw-loader!../../../mock/person-info-grid.json');
+        this.schemaString = require('!!raw-loader!../../../mock/person-info-grid.js');
         break;
       case 'full':
         this.demoName = 'Full Widget Example';
-        this.schemaString = require('!!raw-loader!../../../mock/sampleschema.json');
+        this.schemaString = require('!!raw-loader!../../../mock/sampleschema.js');
         break;
     }
 

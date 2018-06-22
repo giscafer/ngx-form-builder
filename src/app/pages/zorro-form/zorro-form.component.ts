@@ -54,7 +54,7 @@ export class ZorroFormComponent implements AfterViewInit {
 
   constructor(private _message: NzMessageService) {
 
-    this.schemaString = require('!!raw-loader!../../../mock/horizontal-layout.json');
+    this.schemaString = require('!!raw-loader!../../../mock/horizontal-layout.js');
     this.schemaJson = JSON.parse(this.schemaString);
     this.builderInfo._startTime = new Date().getTime();
 
@@ -82,27 +82,27 @@ export class ZorroFormComponent implements AfterViewInit {
     switch (type) {
       case 'horizontal-layout':
         this.demoName = 'Horizontal Layout Example';
-        this.schemaString = require('!!raw-loader!../../../mock/horizontal-layout.json');
+        this.schemaString = require('!!raw-loader!../../../mock/horizontal-layout.js');
         break;
       case 'vertical-layout':
         this.demoName = 'Vertical Layout Example';
-        this.schemaString = require('!!raw-loader!../../../mock/vertical-layout.json');
+        this.schemaString = require('!!raw-loader!../../../mock/vertical-layout.js');
         break;
       case 'simple':
         this.demoName = 'Simple Example';
-        this.schemaString = require('!!raw-loader!../../../mock/person-info.json');
+        this.schemaString = require('!!raw-loader!../../../mock/person-info.js');
         break;
       case 'other':
         this.demoName = 'Simple Example2';
-        this.schemaString = require('!!raw-loader!../../../mock/otherschema.json');
+        this.schemaString = require('!!raw-loader!../../../mock/otherschema.js');
         break;
       case 'grid':
         this.demoName = 'Grid Layout Example';
-        this.schemaString = require('!!raw-loader!../../../mock/zorro-grid.json');
+        this.schemaString = require('!!raw-loader!../../../mock/zorro-grid.js');
         break;
       case 'full':
         this.demoName = 'Full Widget Example';
-        this.schemaString = require('!!raw-loader!../../../mock/zorro-full-widget.json');
+        this.schemaString = require('!!raw-loader!../../../mock/zorro-full-widget.js');
         break;
     }
 

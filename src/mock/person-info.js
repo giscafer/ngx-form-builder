@@ -31,8 +31,7 @@
         }
     },
     "button": {
-        "items": [
-            {
+        "items": [{
                 "label": "Alert",
                 "id": "alert",
                 "submit": true

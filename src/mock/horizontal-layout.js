@@ -1,19 +1,23 @@
 {
     "debug": true,
-    "layout": "vertical",
+    "layout": "horizontal",
     "properties": {
         "name": {
             "type": "string",
             "title": "用户名",
             "placeholder": "请输入用户名，且2位以上",
-            "minLength": 2
+            "minLength": 2,
+            "span_label": 5,
+            "span_control": 16
         },
         "password": {
             "type": "string",
             "widget": "password",
             "title": "密码",
             "placeholder": "请输入密码，且6位以上",
-            "minLength": 6
+            "minLength": 6,
+            "span_label": 5,
+            "span_control": 16
         }
     },
     "required": [
@@ -24,8 +28,7 @@
         "grid": {
             "offset": 5
         },
-        "items": [
-            {
+        "items": [{
                 "label": "登录",
                 "id": "send",
                 "submit": true
