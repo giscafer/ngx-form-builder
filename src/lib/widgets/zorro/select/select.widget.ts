@@ -32,11 +32,14 @@ export class SelectWidget extends ControlWidget {
         return templ;
     }
 
-    iterateOptions(widgetInfo) {
-        if (!widgetInfo.widget.id || widgetInfo.widget.id === 'string') {
-            return 'text';
-        } else {
-            return widgetInfo.widget.id;
+
+    iterateOptions(schema) {
+        let htmlStr = '', options = (schema.items && schema.items.oneOf) || schema.oneOf;
+        for (let option of options) {
+            htmlStr += `
+            <nz-option nzValue="${option.enum[0]}" nzLabel="${option.description}"></nz-option>
+            `;
         }
+        return htmlStr;
     }
 }

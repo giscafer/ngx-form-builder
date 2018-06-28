@@ -9,6 +9,7 @@ import { CheckboxWidget } from "./checkbox/checkbox.widget";
 import { ArrayWidget } from "./array/array.widget";
 import { RadioWidget } from "./radio/radio.widget";
 import { TextAreaWidget } from "./textarea/textarea.widget";
+import { SelectWidget } from "./select/select.widget";
 
 export class ZorroDefaultWidgetRegistry extends WidgetRegistry {
   constructor() {
@@ -24,6 +25,7 @@ export class ZorroDefaultWidgetRegistry extends WidgetRegistry {
     this.register('textarea', TextAreaWidget);
 
     this.register('array', ArrayWidget);
+    this.register('select', SelectWidget);
 
     //   this.register('search', StringWidget);
     //   this.register('tel', StringWidget);
@@ -37,7 +39,6 @@ export class ZorroDefaultWidgetRegistry extends WidgetRegistry {
     //   this.register('integer', IntegerWidget);
     //   this.register('number', IntegerWidget);
     //   this.register('range', RangeWidget);
-    //   this.register('select', SelectWidget);
     //   this.register('boolean', CheckboxWidget);
 
     this.setDefaultWidget(StringWidget);

@@ -23,23 +23,34 @@ readOnly | 是否只读状态  | `boolean` | -
 
 ```json
  {
-        "name": {
+       "categories": {
+        "type": "string",
+        "widget": "select",
+        "title": "Categories",
+        "items": {
             "type": "string",
-            "title": "用户名",
-            "placeholder": "请输入用户名，且2位以上",
-            "minLength": 2
+            "oneOf": [
+                {
+                    "description": "Dog",
+                    "enum": [
+                        "dog"
+                    ]
+                },
+                {
+                    "description": "Cat",
+                    "enum": [
+                        "cat"
+                    ]
+                },
+                {
+                    "description": "Daulphin",
+                    "enum": [
+                        "daulphin"
+                    ]
+                }
+            ]
         },
-        "password": {
-            "type": "string",
-            "widget": "password",
-            "title": "密码",
-            "placeholder": "请输入密码，且6位以上",
-            "minLength": 6
-        },
-        "email": {
-            "type": "string",
-            "placeholder": "请输入邮箱，最多20个字符",
-            "maxLength": 20 
-        }
+        "widget": "checkbox"
+    }
  }
 ```

@@ -125,46 +125,35 @@
             ]
         },
 
-        "survey": {
-            "type": "object",
-            "description": "Little survey",
-            "properties": {
-                "q1": {
-                    "type": "string",
-                    "description": "Enter a number"
-                },
-                "q2": {
-                    "type": "object",
-                    "description": "Address",
-                    "properties": {
-                        "color": {
-                            "description": "color",
-                            "type": "string",
-                            "default": "#aaa000",
-                            "pattern": "ff$",
-                            "widget": "color"
-                        },
-                        "zip": {
-                            "description": "zip",
-                            "type": "number",
-                            "default": 15
-                        }
-                    }
-                }
-            }
-        },
-        "favoriteColor": {
+        "citys": {
             "type": "string",
-            "pattern": "^#[0-9a-fA-F]{6}$",
-            "widget": "color",
-            "default": "#aaa111",
-            "description": "Favorite color",
-            "visibleIf": {
-                "moreInfo": [
-                    true
+            "title": "城市",
+            "description": "select a city",
+            "widget": "select",
+            "items": {
+                "type": "string",
+                "oneOf": [{
+                        "description": "Zhejiang",
+                        "enum": [
+                            "zj"
+                        ]
+                    },
+                    {
+                        "description": "Guangdong",
+                        "enum": [
+                            "gd"
+                        ]
+                    },
+                    {
+                        "description": "Beijing",
+                        "enum": [
+                            "bj"
+                        ]
+                    }
                 ]
             }
         },
+
         "transactionNumber": {
             "type": "integer",
             "minimum": 0,
@@ -327,32 +316,6 @@
                     "hightech"
                 ]
             }
-        },
-        "colors": {
-            "type": "array",
-            "description": "Colors",
-            "index": "i",
-            "items": {
-                "type": "string",
-                "description": "Color $i",
-                "widget": "color",
-                "buttons": [{
-                    "label": "Supprimer",
-                    "id": "Remove"
-                }]
-            },
-            "buttons": [{
-                    "label": "Ajouter",
-                    "id": "addItem",
-                    "parameters": {
-                        "value": "#afeadd"
-                    }
-                },
-                {
-                    "label": "Reset",
-                    "id": "reset"
-                }
-            ]
         }
     },
     "button": {
@@ -408,12 +371,10 @@
             ]
         },
         {
-            "id": "part_1",
-            "title": "part1",
+            "id": "select_widget",
+            "title": "Select组件",
             "fields": [
-                "favoriteColor",
-                "colors",
-                "survey"
+                "citys"
             ]
         },
         {

@@ -7,10 +7,11 @@ export { TimeWidget } from "./time/time.widget";
 export { DateRangeWidget } from "./date-range/date-range.widget";
 export { CheckboxWidget } from './checkbox/checkbox.widget';
 export { TextAreaWidget } from './textarea/textarea.widget';
+export { SelectWidget } from './select/select.widget';
 
 /* export { IntegerWidget } from './integer/integer.widget';
 export { RangeWidget } from './range/range.widget';
 export { StringWidget } from './string/string.widget';
 export { ArrayWidget } from './array/array.widget';
 export { RadioWidget } from './radio/radio.widget';
-export { SelectWidget } from './select/select.widget'; */
+ */
