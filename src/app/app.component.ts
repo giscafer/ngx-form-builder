@@ -7,6 +7,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { BuilderService } from './services/builder-service';
 import { NavComponent } from './layout/nav/nav.component';
+import { StartUpService } from './services/startup.service';
 
 
 @Component({
@@ -18,16 +19,24 @@ import { NavComponent } from './layout/nav/nav.component';
 })
 export class AppComponent {
   @ViewChild('nav') navRef: NavComponent;
-  constructor(private router: Router, private titleService: Title, private builderService: BuilderService) {
+  constructor(
+    private router: Router,
+    private titleService: Title,
+    private startUpService: StartUpService,
+    private builderService: BuilderService
+  ) {
     builderService.builderChanged.subscribe(value => {
-      this.navRef._builder_type = value || 'bootstrap';
-    })
+      this.navRef._builder_type = value || 'zorro';
+    });
+    this.startUpService.initData().then(() => {
+        this.startUpService.mockChanged.next('mock chaged')
+    });
   }
   ngOnInit() {
     this.router.events
       .subscribe((event) => {
         if (event instanceof NavigationEnd) { // 当导航成功结束时执行
-          let title=event.url.substr(1);
+          let title = event.url.substr(1);
           this.titleService.setTitle(`${title} builder`);
           this.builderService.builderChanged.next(title);
         }

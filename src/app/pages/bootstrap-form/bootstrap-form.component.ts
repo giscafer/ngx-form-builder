@@ -5,6 +5,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { funDownload } from '../../utils/download';
 import { formatTime } from '../../utils/formatTime';
 import { initSplitEventHandler } from '../../utils/setSplitPosition';
+import { StartUpService } from '../../services/startup.service';
 
 
 
@@ -24,8 +25,8 @@ export class BootstrapFormComponent implements AfterViewInit {
   model: any;
   value: any;
   htmlCode: string;
-  schemaString: any;
-  schemaJson: any;
+  schemaString: any = '';
+  schemaJson: any = {};
   count = 1;
   builderInfo = {
     msgType: 'info',
@@ -48,10 +49,13 @@ export class BootstrapFormComponent implements AfterViewInit {
     this._message.create(type, `${text}`);
   };
 
-  constructor(private _message: NzMessageService) {
+  constructor(private _message: NzMessageService, private service: StartUpService) {
 
-    this.schemaString = require('!!raw-loader!../../../mock/person-info.js');
-    this.schemaJson = JSON.parse(this.schemaString);
+    this.service.mockChanged.subscribe(evt => {
+      console.log(evt);
+      this.schemaJson = this.service.getData('horizontalMockData');
+      this.schemaString = JSON.stringify(this.schemaJson, null, 4);
+    })
     this.builderInfo._startTime = new Date().getTime();
 
     // 按钮事件注册
@@ -78,19 +82,19 @@ export class BootstrapFormComponent implements AfterViewInit {
     switch (type) {
       case 'simple':
         this.demoName = 'Simple Example';
-        this.schemaString = require('!!raw-loader!../../../mock/person-info.js');
+        this.schemaString = JSON.stringify(this.service.getData('personInfoMockData'), null, 4);
         break;
       case 'other':
         this.demoName = 'Simple Example2';
-        this.schemaString = require('!!raw-loader!../../../mock/otherschema.js');
+        this.schemaString = JSON.stringify(this.service.getData('otherschemaMockData'), null, 4);
         break;
       case 'grid':
         this.demoName = 'Grid Layout Example';
-        this.schemaString = require('!!raw-loader!../../../mock/person-info-grid.js');
+        this.schemaString = JSON.stringify(this.service.getData('personInfoGridMockData'), null, 4);
         break;
       case 'full':
         this.demoName = 'Full Widget Example';
-        this.schemaString = require('!!raw-loader!../../../mock/sampleschema.js');
+        this.schemaString = JSON.stringify(this.service.getData('sampleschemaMockData'), null, 4);
         break;
     }
 

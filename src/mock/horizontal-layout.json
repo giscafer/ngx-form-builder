@@ -1,5 +1,5 @@
 {
-    "debug": true,
+    "debug": "true",
     "layout": "horizontal",
     "properties": {
         "name": {

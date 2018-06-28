@@ -115,7 +115,7 @@ export class BsFormBuilderComponent implements OnChanges {
 
     ngOnInit() {
         this.terminator.onDestroy.subscribe(destroy => {
-            if (destroy) {
+            if (destroy && this.ref) {
                 this.ref.destroy();
             }
         });
@@ -147,7 +147,6 @@ export class BsFormBuilderComponent implements OnChanges {
             }
             SchemaPreprocessor.preprocess(this.schema);
             this.rootProperty = this.formPropertyFactory.createProperty(this.schema);
-
             this.rootProperty.valueChanges.subscribe(value => {
                 if (this.modelChanged.observers.length > 0) { // two way binding is used
                     if (this.model) {
@@ -164,7 +163,7 @@ export class BsFormBuilderComponent implements OnChanges {
                 this.isValid.emit(!(value && value.length));
             });
         }
-
+        if (!this.rootProperty) return;
         if (this.schema && (changes.model || changes.schema)) {
             this.rootProperty.reset(this.model, false);
             this.cdr.detectChanges();

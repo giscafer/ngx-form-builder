@@ -1,5 +1,5 @@
 {
-    "debug": true,
+    "debug": "true",
     "modelName": "testModel",
     "fieldsets": [{
             "fields": [

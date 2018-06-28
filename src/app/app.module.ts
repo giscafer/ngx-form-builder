@@ -14,6 +14,8 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
 import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { StartUpService } from './services/startup.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     CommonModule,
     RouterModule,
     AppRoutingModule,
@@ -31,7 +34,7 @@ import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
     DndModule.forRoot(),
     LayoutModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN }, StartUpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

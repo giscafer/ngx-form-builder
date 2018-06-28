@@ -1,5 +1,5 @@
 {
-    "debug": true,
+    "debug": "true",
     "modelName": "testModel",
     "col_num": 2,
     "col_gutter": 10,
@@ -55,8 +55,7 @@
                 "span": 6
             }
         },
-        "items": [
-            {
+        "items": [{
                 "label": "Alert",
                 "id": "alert",
                 "submit": true

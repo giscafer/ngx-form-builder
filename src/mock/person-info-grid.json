@@ -1,5 +1,5 @@
 {
-    "debug": true,
+    "debug": "true",
     "modelName": "testModel",
     "grid": {
         "md": {
@@ -51,8 +51,7 @@
                 "span": 6
             }
         },
-        "items":[
-            {
+        "items": [{
                 "label": "Alert",
                 "id": "alert",
                 "submit": true

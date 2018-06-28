@@ -8,7 +8,7 @@ import { BootstrapFormComponent } from "./pages/bootstrap-form/bootstrap-form.co
 import { DndComponent } from "./pages/dnd-form/dnd.component";
 
 const routes: Routes = [
-    { path: '', redirectTo: 'bootstrap', pathMatch: 'full' },
+    { path: '', redirectTo: 'zorro', pathMatch: 'full' },
     { path: 'dnd', component: DndComponent },
     { path: 'bootstrap', component: BootstrapFormComponent },
     { path: 'zorro', component: ZorroFormComponent }

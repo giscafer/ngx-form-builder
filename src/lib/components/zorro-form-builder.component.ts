@@ -115,7 +115,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
 
     ngOnInit() {
         this.terminator.onDestroy.subscribe(destroy => {
-            if (destroy) {
+            if (destroy && this.ref) {
                 this.ref.destroy();
             }
         });
@@ -147,7 +147,6 @@ export class ZorroFormBuilderComponent implements OnChanges {
             }
             SchemaPreprocessor.preprocess(this.schema);
             this.rootProperty = this.formPropertyFactory.createProperty(this.schema);
-
             this.rootProperty.valueChanges.subscribe(value => {
                 if (this.modelChanged.observers.length > 0) { // two way binding is used
                     if (this.model) {
@@ -164,6 +163,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
                 this.isValid.emit(!(value && value.length));
             });
         }
+        if (!this.rootProperty) return;
 
         if (this.schema && (changes.model || changes.schema)) {
             this.rootProperty.reset(this.model, false);
@@ -257,7 +257,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
             [this.rootProperty.schema.modelName || 'model']: this.rootProperty.value || {},
         }
         properties[properties['modelName']]['checkOptions'] = this.rootProperty.schema.checkOptions || {};//nz-checkbox-group
-        console.log( properties[properties['modelName']]['checkOptions'])
+        console.log(properties[properties['modelName']]['checkOptions'])
         this.ref = this.ZorroWidgetFactory.addWidget(this.container, template, properties, this);
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;

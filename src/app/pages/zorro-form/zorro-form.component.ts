@@ -12,6 +12,8 @@ import * as copy from 'copy-text-to-clipboard';
 import { formatTime } from '../../utils/formatTime';
 import { initSplitEventHandler } from '../../utils/setSplitPosition';
 import { funDownload } from '../../utils/download';
+import { Jsonp } from '@angular/http';
+import { StartUpService } from '../../services/startup.service';
 
 @Component({
   selector: 'app-zorro-form',
@@ -28,8 +30,8 @@ export class ZorroFormComponent implements AfterViewInit {
   model: any;
   value: any;
   htmlCode: string;
-  schemaString: any;
-  schemaJson: any;
+  schemaString: any = '';
+  schemaJson: Object;
   count = 1;
   builderInfo = {
     msgType: 'info',
@@ -52,12 +54,17 @@ export class ZorroFormComponent implements AfterViewInit {
     this._message.create(type, `${text}`);
   };
 
-  constructor(private _message: NzMessageService) {
+  constructor(
+    private _message: NzMessageService,
+    private service: StartUpService
+  ) {
 
-    this.schemaString = require('!!raw-loader!../../../mock/horizontal-layout.js');
-    this.schemaJson = JSON.parse(this.schemaString);
+    this.service.mockChanged.subscribe(evt => {
+      this.schemaJson = this.service.getData('horizontalMockData');
+      this.schemaString = JSON.stringify(this.schemaJson, null, 4);
+    });
+
     this.builderInfo._startTime = new Date().getTime();
-
     // 按钮事件注册
     this.actions['alert'] = (property, options) => {
       property.forEachChildRecursive(child => {
@@ -82,27 +89,27 @@ export class ZorroFormComponent implements AfterViewInit {
     switch (type) {
       case 'horizontal-layout':
         this.demoName = 'Horizontal Layout Example';
-        this.schemaString = require('!!raw-loader!../../../mock/horizontal-layout.js');
+        this.schemaString = JSON.stringify(this.service.getData('horizontalMockData'), null, 4);
         break;
       case 'vertical-layout':
         this.demoName = 'Vertical Layout Example';
-        this.schemaString = require('!!raw-loader!../../../mock/vertical-layout.js');
+        this.schemaString = JSON.stringify(this.service.getData('verticalMockData'), null, 4);
         break;
       case 'simple':
         this.demoName = 'Simple Example';
-        this.schemaString = require('!!raw-loader!../../../mock/person-info.js');
+        this.schemaString = JSON.stringify(this.service.getData('personInfoMockData'), null, 4);
         break;
       case 'other':
         this.demoName = 'Simple Example2';
-        this.schemaString = require('!!raw-loader!../../../mock/otherschema.js');
+        this.schemaString = JSON.stringify(this.service.getData('otherschemaMockData'), null, 4);
         break;
       case 'grid':
         this.demoName = 'Grid Layout Example';
-        this.schemaString = require('!!raw-loader!../../../mock/zorro-grid.js');
+        this.schemaString = JSON.stringify(this.service.getData('zorroGridMockData'), null, 4);
         break;
       case 'full':
         this.demoName = 'Full Widget Example';
-        this.schemaString = require('!!raw-loader!../../../mock/zorro-full-widget.js');
+        this.schemaString = JSON.stringify(this.service.getData('zorroFullWidgetMockData'), null, 4);
         break;
     }
 
