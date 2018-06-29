@@ -1,5 +1,4 @@
 import { isNotNil } from "./check";
-import { type } from "os";
 export const ListOfGridSizeName = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 

@@ -26,6 +26,7 @@ export class StartUpService {
                 this.httpClient.get('./mock/sampleschema.json'),
                 this.httpClient.get('./mock/zorro-grid.json'),
                 this.httpClient.get('./mock/zorro-full-widget.json'),
+                this.httpClient.get('./mock/register-form.json')
             ).pipe(
                 // 接收其他拦截器后产生的异常消息
                 catchError(([langData, appData]) => {
@@ -40,7 +41,8 @@ export class StartUpService {
                 otherschemaMockData,
                 sampleschemaMockData,
                 zorroGridMockData,
-                zorroFullWidgetMockData
+                zorroFullWidgetMockData,
+                registerFormMockData
             ]) => {
                 Object.assign(this.mockData, {
                     horizontalMockData,
@@ -50,7 +52,8 @@ export class StartUpService {
                     otherschemaMockData,
                     sampleschemaMockData,
                     zorroGridMockData,
-                    zorroFullWidgetMockData
+                    zorroFullWidgetMockData,
+                    registerFormMockData
                 });
                 console.log(this.mockData)
             },

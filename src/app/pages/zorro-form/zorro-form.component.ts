@@ -95,6 +95,10 @@ export class ZorroFormComponent implements AfterViewInit {
         this.demoName = 'Vertical Layout Example';
         this.schemaString = JSON.stringify(this.service.getData('verticalMockData'), null, 4);
         break;
+      case 'register-form':
+        this.demoName = 'Register Form';
+        this.schemaString = JSON.stringify(this.service.getData('registerFormMockData'), null, 4);
+        break;
       case 'simple':
         this.demoName = 'Simple Example';
         this.schemaString = JSON.stringify(this.service.getData('personInfoMockData'), null, 4);

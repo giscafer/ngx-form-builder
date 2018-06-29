@@ -13,8 +13,13 @@ export abstract class Widget<T extends FormProperty> {
   name: string = '';
   schema: any = {};
 
-  getLayoutClass(widgetSchema: ISchema | Object): string[] {
+  getLayoutClass(widgetSchema: ISchema): string[] {
+    this.setGrid(widgetSchema);
     return getClassMap(widgetSchema);
+  }
+
+  setGrid(widgetSchema: ISchema) {
+    Object.assign(widgetSchema, widgetSchema.grid);
   }
 }
 

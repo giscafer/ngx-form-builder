@@ -1,5 +1,4 @@
 import { ControlWidget } from "../../../widget";
-import { generateClass } from "../../../utils/cls";
 
 export class StringWidget extends ControlWidget {
 
@@ -9,6 +8,7 @@ export class StringWidget extends ControlWidget {
 
     getTemplate(schema) {
         let listOfClassName = this.getLayoutClass(schema);
+        let grid = schema.grid || {};
         let templ = "";
         if (this.getInputType(schema) === 'hidden') {
             templ = `<input  nz-input [attr.name]="name" type="hidden" [ngModel]="${schema.modelName}">`;

@@ -1,5 +1,4 @@
 export interface IGrid {
-
     /**
      * bootstrap：col-md-4
      * zorro-antd：ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2
@@ -9,6 +8,29 @@ export interface IGrid {
     md: number | ICol;
     lg: number | ICol;
     xl: number | ICol;
+    // 栅格相关
+    /**
+     * 栅格列数
+     */
+    col_num: number;
+    /**
+    * 栅格间隔
+    */
+    col_gutter: number;
+
+    // 外部统一控制form-item的nzSpan和offset值
+    /**
+     * label 的nzSpan值
+     */
+    span_label: number;
+    /**
+    * input control 的nzSpan值
+    */
+    span_control: number;
+    /**
+    *  input control 的offset值
+    */
+    offset_control: number;
 }
 
 interface ICol {

@@ -4,19 +4,20 @@
  *-------------------------------------------------------------*/
 
 
-import { PropertyGroup } from "../model";
 import { WidgetRegistry } from "../widget-registry";
-import { WidgetType } from "../schema/widget-type";
 export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
 
     let templ = "";
     let fieldsets = formProperty.schema.fieldsets;
     let layout = formProperty.schema.layout;
-    let col_num = formProperty.schema.col_num;
-    let col_gutter = formProperty.schema.col_gutter || 0;
+    let grid = formProperty.schema.grid || {};
+    let style = formProperty.schema.style || {};
+    
+    let col_num = grid.col_num;
+    let col_gutter = grid.col_gutter || 0;
     let span = col_num ? 24 / col_num : 0;
     if (fieldsets && fieldsets.length) {
-        templ = `<form nz-form ${layout ? `[nzLayout]="'${layout}'"` : ''}><div nz-row [nzGutter]="${col_gutter}">`;
+        templ = `<form nz-form ${layout ? `[nzLayout]="'${layout}'"` : ''} style="${style}"><div nz-row [nzGutter]="${col_gutter}">`;
 
         for (let fieldset of fieldsets) {
             templ += fieldset.title ? ('<legend style="margin-top:20px;">' + fieldset.title + '</legend>') : '';
