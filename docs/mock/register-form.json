@@ -1,0 +1,77 @@
+{
+    "debug": true,
+    "modelName": "testModel",
+    "grid": {
+        "col_num": 1,
+        "col_gutter": 10,
+        "span_label": 8,
+        "span_control": 15
+    },
+    "style": "width: 500px;height:200px;",
+    "properties": {
+        "email": {
+            "type": "string",
+            "title": "E-mail",
+            "format": "email",
+            "placeholder": "请输入邮箱，最多20个字符",
+            "maxLength": 20
+        },
+        "password": {
+            "type": "string",
+            "widget": "password",
+            "title": "Password",
+            "placeholder": "请输入密码",
+            "description": "密码有效为6~16个字符",
+            "maxLength": 16,
+            "minLength": 6
+        },
+        "password2": {
+            "type": "string",
+            "widget": "password",
+            "title": "Confirm Password",
+            "placeholder": "请再次输入密码",
+            "description": "密码有效为6~16个字符",
+            "maxLength": 16,
+            "minLength": 6
+        },
+        "nickname": {
+            "type": "string",
+            "title": "Nickname",
+            "placeholder": "请再次输入Nickname",
+            "description": "What do you want other to call you",
+            "maxLength": 16,
+            "minLength": 6
+        },
+        "phone": {
+            "type": "string",
+            "title": "Phone Number",
+            "placeholder": "请输入手机号",
+            "widget": "string"
+        },
+        "captcha": {
+            "type": "string",
+            "placeholder": "请输入验证码",
+            "title": "Captcha"
+        },
+        "agreement": {
+            "type": "string",
+            "description": "I have read the agreement",
+            "widget": "checkbox",
+            "offset_control": 8
+        }
+    },
+    "button": {
+        "grid": {
+            "md": {
+                "offset": 9,
+                "span": 14
+            }
+        },
+        "items": [{
+            "label": "Register",
+            "id": "register",
+            "type": "primary",
+            "submit": true
+        }]
+    }
+}

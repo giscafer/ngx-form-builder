@@ -1,0 +1,415 @@
+{
+    "$schema": "http://json-schema.org/draft-04/hyper-schema#",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "title": "用户名",
+            "placeholder": "请输入用户名，且2位以上",
+            "minLength": 2
+        },
+        "password": {
+            "type": "string",
+            "widget": "password",
+            "title": "密码",
+            "placeholder": "请输入密码，且6位以上",
+            "minLength": 6
+        },
+        "remark": {
+            "type": "string",
+            "widget": "textarea",
+            "title": "备注",
+            "placeholder": "Autosize height with minimum and maximum number of lines"
+        },
+        "date1": {
+            "type": "string",
+            "placeholder": "基本日期",
+            "widget": "date",
+            "title": "基本日期"
+        },
+        "date2": {
+            "type": "string",
+            "placeholder": "可选时间",
+            "format": "YYYY/MM/DD HH:mm:ss",
+            "widget": "date",
+            "showTime": true,
+            "title": "带时间日期"
+        },
+        "date3": {
+            "type": "string",
+            "widget": "date",
+            "default": "2000-03-12",
+            "title": "默认值",
+            "placeholder": "Ex: 2000-03-12"
+        },
+        "datetime1": {
+            "type": "string",
+            "widget": "time",
+            "title": "时间选择",
+            "placeholder": "时间选择"
+        },
+        "daterange": {
+            "type": "string",
+            "widget": "date-range",
+            "title": "日期段",
+            "start": "Select start date",
+            "end": "Select end date"
+        },
+        "checked": {
+            "type": "boolean",
+            "widget": "checkbox",
+            "description": "I agree to the Terms of Service and the Privacy Policy."
+        },
+        "checked1": {
+            "type": "boolean",
+            "widget": "checkbox",
+            "readOnly": true,
+            "default": true,
+            "description": "不可选 - Disabled."
+        },
+        "categories": {
+            "type": "array",
+            "title": "Categories",
+            "items": {
+                "type": "string",
+                "oneOf": [{
+                        "description": "Dog",
+                        "enum": [
+                            "dog"
+                        ]
+                    },
+                    {
+                        "description": "Cat",
+                        "enum": [
+                            "cat"
+                        ]
+                    },
+                    {
+                        "description": "Daulphin",
+                        "enum": [
+                            "daulphin"
+                        ]
+                    }
+                ]
+            },
+            "widget": "checkbox"
+        },
+        "promotion": {
+            "type": "string",
+            "description": "独立使用 true",
+            "default": true,
+            "widget": "radio"
+        },
+        "promotions": {
+            "type": "string",
+            "description": "Promotion",
+            "widget": "radio",
+            "oneOf": [{
+                    "description": "Student discount (20%)",
+                    "enum": [
+                        "student"
+                    ]
+                },
+                {
+                    "description": "Summer 2016 discount (15%)",
+                    "enum": [
+                        "summer"
+                    ]
+                },
+                {
+                    "description": "None",
+                    "enum": [
+                        "none"
+                    ]
+                }
+            ]
+        },
+
+        "citys": {
+            "type": "string",
+            "title": "城市",
+            "description": "select a city",
+            "widget": "select",
+            "items": {
+                "type": "string",
+                "oneOf": [{
+                        "description": "Zhejiang",
+                        "enum": [
+                            "zj"
+                        ]
+                    },
+                    {
+                        "description": "Guangdong",
+                        "enum": [
+                            "gd"
+                        ]
+                    },
+                    {
+                        "description": "Beijing",
+                        "enum": [
+                            "bj"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "transactionNumber": {
+            "type": "integer",
+            "minimum": 0,
+            "readOnly": "true",
+            "description": "Transaction number"
+        },
+        "transactionDescription": {
+            "type": "string",
+            "widget": "textline",
+            "description": "What is being transacted"
+        },
+        "category": {
+            "type": "array",
+            "widget": "select",
+            "items": {
+                "type": "string",
+                "oneOf": [{
+                        "description": "Design",
+                        "enum": [
+                            "design"
+                        ]
+                    },
+                    {
+                        "description": "High-Tech",
+                        "enum": [
+                            "hightech"
+                        ]
+                    },
+                    {
+                        "description": "Materials",
+                        "enum": [
+                            "materials"
+                        ]
+                    },
+                    {
+                        "description": "Services",
+                        "enum": [
+                            "services"
+                        ]
+                    }
+                ]
+            },
+            "description": "Category"
+        },
+
+        "numberOfBoxes": {
+            "type": "number",
+            "widget": {
+                "id": "range"
+            },
+            "description": "Number of boxes required",
+            "minimum": 1,
+            "maximum": 10
+        },
+        "deliveryService": {
+            "type": "string",
+            "widget": "select",
+            "description": "Delivery service",
+            "oneOf": [{
+                    "description": "UPS",
+                    "enum": [
+                        "ups"
+                    ]
+                },
+                {
+                    "description": "FedEx",
+                    "enum": [
+                        "fedex"
+                    ]
+                },
+                {
+                    "description": "Other",
+                    "enum": [
+                        "other"
+                    ]
+                }
+            ],
+            "default": "fedex"
+        },
+        "otherDeliveryService": {
+            "type": "string",
+            "minLength": 2,
+            "visibleIf": {
+                "deliveryService": [
+                    "other"
+                ]
+            }
+        },
+        "freeShipping": {
+            "type": "boolean",
+            "widget": "checkbox",
+            "description": "Free shipping",
+            "visibleIf": {
+                "deliveryService": [
+                    "other",
+                    "ups"
+                ]
+            }
+        },
+        "shippingPrice": {
+            "type": "number",
+            "description": "ShippingCost",
+            "minimum": 0,
+            "maximum": 200,
+            "visibleIf": {
+                "freeShipping": [
+                    false
+                ]
+            }
+        },
+        "sendApologies": {
+            "type": "boolean",
+            "widget": "checkbox",
+            "description": "Send apologies for the shipping cost",
+            "visibleIf": {
+                "shippingPrice": [
+                    22,
+                    23
+                ]
+            }
+        },
+        "useCustomEmail": {
+            "type": "boolean",
+            "description": "Write a custom email ?"
+        },
+        "customEmail": {
+            "type": "string",
+            "widget": "textarea",
+            "description": "Email to send",
+            "visibleIf": {
+                "useCustomEmail": [
+                    true
+                ]
+            },
+            "pattern": "^<h1>"
+        },
+        "userManual": {
+            "type": "object",
+            "widget": "file",
+            "properties": {
+                "content-type": {
+                    "type": "string"
+                },
+                "filename": {
+                    "type": "string"
+                },
+                "size": {
+                    "type": "integer"
+                },
+                "encoding": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "string"
+                }
+            },
+            "description": "Add a manual for the delivered items",
+            "visibleIf": {
+                "category": [
+                    "hightech"
+                ]
+            }
+        }
+    },
+    "button": {
+        "items": [{
+                "label": "Alert",
+                "id": "alert"
+            },
+            {
+                "label": "Reset",
+                "id": "reset"
+            },
+            {
+                "label": "Disable all",
+                "id": "disable"
+            }
+        ]
+    },
+    "fieldsets": [{
+            "id": "input_widget",
+            "title": "input 字符串 部件",
+            "fields": [
+                "name",
+                "password",
+                "remark"
+            ]
+        },
+        {
+            "id": "date_widget",
+            "title": "日期、时间、日期时间段 部件",
+            "fields": [
+                "date1",
+                "date2",
+                "date3",
+                "datetime1",
+                "daterange"
+            ]
+        },
+        {
+            "id": "checkbox_widget",
+            "title": "checkbox 部件",
+            "fields": [
+                "checked",
+                "checked1",
+                "categories"
+            ]
+        },
+        {
+            "id": "radio_widget",
+            "title": "radio 部件",
+            "fields": [
+                "promotion",
+                "promotions"
+            ]
+        },
+        {
+            "id": "select_widget",
+            "title": "Select组件",
+            "fields": [
+                "citys"
+            ]
+        },
+        {
+            "id": "part_2",
+            "title": "Part 2 - Transaction",
+            "fields": [
+                "transactionNumber",
+                "transactionDescription",
+                "category",
+                "userManual"
+            ]
+        },
+        {
+            "id": "part_3",
+            "title": "Part 3 - Shipping",
+            "fields": [
+                "numberOfBoxes",
+                "deliveryService",
+                "otherDeliveryService",
+                "freeShipping",
+                "shippingPrice",
+                "sendApologies"
+            ]
+        },
+        {
+            "id": "part_4",
+            "title": "Part 4 - Email",
+            "fields": [
+                "useCustomEmail",
+                "customEmail"
+            ]
+        }
+    ],
+    "required": [
+        "transactionNumber",
+        "password"
+    ]
+}
