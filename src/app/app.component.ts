@@ -1,12 +1,9 @@
-import {
-  Component,
-  ViewEncapsulation,
-  ViewChild,
-} from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, ViewChild, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { BuilderService } from './services/builder-service';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { NavComponent } from './layout/nav/nav.component';
+import { BuilderService } from './services/builder-service';
 import { StartUpService } from './services/startup.service';
 
 
@@ -17,21 +14,24 @@ import { StartUpService } from './services/startup.service';
   styleUrls: ["./app.component.scss"],
   providers: [BuilderService]
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy{
   @ViewChild('nav') navRef: NavComponent;
+
+  subject: Subscription;
   constructor(
     private router: Router,
     private titleService: Title,
     private startUpService: StartUpService,
     private builderService: BuilderService
   ) {
-    builderService.builderChanged.subscribe(value => {
+    this.subject = builderService.builderChanged.subscribe(value => {
       this.navRef._builder_type = value || 'zorro';
     });
     this.startUpService.initData().then(() => {
-        this.startUpService.mockChanged.next('mock chaged')
+      this.startUpService.mockChanged.next('mock chaged')
     });
   }
+
   ngOnInit() {
     this.router.events
       .subscribe((event) => {
@@ -39,7 +39,12 @@ export class AppComponent {
           let title = event.url.substr(1);
           this.titleService.setTitle(`${title} builder`);
           this.builderService.builderChanged.next(title);
+          this.startUpService.mockChanged.next('route mock chaged');
         }
       });
+  }
+
+  ngOnDestroy() {
+    this.subject.unsubscribe();
   }
 }

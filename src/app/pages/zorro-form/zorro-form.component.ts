@@ -2,7 +2,8 @@ import {
   ViewChild,
   Component,
   ViewEncapsulation,
-  AfterViewInit
+  AfterViewInit,
+  OnDestroy
 } from '@angular/core';
 
 import { NzMessageService } from 'ng-zorro-antd';
@@ -14,13 +15,14 @@ import { initSplitEventHandler } from '../../utils/setSplitPosition';
 import { funDownload } from '../../utils/download';
 import { Jsonp } from '@angular/http';
 import { StartUpService } from '../../services/startup.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-zorro-form',
   templateUrl: './zorro-form.component.html',
   styleUrls: []
 })
-export class ZorroFormComponent implements AfterViewInit {
+export class ZorroFormComponent implements AfterViewInit,OnDestroy {
 
   @ViewChild(AceEditorDirective)
   private editorDirective: AceEditorDirective;
@@ -54,12 +56,14 @@ export class ZorroFormComponent implements AfterViewInit {
     this._message.create(type, `${text}`);
   };
 
+  subject: Subscription;
+
   constructor(
     private _message: NzMessageService,
     private service: StartUpService
   ) {
 
-    this.service.mockChanged.subscribe(evt => {
+    this.subject = this.service.mockChanged.subscribe(evt => {
       this.schemaJson = this.service.getData('horizontalMockData');
       this.schemaString = JSON.stringify(this.schemaJson, null, 4);
     });
@@ -185,5 +189,9 @@ export class ZorroFormComponent implements AfterViewInit {
       }
     }
     return false;
+  }
+
+  ngOnDestroy() {
+    this.subject.unsubscribe();
   }
 }

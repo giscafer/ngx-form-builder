@@ -1,67 +1,101 @@
 {
     "debug": "true",
     "modelName": "testModel",
-    "col_num": 2,
-    "col_gutter": 10,
+    "grid": {
+        "xs": {
+            "span": 24
+        },
+        "sm": {
+            "span": 24
+        },
+        "md": {
+            "span": 12
+        },
+        "lg": {
+            "span": 8
+        },
+        "xl": {
+            "span": 8
+        },
+        "col_gutter": 10,
+        "span_label": 8,
+        "span_control": 15
+    },
     "properties": {
-        "email": {
-            "type": "string",
-            "title": "邮箱",
-            "format": "email",
-            "placeholder": "请输入邮箱，最多20个字符",
-            "maxLength": 20,
-            "readOnly": true,
-            "span_label": 5,
-            "span_control": 19,
-            "default": "giscafer@outlook.com"
-        },
-        "name": {
-            "type": "string",
-            "title": "姓名",
-            "placeholder": "请输入姓名",
-            "description": "必须大写开头且3个字以上",
-            "maxLength": 30,
-            "minLength": 3,
-            "span_label": 5,
-            "span_control": 19
-        },
         "birthday": {
             "type": "string",
-            "title": "出生日期",
+            "title": "开单日期",
             "widget": "date",
-            "span_label": 5,
-            "default": 662688000000,
-            "span_control": 19
+            "default": 662688000000
         },
-        "age": {
-            "type": "number",
-            "title": "年龄",
-            "minimum": 1,
-            "maximum": 100,
-            "span_label": 5,
-            "span_control": 19
-        },
-        "remark": {
+        "waybillId": {
             "type": "string",
-            "title": "描述",
-            "span_label": 5,
-            "span_control": 19
+            "title": "订单号",
+            "placeholder": "请输入订单号"
+        },
+        "shipper": {
+            "type": "string",
+            "title": "发货人",
+            "placeholder": "请输入发货人姓名",
+            "maxLength": 30,
+            "minLength": 2
+        },
+        "phone": {
+            "type": "number",
+            "title": "发货人手机号",
+            "placeholder": "发货人手机号",
+            "minimum": 1,
+            "maximum": 100
+        },
+        "status": {
+            "type": "string",
+            "title": "订单状态",
+            "placeholder": "请选择订单状态",
+            "widget": "select",
+            "items": {
+                "oneOf": [{
+                        "description": "待受理",
+                        "enum": [
+                            "waitingDeal"
+                        ]
+                    },
+                    {
+                        "description": "待提货",
+                        "enum": [
+                            "waitingPick"
+                        ]
+                    },
+                    {
+                        "description": "待签收",
+                        "enum": [
+                            "waitingSign"
+                        ]
+                    },
+                    {
+                        "description": "已签收",
+                        "enum": [
+                            "signed"
+                        ]
+                    }
+                ]
+            }
         }
     },
     "button": {
         "grid": {
             "md": {
-                "offset": 11,
-                "span": 6
+                "offset": 20,
+                "span": 4
             }
         },
         "items": [{
-                "label": "Alert",
-                "id": "alert",
+                "label": "查询",
+                "id": "query",
+                "type": "primary",
                 "submit": true
             },
             {
-                "label": "Reset",
+                "label": "清空",
                 "id": "reset"
             }
         ]

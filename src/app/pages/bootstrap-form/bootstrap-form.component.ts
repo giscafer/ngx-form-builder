@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnDestroy } from '@angular/core';
 import * as copy from 'copy-text-to-clipboard';
 import { AceEditorDirective } from 'ng-ace-tern';
 import { NzMessageService } from 'ng-zorro-antd';
@@ -6,6 +6,7 @@ import { funDownload } from '../../utils/download';
 import { formatTime } from '../../utils/formatTime';
 import { initSplitEventHandler } from '../../utils/setSplitPosition';
 import { StartUpService } from '../../services/startup.service';
+import { Subscription } from 'rxjs';
 
 
 
@@ -14,7 +15,7 @@ import { StartUpService } from '../../services/startup.service';
   templateUrl: './bootstrap-form.component.html',
   styleUrls: []
 })
-export class BootstrapFormComponent implements AfterViewInit {
+export class BootstrapFormComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild(AceEditorDirective)
   private editorDirective: AceEditorDirective;
@@ -45,13 +46,14 @@ export class BootstrapFormComponent implements AfterViewInit {
     enableLiveAutocompletion: true
   };
 
+  subject: Subscription;
   createMessage = (type, text) => {
     this._message.create(type, `${text}`);
   };
 
   constructor(private _message: NzMessageService, private service: StartUpService) {
 
-    this.service.mockChanged.subscribe(evt => {
+    this.subject = this.service.mockChanged.subscribe(evt => {
       console.log(evt);
       this.schemaJson = this.service.getData('horizontalMockData');
       this.schemaString = JSON.stringify(this.schemaJson, null, 4);
@@ -166,5 +168,9 @@ export class BootstrapFormComponent implements AfterViewInit {
       }
     }
     return false;
+  }
+
+  ngOnDestroy() {
+    this.subject.unsubscribe();
   }
 }

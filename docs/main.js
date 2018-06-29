@@ -113,10 +113,10 @@ module.exports = "nz-content {\n  padding: 0 !important; }\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _services_builder_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/builder-service */ "./src/app/services/builder-service.ts");
-/* harmony import */ var _layout_nav_nav_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./layout/nav/nav.component */ "./src/app/layout/nav/nav.component.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _layout_nav_nav_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./layout/nav/nav.component */ "./src/app/layout/nav/nav.component.ts");
+/* harmony import */ var _services_builder_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/builder-service */ "./src/app/services/builder-service.ts");
 /* harmony import */ var _services_startup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/startup.service */ "./src/app/services/startup.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -140,7 +140,7 @@ var AppComponent = /** @class */ (function () {
         this.titleService = titleService;
         this.startUpService = startUpService;
         this.builderService = builderService;
-        builderService.builderChanged.subscribe(function (value) {
+        this.subject = builderService.builderChanged.subscribe(function (value) {
             _this.navRef._builder_type = value || 'zorro';
         });
         this.startUpService.initData().then(function () {
@@ -151,16 +151,20 @@ var AppComponent = /** @class */ (function () {
         var _this = this;
         this.router.events
             .subscribe(function (event) {
-            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]) {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
                 var title = event.url.substr(1);
                 _this.titleService.setTitle(title + " builder");
                 _this.builderService.builderChanged.next(title);
+                _this.startUpService.mockChanged.next('route mock chaged');
             }
         });
     };
+    AppComponent.prototype.ngOnDestroy = function () {
+        this.subject.unsubscribe();
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('nav'),
-        __metadata("design:type", _layout_nav_nav_component__WEBPACK_IMPORTED_MODULE_4__["NavComponent"])
+        __metadata("design:type", _layout_nav_nav_component__WEBPACK_IMPORTED_MODULE_3__["NavComponent"])
     ], AppComponent.prototype, "navRef", void 0);
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -168,12 +172,12 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
             styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")],
-            providers: [_services_builder_service__WEBPACK_IMPORTED_MODULE_3__["BuilderService"]]
+            providers: [_services_builder_service__WEBPACK_IMPORTED_MODULE_4__["BuilderService"]]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["Title"],
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["Title"],
             _services_startup_service__WEBPACK_IMPORTED_MODULE_5__["StartUpService"],
-            _services_builder_service__WEBPACK_IMPORTED_MODULE_3__["BuilderService"]])
+            _services_builder_service__WEBPACK_IMPORTED_MODULE_4__["BuilderService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -444,7 +448,7 @@ var BootstrapFormComponent = /** @class */ (function () {
         this.createMessage = function (type, text) {
             _this._message.create(type, "" + text);
         };
-        this.service.mockChanged.subscribe(function (evt) {
+        this.subject = this.service.mockChanged.subscribe(function (evt) {
             console.log(evt);
             _this.schemaJson = _this.service.getData('horizontalMockData');
             _this.schemaString = JSON.stringify(_this.schemaJson, null, 4);
@@ -547,6 +551,9 @@ var BootstrapFormComponent = /** @class */ (function () {
             }
         }
         return false;
+    };
+    BootstrapFormComponent.prototype.ngOnDestroy = function () {
+        this.subject.unsubscribe();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(ng_ace_tern__WEBPACK_IMPORTED_MODULE_2__["AceEditorDirective"]),
@@ -704,7 +711,7 @@ var ColNumList = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-container\">\r\n    <div id=\"code-container\">\r\n        <div id=\"control-panel\">\r\n            <div id=\"code-info\">\r\n                <span class=\"code-type\">JSON</span>\r\n                <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n                <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n            </div>\r\n            <div class=\"control-btn-panel\">\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n            <span>{{demoName}}</span>\r\n            <i class=\"anticon anticon-down\"></i>\r\n          </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"水平布局\" (click)=\"toggleSchema('horizontal-layout')\">Horizontal Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"垂直布局\" (click)=\"toggleSchema('vertical-layout')\">Vertical Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('grid')\">Grid Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"注册Form表单\" (click)=\"toggleSchema('register-form')\">Register Form</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"其他例子\" (click)=\"toggleSchema('other')\">Other Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n                <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n                <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n            </div>\r\n        </div>\r\n        <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\" (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 90vh; width:100%\"></div>\r\n    </div>\r\n    <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n    <div id=\"view-container\">\r\n        <div id=\"control-panel\">\r\n            <div class=\"control-btn-panel\">\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown class=\"btn btn-default btn-sm\">\r\n                      <span>Save</span>\r\n                      <i class=\"anticon anticon-down\"></i>\r\n                    </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyHTMLCode(1)\">Download HTML</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyHTMLCode()\">Copy HTML code</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n            </div>\r\n        </div>\r\n        <br>\r\n        <div style=\"height: 90vh;padding: 24px;background: inherit;overflow-y: auto;\">\r\n            <zorro-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\" (onBuilderFinish)=\"onBuilderFinish($event)\"></zorro-form-builder>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"main-container\">\r\n    <div id=\"code-container\">\r\n        <div id=\"control-panel\">\r\n            <div id=\"code-info\">\r\n                <span class=\"code-type\">JSON</span>\r\n                <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n                <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n            </div>\r\n            <div class=\"control-btn-panel\">\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n                        <span>{{demoName}}</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                    </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"水平布局\" (click)=\"toggleSchema('horizontal-layout')\">Horizontal Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"垂直布局\" (click)=\"toggleSchema('vertical-layout')\">Vertical Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('grid')\">Grid Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"注册Form表单\" (click)=\"toggleSchema('register-form')\">Register Form</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"其他例子\" (click)=\"toggleSchema('other')\">Other Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n                <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n                <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n            </div>\r\n        </div>\r\n        <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\" (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 90vh; width:100%\"></div>\r\n    </div>\r\n    <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n    <div id=\"view-container\">\r\n        <div id=\"control-panel\">\r\n            <div class=\"control-btn-panel\">\r\n                <button nz-button nzType=\"primary\" class=\"btn btn-default btn-sm\">\r\n                    <span>View code</span>\r\n                </button>\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown nzType=\"primary\" class=\"btn btn-default btn-sm\">\r\n                        <span>Copy / Download</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                        </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyHTMLCode(1)\">Download HTML</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyHTMLCode()\">Copy HTML code</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n            </div>\r\n        </div>\r\n        <br>\r\n        <div style=\"height: 90vh;padding: 24px;background: inherit;overflow-y: auto;\">\r\n            <zorro-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\" (onBuilderFinish)=\"onBuilderFinish($event)\"></zorro-form-builder>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -772,7 +779,7 @@ var ZorroFormComponent = /** @class */ (function () {
         this.createMessage = function (type, text) {
             _this._message.create(type, "" + text);
         };
-        this.service.mockChanged.subscribe(function (evt) {
+        this.subject = this.service.mockChanged.subscribe(function (evt) {
             _this.schemaJson = _this.service.getData('horizontalMockData');
             _this.schemaString = JSON.stringify(_this.schemaJson, null, 4);
         });
@@ -886,6 +893,9 @@ var ZorroFormComponent = /** @class */ (function () {
             }
         }
         return false;
+    };
+    ZorroFormComponent.prototype.ngOnDestroy = function () {
+        this.subject.unsubscribe();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(ng_ace_tern__WEBPACK_IMPORTED_MODULE_2__["AceEditorDirective"]),
@@ -1002,7 +1012,7 @@ var StartUpService = /** @class */ (function () {
                     zorroFullWidgetMockData: zorroFullWidgetMockData,
                     registerFormMockData: registerFormMockData
                 });
-                console.log(_this.mockData);
+                // console.log(this.mockData);
             }, function (err) { reject(err); }, function () {
                 resolve(null);
             });
@@ -1281,21 +1291,22 @@ function ZorroTmplBuilder(registry, formProperty) {
     var fieldsets = formProperty.schema.fieldsets;
     var layout = formProperty.schema.layout;
     var grid = formProperty.schema.grid || {};
-    var style = formProperty.schema.style || {};
+    var style = formProperty.schema.style || '';
     var col_num = grid.col_num;
     var col_gutter = grid.col_gutter || 0;
-    var span = col_num ? 24 / col_num : 0;
+    // let span = col_num ? 24 / col_num : 0;
     if (fieldsets && fieldsets.length) {
-        templ = "<form nz-form " + (layout ? "[nzLayout]=\"'" + layout + "'\"" : '') + " style=\"" + style + "\"><div nz-row [nzGutter]=\"" + col_gutter + "\">";
+        templ = "<form nz-form " + (layout ? "[nzLayout]=\"'" + layout + "'\"" : '') + " " + (style ? "style=\"" + style + "\"" : '') + ">";
         for (var _i = 0, fieldsets_1 = fieldsets; _i < fieldsets_1.length; _i++) {
             var fieldset = fieldsets_1[_i];
             templ += fieldset.title ? ('<legend style="margin-top:20px;">' + fieldset.title + '</legend>') : '';
+            templ += "<div nz-row [nzGutter]=\"" + col_gutter + "\">";
             for (var _a = 0, _b = fieldset.fields; _a < _b.length; _a++) {
                 var fieldId = _b[_a];
                 var property = formProperty.getProperty(fieldId);
                 var widgetInfo = property.schema.widget;
                 var WidgetClass = registry.getWidgetType(widgetInfo.id || widgetInfo);
-                templ += col_num ? "<div nz-col [nzSpan]=\"" + span + "\" nz-form-item>" : '<div  nz-row nz-form-item>';
+                templ += "<div nz-col " + gridLayout(grid) + ">";
                 if (widgetInfo.id === 'array') {
                     // TODO array widget not support yet
                     templ += new WidgetClass(formProperty, registry).getTemplate(property.schema);
@@ -1305,8 +1316,8 @@ function ZorroTmplBuilder(registry, formProperty) {
                 }
                 templ += '</div>';
             }
+            templ += '</div>';
         }
-        templ += '</div>';
     }
     if (formProperty.schema.button !== undefined) {
         var button = formProperty.schema.button;
@@ -1322,6 +1333,11 @@ function ZorroTmplBuilder(registry, formProperty) {
     }
     templ += '</form>';
     return templ;
+}
+function gridLayout(grid) {
+    var _a = grid.sm, sm = _a === void 0 ? {} : _a, _b = grid.xs, xs = _b === void 0 ? {} : _b, _c = grid.md, md = _c === void 0 ? {} : _c, _d = grid.lg, lg = _d === void 0 ? {} : _d, _e = grid.xl, xl = _e === void 0 ? {} : _e, _f = grid.xxl, xxl = _f === void 0 ? {} : _f;
+    var result = (xs.span ? "nzXS=\"" + xs.span + "\"" : '') + " " + (sm.span ? "nzSm=\"" + sm.span + "\"" : '') + " " + (md.span ? "nzMd=\"" + md.span + "\"" : '') + " " + (lg.span ? "nzLg=\"" + lg.span + "\"" : '') + " " + (xl.span ? "nzXl=\"" + xl.span + "\"" : '') + " " + (xxl.span ? "nzXXl=\"" + xxl.span + "\"" : '');
+    return result;
 }
 
 
@@ -5673,12 +5689,12 @@ var CheckboxWidget = /** @class */ (function (_super) {
         return _super.call(this) || this;
     }
     CheckboxWidget.prototype.getTemplate = function (schema) {
-        var templ = '';
+        var templ = '<nz-form-item>';
         var listOfClassName = this.getLayoutClass(schema);
         if (schema.title) {
-            templ += "\n        <div nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\">\n            <label for=\"" + schema.formId + "\" nzRequired>\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n            </label>\n        </div>\n      ";
+            templ += "\n        <nz-form-label [nzSpan]=\"" + schema.span_label + "\"  " + (schema.require ? "nzRequired" : '') + ">\n            <span> " + (schema.title || '') + "\n                " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n            </span>\n        </nz-form-label>\n      ";
         }
-        templ += "\n    <div nz-form-control nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        " + this.iterateOptions(schema) + "\n    </div>\n    ";
+        templ += "\n    <nz-form-control\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        " + this.iterateOptions(schema) + "\n    </nz-form-control>\n    </nz-form-item>";
         return templ;
     };
     // ${this.iterateOptions(schema)}
@@ -5727,12 +5743,12 @@ var DateRangeWidget = /** @class */ (function (_super) {
         return _super.call(this) || this;
     }
     DateRangeWidget.prototype.getTemplate = function (schema) {
-        var templ = '';
+        var templ = '<nz-form-item>';
         var listOfClassName = this.getLayoutClass(schema);
         if (schema.title) {
-            templ += "\n        <nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\" for=\"" + schema.formId + "\" nzRequired>\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n        </nz-form-label>\n      ";
+            templ += "\n        <nz-form-label [nzSpan]=\"" + schema.span_label + "\"  " + (schema.require ? "nzRequired" : '') + " for=\"" + schema.formId + "\" " + (schema.require ? "nzRequired" : '') + ">\n                <span> " + (schema.title || '') + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "</span>\n        </nz-form-label>\n      ";
         }
-        templ += "\n    <nz-form-control  nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-range-picker \n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + (schema.readOnl ? "[nzDisabled]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'YYYY/MM/DD'\"") + "\n            " + (schema.showTime ? "[nzShowTime]=\"true\"" : "[nzShowTime]=\"false\"") + "\n            [nzPlaceHolder]=\"['" + schema.start + "', '" + schema.end + "']\"></nz-range-picker>\n    </nz-form-control>\n    ";
+        templ += "\n    <nz-form-control \n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-range-picker \n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + (schema.readOnl ? "[nzDisabled]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'YYYY/MM/DD'\"") + "\n            " + (schema.showTime ? "[nzShowTime]=\"true\"" : "[nzShowTime]=\"false\"") + "\n            [nzPlaceHolder]=\"['" + schema.start + "', '" + schema.end + "']\"></nz-range-picker>\n    </nz-form-control>\n    </nz-form-item>";
         return templ;
     };
     return DateRangeWidget;
@@ -5770,12 +5786,12 @@ var DateWidget = /** @class */ (function (_super) {
         return _super.call(this) || this;
     }
     DateWidget.prototype.getTemplate = function (schema) {
-        var templ = '';
+        var templ = '<nz-form-item>';
         var listOfClassName = this.getLayoutClass(schema);
         if (schema.title) {
-            templ += "\n        <nz-form-label  nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\" for=\"" + schema.formId + "\" nzRequired>\n            <span> " + (schema.title || '') + "\n                " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n            </span>\n        </nz-form-label>\n      ";
+            templ += "\n        <nz-form-label [nzSpan]=\"" + schema.span_label + "\"  " + (schema.require ? "nzRequired" : '') + " for=\"" + schema.formId + "\" " + (schema.require ? "nzRequired" : '') + ">\n            <span> " + (schema.title || '') + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + " </span>\n        </nz-form-label>\n      ";
         }
-        templ += "\n    <nz-form-control nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-date-picker\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'YYYY/MM/DD'\"") + "\n            " + (schema.showTime ? "[nzShowTime]=\"true\"" : "[nzShowTime]=\"false\"") + "\n            [nzPlaceHolder]=\"'" + (schema.placeholder ? schema.placeholder : '') + "'\"></nz-date-picker>\n    </nz-form-control>\n    ";
+        templ += "\n    <nz-form-control\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-date-picker\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'YYYY/MM/DD'\"") + "\n            " + (schema.showTime ? "[nzShowTime]=\"true\"" : "[nzShowTime]=\"false\"") + "\n            [nzPlaceHolder]=\"'" + (schema.placeholder ? schema.placeholder : '') + "'\"></nz-date-picker>\n    </nz-form-control>\n    </nz-form-item>";
         return templ;
     };
     return DateWidget;
@@ -5946,12 +5962,12 @@ var RadioWidget = /** @class */ (function (_super) {
         return _super.call(this) || this;
     }
     RadioWidget.prototype.getTemplate = function (schema) {
-        var templ = '';
-        var listOfClassName = this.getLayoutClass(schema);
+        var templ = '<nz-form-item>';
+        // let listOfClassName = this.getLayoutClass(schema);
         if (schema.title) {
-            templ += "\n        <div nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\">\n            <label for=\"" + schema.formId + "\" nzRequired>\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n            </label>\n        </div>\n      ";
+            templ += "<nz-form-label [nzSpan]=\"" + schema.span_label + "\" for=\"" + schema.formId + "\">\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n            </nz-form-label>";
         }
-        templ += "\n    <div nz-form-control nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        " + this.iterateOptions(schema) + "\n    </div>\n    ";
+        templ += "\n        <nz-form-control\n            " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n            " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n            " + this.iterateOptions(schema) + "\n        </nz-form-control>\n    </nz-form-item>\n    ";
         return templ;
     };
     // ${this.iterateOptions(schema)}
@@ -6006,7 +6022,7 @@ var SelectWidget = /** @class */ (function (_super) {
     }
     SelectWidget.prototype.getTemplate = function (schema) {
         var listOfClassName = this.getLayoutClass(schema);
-        var templ = "\n        <nz-form-item>\n            <nz-form-label for=\"" + schema.formId + "\" nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\" nzRequired>\n                <span> " + (schema.title || '') + "\n                    " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                </span>\n            </nz-form-label>\n            <nz-form-control  nz-col\n                " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n                " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n                <nz-select nzShowSearch nzAllowClear\n                [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n                id=\"" + schema.formId + "\"\n                name=\"" + schema.name + "\"\n                " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + "\n                nzPlaceHolder=\"" + (schema.placeholder ? schema.placeholder : ' ') + "\">\n                    " + this.iterateOptions(schema) + "\n                </nz-select>\n            </nz-form-control>\n        </nz-form-item>\n        ";
+        var templ = "\n        <nz-form-item>\n            <nz-form-label for=\"" + schema.formId + "\" [nzSpan]=\"" + schema.span_label + "\" " + (schema.require ? "nzRequired" : '') + ">\n                <span> " + (schema.title || '') + " " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "</span>\n            </nz-form-label>\n            <nz-form-control \n                " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n                " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n                <nz-select nzShowSearch nzAllowClear\n                [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n                id=\"" + schema.formId + "\"\n                name=\"" + schema.name + "\"\n                " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + "\n                nzPlaceHolder=\"" + (schema.placeholder ? schema.placeholder : ' ') + "\">\n                    " + this.iterateOptions(schema) + "\n                </nz-select>\n            </nz-form-control>\n        </nz-form-item>\n        ";
         return templ;
     };
     SelectWidget.prototype.iterateOptions = function (schema) {
@@ -6053,13 +6069,12 @@ var StringWidget = /** @class */ (function (_super) {
     }
     StringWidget.prototype.getTemplate = function (schema) {
         var listOfClassName = this.getLayoutClass(schema);
-        var grid = schema.grid || {};
         var templ = "";
         if (this.getInputType(schema) === 'hidden') {
             templ = "<input  nz-input [attr.name]=\"name\" type=\"hidden\" [ngModel]=\"" + schema.modelName + "\">";
         }
         else {
-            templ = "\n            <nz-form-item>\n                <nz-form-label for=\"" + schema.formId + "\" nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\" nzRequired>\n                    <span> " + (schema.title || '') + "\n                        " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n                    </span>\n                </nz-form-label>\n                <nz-form-control  nz-col\n                    " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n                    " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n                    <input nz-input\n                    [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n                    id=\"" + schema.formId + "\"\n                    name=\"" + schema.name + "\"\n                    " + ((schema.widget.id !== 'color' && schema.readOnly) ? "[readonly]=\"true\"" : "") + "\n                    type=\"" + this.getInputType(schema) + "\"\n                    placeholder=\"" + (schema.placeholder ? schema.placeholder : ' ') + "\"\n                    " + ((schema.maxLength || schema.maxLength == 0) ? "[attr.maxLength]=\"" + schema.maxLength + "\"" : "") + "\n                    " + ((schema.minLength || schema.minLength == 0) ? "[attr.minLength]=\"" + schema.minLength + "\"" : "") + "\n                    " + ((schema.widget.id === 'color' && schema.readOnly) ? "[attr.disabled]=\"'true'\"" : "") + "/>\n                    " + ((schema.widget.id === 'color' && schema.readOnly) ? "<input  nz-input name=\"" + schema.name + "\" type=\"hidden\"/>" : "") + "\n                </nz-form-control>\n            </nz-form-item>\n            ";
+            templ = "\n            <nz-form-item>\n                <nz-form-label for=\"" + schema.formId + "\" [nzSpan]=\"" + schema.span_label + "\" " + (schema.require ? "nzRequired" : '') + ">\n                    <span> " + (schema.title || '') + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "</span>\n                </nz-form-label>\n                <nz-form-control \n                    " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n                    " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n                    <input nz-input\n                    [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n                    id=\"" + schema.formId + "\"\n                    name=\"" + schema.name + "\"\n                    " + ((schema.widget.id !== 'color' && schema.readOnly) ? "[readonly]=\"true\"" : "") + "\n                    type=\"" + this.getInputType(schema) + "\"\n                    placeholder=\"" + (schema.placeholder ? schema.placeholder : ' ') + "\"\n                    " + ((schema.maxLength || schema.maxLength == 0) ? "[attr.maxLength]=\"" + schema.maxLength + "\"" : "") + "\n                    " + ((schema.minLength || schema.minLength == 0) ? "[attr.minLength]=\"" + schema.minLength + "\"" : "") + "\n                    " + ((schema.widget.id === 'color' && schema.readOnly) ? "[attr.disabled]=\"'true'\"" : "") + "/>\n                    " + ((schema.widget.id === 'color' && schema.readOnly) ? "<input  nz-input name=\"" + schema.name + "\" type=\"hidden\"/>" : "") + "\n                </nz-form-control>\n            </nz-form-item>\n            ";
         }
         return templ;
     };
@@ -6107,7 +6122,7 @@ var TextAreaWidget = /** @class */ (function (_super) {
     }
     TextAreaWidget.prototype.getTemplate = function (schema) {
         var listOfClassName = this.getLayoutClass(schema);
-        var templ = "\n        <nz-form-label  nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\" for=\"" + schema.formId + "\" nzRequired>\n            <span> " + (schema.title || '') + "\n                " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n            </span>\n        </nz-form-label>\n        <nz-form-control  nz-col\n            " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n            " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n            <textarea  nz-input\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            nzType=\"textarea\" rows=\"2\" \n            placeholder=\"" + (schema.placeholder ? schema.placeholder : ' ') + "\"\n            " + (schema.readOnly ? "[readonly]=\"true\"" : "") + "\n            " + ((schema.autosize) ? "[nzAutosize]=\"" + schema.autosize + "\"" : "") + "></textarea>\n        </nz-form-control>\n        ";
+        var templ = "<nz-form-item>\n        <nz-form-label [nzSpan]=\"" + schema.span_label + "\"  " + (schema.require ? "nzRequired" : '') + " for=\"" + schema.formId + "\" " + (schema.require ? "nzRequired" : '') + ">\n            <span> " + (schema.title || '') + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "</span>\n        </nz-form-label>\n        <nz-form-control \n            " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n            " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n            <textarea  nz-input\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            nzType=\"textarea\" rows=\"2\" \n            placeholder=\"" + (schema.placeholder ? schema.placeholder : ' ') + "\"\n            " + (schema.readOnly ? "[readonly]=\"true\"" : "") + "\n            " + ((schema.autosize) ? "[nzAutosize]=\"" + schema.autosize + "\"" : "") + "></textarea>\n        </nz-form-control>\n        </nz-form-item>";
         return templ;
     };
     return TextAreaWidget;
@@ -6145,12 +6160,12 @@ var TimeWidget = /** @class */ (function (_super) {
         return _super.call(this) || this;
     }
     TimeWidget.prototype.getTemplate = function (schema) {
-        var templ = '';
+        var templ = '<nz-form-item>';
         var listOfClassName = this.getLayoutClass(schema);
         if (schema.title) {
-            templ += "\n        <div nz-form-label nz-col [nzSpan]=\"" + schema.span_label + "\"  class=\"" + listOfClassName.join(' ') + "\" for=\"" + schema.formId + "\" nzRequired>\n            <span> " + (schema.title || '') + "\n                " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "\n            </span>\n        </div>\n      ";
+            templ += "\n        <div nz-form-label [nzSpan]=\"" + schema.span_label + "\"  " + (schema.require ? "nzRequired" : '') + " for=\"" + schema.formId + "\" " + (schema.require ? "nzRequired" : '') + ">\n            <span> " + (schema.title || '') + " " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "</span>\n        </div>\n      ";
         }
-        templ += "\n    <nz-form-control nz-col\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-time-picker\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'HH:mm:ss'\"") + "\n            [nzPlaceHolder]=\"'" + (schema.placeholder ? schema.placeholder : '') + "'\"></nz-time-picker>\n    </nz-form-control>\n    ";
+        templ += "\n    <nz-form-control\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-time-picker\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'HH:mm:ss'\"") + "\n            [nzPlaceHolder]=\"'" + (schema.placeholder ? schema.placeholder : '') + "'\"></nz-time-picker>\n    </nz-form-control>\n  </nz-form-item>\n    ";
         return templ;
     };
     return TimeWidget;

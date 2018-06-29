@@ -55,7 +55,7 @@ export class StartUpService {
                     zorroFullWidgetMockData,
                     registerFormMockData
                 });
-                console.log(this.mockData)
+                // console.log(this.mockData);
             },
                 (err) => { reject(err) },
                 () => {
