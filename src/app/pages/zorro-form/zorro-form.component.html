@@ -9,9 +9,9 @@
             <div class="control-btn-panel">
                 <nz-dropdown>
                     <button nz-button nz-dropdown [nzType]="'primary'" class="btn btn-default btn-sm">
-            <span>{{demoName}}</span>
-            <i class="anticon anticon-down"></i>
-          </button>
+                        <span>{{demoName}}</span>
+                        <i class="anticon anticon-down"></i>
+                    </button>
                     <ul nz-menu>
                         <li nz-menu-item>
                             <a href="javascript:;" title="水平布局" (click)="toggleSchema('horizontal-layout')">Horizontal Layout Example</a>
@@ -43,11 +43,14 @@
     <div id="view-container">
         <div id="control-panel">
             <div class="control-btn-panel">
+                <button nz-button nzType="primary" class="btn btn-default btn-sm">
+                    <span>View code</span>
+                </button>
                 <nz-dropdown>
-                    <button nz-button nz-dropdown class="btn btn-default btn-sm">
-                      <span>Save</span>
-                      <i class="anticon anticon-down"></i>
-                    </button>
+                    <button nz-button nz-dropdown nzType="primary" class="btn btn-default btn-sm">
+                        <span>Copy / Download</span>
+                        <i class="anticon anticon-down"></i>
+                        </button>
                     <ul nz-menu>
                         <li nz-menu-item>
                             <a href="javascript:;" title="下载HTML模板" (click)="copyHTMLCode(1)">Download HTML</a>

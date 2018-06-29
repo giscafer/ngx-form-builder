@@ -2,12 +2,14 @@ export interface IGrid {
     /**
      * bootstrap：col-md-4
      * zorro-antd：ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2
+     * nzXXl="6" nzXl="8" nzLg="8" nzMd="12" nzSm="24" nzXs="24"
      */
     xs: number | ICol;
     sm: number | ICol;
     md: number | ICol;
     lg: number | ICol;
     xl: number | ICol;
+    xxl: number | ICol;
     // 栅格相关
     /**
      * 栅格列数

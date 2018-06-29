@@ -8,19 +8,16 @@ export class StringWidget extends ControlWidget {
 
     getTemplate(schema) {
         let listOfClassName = this.getLayoutClass(schema);
-        let grid = schema.grid || {};
         let templ = "";
         if (this.getInputType(schema) === 'hidden') {
             templ = `<input  nz-input [attr.name]="name" type="hidden" [ngModel]="${schema.modelName}">`;
         } else {
             templ = `
             <nz-form-item>
-                <nz-form-label for="${schema.formId}" nz-col [nzSpan]="${schema.span_label}"  class="${listOfClassName.join(' ')}" nzRequired>
-                    <span> ${schema.title || ''}
-                        ${schema.description ? `<nz-tooltip [nzTitle]="'${schema.description}'"> <i nz-tooltip class="anticon anticon-question-circle-o"></i> </nz-tooltip>` : ''}
-                    </span>
+                <nz-form-label for="${schema.formId}" [nzSpan]="${schema.span_label}" ${schema.require ? `nzRequired` : ''}>
+                    <span> ${schema.title || ''}${schema.description ? `<nz-tooltip [nzTitle]="'${schema.description}'"> <i nz-tooltip class="anticon anticon-question-circle-o"></i> </nz-tooltip>` : ''}</span>
                 </nz-form-label>
-                <nz-form-control  nz-col
+                <nz-form-control 
                     ${schema.span_control ? `[nzSpan]="${schema.span_control}"` : ""}
                     ${schema.offset_control ? `[nzOffset]="${schema.offset_control}"` : ""}>
                     <input nz-input

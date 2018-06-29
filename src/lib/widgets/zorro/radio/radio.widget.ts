@@ -6,27 +6,24 @@ export class RadioWidget extends ControlWidget {
     }
 
     getTemplate(schema) {
-        let templ = '';
-        let listOfClassName = this.getLayoutClass(schema);
+        let templ = '<nz-form-item>';
+        // let listOfClassName = this.getLayoutClass(schema);
 
         if (schema.title) {
-            templ += `
-        <div nz-form-label nz-col [nzSpan]="${schema.span_label}"  class="${listOfClassName.join(' ')}">
-            <label for="${schema.formId}" nzRequired>
+            templ += `<nz-form-label [nzSpan]="${schema.span_label}" for="${schema.formId}">
                 <span> ${schema.title || ''}
                     ${schema.description ? `<nz-tooltip [nzTitle]="'${schema.description}'"> <i nz-tooltip class="anticon anticon-question-circle-o"></i> </nz-tooltip>` : ''}
                 </span>
-            </label>
-        </div>
-      `;
+            </nz-form-label>`;
         }
 
         templ += `
-    <div nz-form-control nz-col
-        ${schema.span_control ? `[nzSpan]="${schema.span_control}"` : ""}
-        ${schema.offset_control ? `[nzOffset]="${schema.offset_control}"` : ""}>
-        ${this.iterateOptions(schema)}
-    </div>
+        <nz-form-control
+            ${schema.span_control ? `[nzSpan]="${schema.span_control}"` : ""}
+            ${schema.offset_control ? `[nzOffset]="${schema.offset_control}"` : ""}>
+            ${this.iterateOptions(schema)}
+        </nz-form-control>
+    </nz-form-item>
     `;
 
         return templ;

@@ -11,24 +11,23 @@ export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
     let fieldsets = formProperty.schema.fieldsets;
     let layout = formProperty.schema.layout;
     let grid = formProperty.schema.grid || {};
-    let style = formProperty.schema.style || {};
-    
+    let style = formProperty.schema.style || '';
     let col_num = grid.col_num;
     let col_gutter = grid.col_gutter || 0;
-    let span = col_num ? 24 / col_num : 0;
+    // let span = col_num ? 24 / col_num : 0;
     if (fieldsets && fieldsets.length) {
-        templ = `<form nz-form ${layout ? `[nzLayout]="'${layout}'"` : ''} style="${style}"><div nz-row [nzGutter]="${col_gutter}">`;
+        templ = `<form nz-form ${layout ? `[nzLayout]="'${layout}'"` : ''} ${style ? `style="${style}"` : ''}>`;
 
         for (let fieldset of fieldsets) {
             templ += fieldset.title ? ('<legend style="margin-top:20px;">' + fieldset.title + '</legend>') : '';
-
+            templ += `<div nz-row [nzGutter]="${col_gutter}">`
             for (let fieldId of fieldset.fields) {
 
                 let property = formProperty.getProperty(fieldId);
                 let widgetInfo = property.schema.widget;
                 let WidgetClass = registry.getWidgetType(widgetInfo.id || widgetInfo);
 
-                templ += col_num ? `<div nz-col [nzSpan]="${span}" nz-form-item>` : '<div  nz-row nz-form-item>';
+                templ += `<div nz-col ${gridLayout(grid)}>`;
 
                 if (widgetInfo.id === 'array') {
                     // TODO array widget not support yet
@@ -38,8 +37,9 @@ export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
                 }
                 templ += '</div>';
             }
+            templ += '</div>';
         }
-        templ += '</div>';
+
     }
     if (formProperty.schema.button !== undefined) {
         let button = formProperty.schema.button;
@@ -60,4 +60,12 @@ export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
     }
     templ += '</form>';
     return templ;
+}
+
+
+function gridLayout(grid) {
+    let { sm = {}, xs = {}, md = {}, lg = {}, xl = {}, xxl = {} } = grid;
+
+    let result = `${xs.span ? `nzXS="${xs.span}"` : ''} ${sm.span ? `nzSm="${sm.span}"` : ''} ${md.span ? `nzMd="${md.span}"` : ''} ${lg.span ? `nzLg="${lg.span}"` : ''} ${xl.span ? `nzXl="${xl.span}"` : ''} ${xxl.span ? `nzXXl="${xxl.span}"` : ''}`;
+    return result;
 }
