@@ -46,7 +46,7 @@
     <div id="view-container">
         <div id="control-panel">
             <div class="control-btn-panel">
-                <button nz-button nzType="primary" class="btn btn-default btn-sm">
+                <button nz-button nzType="primary" class="btn btn-default btn-sm" (click)="viewCode()">
                     <span>View code</span>
                 </button>
                 <nz-dropdown>
@@ -71,3 +71,4 @@
         </div>
     </div>
 </div>
+<code-slider [(show)]="showCode" *ngIf="showCode" [htmlCode]="htmlRawCode" [jsCode]="componentCode"></code-slider>

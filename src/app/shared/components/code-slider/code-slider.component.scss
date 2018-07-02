@@ -1,0 +1,45 @@
+@keyframes show {
+    0% {
+        right: -1000px;
+    }
+    100% {
+        right: 0px;
+    }
+}
+
+@keyframes hide {
+    0% {
+        right: 0;
+    }
+    100% {
+        right: -1000px;
+    }
+}
+
+.container {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    z-index: 1000;
+    border: solid 1px #eee;
+    .collapse {
+        position: absolute;
+        display: inline-block;
+        left: 0;
+        top: 50%;
+        margin-top: -60px;
+        height: 100px;
+        width: 12px;
+        height: 78px;
+        cursor: pointer;
+    }
+    &.show {
+        animation: show 1s ease-in;
+        right: 0px;
+    }
+    &.hide {
+        animation: hide 1s ease-out;
+        right: -1000px;
+    }
+}

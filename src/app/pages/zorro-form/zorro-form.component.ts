@@ -1,28 +1,21 @@
-import {
-  ViewChild,
-  Component,
-  ViewEncapsulation,
-  AfterViewInit,
-  OnDestroy
-} from '@angular/core';
-
-import { NzMessageService } from 'ng-zorro-antd';
-import { AceEditorDirective } from 'ng-ace-tern';
+import { AfterViewInit, Component, OnDestroy, ViewChild } from '@angular/core';
 import * as copy from 'copy-text-to-clipboard';
-
+import { AceEditorDirective } from 'ng-ace-tern';
+import { NzMessageService } from 'ng-zorro-antd';
+import { Subscription } from 'rxjs';
+import { StartUpService } from '../../services/startup.service';
+import { funDownload } from '../../utils/download';
 import { formatTime } from '../../utils/formatTime';
 import { initSplitEventHandler } from '../../utils/setSplitPosition';
-import { funDownload } from '../../utils/download';
-import { Jsonp } from '@angular/http';
-import { StartUpService } from '../../services/startup.service';
-import { Subscription } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-zorro-form',
   templateUrl: './zorro-form.component.html',
   styleUrls: []
 })
-export class ZorroFormComponent implements AfterViewInit,OnDestroy {
+export class ZorroFormComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild(AceEditorDirective)
   private editorDirective: AceEditorDirective;
@@ -52,11 +45,33 @@ export class ZorroFormComponent implements AfterViewInit,OnDestroy {
     enableLiveAutocompletion: true
   };
 
+  showCode = false;
+
   createMessage = (type, text) => {
     this._message.create(type, `${text}`);
   };
 
   subject: Subscription;
+
+  componentCode = `import { Component } from '@angular/core';
+  @Component({
+    selector: 'nz-demo-tabs-basic',
+    template: 
+  })
+  export class NzDemoTabsBasicComponent {
+  }
+  `;
+  htmlRawCode = ` <nz-tabset>
+  <nz-tab nzTitle="Tab 1">
+    Content of Tab Pane 1
+  </nz-tab>
+  <nz-tab nzTitle="Tab 2">
+    Content of Tab Pane 2
+  </nz-tab>
+  <nz-tab nzTitle="Tab 3">
+    Content of Tab Pane 3
+  </nz-tab>
+</nz-tabset>`;
 
   constructor(
     private _message: NzMessageService,
@@ -183,6 +198,10 @@ export class ZorroFormComponent implements AfterViewInit,OnDestroy {
     } else {
       return this.createMessage('error', '代码复制失败，请使用Chrome浏览器');
     }
+  }
+
+  viewCode() {
+    this.showCode = true;
   }
 
   private hasEditorError() {

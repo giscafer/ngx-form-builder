@@ -1,32 +1,42 @@
-import { NgModule, ModuleWithProviders } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { ModuleWithProviders, NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { NgZorroAntdModule } from "ng-zorro-antd";
 import { AceEditorModule } from "ng-ace-tern";
+import { NgZorroAntdModule } from "ng-zorro-antd";
+import { HighlightModule } from "ngx-highlightjs";
 import { SchemaFormModule } from "../../lib/schema-form.module";
+import { CodeSliderComponent } from "./components/code-slider/code-slider.component";
 
+const COMPONENTS = [
+    CodeSliderComponent
+]
 @NgModule({
+    declarations: [
+        ...COMPONENTS
+    ],
     imports: [
         CommonModule,
         FormsModule,
         NgZorroAntdModule.forRoot(),
         AceEditorModule,
         SchemaFormModule,
+        HighlightModule.forRoot({ theme: 'googlecode' }),
     ],
     exports: [
         CommonModule,
         FormsModule,
         NgZorroAntdModule,
         AceEditorModule,
-        SchemaFormModule
+        SchemaFormModule,
+        ...COMPONENTS
     ]
 })
 export class SharedModule {
 
     static forRoot(): ModuleWithProviders {
         return {
-            ngModule:SharedModule,
-            providers:[]
+            ngModule: SharedModule,
+            providers: []
         }
     }
 }

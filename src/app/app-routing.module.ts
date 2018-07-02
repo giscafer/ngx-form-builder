@@ -20,7 +20,11 @@ const routes: Routes = [
         ZorroFormComponent,
         DndComponent
     ],
-    imports: [SharedModule, DndModule.forRoot(), RouterModule.forRoot(routes, { useHash: true })],
+    imports: [
+        SharedModule,
+        DndModule.forRoot(),
+        RouterModule.forRoot(routes, { useHash: true })
+    ],
     exports: []
 })
 export class AppRoutingModule { }
