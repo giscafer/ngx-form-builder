@@ -28,6 +28,8 @@ __the project is under developing__
 
 ![screenshot](./screenshot/screenshot.png)
 
+![gif](./screenshot/20180702.gif)
+
 
 ## Related
 
