@@ -1,7 +1,6 @@
 <div class="container" [class.hide]="hide" [class.show]="show">
     <img class="collapse" src="./assets/images/close-r.png" alt="折叠" title="折叠" (click)="collapse()" />
-    <h3>Template Code</h3>
-
+    <h3>Generated Code</h3>
     <nz-tabset>
         <nz-tab nzTitle="HTML">
             <pre><code highlight [code]="htmlCode" [language]="['HTML']" (highlighted)="onHighlight($event)"></code></pre>
