@@ -34,8 +34,7 @@ export class SelectWidget extends ControlWidget {
     iterateOptions(schema) {
         let htmlStr = '', options = (schema.items && schema.items.oneOf) || schema.oneOf;
         for (let option of options) {
-            htmlStr += `
-            <nz-option nzValue="${option.enum[0]}" nzLabel="${option.description}"></nz-option>
+            htmlStr += `<nz-option nzValue="${option.enum[0]}" nzLabel="${option.description}"></nz-option>
             `;
         }
         return htmlStr;

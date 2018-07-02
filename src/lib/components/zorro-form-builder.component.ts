@@ -248,17 +248,25 @@ export class ZorroFormBuilderComponent implements OnChanges {
         // let widgetTemplate = this.registry.getWidgetType(widgetInfo.id);
 
         let template = widgetTemplate;
+        let schema = this.rootProperty.schema;
         let properties = {
             "formProperty": this.rootProperty,
             "control": this.control,
             "property": { visible: true },
-            "_debug_": this.rootProperty.schema.debug,
-            "modelName": this.rootProperty.schema.modelName || 'model',
-            [this.rootProperty.schema.modelName || 'model']: this.rootProperty.value || {},
+            "_debug_": schema.debug,
+            "modelName": schema.modelName || 'model',
+            [schema.modelName || 'model']: this.rootProperty.value || {},
         }
-        properties[properties['modelName']]['checkOptions'] = this.rootProperty.schema.checkOptions || {};//nz-checkbox-group
-        console.log(properties[properties['modelName']]['checkOptions'])
-        this.ref = this.ZorroWidgetFactory.addWidget(this.container, template, properties, this);
+        properties[properties['modelName']]['checkOptions'] = schema.checkOptions || {};//nz-checkbox-group
+        if (schema.table) {
+            Object.assign(properties, {
+                "columns": schema.table.columns,
+                "data": schema.table.data
+            });
+            this.ref = this.ZorroWidgetFactory.createTableComponent(this.container, template, properties, this);
+        } else {
+            this.ref = this.ZorroWidgetFactory.addWidget(this.container, template, properties, this);
+        }
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
         this.cdr.detectChanges();

@@ -24,9 +24,10 @@ export class StartUpService {
                 this.httpClient.get('./mock/person-info-grid.json'),
                 this.httpClient.get('./mock/otherschema.json'),
                 this.httpClient.get('./mock/sampleschema.json'),
-                this.httpClient.get('./mock/zorro-grid.json'),
+                this.httpClient.get('./mock/zorro-layout.json'),
                 this.httpClient.get('./mock/zorro-full-widget.json'),
-                this.httpClient.get('./mock/register-form.json')
+                this.httpClient.get('./mock/register-form.json'),
+                this.httpClient.get('./mock/zorro-table.json')
             ).pipe(
                 // 接收其他拦截器后产生的异常消息
                 catchError(([langData, appData]) => {
@@ -42,7 +43,8 @@ export class StartUpService {
                 sampleschemaMockData,
                 zorroGridMockData,
                 zorroFullWidgetMockData,
-                registerFormMockData
+                registerFormMockData,
+                tableMockData
             ]) => {
                 Object.assign(this.mockData, {
                     horizontalMockData,
@@ -53,7 +55,8 @@ export class StartUpService {
                     sampleschemaMockData,
                     zorroGridMockData,
                     zorroFullWidgetMockData,
-                    registerFormMockData
+                    registerFormMockData,
+                    tableMockData
                 });
                 // console.log(this.mockData);
             },

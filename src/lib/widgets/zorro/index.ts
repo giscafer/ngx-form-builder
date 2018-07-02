@@ -8,6 +8,7 @@ export { DateRangeWidget } from "./date-range/date-range.widget";
 export { CheckboxWidget } from './checkbox/checkbox.widget';
 export { TextAreaWidget } from './textarea/textarea.widget';
 export { SelectWidget } from './select/select.widget';
+export { TableWidget } from './table/table.widget';
 
 /* export { IntegerWidget } from './integer/integer.widget';
 export { RangeWidget } from './range/range.widget';

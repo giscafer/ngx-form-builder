@@ -59,6 +59,8 @@ export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
         `;
     }
     templ += '</form>';
+    templ += buildTable(formProperty, registry);
+
     return templ;
 }
 
@@ -68,4 +70,16 @@ function gridLayout(grid) {
 
     let result = `${xs.span ? `nzXS="${xs.span}"` : ''} ${sm.span ? `nzSm="${sm.span}"` : ''} ${md.span ? `nzMd="${md.span}"` : ''} ${lg.span ? `nzLg="${lg.span}"` : ''} ${xl.span ? `nzXl="${xl.span}"` : ''} ${xxl.span ? `nzXXl="${xxl.span}"` : ''}`;
     return result;
+}
+
+
+function buildTable(formProperty, registry) {
+
+    let schema = formProperty.schema;
+    if (!schema.table) return '';
+    let WidgetClass = registry.getWidgetType('table');
+    let tableHtml = new WidgetClass().getTemplate()
+
+    return tableHtml;
+
 }

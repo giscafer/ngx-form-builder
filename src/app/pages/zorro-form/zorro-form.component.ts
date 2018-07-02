@@ -111,9 +111,13 @@ export class ZorroFormComponent implements AfterViewInit,OnDestroy {
         this.demoName = 'Simple Example2';
         this.schemaString = JSON.stringify(this.service.getData('otherschemaMockData'), null, 4);
         break;
-      case 'grid':
+      case 'layout':
         this.demoName = 'Grid Layout Example';
         this.schemaString = JSON.stringify(this.service.getData('zorroGridMockData'), null, 4);
+        break;
+      case 'table':
+        this.demoName = 'Table Example';
+        this.schemaString = JSON.stringify(this.service.getData('tableMockData'), null, 4);
         break;
       case 'full':
         this.demoName = 'Full Widget Example';
