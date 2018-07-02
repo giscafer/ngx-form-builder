@@ -25,7 +25,8 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
   model: any;
   value: any;
   htmlCode: string;
-  schemaString: any = '';
+  componentCode: string;
+  schemaString: string = '';
   schemaJson: Object;
   count = 1;
   builderInfo = {
@@ -52,26 +53,6 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
   };
 
   subject: Subscription;
-
-  componentCode = `import { Component } from '@angular/core';
-  @Component({
-    selector: 'nz-demo-tabs-basic',
-    template: 
-  })
-  export class NzDemoTabsBasicComponent {
-  }
-  `;
-  htmlRawCode = ` <nz-tabset>
-  <nz-tab nzTitle="Tab 1">
-    Content of Tab Pane 1
-  </nz-tab>
-  <nz-tab nzTitle="Tab 2">
-    Content of Tab Pane 2
-  </nz-tab>
-  <nz-tab nzTitle="Tab 3">
-    Content of Tab Pane 3
-  </nz-tab>
-</nz-tabset>`;
 
   constructor(
     private _message: NzMessageService,
@@ -166,7 +147,8 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
   }
 
   onBuilderFinish($event) {
-    this.htmlCode = $event.code;
+    this.htmlCode = $event.htmlCode;
+    this.componentCode = $event.componentCode;
     this.builderInfo._endTime = new Date().getTime();
     this.log(`页面构建完成，${this.builderInfo._endTime - this.builderInfo._startTime}ms`, 'info');
   }
@@ -184,16 +166,23 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
     console.log('~~~编辑器内容变化~~~');
   }
 
-  copyHTMLCode(type?: number) {
+  copyCode(type?: number, codeType?: string) {
+    const flag = codeType === 'ts';
     if (type === 1) {
       if ('download' in document.createElement('a')) {
-        funDownload(this.htmlCode);
+        funDownload(flag ? this.componentCode : this.htmlCode, flag ? 'template.ts' : 'template.html');
       } else {
         return this.createMessage('error', '代码下载失败，请使用 Chrome 浏览器');
       }
       return this.createMessage('success', '文件下载成功！');
     }
-    if (copy(this.htmlCode)) {
+    let result = false;
+    if (flag) {
+      result = copy(this.componentCode)
+    } else {
+      result = copy(this.htmlCode)
+    }
+    if (result) {
       return this.createMessage('success', '代码已经复制到剪贴板！');
     } else {
       return this.createMessage('error', '代码复制失败，请使用Chrome浏览器');

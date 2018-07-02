@@ -56,10 +56,16 @@
                         </button>
                     <ul nz-menu>
                         <li nz-menu-item>
-                            <a href="javascript:;" title="下载HTML模板" (click)="copyHTMLCode(1)">Download HTML</a>
+                            <a href="javascript:;" title="下载HTML模板" (click)="copyCode(1)">Download HTML</a>
                         </li>
                         <li nz-menu-item>
-                            <a href="javascript:;" title="复制HTML模板代码" (click)="copyHTMLCode()">Copy HTML code</a>
+                            <a href="javascript:;" title="复制HTML模板代码" (click)="copyCode(2)">Copy HTML code</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a href="javascript:;" title="下载HTML模板" (click)="copyCode(1,'ts')">Download TypeScript</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a href="javascript:;" title="复制HTML模板代码" (click)="copyCode(2,'ts')">Copy TypeScript code</a>
                         </li>
                     </ul>
                 </nz-dropdown>
@@ -71,4 +77,4 @@
         </div>
     </div>
 </div>
-<code-slider [(show)]="showCode" *ngIf="showCode" [htmlCode]="htmlRawCode" [jsCode]="componentCode"></code-slider>
+<code-slider [(show)]="showCode" *ngIf="showCode" [htmlCode]="htmlCode" [jsCode]="componentCode"></code-slider>

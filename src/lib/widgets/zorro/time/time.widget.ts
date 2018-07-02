@@ -12,9 +12,9 @@ export class TimeWidget extends ControlWidget {
 
     if (schema.title) {
       templ += `
-        <div nz-form-label [nzSpan]="${schema.span_label}"  ${schema.require ? `nzRequired` : ''} for="${schema.formId}" ${schema.require ? `nzRequired` : ''}>
+        <nz-form-label [nzSpan]="${schema.span_label}"  ${schema.require ? `nzRequired` : ''} for="${schema.formId}" ${schema.require ? `nzRequired` : ''}>
             <span> ${schema.title || ''} ${schema.description ? `<nz-tooltip [nzTitle]="'${schema.description}'"> <i nz-tooltip class="anticon anticon-question-circle-o"></i> </nz-tooltip>` : ''}</span>
-        </div>
+        </nz-form-label>
       `;
     }
 

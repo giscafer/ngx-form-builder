@@ -36,7 +36,6 @@ export class CodeSliderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.htmlCode)
   }
 
   collapse() {

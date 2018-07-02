@@ -31,6 +31,7 @@
         "items": [{
                 "label": "登录",
                 "id": "send",
+                "type":"primary",
                 "submit": true
             },
             {

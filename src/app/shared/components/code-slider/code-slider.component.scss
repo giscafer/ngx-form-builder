@@ -36,11 +36,15 @@
         cursor: pointer;
     }
     &.show {
-        animation: show 1s ease-in;
+        animation: show 0.5s ease-in;
         right: 0px;
     }
     &.hide {
-        animation: hide 1s ease-out;
+        animation: hide 0.5s ease-out;
         right: -1000px;
+    }
+    .code{
+        height: 80vh;
+        overflow-y: auto;
     }
 }

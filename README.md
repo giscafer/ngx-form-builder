@@ -40,6 +40,8 @@ __the project is under developing__
 
 - [build --aot Runtime compiler is not loaded](https://stackoverflow.com/questions/42706113/angular-cli-build-prod-runtime-compiler-is-not-loaded/42843683#42843683)
 - JitCompilerFactory Bug at Angular 5 & not support AOT [angular/angular #20639](https://github.com/angular/angular/issues/20639)
+- [JIT Complier needed with AOT Build for Dynamic Component9](https://github.com/angular/angular/issues/20875)
+- [Angular's integration example](https://github.com/angular/angular/blob/d7a727cc0728a61a707f2c109636c1fa077042c2/integration/dynamic-compiler/src/app.module.ts#L16)
 
 ## License
 

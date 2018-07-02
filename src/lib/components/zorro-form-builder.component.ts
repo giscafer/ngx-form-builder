@@ -3,40 +3,21 @@
  *  Licensed under the MIT License.
  *-------------------------------------------------------------*/
 
-import {
-    Component,
-    ComponentRef,
-    ChangeDetectorRef,
-    EventEmitter,
-    Input,
-    OnChanges,
-    Output,
-    ViewChild,
-    ViewContainerRef,
-    ViewEncapsulation,
-} from '@angular/core';
+import { ChangeDetectorRef, Component, ComponentRef, EventEmitter, Input, OnChanges, Output, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
-
-import {
-    FormProperty,
-    FormPropertyFactory,
-    SchemaPreprocessor,
-    ValidatorRegistry,
-    Validator,
-    ActionRegistry,
-    Action
-} from '../model';
-import { Widget } from '../widget';
-import { TerminatorService } from '../terminator.service';
-import { SchemaValidatorFactory } from '../schemavalidator.factory';
-
-import { ISchema } from '../schema/index';
-
-import { ZorroWidgetFactory } from '../zorro-widget-factory';
-import { WidgetRegistry } from '../widget-registry';
-import { ListOfGridSizeName } from '../utils/cls';
+import { getFormCode, getTableCode } from '../builder/template/zorro-component.template';
 import { ZorroTmplBuilder } from '../builder/zorro-template-builder';
 import { ZorroDefaultWidgetRegistry } from '../index';
+import { Action, ActionRegistry, FormProperty, FormPropertyFactory, SchemaPreprocessor, Validator, ValidatorRegistry } from '../model';
+import { ISchema } from '../schema/index';
+import { SchemaValidatorFactory } from '../schemavalidator.factory';
+import { TerminatorService } from '../terminator.service';
+import { Widget } from '../widget';
+import { WidgetRegistry } from '../widget-registry';
+import { ZorroWidgetFactory } from '../zorro-widget-factory';
+
+
+
 
 
 
@@ -88,7 +69,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
 
     @Output() onErrorsChange = new EventEmitter<{ value: any }>();
 
-    @Output() onBuilderFinish = new EventEmitter<{ code: any }>();
+    @Output() onBuilderFinish = new EventEmitter<Object>();
 
 
     control: FormControl = new FormControl('', () => null);
@@ -270,6 +251,6 @@ export class ZorroFormBuilderComponent implements OnChanges {
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
         this.cdr.detectChanges();
-        this.onBuilderFinish.emit({ code: template });
+        this.onBuilderFinish.emit(schema.table ? getTableCode(template) : getFormCode(template));
     }
 }

@@ -176,24 +176,11 @@ export class ZorroWidgetFactory {
                 this._parseButtons();
             }
 
-            initCloumn() {
-                for (let i = 0; i < this.columns.length; i++) {
-                    let arr = this.columns[i].split('-');
-                    this._columns[i] = {};
-                    Object.assign(this._columns[i],
-                        {
-                            header: arr[0],
-                            field: arr[1],
-                            width: arr[2]
-                        });
-                }
-                console.log(this._columns)
-            }
-
             ngDoCheck() {
                 if (this._differ) {
                     const changes = this._differ.diff(this[this['modelName']]);
                     if (changes) {
+                        // debug code
                         this._applyChanges(changes);
                         if (this['_debug_']) {
                             console.warn('model changes', this[this['modelName']]);
@@ -228,7 +215,7 @@ export class ZorroWidgetFactory {
                     e.preventDefault();
                 };
             }
-
+            // debug code
             _applyChanges(changes) {
                 context.onChange.emit({ value: this[this['modelName']] });
                 context.modelChanged.emit(this[this['modelName']]);
@@ -241,16 +228,20 @@ export class ZorroWidgetFactory {
                     }
                 }
             }
-
-            addItem() {
-                this.formProperty.addItem();
-            }
-
-            removeItem(index: number) {
-                this.formProperty.removeItem(index);
-            }
-
             // table
+            initCloumn() {
+                for (let i = 0; i < this.columns.length; i++) {
+                    let arr = this.columns[i].split('-');
+                    this._columns[i] = {};
+                    Object.assign(this._columns[i],
+                        {
+                            header: arr[0],
+                            field: arr[1],
+                            width: arr[2]
+                        });
+                }
+            }
+
             currentPageDataChange($event: Array<{ name: string; age: number; address: string; checked: boolean; disabled: boolean; }>): void {
                 this.displayData = $event;
                 this.refreshStatus();

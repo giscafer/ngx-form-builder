@@ -26,7 +26,7 @@
             "type": "string",
             "title": "开单日期",
             "widget": "date",
-            "default": 662688000000
+            "default": "2018-7-2 21:55:27"
         },
         "waybillId": {
             "type": "string",
