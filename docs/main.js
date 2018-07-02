@@ -69,7 +69,11 @@ var AppRoutingModule = /** @class */ (function () {
                 _pages_zorro_form_zorro_form_component__WEBPACK_IMPORTED_MODULE_4__["ZorroFormComponent"],
                 _pages_dnd_form_dnd_component__WEBPACK_IMPORTED_MODULE_6__["DndComponent"]
             ],
-            imports: [_shared_shared_module__WEBPACK_IMPORTED_MODULE_2__["SharedModule"], _lib_dnd_dnd_module__WEBPACK_IMPORTED_MODULE_3__["DndModule"].forRoot(), _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, { useHash: true })],
+            imports: [
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_2__["SharedModule"],
+                _lib_dnd_dnd_module__WEBPACK_IMPORTED_MODULE_3__["DndModule"].forRoot(),
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, { useHash: true })
+            ],
             exports: []
         })
     ], AppRoutingModule);
@@ -196,26 +200,27 @@ var AppComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
-/* harmony import */ var _lib_dnd_dnd_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../lib/dnd/dnd.module */ "./src/lib/dnd/dnd.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _layout_layout_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./layout/layout.module */ "./src/app/layout/layout.module.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _services_startup_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./services/startup.service */ "./src/app/services/startup.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
+/* harmony import */ var _lib_dnd_dnd_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../lib/dnd/dnd.module */ "./src/lib/dnd/dnd.module.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _layout_layout_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./layout/layout.module */ "./src/app/layout/layout.module.ts");
+/* harmony import */ var _services_startup_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/startup.service */ "./src/app/services/startup.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -230,31 +235,29 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
-
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]
             ],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__["BrowserAnimationsModule"],
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["BrowserModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-                _angular_http__WEBPACK_IMPORTED_MODULE_5__["HttpModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"],
-                _angular_common__WEBPACK_IMPORTED_MODULE_4__["CommonModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
-                ng_zorro_antd__WEBPACK_IMPORTED_MODULE_7__["NgZorroAntdModule"].forRoot(),
-                _lib_dnd_dnd_module__WEBPACK_IMPORTED_MODULE_8__["DndModule"].forRoot(),
-                _layout_layout_module__WEBPACK_IMPORTED_MODULE_10__["LayoutModule"]
+                _angular_http__WEBPACK_IMPORTED_MODULE_4__["HttpModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
+                _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
+                ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["NgZorroAntdModule"].forRoot(),
+                _lib_dnd_dnd_module__WEBPACK_IMPORTED_MODULE_9__["DndModule"].forRoot(),
+                _layout_layout_module__WEBPACK_IMPORTED_MODULE_12__["LayoutModule"]
             ],
-            providers: [{ provide: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_7__["NZ_I18N"], useValue: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_7__["zh_CN"] }, _services_startup_service__WEBPACK_IMPORTED_MODULE_12__["StartUpService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
+            providers: [{ provide: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["NZ_I18N"], useValue: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["zh_CN"] }, _services_startup_service__WEBPACK_IMPORTED_MODULE_13__["StartUpService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -711,7 +714,7 @@ var ColNumList = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-container\">\r\n    <div id=\"code-container\">\r\n        <div id=\"control-panel\">\r\n            <div id=\"code-info\">\r\n                <span class=\"code-type\">JSON</span>\r\n                <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n                <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n            </div>\r\n            <div class=\"control-btn-panel\">\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n                        <span>{{demoName}}</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                    </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"水平布局\" (click)=\"toggleSchema('horizontal-layout')\">Horizontal Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"垂直布局\" (click)=\"toggleSchema('vertical-layout')\">Vertical Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('grid')\">Grid Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"注册Form表单\" (click)=\"toggleSchema('register-form')\">Register Form</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"其他例子\" (click)=\"toggleSchema('other')\">Other Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n                <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n                <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n            </div>\r\n        </div>\r\n        <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\" (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 90vh; width:100%\"></div>\r\n    </div>\r\n    <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n    <div id=\"view-container\">\r\n        <div id=\"control-panel\">\r\n            <div class=\"control-btn-panel\">\r\n                <button nz-button nzType=\"primary\" class=\"btn btn-default btn-sm\">\r\n                    <span>View code</span>\r\n                </button>\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown nzType=\"primary\" class=\"btn btn-default btn-sm\">\r\n                        <span>Copy / Download</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                        </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyHTMLCode(1)\">Download HTML</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyHTMLCode()\">Copy HTML code</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n            </div>\r\n        </div>\r\n        <br>\r\n        <div style=\"height: 90vh;padding: 24px;background: inherit;overflow-y: auto;\">\r\n            <zorro-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\" (onBuilderFinish)=\"onBuilderFinish($event)\"></zorro-form-builder>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"main-container\">\r\n    <div id=\"code-container\">\r\n        <div id=\"control-panel\">\r\n            <div id=\"code-info\">\r\n                <span class=\"code-type\">JSON</span>\r\n                <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n                <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n            </div>\r\n            <div class=\"control-btn-panel\">\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n                        <span>{{demoName}}</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                    </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"水平布局\" (click)=\"toggleSchema('horizontal-layout')\">Horizontal Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"垂直布局\" (click)=\"toggleSchema('vertical-layout')\">Vertical Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"注册Form 表单\" (click)=\"toggleSchema('register-form')\">Register Form</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('layout')\">Grid Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"列表查询例子\" (click)=\"toggleSchema('table')\">Table Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"其他例子\" (click)=\"toggleSchema('other')\">Other Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n                <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n                <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n            </div>\r\n        </div>\r\n        <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\" (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 90vh; width:100%\"></div>\r\n    </div>\r\n    <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n    <div id=\"view-container\">\r\n        <div id=\"control-panel\">\r\n            <div class=\"control-btn-panel\">\r\n                <button nz-button nzType=\"primary\" class=\"btn btn-default btn-sm\" (click)=\"viewCode()\">\r\n                    <span>View code</span>\r\n                </button>\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown nzType=\"primary\" class=\"btn btn-default btn-sm\">\r\n                        <span>Copy / Download</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                        </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyCode(1)\">Download HTML</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyCode(2)\">Copy HTML code</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyCode(1,'ts')\">Download TypeScript</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyCode(2,'ts')\">Copy TypeScript code</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n            </div>\r\n        </div>\r\n        <br>\r\n        <div style=\"height: 90vh;padding: 24px;background: inherit;overflow-y: auto;\">\r\n            <zorro-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\" (onBuilderFinish)=\"onBuilderFinish($event)\"></zorro-form-builder>\r\n        </div>\r\n    </div>\r\n</div>\r\n<code-slider [(show)]=\"showCode\" *ngIf=\"showCode\" [htmlCode]=\"htmlCode\" [jsCode]=\"componentCode\"></code-slider>"
 
 /***/ }),
 
@@ -726,14 +729,14 @@ module.exports = "<div id=\"main-container\">\r\n    <div id=\"code-container\">
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ZorroFormComponent", function() { return ZorroFormComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
+/* harmony import */ var copy_text_to_clipboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! copy-text-to-clipboard */ "./node_modules/copy-text-to-clipboard/index.js");
+/* harmony import */ var copy_text_to_clipboard__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(copy_text_to_clipboard__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var ng_ace_tern__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ng-ace-tern */ "./node_modules/ng-ace-tern/ng-ace-tern.es5.js");
-/* harmony import */ var copy_text_to_clipboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! copy-text-to-clipboard */ "./node_modules/copy-text-to-clipboard/index.js");
-/* harmony import */ var copy_text_to_clipboard__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(copy_text_to_clipboard__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _utils_formatTime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/formatTime */ "./src/app/utils/formatTime.ts");
-/* harmony import */ var _utils_setSplitPosition__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/setSplitPosition */ "./src/app/utils/setSplitPosition.ts");
-/* harmony import */ var _utils_download__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/download */ "./src/app/utils/download.ts");
-/* harmony import */ var _services_startup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/startup.service */ "./src/app/services/startup.service.ts");
+/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
+/* harmony import */ var _services_startup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/startup.service */ "./src/app/services/startup.service.ts");
+/* harmony import */ var _utils_download__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/download */ "./src/app/utils/download.ts");
+/* harmony import */ var _utils_formatTime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/formatTime */ "./src/app/utils/formatTime.ts");
+/* harmony import */ var _utils_setSplitPosition__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/setSplitPosition */ "./src/app/utils/setSplitPosition.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -776,6 +779,7 @@ var ZorroFormComponent = /** @class */ (function () {
             enableSnippets: true,
             enableLiveAutocompletion: true
         };
+        this.showCode = false;
         this.createMessage = function (type, text) {
             _this._message.create(type, "" + text);
         };
@@ -797,7 +801,7 @@ var ZorroFormComponent = /** @class */ (function () {
     }
     ZorroFormComponent.prototype.ngAfterViewInit = function () {
         setTimeout(function () {
-            Object(_utils_setSplitPosition__WEBPACK_IMPORTED_MODULE_5__["initSplitEventHandler"])();
+            Object(_utils_setSplitPosition__WEBPACK_IMPORTED_MODULE_7__["initSplitEventHandler"])();
         });
     };
     ZorroFormComponent.prototype.toggleSchema = function (type) {
@@ -822,9 +826,13 @@ var ZorroFormComponent = /** @class */ (function () {
                 this.demoName = 'Simple Example2';
                 this.schemaString = JSON.stringify(this.service.getData('otherschemaMockData'), null, 4);
                 break;
-            case 'grid':
+            case 'layout':
                 this.demoName = 'Grid Layout Example';
                 this.schemaString = JSON.stringify(this.service.getData('zorroGridMockData'), null, 4);
+                break;
+            case 'table':
+                this.demoName = 'Table Example';
+                this.schemaString = JSON.stringify(this.service.getData('tableMockData'), null, 4);
                 break;
             case 'full':
                 this.demoName = 'Full Widget Example';
@@ -842,7 +850,7 @@ var ZorroFormComponent = /** @class */ (function () {
         this.log('页面构建失败，请检查再重试', 'error');
     };
     ZorroFormComponent.prototype.log = function (text, type) {
-        this.builderInfo.finishTime = Object(_utils_formatTime__WEBPACK_IMPORTED_MODULE_4__["formatTime"])(new Date());
+        this.builderInfo.finishTime = Object(_utils_formatTime__WEBPACK_IMPORTED_MODULE_6__["formatTime"])(new Date());
         if (type !== 'warn' && type !== 'error') {
             this.builderInfo.msgType = 'info';
         }
@@ -852,7 +860,8 @@ var ZorroFormComponent = /** @class */ (function () {
         this.builderInfo.msg = text;
     };
     ZorroFormComponent.prototype.onBuilderFinish = function ($event) {
-        this.htmlCode = $event.code;
+        this.htmlCode = $event.htmlCode;
+        this.componentCode = $event.componentCode;
         this.builderInfo._endTime = new Date().getTime();
         this.log("\u9875\u9762\u6784\u5EFA\u5B8C\u6210\uFF0C" + (this.builderInfo._endTime - this.builderInfo._startTime) + "ms", 'info');
     };
@@ -868,22 +877,33 @@ var ZorroFormComponent = /** @class */ (function () {
     ZorroFormComponent.prototype.onAceChange = function (data) {
         console.log('~~~编辑器内容变化~~~');
     };
-    ZorroFormComponent.prototype.copyHTMLCode = function (type) {
+    ZorroFormComponent.prototype.copyCode = function (type, codeType) {
+        var flag = codeType === 'ts';
         if (type === 1) {
             if ('download' in document.createElement('a')) {
-                Object(_utils_download__WEBPACK_IMPORTED_MODULE_6__["funDownload"])(this.htmlCode);
+                Object(_utils_download__WEBPACK_IMPORTED_MODULE_5__["funDownload"])(flag ? this.componentCode : this.htmlCode, flag ? 'template.ts' : 'template.html');
             }
             else {
                 return this.createMessage('error', '代码下载失败，请使用 Chrome 浏览器');
             }
             return this.createMessage('success', '文件下载成功！');
         }
-        if (copy_text_to_clipboard__WEBPACK_IMPORTED_MODULE_3__(this.htmlCode)) {
+        var result = false;
+        if (flag) {
+            result = copy_text_to_clipboard__WEBPACK_IMPORTED_MODULE_1__(this.componentCode);
+        }
+        else {
+            result = copy_text_to_clipboard__WEBPACK_IMPORTED_MODULE_1__(this.htmlCode);
+        }
+        if (result) {
             return this.createMessage('success', '代码已经复制到剪贴板！');
         }
         else {
             return this.createMessage('error', '代码复制失败，请使用Chrome浏览器');
         }
+    };
+    ZorroFormComponent.prototype.viewCode = function () {
+        this.showCode = true;
     };
     ZorroFormComponent.prototype.hasEditorError = function () {
         var annotations = this.editorDirective.editor.getSession().getAnnotations();
@@ -907,8 +927,8 @@ var ZorroFormComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./zorro-form.component.html */ "./src/app/pages/zorro-form/zorro-form.component.html"),
             styleUrls: []
         }),
-        __metadata("design:paramtypes", [ng_zorro_antd__WEBPACK_IMPORTED_MODULE_1__["NzMessageService"],
-            _services_startup_service__WEBPACK_IMPORTED_MODULE_7__["StartUpService"]])
+        __metadata("design:paramtypes", [ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__["NzMessageService"],
+            _services_startup_service__WEBPACK_IMPORTED_MODULE_4__["StartUpService"]])
     ], ZorroFormComponent);
     return ZorroFormComponent;
 }());
@@ -993,14 +1013,14 @@ var StartUpService = /** @class */ (function () {
     StartUpService.prototype.initData = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["zip"])(_this.httpClient.get('./mock/horizontal-layout.json'), _this.httpClient.get('./mock/vertical-layout.json'), _this.httpClient.get('./mock/person-info.json'), _this.httpClient.get('./mock/person-info-grid.json'), _this.httpClient.get('./mock/otherschema.json'), _this.httpClient.get('./mock/sampleschema.json'), _this.httpClient.get('./mock/zorro-grid.json'), _this.httpClient.get('./mock/zorro-full-widget.json'), _this.httpClient.get('./mock/register-form.json')).pipe(
+            Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["zip"])(_this.httpClient.get('./mock/horizontal-layout.json'), _this.httpClient.get('./mock/vertical-layout.json'), _this.httpClient.get('./mock/person-info.json'), _this.httpClient.get('./mock/person-info-grid.json'), _this.httpClient.get('./mock/otherschema.json'), _this.httpClient.get('./mock/sampleschema.json'), _this.httpClient.get('./mock/zorro-layout.json'), _this.httpClient.get('./mock/zorro-full-widget.json'), _this.httpClient.get('./mock/register-form.json'), _this.httpClient.get('./mock/zorro-table.json')).pipe(
             // 接收其他拦截器后产生的异常消息
             Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (_a) {
                 var langData = _a[0], appData = _a[1];
                 resolve(null);
                 return [langData, appData];
             })).subscribe(function (_a) {
-                var horizontalMockData = _a[0], verticalMockData = _a[1], personInfoMockData = _a[2], personInfoGridMockData = _a[3], otherschemaMockData = _a[4], sampleschemaMockData = _a[5], zorroGridMockData = _a[6], zorroFullWidgetMockData = _a[7], registerFormMockData = _a[8];
+                var horizontalMockData = _a[0], verticalMockData = _a[1], personInfoMockData = _a[2], personInfoGridMockData = _a[3], otherschemaMockData = _a[4], sampleschemaMockData = _a[5], zorroGridMockData = _a[6], zorroFullWidgetMockData = _a[7], registerFormMockData = _a[8], tableMockData = _a[9];
                 Object.assign(_this.mockData, {
                     horizontalMockData: horizontalMockData,
                     verticalMockData: verticalMockData,
@@ -1010,7 +1030,8 @@ var StartUpService = /** @class */ (function () {
                     sampleschemaMockData: sampleschemaMockData,
                     zorroGridMockData: zorroGridMockData,
                     zorroFullWidgetMockData: zorroFullWidgetMockData,
-                    registerFormMockData: registerFormMockData
+                    registerFormMockData: registerFormMockData,
+                    tableMockData: tableMockData
                 });
                 // console.log(this.mockData);
             }, function (err) { reject(err); }, function () {
@@ -1032,6 +1053,123 @@ var StartUpService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/components/code-slider/code-slider.component.html":
+/*!**************************************************************************!*\
+  !*** ./src/app/shared/components/code-slider/code-slider.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\" [class.hide]=\"hide\" [class.show]=\"show\">\r\n    <img class=\"collapse\" src=\"./assets/images/close-r.png\" alt=\"折叠\" title=\"折叠\" (click)=\"collapse()\" />\r\n    <h3>Generated Code</h3>\r\n    <nz-tabset>\r\n        <nz-tab nzTitle=\"HTML (template.html)\">\r\n            <pre class=\"code\"><code highlight [code]=\"htmlCode\" [language]=\"['HTML']\" (highlighted)=\"onHighlight($event)\"></code></pre>\r\n        </nz-tab>\r\n        <nz-tab nzTitle=\"TypeScript (template.ts)\" style=\"overflow-y: auto\">\r\n            <pre class=\"code\"><code highlight [code]=\"jsCode\" [language]=\"['TypeScript']\" (highlighted)=\"onHighlight($event)\"></code></pre>\r\n        </nz-tab>\r\n    </nz-tabset>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/shared/components/code-slider/code-slider.component.scss":
+/*!**************************************************************************!*\
+  !*** ./src/app/shared/components/code-slider/code-slider.component.scss ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "@-webkit-keyframes show {\n  0% {\n    right: -1000px; }\n  100% {\n    right: 0px; } }\n\n@keyframes show {\n  0% {\n    right: -1000px; }\n  100% {\n    right: 0px; } }\n\n@-webkit-keyframes hide {\n  0% {\n    right: 0; }\n  100% {\n    right: -1000px; } }\n\n@keyframes hide {\n  0% {\n    right: 0; }\n  100% {\n    right: -1000px; } }\n\n.container {\n  position: fixed;\n  width: 50%;\n  height: 100%;\n  background: #fff;\n  z-index: 1000;\n  border: solid 1px #eee;\n  box-shadow: -3px 0px 3px #e5e4e4; }\n\n.container .collapse {\n    position: absolute;\n    display: inline-block;\n    left: 0;\n    top: 50%;\n    margin-top: -60px;\n    height: 100px;\n    width: 12px;\n    height: 78px;\n    cursor: pointer; }\n\n.container.show {\n    -webkit-animation: show 0.5s ease-in;\n            animation: show 0.5s ease-in;\n    right: 0px; }\n\n.container.hide {\n    -webkit-animation: hide 0.5s ease-out;\n            animation: hide 0.5s ease-out;\n    right: -1000px; }\n\n.container .code {\n    height: 80vh;\n    overflow-y: auto; }\n"
+
+/***/ }),
+
+/***/ "./src/app/shared/components/code-slider/code-slider.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/shared/components/code-slider/code-slider.component.ts ***!
+  \************************************************************************/
+/*! exports provided: CodeSliderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CodeSliderComponent", function() { return CodeSliderComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/**
+ * @author: giscafer ,https://github.com/giscafer
+ * @date: 2018-07-02 15:15:03
+ * @description:
+ */
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CodeSliderComponent = /** @class */ (function () {
+    function CodeSliderComponent() {
+        this.hide = false;
+        this._show = false;
+        this.showChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.htmlCode = " ";
+        this.jsCode = " ";
+    }
+    Object.defineProperty(CodeSliderComponent.prototype, "show", {
+        get: function () {
+            return this._show;
+        },
+        set: function (v) {
+            this._show = v;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    CodeSliderComponent.prototype.ngOnInit = function () {
+    };
+    CodeSliderComponent.prototype.collapse = function () {
+        var _this = this;
+        this.hide = true;
+        setTimeout(function () {
+            _this.show = false;
+            _this.showChange.emit(_this.show);
+        }, 1000);
+    };
+    CodeSliderComponent.prototype.onHighlight = function (e) {
+        this.response = {
+            language: e.language,
+            r: e.r,
+            second_best: '{...}',
+            top: '{...}',
+            value: '{...}'
+        };
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], CodeSliderComponent.prototype, "showChange", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], CodeSliderComponent.prototype, "show", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], CodeSliderComponent.prototype, "htmlCode", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], CodeSliderComponent.prototype, "jsCode", void 0);
+    CodeSliderComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'code-slider',
+            template: __webpack_require__(/*! ./code-slider.component.html */ "./src/app/shared/components/code-slider/code-slider.component.html"),
+            styles: [__webpack_require__(/*! ./code-slider.component.scss */ "./src/app/shared/components/code-slider/code-slider.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CodeSliderComponent);
+    return CodeSliderComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/shared.module.ts":
 /*!*****************************************!*\
   !*** ./src/app/shared/shared.module.ts ***!
@@ -1042,12 +1180,14 @@ var StartUpService = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SharedModule", function() { return SharedModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
-/* harmony import */ var ng_ace_tern__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng-ace-tern */ "./node_modules/ng-ace-tern/ng-ace-tern.es5.js");
-/* harmony import */ var _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib/schema-form.module */ "./src/lib/schema-form.module.ts");
+/* harmony import */ var ng_ace_tern__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-ace-tern */ "./node_modules/ng-ace-tern/ng-ace-tern.es5.js");
+/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
+/* harmony import */ var ngx_highlightjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-highlightjs */ "./node_modules/ngx-highlightjs/fesm5/ngx-highlightjs.js");
+/* harmony import */ var _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib/schema-form.module */ "./src/lib/schema-form.module.ts");
+/* harmony import */ var _components_code_slider_code_slider_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/code-slider/code-slider.component */ "./src/app/shared/components/code-slider/code-slider.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1060,6 +1200,11 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+var COMPONENTS = [
+    _components_code_slider_code_slider_component__WEBPACK_IMPORTED_MODULE_7__["CodeSliderComponent"]
+];
 var SharedModule = /** @class */ (function () {
     function SharedModule() {
     }
@@ -1071,21 +1216,23 @@ var SharedModule = /** @class */ (function () {
         };
     };
     SharedModule = SharedModule_1 = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: COMPONENTS.slice(),
             imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__["NgZorroAntdModule"].forRoot(),
-                ng_ace_tern__WEBPACK_IMPORTED_MODULE_4__["AceEditorModule"],
-                _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_5__["SchemaFormModule"],
+                ng_zorro_antd__WEBPACK_IMPORTED_MODULE_4__["NgZorroAntdModule"].forRoot(),
+                ng_ace_tern__WEBPACK_IMPORTED_MODULE_3__["AceEditorModule"],
+                _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_6__["SchemaFormModule"],
+                ngx_highlightjs__WEBPACK_IMPORTED_MODULE_5__["HighlightModule"].forRoot({ theme: 'googlecode' }),
             ],
             exports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__["NgZorroAntdModule"],
-                ng_ace_tern__WEBPACK_IMPORTED_MODULE_4__["AceEditorModule"],
-                _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_5__["SchemaFormModule"]
-            ]
+                ng_zorro_antd__WEBPACK_IMPORTED_MODULE_4__["NgZorroAntdModule"],
+                ng_ace_tern__WEBPACK_IMPORTED_MODULE_3__["AceEditorModule"],
+                _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_6__["SchemaFormModule"]
+            ].concat(COMPONENTS)
         })
     ], SharedModule);
     return SharedModule;
@@ -1112,7 +1259,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param filename 文件名称
  */
 function funDownload(content, filename) {
-    if (filename === void 0) { filename = 'form.html'; }
+    if (filename === void 0) { filename = 'template.html'; }
     var eleLink = document.createElement('a');
     eleLink.download = filename;
     eleLink.style.display = 'none';
@@ -1272,6 +1419,36 @@ function BsTmplBuilder(registry, formProperty) {
 
 /***/ }),
 
+/***/ "./src/lib/builder/template/zorro-component.template.ts":
+/*!**************************************************************!*\
+  !*** ./src/lib/builder/template/zorro-component.template.ts ***!
+  \**************************************************************/
+/*! exports provided: getFormCode, getTableCode, getCompCode */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFormCode", function() { return getFormCode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTableCode", function() { return getTableCode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCompCode", function() { return getCompCode; });
+/*  */
+function getFormCode(template) {
+    return {
+        htmlCode: template, componentCode: getCompCode("", "", "")
+    };
+}
+function getTableCode(template) {
+    return {
+        htmlCode: template, componentCode: getCompCode("\n            // table variable\n            allChecked = false;\n            indeterminate = false;\n            displayData = [];\n\n            _columns = [];\n            columns = [];\n            data = [];\n            ", "this.initCloumn();", "\n        // table methods\n        initCloumn() {\n            for (let i = 0; i < this.columns.length; i++) {\n                let arr = this.columns[i].split('-');\n                this._columns[i] = {};\n                Object.assign(this._columns[i],\n                    {\n                        header: arr[0],\n                        field: arr[1],\n                        width: arr[2]\n                    });\n            }\n        }\n\n        currentPageDataChange($event: Array<{ name: string; age: number; address: string; checked: boolean; disabled: boolean; }>): void {\n            this.displayData = $event;\n            this.refreshStatus();\n        }\n\n        refreshStatus(): void {\n            const allChecked = this.displayData.filter(value => !value.disabled).every(value => value.checked === true);\n            const allUnChecked = this.displayData.filter(value => !value.disabled).every(value => !value.checked);\n            this.allChecked = allChecked;\n            this.indeterminate = (!allChecked) && (!allUnChecked);\n        }\n\n        checkAll(value: boolean): void {\n            this.displayData.forEach(data => {\n                if (!data.disabled) {\n                    data.checked = value;\n                }\n            });\n            this.refreshStatus();\n        }")
+    };
+}
+function getCompCode(variableSnippet, OnInitSnippet, methodSnippet) {
+    return "\n    import { Component, OnInit,  DoCheck, OnDestroy } from '@angular/core';\n    \n    @Component({ template:'./template.html' })\n    export class TemplateComponent implements OnInit, DoCheck, OnDestroy {\n        formProperty: any;\n        interval: any;\n        _differ: any;\n        action: Function;\n        buttons = [];\n        " + variableSnippet + "\n        constructor(\n           \n        ) {\n\n        }\n\n        ngOnInit(): void {\n            " + OnInitSnippet + "\n        }\n\n        " + methodSnippet + "\n        \n        ngOnDestroy() {\n            if (this.interval) {\n                clearInterval(this.interval);\n                this.interval = null;\n            }\n        }\n\n    }\n\n    ";
+}
+
+
+/***/ }),
+
 /***/ "./src/lib/builder/zorro-template-builder.ts":
 /*!***************************************************!*\
   !*** ./src/lib/builder/zorro-template-builder.ts ***!
@@ -1332,12 +1509,21 @@ function ZorroTmplBuilder(registry, formProperty) {
         templ += "\n        <nz-form-item nz-row>\n            <nz-form-control  [nzOffset]=\"7\" [nzSpan]=\"12\" class=\"" + listOfClassName.join(' ') + "\">\n                " + btnHtml + "\n            </nz-form-control>\n        </nz-form-item>\n        ";
     }
     templ += '</form>';
+    templ += buildTable(formProperty, registry);
     return templ;
 }
 function gridLayout(grid) {
     var _a = grid.sm, sm = _a === void 0 ? {} : _a, _b = grid.xs, xs = _b === void 0 ? {} : _b, _c = grid.md, md = _c === void 0 ? {} : _c, _d = grid.lg, lg = _d === void 0 ? {} : _d, _e = grid.xl, xl = _e === void 0 ? {} : _e, _f = grid.xxl, xxl = _f === void 0 ? {} : _f;
     var result = (xs.span ? "nzXS=\"" + xs.span + "\"" : '') + " " + (sm.span ? "nzSm=\"" + sm.span + "\"" : '') + " " + (md.span ? "nzMd=\"" + md.span + "\"" : '') + " " + (lg.span ? "nzLg=\"" + lg.span + "\"" : '') + " " + (xl.span ? "nzXl=\"" + xl.span + "\"" : '') + " " + (xxl.span ? "nzXXl=\"" + xxl.span + "\"" : '');
     return result;
+}
+function buildTable(formProperty, registry) {
+    var schema = formProperty.schema;
+    if (!schema.table)
+        return '';
+    var WidgetClass = registry.getWidgetType('table');
+    var tableHtml = new WidgetClass().getTemplate();
+    return tableHtml;
 }
 
 
@@ -1643,13 +1829,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ZorroFormBuilderComponent", function() { return ZorroFormBuilderComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../model */ "./src/lib/model/index.ts");
-/* harmony import */ var _terminator_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../terminator.service */ "./src/lib/terminator.service.ts");
-/* harmony import */ var _schemavalidator_factory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../schemavalidator.factory */ "./src/lib/schemavalidator.factory.ts");
-/* harmony import */ var _zorro_widget_factory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../zorro-widget-factory */ "./src/lib/zorro-widget-factory.ts");
-/* harmony import */ var _widget_registry__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../widget-registry */ "./src/lib/widget-registry.ts");
-/* harmony import */ var _builder_zorro_template_builder__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../builder/zorro-template-builder */ "./src/lib/builder/zorro-template-builder.ts");
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../index */ "./src/lib/index.ts");
+/* harmony import */ var _builder_template_zorro_component_template__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../builder/template/zorro-component.template */ "./src/lib/builder/template/zorro-component.template.ts");
+/* harmony import */ var _builder_zorro_template_builder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../builder/zorro-template-builder */ "./src/lib/builder/zorro-template-builder.ts");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../index */ "./src/lib/index.ts");
+/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../model */ "./src/lib/model/index.ts");
+/* harmony import */ var _schemavalidator_factory__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../schemavalidator.factory */ "./src/lib/schemavalidator.factory.ts");
+/* harmony import */ var _terminator_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../terminator.service */ "./src/lib/terminator.service.ts");
+/* harmony import */ var _widget_registry__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../widget-registry */ "./src/lib/widget-registry.ts");
+/* harmony import */ var _zorro_widget_factory__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../zorro-widget-factory */ "./src/lib/zorro-widget-factory.ts");
 /*--------------------------------------------------------------
  *  Copyright (c) Nickbing Lao<giscafer@outlook.com>. All rights reserved.
  *  Licensed under the MIT License.
@@ -1672,8 +1859,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 function useFactory(schemaValidatorFactory, validatorRegistry) {
-    return new _model__WEBPACK_IMPORTED_MODULE_2__["FormPropertyFactory"](schemaValidatorFactory, validatorRegistry);
+    return new _model__WEBPACK_IMPORTED_MODULE_5__["FormPropertyFactory"](schemaValidatorFactory, validatorRegistry);
 }
 ;
 var ZorroFormBuilderComponent = /** @class */ (function () {
@@ -1730,7 +1918,7 @@ var ZorroFormBuilderComponent = /** @class */ (function () {
             if (!changes.schema.firstChange) {
                 this.terminator.destroy();
             }
-            _model__WEBPACK_IMPORTED_MODULE_2__["SchemaPreprocessor"].preprocess(this.schema);
+            _model__WEBPACK_IMPORTED_MODULE_5__["SchemaPreprocessor"].preprocess(this.schema);
             this.rootProperty = this.formPropertyFactory.createProperty(this.schema);
             this.rootProperty.valueChanges.subscribe(function (value) {
                 if (_this.modelChanged.observers.length > 0) {
@@ -1821,25 +2009,34 @@ var ZorroFormBuilderComponent = /** @class */ (function () {
         this.rootProperty.reset(null, true);
     };
     ZorroFormBuilderComponent.prototype._createForm = function (widgetInfo) {
-        var widgetTemplate = Object(_builder_zorro_template_builder__WEBPACK_IMPORTED_MODULE_7__["ZorroTmplBuilder"])(this.registry, this.rootProperty);
+        var widgetTemplate = Object(_builder_zorro_template_builder__WEBPACK_IMPORTED_MODULE_3__["ZorroTmplBuilder"])(this.registry, this.rootProperty);
         // let widgetTemplate = this.registry.getWidgetType(widgetInfo.id);
         var template = widgetTemplate;
+        var schema = this.rootProperty.schema;
         var properties = (_a = {
                 "formProperty": this.rootProperty,
                 "control": this.control,
                 "property": { visible: true },
-                "_debug_": this.rootProperty.schema.debug,
-                "modelName": this.rootProperty.schema.modelName || 'model'
+                "_debug_": schema.debug,
+                "modelName": schema.modelName || 'model'
             },
-            _a[this.rootProperty.schema.modelName || 'model'] = this.rootProperty.value || {},
+            _a[schema.modelName || 'model'] = this.rootProperty.value || {},
             _a);
-        properties[properties['modelName']]['checkOptions'] = this.rootProperty.schema.checkOptions || {}; //nz-checkbox-group
-        console.log(properties[properties['modelName']]['checkOptions']);
-        this.ref = this.ZorroWidgetFactory.addWidget(this.container, template, properties, this);
+        properties[properties['modelName']]['checkOptions'] = schema.checkOptions || {}; //nz-checkbox-group
+        if (schema.table) {
+            Object.assign(properties, {
+                "columns": schema.table.columns,
+                "data": schema.table.data
+            });
+            this.ref = this.ZorroWidgetFactory.createTableComponent(this.container, template, properties, this);
+        }
+        else {
+            this.ref = this.ZorroWidgetFactory.addWidget(this.container, template, properties, this);
+        }
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
         this.cdr.detectChanges();
-        this.onBuilderFinish.emit({ code: template });
+        this.onBuilderFinish.emit(schema.table ? Object(_builder_template_zorro_component_template__WEBPACK_IMPORTED_MODULE_2__["getTableCode"])(template) : Object(_builder_template_zorro_component_template__WEBPACK_IMPORTED_MODULE_2__["getFormCode"])(template));
         var _a;
     };
     ZorroFormBuilderComponent.counter = 0;
@@ -1901,26 +2098,26 @@ var ZorroFormBuilderComponent = /** @class */ (function () {
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
             template: "<div #target></div>",
             providers: [
-                _zorro_widget_factory__WEBPACK_IMPORTED_MODULE_5__["ZorroWidgetFactory"],
-                _model__WEBPACK_IMPORTED_MODULE_2__["SchemaPreprocessor"],
-                _model__WEBPACK_IMPORTED_MODULE_2__["ActionRegistry"],
-                _model__WEBPACK_IMPORTED_MODULE_2__["ValidatorRegistry"],
-                _terminator_service__WEBPACK_IMPORTED_MODULE_3__["TerminatorService"],
+                _zorro_widget_factory__WEBPACK_IMPORTED_MODULE_9__["ZorroWidgetFactory"],
+                _model__WEBPACK_IMPORTED_MODULE_5__["SchemaPreprocessor"],
+                _model__WEBPACK_IMPORTED_MODULE_5__["ActionRegistry"],
+                _model__WEBPACK_IMPORTED_MODULE_5__["ValidatorRegistry"],
+                _terminator_service__WEBPACK_IMPORTED_MODULE_7__["TerminatorService"],
                 {
-                    provide: _model__WEBPACK_IMPORTED_MODULE_2__["FormPropertyFactory"],
+                    provide: _model__WEBPACK_IMPORTED_MODULE_5__["FormPropertyFactory"],
                     useFactory: useFactory,
-                    deps: [_schemavalidator_factory__WEBPACK_IMPORTED_MODULE_4__["SchemaValidatorFactory"], _model__WEBPACK_IMPORTED_MODULE_2__["ValidatorRegistry"]]
+                    deps: [_schemavalidator_factory__WEBPACK_IMPORTED_MODULE_6__["SchemaValidatorFactory"], _model__WEBPACK_IMPORTED_MODULE_5__["ValidatorRegistry"]]
                 },
-                { provide: _widget_registry__WEBPACK_IMPORTED_MODULE_6__["WidgetRegistry"], useClass: _index__WEBPACK_IMPORTED_MODULE_8__["ZorroDefaultWidgetRegistry"] }
+                { provide: _widget_registry__WEBPACK_IMPORTED_MODULE_8__["WidgetRegistry"], useClass: _index__WEBPACK_IMPORTED_MODULE_4__["ZorroDefaultWidgetRegistry"] }
             ]
         }),
-        __metadata("design:paramtypes", [_widget_registry__WEBPACK_IMPORTED_MODULE_6__["WidgetRegistry"],
-            _model__WEBPACK_IMPORTED_MODULE_2__["FormPropertyFactory"],
-            _model__WEBPACK_IMPORTED_MODULE_2__["ActionRegistry"],
-            _model__WEBPACK_IMPORTED_MODULE_2__["ValidatorRegistry"],
-            _zorro_widget_factory__WEBPACK_IMPORTED_MODULE_5__["ZorroWidgetFactory"],
+        __metadata("design:paramtypes", [_widget_registry__WEBPACK_IMPORTED_MODULE_8__["WidgetRegistry"],
+            _model__WEBPACK_IMPORTED_MODULE_5__["FormPropertyFactory"],
+            _model__WEBPACK_IMPORTED_MODULE_5__["ActionRegistry"],
+            _model__WEBPACK_IMPORTED_MODULE_5__["ValidatorRegistry"],
+            _zorro_widget_factory__WEBPACK_IMPORTED_MODULE_9__["ZorroWidgetFactory"],
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"],
-            _terminator_service__WEBPACK_IMPORTED_MODULE_3__["TerminatorService"]])
+            _terminator_service__WEBPACK_IMPORTED_MODULE_7__["TerminatorService"]])
     ], ZorroFormBuilderComponent);
     return ZorroFormBuilderComponent;
     var ZorroFormBuilderComponent_1;
@@ -5652,7 +5849,7 @@ var ButtonWidget = /** @class */ (function (_super) {
         return _super.call(this) || this;
     }
     ButtonWidget.prototype.getTemplate = function (schema, button) {
-        return "\n    <button nz-button (click)=\"action($event,'" + button.id + "')\" nzType=\"" + (button.type || 'default') + "\">" + button.label + "</button>\n    ";
+        return "<button nz-button (click)=\"action($event,'" + button.id + "')\" nzType=\"" + (button.type || 'default') + "\">" + button.label + "</button>";
     };
     return ButtonWidget;
 }(_widget__WEBPACK_IMPORTED_MODULE_0__["ControlWidget"]));
@@ -5823,6 +6020,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _radio_radio_widget__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./radio/radio.widget */ "./src/lib/widgets/zorro/radio/radio.widget.ts");
 /* harmony import */ var _textarea_textarea_widget__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./textarea/textarea.widget */ "./src/lib/widgets/zorro/textarea/textarea.widget.ts");
 /* harmony import */ var _select_select_widget__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./select/select.widget */ "./src/lib/widgets/zorro/select/select.widget.ts");
+/* harmony import */ var _table_table_widget__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./table/table.widget */ "./src/lib/widgets/zorro/table/table.widget.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -5833,6 +6031,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+
 
 
 
@@ -5860,6 +6059,7 @@ var ZorroDefaultWidgetRegistry = /** @class */ (function (_super) {
         _this.register('textarea', _textarea_textarea_widget__WEBPACK_IMPORTED_MODULE_10__["TextAreaWidget"]);
         _this.register('array', _array_array_widget__WEBPACK_IMPORTED_MODULE_8__["ArrayWidget"]);
         _this.register('select', _select_select_widget__WEBPACK_IMPORTED_MODULE_11__["SelectWidget"]);
+        _this.register('table', _table_table_widget__WEBPACK_IMPORTED_MODULE_12__["TableWidget"]);
         //   this.register('search', StringWidget);
         //   this.register('tel', StringWidget);
         //   this.register('url', StringWidget);
@@ -5887,7 +6087,7 @@ var ZorroDefaultWidgetRegistry = /** @class */ (function (_super) {
 /*!****************************************!*\
   !*** ./src/lib/widgets/zorro/index.ts ***!
   \****************************************/
-/*! exports provided: ZorroDefaultWidgetRegistry, ButtonWidget, DateWidget, TimeWidget, DateRangeWidget, CheckboxWidget, TextAreaWidget, SelectWidget */
+/*! exports provided: ZorroDefaultWidgetRegistry, ButtonWidget, DateWidget, TimeWidget, DateRangeWidget, CheckboxWidget, TextAreaWidget, SelectWidget, TableWidget */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5915,6 +6115,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _select_select_widget__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./select/select.widget */ "./src/lib/widgets/zorro/select/select.widget.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidget", function() { return _select_select_widget__WEBPACK_IMPORTED_MODULE_7__["SelectWidget"]; });
+
+/* harmony import */ var _table_table_widget__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./table/table.widget */ "./src/lib/widgets/zorro/table/table.widget.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TableWidget", function() { return _table_table_widget__WEBPACK_IMPORTED_MODULE_8__["TableWidget"]; });
+
 
 
 
@@ -6029,7 +6233,7 @@ var SelectWidget = /** @class */ (function (_super) {
         var htmlStr = '', options = (schema.items && schema.items.oneOf) || schema.oneOf;
         for (var _i = 0, options_1 = options; _i < options_1.length; _i++) {
             var option = options_1[_i];
-            htmlStr += "\n            <nz-option nzValue=\"" + option.enum[0] + "\" nzLabel=\"" + option.description + "\"></nz-option>\n            ";
+            htmlStr += "<nz-option nzValue=\"" + option.enum[0] + "\" nzLabel=\"" + option.description + "\"></nz-option>\n            ";
         }
         return htmlStr;
     };
@@ -6087,6 +6291,43 @@ var StringWidget = /** @class */ (function (_super) {
         }
     };
     return StringWidget;
+}(_widget__WEBPACK_IMPORTED_MODULE_0__["ControlWidget"]));
+
+
+
+/***/ }),
+
+/***/ "./src/lib/widgets/zorro/table/table.widget.ts":
+/*!*****************************************************!*\
+  !*** ./src/lib/widgets/zorro/table/table.widget.ts ***!
+  \*****************************************************/
+/*! exports provided: TableWidget */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableWidget", function() { return TableWidget; });
+/* harmony import */ var _widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../widget */ "./src/lib/widget.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var TableWidget = /** @class */ (function (_super) {
+    __extends(TableWidget, _super);
+    function TableWidget() {
+        return _super.call(this) || this;
+    }
+    TableWidget.prototype.getTemplate = function (schema) {
+        return "\n<nz-table\n\t#rowSelectionTable\n\t[nzData]=\"data\"\n\t(nzCurrentPageDataChange)=\"currentPageDataChange($event)\"\n\t(nzPageIndexChange)=\"refreshStatus()\"\n\t(nzPageSizeChange)=\"refreshStatus()\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th nzShowCheckbox [(nzChecked)]=\"allChecked\" [nzIndeterminate]=\"indeterminate\" (nzCheckedChange)=\"checkAll($event)\"></th>\n\t\t\t<th *ngFor=\"let c of _columns\">{{c.header}}</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr *ngFor=\"let data of rowSelectionTable.data\">\n\t\t\t<td nzShowCheckbox [(nzChecked)]=\"data.checked\" [nzDisabled]=\"data.disabled\" (nzCheckedChange)=\"refreshStatus($event)\"></td>\n\t\t\t<td  *ngFor=\"let c of _columns\">{{data[c.field]}}</td>\n\t\t</tr>\n\t</tbody>\n</nz-table>";
+    };
+    return TableWidget;
 }(_widget__WEBPACK_IMPORTED_MODULE_0__["ControlWidget"]));
 
 
@@ -6163,7 +6404,7 @@ var TimeWidget = /** @class */ (function (_super) {
         var templ = '<nz-form-item>';
         var listOfClassName = this.getLayoutClass(schema);
         if (schema.title) {
-            templ += "\n        <div nz-form-label [nzSpan]=\"" + schema.span_label + "\"  " + (schema.require ? "nzRequired" : '') + " for=\"" + schema.formId + "\" " + (schema.require ? "nzRequired" : '') + ">\n            <span> " + (schema.title || '') + " " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "</span>\n        </div>\n      ";
+            templ += "\n        <nz-form-label [nzSpan]=\"" + schema.span_label + "\"  " + (schema.require ? "nzRequired" : '') + " for=\"" + schema.formId + "\" " + (schema.require ? "nzRequired" : '') + ">\n            <span> " + (schema.title || '') + " " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "</span>\n        </nz-form-label>\n      ";
         }
         templ += "\n    <nz-form-control\n        " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n        " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n        <nz-time-picker\n            [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n            id=\"" + schema.formId + "\"\n            name=\"" + schema.name + "\"\n            " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + "\n            " + (schema.size ? "[nzSize]=\"'" + schema.size + "'\"" : '') + "\n            " + (schema.format ? "[nzFormat]=\"'" + schema.format + "'\"" : "[nzFormat]=\"'HH:mm:ss'\"") + "\n            [nzPlaceHolder]=\"'" + (schema.placeholder ? schema.placeholder : '') + "'\"></nz-time-picker>\n    </nz-form-control>\n  </nz-form-item>\n    ";
         return templ;
@@ -6317,6 +6558,146 @@ var ZorroWidgetFactory = /** @class */ (function () {
         Object.assign(component.instance, properties);
         return component;
     };
+    ZorroWidgetFactory.prototype.createTableComponent = function (container, template, properties, context) {
+        if (properties === void 0) { properties = {}; }
+        var TemplateComponent = /** @class */ (function () {
+            function TemplateComponent(_differs, actionRegistry, changeDetectorRef) {
+                this._differs = _differs;
+                this.actionRegistry = actionRegistry;
+                this.changeDetectorRef = changeDetectorRef;
+                this.buttons = [];
+                // table
+                this.allChecked = false;
+                this.indeterminate = false;
+                this.displayData = [];
+                this._columns = [];
+                this.columns = [];
+                this.data = [];
+            }
+            TemplateComponent.prototype.ngOnInit = function () {
+                this.initCloumn();
+                this._differ = this._differs.find(this[this['modelName']]).create();
+                if (this.interval) {
+                    clearInterval(this.interval);
+                    this.interval = null;
+                }
+                this._parseButtons();
+            };
+            TemplateComponent.prototype.ngDoCheck = function () {
+                if (this._differ) {
+                    var changes = this._differ.diff(this[this['modelName']]);
+                    if (changes) {
+                        // debug code
+                        this._applyChanges(changes);
+                        if (this['_debug_']) {
+                            console.warn('model changes', this[this['modelName']]);
+                        }
+                    }
+                }
+            };
+            TemplateComponent.prototype._parseButtons = function () {
+                var schema = properties.formProperty.schema;
+                if (schema.buttons !== undefined) {
+                    this.buttons = schema.buttons;
+                    for (var _i = 0, _a = this.buttons; _i < _a.length; _i++) {
+                        var button = _a[_i];
+                        this._createButtonCallback(button);
+                    }
+                }
+            };
+            TemplateComponent.prototype._createButtonCallback = function (button) {
+                var _this = this;
+                this.action = function (e, id) {
+                    var action;
+                    if (id && (action = _this.actionRegistry.get(id))) {
+                        if (action) {
+                            action(properties.formProperty, _this._getBtnParameters(id));
+                            // TODO，临时解决方案
+                            if (id === 'reset') {
+                                _this[_this['modelName']] = {};
+                            }
+                        }
+                    }
+                    e.preventDefault();
+                };
+            };
+            // debug code
+            TemplateComponent.prototype._applyChanges = function (changes) {
+                context.onChange.emit({ value: this[this['modelName']] });
+                context.modelChanged.emit(this[this['modelName']]);
+            };
+            TemplateComponent.prototype._getBtnParameters = function (id) {
+                for (var _i = 0, _a = this.buttons; _i < _a.length; _i++) {
+                    var btn = _a[_i];
+                    if (id === btn.id) {
+                        return btn.parameters;
+                    }
+                }
+            };
+            // table
+            TemplateComponent.prototype.initCloumn = function () {
+                for (var i = 0; i < this.columns.length; i++) {
+                    var arr = this.columns[i].split('-');
+                    this._columns[i] = {};
+                    Object.assign(this._columns[i], {
+                        header: arr[0],
+                        field: arr[1],
+                        width: arr[2]
+                    });
+                }
+            };
+            TemplateComponent.prototype.currentPageDataChange = function ($event) {
+                this.displayData = $event;
+                this.refreshStatus();
+            };
+            TemplateComponent.prototype.refreshStatus = function () {
+                var allChecked = this.displayData.filter(function (value) { return !value.disabled; }).every(function (value) { return value.checked === true; });
+                var allUnChecked = this.displayData.filter(function (value) { return !value.disabled; }).every(function (value) { return !value.checked; });
+                this.allChecked = allChecked;
+                this.indeterminate = (!allChecked) && (!allUnChecked);
+            };
+            TemplateComponent.prototype.checkAll = function (value) {
+                this.displayData.forEach(function (data) {
+                    if (!data.disabled) {
+                        data.checked = value;
+                    }
+                });
+                this.refreshStatus();
+            };
+            TemplateComponent.prototype.ngOnDestroy = function () {
+                if (this.interval) {
+                    clearInterval(this.interval);
+                    this.interval = null;
+                }
+            };
+            TemplateComponent = __decorate([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({ template: template }),
+                __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["KeyValueDiffers"],
+                    _model_actionregistry__WEBPACK_IMPORTED_MODULE_4__["ActionRegistry"],
+                    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+            ], TemplateComponent);
+            return TemplateComponent;
+        }());
+        var TemplateModule = /** @class */ (function () {
+            function TemplateModule() {
+            }
+            TemplateModule = __decorate([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+                    declarations: [TemplateComponent],
+                    imports: [_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__["NgZorroAntdModule"]],
+                    providers: [_model_actionregistry__WEBPACK_IMPORTED_MODULE_4__["ActionRegistry"]]
+                })
+            ], TemplateModule);
+            return TemplateModule;
+        }());
+        var mod = this.compiler.compileModuleAndAllComponentsSync(TemplateModule);
+        var factory = mod.componentFactories.find(function (comp) {
+            return comp.componentType === TemplateComponent;
+        });
+        var component = container.createComponent(factory);
+        Object.assign(component.instance, properties);
+        return component;
+    };
     ZorroWidgetFactory = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
         __metadata("design:paramtypes", [_widget_registry__WEBPACK_IMPORTED_MODULE_5__["WidgetRegistry"],
@@ -6368,7 +6749,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\1zitonFE\ng-form-builder\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! H:\GitHub\ng-form-builder\src\main.ts */"./src/main.ts");
 
 
 /***/ })

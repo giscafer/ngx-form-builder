@@ -1,0 +1,117 @@
+{
+    "debug": "true",
+    "modelName": "testModel",
+    "grid": {
+        "xs": {
+            "span": 24
+        },
+        "sm": {
+            "span": 24
+        },
+        "md": {
+            "span": 12
+        },
+        "lg": {
+            "span": 8
+        },
+        "xl": {
+            "span": 8
+        },
+        "col_gutter": 10,
+        "span_label": 8,
+        "span_control": 15
+    },
+    "properties": {
+        "birthday": {
+            "type": "string",
+            "title": "开单日期",
+            "widget": "date",
+            "default": "2018-7-2 21:55:27"
+        },
+        "waybillId": {
+            "type": "string",
+            "title": "订单号",
+            "placeholder": "请输入订单号"
+        },
+        "shipper": {
+            "type": "string",
+            "title": "发货人",
+            "placeholder": "请输入发货人姓名",
+            "maxLength": 30,
+            "minLength": 2
+        },
+        "phone": {
+            "type": "number",
+            "title": "发货人手机号",
+            "placeholder": "发货人手机号",
+            "minimum": 1,
+            "maximum": 100
+        },
+        "status": {
+            "type": "string",
+            "title": "订单状态",
+            "placeholder": "请选择订单状态",
+            "widget": "select",
+            "items": {
+                "oneOf": [{
+                        "description": "待受理",
+                        "enum": [
+                            "waitingDeal"
+                        ]
+                    },
+                    {
+                        "description": "待提货",
+                        "enum": [
+                            "waitingPick"
+                        ]
+                    },
+                    {
+                        "description": "待签收",
+                        "enum": [
+                            "waitingSign"
+                        ]
+                    },
+                    {
+                        "description": "已签收",
+                        "enum": [
+                            "signed"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "button": {
+        "grid": {
+            "md": {
+                "offset": 20,
+                "span": 4
+            }
+        },
+        "items": [{
+                "label": "查询",
+                "id": "query",
+                "type": "primary",
+                "submit": true
+            },
+            {
+                "label": "清空",
+                "id": "reset"
+            }
+        ]
+    },
+    "table": {
+        "columns": [
+            "Name-name",
+            "Age-age",
+            "Address-address",
+            "Checked-checked"
+        ],
+        "data": [
+            { "name": "John Brown", "age": 32, "address": "New York No. 1 Lake Park", "checked": false, "disabled": false },
+            { "name": "Jim Green", "age": 42, "address": "London No. 1 Lake Park", "checked": false, "disabled": false },
+            { "name": "Joe Black", "age": 32, "address": "Sidney No. 1 Lake Park", "checked": false, "disabled": false },
+            { "name": "Disabled User", "age": 32, "address": "Sidney No. 1 Lake Park", "checked": false, "disabled": true }
+        ]
+    }
+}
