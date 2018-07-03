@@ -135,7 +135,7 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
 
   logErrors(errors) {
     console.log('ERRORS', errors);
-    this.log('页面构建失败，请检查再重试', 'error');
+    this.log('build failed，try again', 'error');
   }
 
   log(text, type) {
@@ -155,12 +155,12 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
     this.componentCode = $event.componentCode;
     this.fileNames = $event.fileNames;
     this.builderInfo._endTime = new Date().getTime();
-    this.log(`页面构建完成，${this.builderInfo._endTime - this.builderInfo._startTime}ms`, 'info');
+    this.log(`build success，${this.builderInfo._endTime - this.builderInfo._startTime}ms`, 'info');
   }
 
   run(editor) {
     if (this.hasEditorError()) {
-      this.log('编辑器内容有误', 'error');
+      this.log('json error', 'error');
       return;
     }
     let text = this.editorDirective.editor.getValue();

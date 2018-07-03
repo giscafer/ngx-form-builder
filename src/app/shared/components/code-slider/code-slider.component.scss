@@ -43,8 +43,15 @@
         animation: hide 0.5s ease-out;
         right: -1000px;
     }
-    .code{
+    .code {
         height: 80vh;
         overflow-y: auto;
+    }
+    h3 {
+        display: inline-block;
+    }
+    .code-box-actions {
+        display: inline-block;
+        margin-left: 30px
     }
 }

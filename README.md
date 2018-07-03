@@ -26,9 +26,7 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:8888/`.
 
 __the project is under developing__
 
-![screenshot](./screenshot/screenshot.png)
-
-![gif](./screenshot/20180702.gif)
+![screenshot](./screenshot/20180702.gif)
 
 
 ## Related

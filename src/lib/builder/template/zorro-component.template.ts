@@ -4,13 +4,13 @@ import { firstUpperCase } from "../../utils/firstUpperCase";
 
 
 
-export function getFormCode(fileName, template) {
-    let fileNames = generateFileName(fileName);
+export function getFormCode(opts) {
+    let fileNames = generateFileName(opts.fileName);
     return {
         fileNames,
-        htmlCode: template,
+        htmlCode: opts.template,
         componentCode: getCompCode(fileNames,
-            ``,
+            `${opts.modelName}:any = {};`,
             ``,
             ``
         )
@@ -18,21 +18,22 @@ export function getFormCode(fileName, template) {
 }
 
 
-export function getTableCode(fileName, template) {
-    let fileNames = generateFileName(fileName);
+export function getTableCode(opts) {
+    let fileNames = generateFileName(opts.fileName);
     return {
         fileNames,
-        htmlCode: template,
+        htmlCode: opts.template,
         componentCode: getCompCode(fileNames,
             `
+            ${opts.modelName}:any = {};
             // table variable
             allChecked = false;
             indeterminate = false;
             displayData = [];
 
             _columns = [];
-            columns = [];
-            data = [];
+            columns = ${JSON.stringify(opts.columns, null, 4)};
+            data = ${JSON.stringify(opts.data, null, 4)};
             `,
 
             `this.initCloumn();`,
@@ -79,7 +80,10 @@ export function getCompCode(names, variableSnippet, OnInitSnippet, methodSnippet
     let rawCode = `
     import { Component, OnInit } from '@angular/core';
     
-    @Component({ template:'./template.html' })
+    @Component({ 
+        selector: 'app-template',
+        templateUrl: './template.html'
+     })
     export class TemplateComponent implements OnInit {
      
         ${variableSnippet}
@@ -98,7 +102,7 @@ export function getCompCode(names, variableSnippet, OnInitSnippet, methodSnippet
     }
 
     `;
-    return rawCode.replace(/template.html/, names.htmlFileName).replace(/TemplateComponent/, names.compClassName);
+    return rawCode.replace(/app-template/, names.selector).replace(/template.html/, names.htmlFileName).replace(/TemplateComponent/, names.compClassName);
 }
 
 
@@ -107,6 +111,7 @@ function generateFileName(fileName = 'template') {
     let compFileName = fileName + '.component.ts';
     let compClassName = firstUpperCase(fileName) + 'Component';
     return {
+        selector: 'app-' + fileName.toLowerCase(),
         htmlFileName,
         compFileName,
         compClassName

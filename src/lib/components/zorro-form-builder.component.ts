@@ -239,9 +239,20 @@ export class ZorroFormBuilderComponent implements OnChanges {
             "modelName": schema.modelName || 'model',
             [schema.modelName || 'model']: this.rootProperty.value || {},
         }
-        properties[properties['modelName']]['checkOptions'] = schema.checkOptions || {};//nz-checkbox-group
+        properties[properties['modelName']]['checkOptions'] = schema.checkOptions || {}; // nz-checkbox-group
+
+        let opts = {
+            fileName,
+            template,
+            modelName: properties.modelName
+        }
+
         if (schema.table) {
             Object.assign(properties, {
+                "columns": schema.table.columns,
+                "data": schema.table.data
+            });
+            Object.assign(opts, {
                 "columns": schema.table.columns,
                 "data": schema.table.data
             });
@@ -252,6 +263,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
         this.cdr.detectChanges();
-        this.onBuilderFinish.emit(schema.table ? getTableCode(fileName, template) : getFormCode(fileName, template));
+
+        this.onBuilderFinish.emit(schema.table ? getTableCode(opts) : getFormCode(opts));
     }
 }

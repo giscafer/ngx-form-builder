@@ -1,6 +1,21 @@
 <div class="container" [class.hide]="hide" [class.show]="show">
     <img class="collapse" src="./assets/images/close-r.png" alt="折叠" title="折叠" (click)="collapse()" />
-    <h3>Generated Code</h3>
+    <nz-row>
+        <nz-col>
+            <h3>Generated Code</h3>
+        </nz-col>
+        <nz-col>
+            <div class="code-box-actions">
+                <nz-tooltip [nzTitle]="'Edit On StackBlitz'" nzPlacement="right">
+                    <i nz-tooltip class="anticon anticon-form code-box-code-copy" (click)="openOnStackBlitz()"></i>
+                </nz-tooltip>
+                <nz-tooltip [nzTitle]="'Copy Generate Command'" *ngIf="nzGenerateCommand" nzPlacement="right">
+                    <i nz-tooltip class="anticon anticon-code-o code-box-code-copy" [class.anticon-code-o]="!_commandCopied" [class.anticon-check]="_commandCopied"
+                        [class.ant-tooltip-open]="_commandCopied" (click)="copyGenerateCommand(nzGenerateCommand)"></i>
+                </nz-tooltip>
+            </div>
+        </nz-col>
+    </nz-row>
     <nz-tabset>
         <nz-tab nzTitle="HTML ({{fileNames.htmlFileName}})">
             <pre class="code"><code highlight [code]="htmlCode" [language]="['HTML']" (highlighted)="onHighlight($event)"></code></pre>
