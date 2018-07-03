@@ -16,18 +16,22 @@ export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
     let col_gutter = grid.col_gutter || 0;
     // let span = col_num ? 24 / col_num : 0;
     if (fieldsets && fieldsets.length) {
-        templ = `<form nz-form ${layout ? `[nzLayout]="'${layout}'"` : ''} ${style ? `style="${style}"` : ''}>`;
+        templ = `
+        <form nz-form${layout ? ` [nzLayout]="'${layout}'"` : ''}${style ? ` style="${style}"` : ''}>
+        `;
 
         for (let fieldset of fieldsets) {
             templ += fieldset.title ? ('<legend style="margin-top:20px;">' + fieldset.title + '</legend>') : '';
-            templ += `<div nz-row [nzGutter]="${col_gutter}">`
+            templ +=
+                `<div nz-row [nzGutter]="${col_gutter}">`;
             for (let fieldId of fieldset.fields) {
 
                 let property = formProperty.getProperty(fieldId);
                 let widgetInfo = property.schema.widget;
                 let WidgetClass = registry.getWidgetType(widgetInfo.id || widgetInfo);
 
-                templ += `<div nz-col ${gridLayout(grid)}>`;
+                templ += `
+            <div nz-col ${gridLayout(grid)}>`;
 
                 if (widgetInfo.id === 'array') {
                     // TODO array widget not support yet
@@ -37,7 +41,8 @@ export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
                 }
                 templ += '</div>';
             }
-            templ += '</div>';
+            templ += `
+        </div>`;
         }
 
     }
@@ -47,15 +52,15 @@ export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
         let btnHtml = '', btnWidget = null, btnGrid = button.grid || {};
         for (let btn of button.items) {
             btnWidget = new WidgetClass();
-            btnHtml += btnWidget.getTemplate(formProperty.schema, btn);
+            btnHtml += btnWidget.getTemplate(formProperty.schema, btn) + '\n\t\t';
         }
         let listOfClassName = btnWidget.getLayoutClass({ grid: btnGrid, _prefixCls: 'ant-col' });
         templ += `
-        <nz-form-item nz-row>
-            <nz-form-control  [nzOffset]="7" [nzSpan]="12" class="${listOfClassName.join(' ')}">
-                ${btnHtml}
-            </nz-form-control>
-        </nz-form-item>
+            <nz-form-item nz-row>
+                <nz-form-control  [nzOffset]="7" [nzSpan]="12" class="${listOfClassName.join(' ')}">
+                    ${btnHtml}
+                </nz-form-control>
+            </nz-form-item>
         `;
     }
     templ += '</form>';
@@ -68,7 +73,7 @@ export function ZorroTmplBuilder(registry: WidgetRegistry, formProperty: any) {
 function gridLayout(grid) {
     let { sm = {}, xs = {}, md = {}, lg = {}, xl = {}, xxl = {} } = grid;
 
-    let result = `${xs.span ? `nzXS="${xs.span}"` : ''} ${sm.span ? `nzSm="${sm.span}"` : ''} ${md.span ? `nzMd="${md.span}"` : ''} ${lg.span ? `nzLg="${lg.span}"` : ''} ${xl.span ? `nzXl="${xl.span}"` : ''} ${xxl.span ? `nzXXl="${xxl.span}"` : ''}`;
+    let result = `${xs.span ? `nzXS="${xs.span}"` : ''}${sm.span ? ` nzSm="${sm.span}"` : ''}${md.span ? ` nzMd="${md.span}"` : ''}${lg.span ? ` nzLg="${lg.span}"` : ''}${xl.span ? ` nzXl="${xl.span}"` : ''}${xxl.span ? ` nzXXl="${xxl.span}"` : ''}`;
     return result;
 }
 

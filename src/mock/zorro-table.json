@@ -1,6 +1,7 @@
 {
     "debug": "true",
-    "modelName": "testModel",
+    "modelName": "qryParams",
+    "fileName": "tableDemo",
     "grid": {
         "xs": {
             "span": 24

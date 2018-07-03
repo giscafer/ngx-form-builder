@@ -230,6 +230,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
 
         let template = widgetTemplate;
         let schema = this.rootProperty.schema;
+        let fileName = schema.fileName || 'template';
         let properties = {
             "formProperty": this.rootProperty,
             "control": this.control,
@@ -251,6 +252,6 @@ export class ZorroFormBuilderComponent implements OnChanges {
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
         this.cdr.detectChanges();
-        this.onBuilderFinish.emit(schema.table ? getTableCode(template) : getFormCode(template));
+        this.onBuilderFinish.emit(schema.table ? getTableCode(fileName, template) : getFormCode(fileName, template));
     }
 }

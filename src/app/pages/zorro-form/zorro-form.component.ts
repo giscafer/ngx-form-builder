@@ -24,6 +24,10 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
   // form builder
   model: any;
   value: any;
+  fileNames = {
+    htmlFileName: '',
+    compFileName: ''
+  }
   htmlCode: string;
   componentCode: string;
   schemaString: string = '';
@@ -149,6 +153,7 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
   onBuilderFinish($event) {
     this.htmlCode = $event.htmlCode;
     this.componentCode = $event.componentCode;
+    this.fileNames = $event.fileNames;
     this.builderInfo._endTime = new Date().getTime();
     this.log(`页面构建完成，${this.builderInfo._endTime - this.builderInfo._startTime}ms`, 'info');
   }
@@ -170,7 +175,7 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
     const flag = codeType === 'ts';
     if (type === 1) {
       if ('download' in document.createElement('a')) {
-        funDownload(flag ? this.componentCode : this.htmlCode, flag ? 'template.ts' : 'template.html');
+        funDownload(flag ? this.componentCode : this.htmlCode, flag ? this.fileNames.compFileName : this.fileNames.htmlFileName);
       } else {
         return this.createMessage('error', '代码下载失败，请使用 Chrome 浏览器');
       }

@@ -2,10 +2,10 @@
     <img class="collapse" src="./assets/images/close-r.png" alt="折叠" title="折叠" (click)="collapse()" />
     <h3>Generated Code</h3>
     <nz-tabset>
-        <nz-tab nzTitle="HTML (template.html)">
+        <nz-tab nzTitle="HTML ({{fileNames.htmlFileName}})">
             <pre class="code"><code highlight [code]="htmlCode" [language]="['HTML']" (highlighted)="onHighlight($event)"></code></pre>
         </nz-tab>
-        <nz-tab nzTitle="TypeScript (template.ts)" style="overflow-y: auto">
+        <nz-tab nzTitle="TypeScript ({{fileNames.compFileName}})" style="overflow-y: auto">
             <pre class="code"><code highlight [code]="jsCode" [language]="['TypeScript']" (highlighted)="onHighlight($event)"></code></pre>
         </nz-tab>
     </nz-tabset>

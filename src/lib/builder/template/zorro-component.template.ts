@@ -1,9 +1,15 @@
+/* without node.js */
 
-/*  */
+import { firstUpperCase } from "../../utils/firstUpperCase";
 
-export function getFormCode(template) {
+
+
+export function getFormCode(fileName, template) {
+    let fileNames = generateFileName(fileName);
     return {
-        htmlCode: template, componentCode: getCompCode(
+        fileNames,
+        htmlCode: template,
+        componentCode: getCompCode(fileNames,
             ``,
             ``,
             ``
@@ -12,9 +18,12 @@ export function getFormCode(template) {
 }
 
 
-export function getTableCode(template) {
+export function getTableCode(fileName, template) {
+    let fileNames = generateFileName(fileName);
     return {
-        htmlCode: template, componentCode: getCompCode(
+        fileNames,
+        htmlCode: template,
+        componentCode: getCompCode(fileNames,
             `
             // table variable
             allChecked = false;
@@ -66,17 +75,13 @@ export function getTableCode(template) {
     }
 }
 
-export function getCompCode(variableSnippet, OnInitSnippet, methodSnippet) {
-    return `
-    import { Component, OnInit,  DoCheck, OnDestroy } from '@angular/core';
+export function getCompCode(names, variableSnippet, OnInitSnippet, methodSnippet) {
+    let rawCode = `
+    import { Component, OnInit } from '@angular/core';
     
     @Component({ template:'./template.html' })
-    export class TemplateComponent implements OnInit, DoCheck, OnDestroy {
-        formProperty: any;
-        interval: any;
-        _differ: any;
-        action: Function;
-        buttons = [];
+    export class TemplateComponent implements OnInit {
+     
         ${variableSnippet}
         constructor(
            
@@ -89,15 +94,21 @@ export function getCompCode(variableSnippet, OnInitSnippet, methodSnippet) {
         }
 
         ${methodSnippet}
-        
-        ngOnDestroy() {
-            if (this.interval) {
-                clearInterval(this.interval);
-                this.interval = null;
-            }
-        }
 
     }
 
-    `
+    `;
+    return rawCode.replace(/template.html/, names.htmlFileName).replace(/TemplateComponent/, names.compClassName);
+}
+
+
+function generateFileName(fileName = 'template') {
+    let htmlFileName = fileName + '.component.html';
+    let compFileName = fileName + '.component.ts';
+    let compClassName = firstUpperCase(fileName) + 'Component';
+    return {
+        htmlFileName,
+        compFileName,
+        compClassName
+    }
 }

@@ -29,6 +29,8 @@ export class CodeSliderComponent implements OnInit {
   }
 
   @Input()
+  fileNames = {};
+  @Input()
   htmlCode = ` `;
   @Input()
   jsCode = ` `;
