@@ -4,6 +4,9 @@ Angular Form generation base on ng6.x,dynamic template support ng-zorro-antd/Boo
 
 Online Demo: http://form.giscafer.com
 
+
+<img src="./screenshot/process.png" height="480px"/>
+
 ## TODO List
 
 - [x] Form generation based on JSON schema `v0.1.0`
