@@ -5,7 +5,7 @@ Angular Form generation base on ng6.x,dynamic template support ng-zorro-antd/Boo
 Online Demo: http://form.giscafer.com
 
 
-<img src="./screenshot/process.png" height="480px"/>
+<img src="./screenshot/process.png" height="580px"/>
 
 ## TODO List
 
