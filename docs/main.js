@@ -714,7 +714,7 @@ var ColNumList = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-container\">\r\n    <div id=\"code-container\">\r\n        <div id=\"control-panel\">\r\n            <div id=\"code-info\">\r\n                <span class=\"code-type\">JSON</span>\r\n                <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n                <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n            </div>\r\n            <div class=\"control-btn-panel\">\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n                        <span>{{demoName}}</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                    </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"水平布局\" (click)=\"toggleSchema('horizontal-layout')\">Horizontal Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"垂直布局\" (click)=\"toggleSchema('vertical-layout')\">Vertical Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"注册Form 表单\" (click)=\"toggleSchema('register-form')\">Register Form</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('layout')\">Grid Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"列表查询例子\" (click)=\"toggleSchema('table')\">Table Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"其他例子\" (click)=\"toggleSchema('other')\">Other Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n                <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n                <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n            </div>\r\n        </div>\r\n        <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\" (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 90vh; width:100%\"></div>\r\n    </div>\r\n    <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n    <div id=\"view-container\">\r\n        <div id=\"control-panel\">\r\n            <div class=\"control-btn-panel\">\r\n                <button nz-button nzType=\"primary\" class=\"btn btn-default btn-sm\" (click)=\"viewCode()\">\r\n                    <span>View code</span>\r\n                </button>\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown nzType=\"primary\" class=\"btn btn-default btn-sm\">\r\n                        <span>Copy / Download</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                        </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyCode(1)\">Download HTML</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyCode(2)\">Copy HTML code</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyCode(1,'ts')\">Download TypeScript</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyCode(2,'ts')\">Copy TypeScript code</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n            </div>\r\n        </div>\r\n        <br>\r\n        <div style=\"height: 90vh;padding: 24px;background: inherit;overflow-y: auto;\">\r\n            <zorro-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\" (onBuilderFinish)=\"onBuilderFinish($event)\"></zorro-form-builder>\r\n        </div>\r\n    </div>\r\n</div>\r\n<code-slider [(show)]=\"showCode\" *ngIf=\"showCode\" [htmlCode]=\"htmlCode\" [jsCode]=\"componentCode\"></code-slider>"
+module.exports = "<div id=\"main-container\">\r\n    <div id=\"code-container\">\r\n        <div id=\"control-panel\">\r\n            <div id=\"code-info\">\r\n                <span class=\"code-type\">JSON</span>\r\n                <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n                <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n            </div>\r\n            <div class=\"control-btn-panel\">\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n                        <span>{{demoName}}</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                    </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"水平布局\" (click)=\"toggleSchema('horizontal-layout')\">Horizontal Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"垂直布局\" (click)=\"toggleSchema('vertical-layout')\">Vertical Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"注册Form 表单\" (click)=\"toggleSchema('register-form')\">Register Form</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('layout')\">Grid Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"列表查询例子\" (click)=\"toggleSchema('table')\">Table Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"Fieldsets 例子\" (click)=\"toggleSchema('other')\">Fieldsets Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n                <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n                <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n            </div>\r\n        </div>\r\n        <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\" (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 90vh; width:100%\"></div>\r\n    </div>\r\n    <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n    <div id=\"view-container\">\r\n        <div id=\"control-panel\">\r\n            <div class=\"control-btn-panel\">\r\n                <button nz-button nzType=\"primary\" class=\"btn btn-default btn-sm\" (click)=\"viewCode()\">\r\n                    <span>View Code</span>\r\n                </button>\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown nzType=\"primary\" class=\"btn btn-default btn-sm\">\r\n                        <span>Copy / Download</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                        </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyCode(1)\">Download HTML</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyCode(2)\">Copy HTML code</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyCode(1,'ts')\">Download TypeScript</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyCode(2,'ts')\">Copy TypeScript code</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n            </div>\r\n        </div>\r\n        <br>\r\n        <div style=\"height: 90vh;padding: 24px;background: inherit;overflow-y: auto;\">\r\n            <zorro-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\" (onBuilderFinish)=\"onBuilderFinish($event)\"></zorro-form-builder>\r\n        </div>\r\n    </div>\r\n</div>\r\n<code-slider [(show)]=\"showCode\" *ngIf=\"showCode\" [htmlCode]=\"htmlCode\" [fileNames]=\"fileNames\" [jsCode]=\"componentCode\"></code-slider>"
 
 /***/ }),
 
@@ -761,6 +761,10 @@ var ZorroFormComponent = /** @class */ (function () {
         this.service = service;
         // schema
         this.actions = {};
+        this.fileNames = {
+            htmlFileName: '',
+            compFileName: ''
+        };
         this.schemaString = '';
         this.count = 1;
         this.builderInfo = {
@@ -847,7 +851,7 @@ var ZorroFormComponent = /** @class */ (function () {
     };
     ZorroFormComponent.prototype.logErrors = function (errors) {
         console.log('ERRORS', errors);
-        this.log('页面构建失败，请检查再重试', 'error');
+        this.log('build failed，try again', 'error');
     };
     ZorroFormComponent.prototype.log = function (text, type) {
         this.builderInfo.finishTime = Object(_utils_formatTime__WEBPACK_IMPORTED_MODULE_6__["formatTime"])(new Date());
@@ -862,12 +866,13 @@ var ZorroFormComponent = /** @class */ (function () {
     ZorroFormComponent.prototype.onBuilderFinish = function ($event) {
         this.htmlCode = $event.htmlCode;
         this.componentCode = $event.componentCode;
+        this.fileNames = $event.fileNames;
         this.builderInfo._endTime = new Date().getTime();
-        this.log("\u9875\u9762\u6784\u5EFA\u5B8C\u6210\uFF0C" + (this.builderInfo._endTime - this.builderInfo._startTime) + "ms", 'info');
+        this.log("build success\uFF0C" + (this.builderInfo._endTime - this.builderInfo._startTime) + "ms", 'info');
     };
     ZorroFormComponent.prototype.run = function (editor) {
         if (this.hasEditorError()) {
-            this.log('编辑器内容有误', 'error');
+            this.log('json error', 'error');
             return;
         }
         var text = this.editorDirective.editor.getValue();
@@ -881,7 +886,7 @@ var ZorroFormComponent = /** @class */ (function () {
         var flag = codeType === 'ts';
         if (type === 1) {
             if ('download' in document.createElement('a')) {
-                Object(_utils_download__WEBPACK_IMPORTED_MODULE_5__["funDownload"])(flag ? this.componentCode : this.htmlCode, flag ? 'template.ts' : 'template.html');
+                Object(_utils_download__WEBPACK_IMPORTED_MODULE_5__["funDownload"])(flag ? this.componentCode : this.htmlCode, flag ? this.fileNames.compFileName : this.fileNames.htmlFileName);
             }
             else {
                 return this.createMessage('error', '代码下载失败，请使用 Chrome 浏览器');
@@ -1060,7 +1065,7 @@ var StartUpService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" [class.hide]=\"hide\" [class.show]=\"show\">\r\n    <img class=\"collapse\" src=\"./assets/images/close-r.png\" alt=\"折叠\" title=\"折叠\" (click)=\"collapse()\" />\r\n    <h3>Generated Code</h3>\r\n    <nz-tabset>\r\n        <nz-tab nzTitle=\"HTML (template.html)\">\r\n            <pre class=\"code\"><code highlight [code]=\"htmlCode\" [language]=\"['HTML']\" (highlighted)=\"onHighlight($event)\"></code></pre>\r\n        </nz-tab>\r\n        <nz-tab nzTitle=\"TypeScript (template.ts)\" style=\"overflow-y: auto\">\r\n            <pre class=\"code\"><code highlight [code]=\"jsCode\" [language]=\"['TypeScript']\" (highlighted)=\"onHighlight($event)\"></code></pre>\r\n        </nz-tab>\r\n    </nz-tabset>\r\n</div>"
+module.exports = "<div class=\"container\" [class.hide]=\"hide\" [class.show]=\"show\">\r\n    <img class=\"collapse\" src=\"./assets/images/close-r.png\" alt=\"折叠\" title=\"折叠\" (click)=\"collapse()\" />\r\n    <nz-row>\r\n        <nz-col>\r\n            <h3>Generated Code</h3>\r\n        </nz-col>\r\n        <nz-col>\r\n            <div class=\"code-box-actions\">\r\n                <nz-tooltip [nzTitle]=\"'Edit On StackBlitz'\" nzPlacement=\"right\">\r\n                    <i nz-tooltip class=\"anticon anticon-form code-box-code-copy\" style=\"cursor: pointer;\" (click)=\"openOnStackBlitz()\"></i>\r\n                </nz-tooltip>\r\n                <nz-tooltip [nzTitle]=\"'Copy Generate Command'\" *ngIf=\"nzGenerateCommand\" nzPlacement=\"right\">\r\n                    <i nz-tooltip class=\"anticon anticon-code-o code-box-code-copy\" [class.anticon-code-o]=\"!_commandCopied\" [class.anticon-check]=\"_commandCopied\" [class.ant-tooltip-open]=\"_commandCopied\" (click)=\"copyGenerateCommand(nzGenerateCommand)\"></i>\r\n                </nz-tooltip>\r\n            </div>\r\n        </nz-col>\r\n    </nz-row>\r\n    <nz-tabset>\r\n        <nz-tab nzTitle=\"HTML ({{fileNames.htmlFileName}})\">\r\n            <pre class=\"code\"><code highlight [code]=\"htmlCode\" [language]=\"['HTML']\" (highlighted)=\"onHighlight($event)\"></code></pre>\r\n        </nz-tab>\r\n        <nz-tab nzTitle=\"TypeScript ({{fileNames.compFileName}})\" style=\"overflow-y: auto\">\r\n            <pre class=\"code\"><code highlight [code]=\"jsCode\" [language]=\"['TypeScript']\" (highlighted)=\"onHighlight($event)\"></code></pre>\r\n        </nz-tab>\r\n    </nz-tabset>\r\n</div>"
 
 /***/ }),
 
@@ -1071,7 +1076,7 @@ module.exports = "<div class=\"container\" [class.hide]=\"hide\" [class.show]=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@-webkit-keyframes show {\n  0% {\n    right: -1000px; }\n  100% {\n    right: 0px; } }\n\n@keyframes show {\n  0% {\n    right: -1000px; }\n  100% {\n    right: 0px; } }\n\n@-webkit-keyframes hide {\n  0% {\n    right: 0; }\n  100% {\n    right: -1000px; } }\n\n@keyframes hide {\n  0% {\n    right: 0; }\n  100% {\n    right: -1000px; } }\n\n.container {\n  position: fixed;\n  width: 50%;\n  height: 100%;\n  background: #fff;\n  z-index: 1000;\n  border: solid 1px #eee;\n  box-shadow: -3px 0px 3px #e5e4e4; }\n\n.container .collapse {\n    position: absolute;\n    display: inline-block;\n    left: 0;\n    top: 50%;\n    margin-top: -60px;\n    height: 100px;\n    width: 12px;\n    height: 78px;\n    cursor: pointer; }\n\n.container.show {\n    -webkit-animation: show 0.5s ease-in;\n            animation: show 0.5s ease-in;\n    right: 0px; }\n\n.container.hide {\n    -webkit-animation: hide 0.5s ease-out;\n            animation: hide 0.5s ease-out;\n    right: -1000px; }\n\n.container .code {\n    height: 80vh;\n    overflow-y: auto; }\n"
+module.exports = "@-webkit-keyframes show {\n  0% {\n    right: -1000px; }\n  100% {\n    right: 0px; } }\n\n@keyframes show {\n  0% {\n    right: -1000px; }\n  100% {\n    right: 0px; } }\n\n@-webkit-keyframes hide {\n  0% {\n    right: 0; }\n  100% {\n    right: -1000px; } }\n\n@keyframes hide {\n  0% {\n    right: 0; }\n  100% {\n    right: -1000px; } }\n\n.container {\n  position: fixed;\n  width: 50%;\n  height: 100%;\n  background: #fff;\n  z-index: 1000;\n  border: solid 1px #eee;\n  box-shadow: -3px 0px 3px #e5e4e4; }\n\n.container .collapse {\n    position: absolute;\n    display: inline-block;\n    left: 0;\n    top: 50%;\n    margin-top: -60px;\n    height: 100px;\n    width: 12px;\n    height: 78px;\n    cursor: pointer; }\n\n.container.show {\n    -webkit-animation: show 0.5s ease-in;\n            animation: show 0.5s ease-in;\n    right: 0px; }\n\n.container.hide {\n    -webkit-animation: hide 0.5s ease-out;\n            animation: hide 0.5s ease-out;\n    right: -1000px; }\n\n.container .code {\n    height: 80vh;\n    overflow-y: auto; }\n\n.container h3 {\n    display: inline-block; }\n\n.container .code-box-actions {\n    display: inline-block;\n    margin-left: 30px; }\n"
 
 /***/ }),
 
@@ -1086,6 +1091,7 @@ module.exports = "@-webkit-keyframes show {\n  0% {\n    right: -1000px; }\n  10
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CodeSliderComponent", function() { return CodeSliderComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _stackblitz_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @stackblitz/sdk */ "./node_modules/@stackblitz/sdk/bundles/sdk.m.js");
 /**
  * @author: giscafer ,https://github.com/giscafer
  * @date: 2018-07-02 15:15:03
@@ -1101,11 +1107,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var CodeSliderComponent = /** @class */ (function () {
     function CodeSliderComponent() {
         this.hide = false;
         this._show = false;
         this.showChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.fileNames = {
+            selector: "",
+            htmlFileName: "",
+            compClassName: "",
+            compFileName: ""
+        };
         this.htmlCode = " ";
         this.jsCode = " ";
     }
@@ -1138,6 +1151,42 @@ var CodeSliderComponent = /** @class */ (function () {
             value: '{...}'
         };
     };
+    /** bug here https://github.com/stackblitz/core/issues/311 **/
+    CodeSliderComponent.prototype.openOnStackBlitz = function () {
+        _stackblitz_sdk__WEBPACK_IMPORTED_MODULE_1__["default"].openProject({
+            files: (_a = {
+                    'angular.json': "{\n    \"$schema\": \"./node_modules/@angular/cli/lib/config/schema.json\",\n    \"version\": 1,\n    \"newProjectRoot\": \"projects\",\n    \"projects\": {\n      \"demo\": {\n        \"root\": \"\",\n        \"sourceRoot\": \"src\",\n        \"projectType\": \"application\",\n        \"prefix\": \"app\",\n        \"schematics\": {},\n        \"architect\": {\n          \"build\": {\n            \"builder\": \"@angular-devkit/build-angular:browser\",\n            \"options\": {\n              \"outputPath\": \"dist/demo\",\n              \"index\": \"src/index.html\",\n              \"main\": \"src/main.ts\",\n              \"polyfills\": \"src/polyfills.ts\",\n              \"tsConfig\": \"src/tsconfig.app.json\",\n              \"assets\": [\n                \"src/favicon.ico\",\n                \"src/assets\"\n              ],\n              \"styles\": [\n                \"node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css\",\n                \"src/styles.css\"\n              ],\n              \"scripts\": []\n            },\n            \"configurations\": {\n              \"production\": {\n                \"fileReplacements\": [\n                  {\n                    \"replace\": \"src/environments/environment.ts\",\n                    \"with\": \"src/environments/environment.prod.ts\"\n                  }\n                ],\n                \"optimization\": true,\n                \"outputHashing\": \"all\",\n                \"sourceMap\": false,\n                \"extractCss\": true,\n                \"namedChunks\": false,\n                \"aot\": true,\n                \"extractLicenses\": true,\n                \"vendorChunk\": false,\n                \"buildOptimizer\": true\n              }\n            }\n          },\n          \"serve\": {\n            \"builder\": \"@angular-devkit/build-angular:dev-server\",\n            \"options\": {\n              \"browserTarget\": \"demo:build\"\n            },\n            \"configurations\": {\n              \"production\": {\n                \"browserTarget\": \"demo:build:production\"\n              }\n            }\n          },\n          \"extract-i18n\": {\n            \"builder\": \"@angular-devkit/build-angular:extract-i18n\",\n            \"options\": {\n              \"browserTarget\": \"demo:build\"\n            }\n          },\n          \"test\": {\n            \"builder\": \"@angular-devkit/build-angular:karma\",\n            \"options\": {\n              \"main\": \"src/test.ts\",\n              \"polyfills\": \"src/polyfills.ts\",\n              \"tsConfig\": \"src/tsconfig.spec.json\",\n              \"karmaConfig\": \"src/karma.conf.js\",\n              \"styles\": [\n                \"styles.css\"\n              ],\n              \"scripts\": [],\n              \"assets\": [\n                \"src/favicon.ico\",\n                \"src/assets\"\n              ]\n            }\n          },\n          \"lint\": {\n            \"builder\": \"@angular-devkit/build-angular:tslint\",\n            \"options\": {\n              \"tsConfig\": [\n                \"src/tsconfig.app.json\",\n                \"src/tsconfig.spec.json\"\n              ],\n              \"exclude\": [\n                \"**/node_modules/**\"\n              ]\n            }\n          }\n        }\n      },\n      \"demo-e2e\": {\n        \"root\": \"e2e/\",\n        \"projectType\": \"application\",\n        \"architect\": {\n          \"e2e\": {\n            \"builder\": \"@angular-devkit/build-angular:protractor\",\n            \"options\": {\n              \"protractorConfig\": \"e2e/protractor.conf.js\",\n              \"devServerTarget\": \"demo:serve\"\n            }\n          },\n          \"lint\": {\n            \"builder\": \"@angular-devkit/build-angular:tslint\",\n            \"options\": {\n              \"tsConfig\": \"e2e/tsconfig.e2e.json\",\n              \"exclude\": [\n                \"**/node_modules/**\"\n              ]\n            }\n          }\n        }\n      }\n    },\n    \"defaultProject\": \"demo\"\n  }",
+                    'src/index.html': "<" + this.fileNames.selector + ">loading</" + this.fileNames.selector + ">"
+                },
+                _a["src/app/" + this.fileNames.htmlFileName] = this.htmlCode,
+                _a['src/main.ts'] = "import './polyfills';\n  \n  import { enableProdMode } from '@angular/core';\n  import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\n  \n  import { AppModule } from './app/app.module';\n  \n  platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {\n    // Ensure Angular destroys itself on hot reloads.\n    if (window['ngRef']) {\n      window['ngRef'].destroy();\n    }\n    window['ngRef'] = ref;\n  \n    // Otherwise, log the boot error\n  }).catch(err => console.error(err));",
+                _a['src/polyfills.ts'] = "/**\n   * This file includes polyfills needed by Angular and is loaded before the app.\n   * You can add your own extra polyfills to this file.\n   *\n   * This file is divided into 2 sections:\n   *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.\n   *   2. Application imports. Files imported after ZoneJS that should be loaded before your main\n   *      file.\n   *\n   * The current setup is for so-called \"evergreen\" browsers; the last versions of browsers that\n   * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),\n   * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.\n   *\n   * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html\n   */\n  \n  /***************************************************************************************************\n   * BROWSER POLYFILLS\n   */\n  \n  /** IE9, IE10 and IE11 requires all of the following polyfills. **/\n  // import 'core-js/es6/symbol';\n  // import 'core-js/es6/object';\n  // import 'core-js/es6/function';\n  // import 'core-js/es6/parse-int';\n  // import 'core-js/es6/parse-float';\n  // import 'core-js/es6/number';\n  // import 'core-js/es6/math';\n  // import 'core-js/es6/string';\n  // import 'core-js/es6/date';\n  // import 'core-js/es6/array';\n  // import 'core-js/es6/regexp';\n  // import 'core-js/es6/map';\n  // import 'core-js/es6/set';\n  \n  /** IE10 and IE11 requires the following for NgClass support on SVG elements */\n  // import 'classlist.js';  // Run `npm install --save classlist.js`.\n  \n  /** IE10 and IE11 requires the following to support `@angular/animation`. */\n  // import 'web-animations-js';  // Run `npm install --save web-animations-js`.\n  \n  \n  /** Evergreen browsers require these. **/\n  import 'core-js/es6/reflect';\n  import 'core-js/es7/reflect';\n  \n  \n  /** ALL Firefox browsers require the following to support `@angular/animation`. **/\n  // import 'web-animations-js';  // Run `npm install --save web-animations-js`.\n  \n  \n  \n  /***************************************************************************************************\n   * Zone JS is required by Angular itself.\n   */\n  import 'zone.js/dist/zone';  // Included with Angular CLI.\n  \n  \n  /***************************************************************************************************\n   * APPLICATION IMPORTS\n   */\n  \n  /**\n   * Date, currency, decimal and percent pipes.\n   * Needed for: All but Chrome, Firefox, Edge, IE11 and Safari 10\n   */\n  // import 'intl';  // Run `npm install --save intl`.",
+                _a['src/app/app.component.ts'] = this.jsCode,
+                _a['src/app/app.module.ts'] = "import { NgModule } from '@angular/core';\n  import { BrowserModule } from '@angular/platform-browser';\n  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n  import { FormsModule, ReactiveFormsModule } from '@angular/forms';\n  import { HttpClientModule } from '@angular/common/http';\n  import { NgZorroAntdModule } from 'ng-zorro-antd';\n  \n  import { " + this.fileNames.compClassName + " } from './app.component';\n  \n  import { NZ_I18N, en_US } from 'ng-zorro-antd';\n  import { registerLocaleData } from '@angular/common';\n  import en from '@angular/common/locales/en';\n  registerLocaleData(en);\n  \n  @NgModule({\n    imports:      [ BrowserModule, FormsModule, HttpClientModule, ReactiveFormsModule, NgZorroAntdModule, BrowserAnimationsModule ],\n    declarations: [ " + this.fileNames.compClassName + " ],\n    bootstrap:    [ " + this.fileNames.compClassName + " ],\n    providers   : [ { provide: NZ_I18N, useValue: en_US } ]\n  })\n  export class AppModule { }\n  ",
+                _a['src/styles.css'] = "/* Add application styles & imports to this file! */;",
+                _a),
+            title: 'Dynamically Generated Project',
+            description: 'Created with <3 by the StackBlitz SDK!',
+            template: 'angular-cli',
+            dependencies: {
+                'rxjs': '^6.0.0',
+                '@angular/cdk': '^6.0.0',
+                '@angular/core': '^6.0.0',
+                '@angular/forms': '^6.0.0',
+                '@angular/http': '^6.0.0',
+                '@angular/language-service': '^6.0.0',
+                '@angular/platform-browser': '^6.0.0',
+                '@angular/platform-browser-dynamic': '^6.0.0',
+                '@angular/common': '^6.0.0',
+                '@angular/router': '^6.0.0',
+                '@angular/animations': '^6.0.0',
+                'date-fns': '^1.29.0',
+                'ng-zorro-antd': '^1.1.1'
+            },
+            tags: ['stackblitz', 'sdk']
+        });
+        var _a;
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
@@ -1147,6 +1196,10 @@ var CodeSliderComponent = /** @class */ (function () {
         __metadata("design:type", Boolean),
         __metadata("design:paramtypes", [Boolean])
     ], CodeSliderComponent.prototype, "show", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], CodeSliderComponent.prototype, "fileNames", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
@@ -1431,19 +1484,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFormCode", function() { return getFormCode; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTableCode", function() { return getTableCode; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCompCode", function() { return getCompCode; });
-/*  */
-function getFormCode(template) {
+/* harmony import */ var _utils_firstUpperCase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/firstUpperCase */ "./src/lib/utils/firstUpperCase.ts");
+/* without node.js */
+
+function getFormCode(opts) {
+    var fileNames = generateFileName(opts.fileName);
     return {
-        htmlCode: template, componentCode: getCompCode("", "", "")
+        fileNames: fileNames,
+        htmlCode: opts.template,
+        componentCode: getCompCode(fileNames, opts.modelName + ":any = {};", "", "")
     };
 }
-function getTableCode(template) {
+function getTableCode(opts) {
+    var fileNames = generateFileName(opts.fileName);
     return {
-        htmlCode: template, componentCode: getCompCode("\n            // table variable\n            allChecked = false;\n            indeterminate = false;\n            displayData = [];\n\n            _columns = [];\n            columns = [];\n            data = [];\n            ", "this.initCloumn();", "\n        // table methods\n        initCloumn() {\n            for (let i = 0; i < this.columns.length; i++) {\n                let arr = this.columns[i].split('-');\n                this._columns[i] = {};\n                Object.assign(this._columns[i],\n                    {\n                        header: arr[0],\n                        field: arr[1],\n                        width: arr[2]\n                    });\n            }\n        }\n\n        currentPageDataChange($event: Array<{ name: string; age: number; address: string; checked: boolean; disabled: boolean; }>): void {\n            this.displayData = $event;\n            this.refreshStatus();\n        }\n\n        refreshStatus(): void {\n            const allChecked = this.displayData.filter(value => !value.disabled).every(value => value.checked === true);\n            const allUnChecked = this.displayData.filter(value => !value.disabled).every(value => !value.checked);\n            this.allChecked = allChecked;\n            this.indeterminate = (!allChecked) && (!allUnChecked);\n        }\n\n        checkAll(value: boolean): void {\n            this.displayData.forEach(data => {\n                if (!data.disabled) {\n                    data.checked = value;\n                }\n            });\n            this.refreshStatus();\n        }")
+        fileNames: fileNames,
+        htmlCode: opts.template,
+        componentCode: getCompCode(fileNames, "\n            " + opts.modelName + ":any = {};\n            // table variable\n            allChecked = false;\n            indeterminate = false;\n            displayData = [];\n\n            _columns = [];\n            columns = " + JSON.stringify(opts.columns, null, 4) + ";\n            data = " + JSON.stringify(opts.data, null, 4) + ";\n            ", "this.initCloumn();", "\n        // table methods\n        initCloumn() {\n            for (let i = 0; i < this.columns.length; i++) {\n                let arr = this.columns[i].split('-');\n                this._columns[i] = {};\n                Object.assign(this._columns[i],\n                    {\n                        header: arr[0],\n                        field: arr[1],\n                        width: arr[2]\n                    });\n            }\n        }\n\n        currentPageDataChange($event: Array<{ name: string; age: number; address: string; checked: boolean; disabled: boolean; }>): void {\n            this.displayData = $event;\n            this.refreshStatus();\n        }\n\n        refreshStatus(): void {\n            const allChecked = this.displayData.filter(value => !value.disabled).every(value => value.checked === true);\n            const allUnChecked = this.displayData.filter(value => !value.disabled).every(value => !value.checked);\n            this.allChecked = allChecked;\n            this.indeterminate = (!allChecked) && (!allUnChecked);\n        }\n\n        checkAll(value: boolean): void {\n            this.displayData.forEach(data => {\n                if (!data.disabled) {\n                    data.checked = value;\n                }\n            });\n            this.refreshStatus();\n        }")
     };
 }
-function getCompCode(variableSnippet, OnInitSnippet, methodSnippet) {
-    return "\n    import { Component, OnInit,  DoCheck, OnDestroy } from '@angular/core';\n    \n    @Component({ template:'./template.html' })\n    export class TemplateComponent implements OnInit, DoCheck, OnDestroy {\n        formProperty: any;\n        interval: any;\n        _differ: any;\n        action: Function;\n        buttons = [];\n        " + variableSnippet + "\n        constructor(\n           \n        ) {\n\n        }\n\n        ngOnInit(): void {\n            " + OnInitSnippet + "\n        }\n\n        " + methodSnippet + "\n        \n        ngOnDestroy() {\n            if (this.interval) {\n                clearInterval(this.interval);\n                this.interval = null;\n            }\n        }\n\n    }\n\n    ";
+function getCompCode(names, variableSnippet, OnInitSnippet, methodSnippet) {
+    var rawCode = "\n    import { Component, OnInit } from '@angular/core';\n    \n    @Component({ \n        selector: 'app-template',\n        templateUrl: './template.html'\n     })\n    export class TemplateComponent implements OnInit {\n     \n        " + variableSnippet + "\n        constructor(\n           \n        ) {\n\n        }\n\n        ngOnInit(): void {\n            " + OnInitSnippet + "\n        }\n\n        " + methodSnippet + "\n\n    }\n\n    ";
+    return rawCode.replace(/app-template/, names.selector).replace(/template.html/, names.htmlFileName).replace(/TemplateComponent/, names.compClassName);
+}
+function generateFileName(fileName) {
+    if (fileName === void 0) { fileName = 'template'; }
+    var htmlFileName = fileName + '.component.html';
+    var compFileName = fileName + '.component.ts';
+    var compClassName = Object(_utils_firstUpperCase__WEBPACK_IMPORTED_MODULE_0__["firstUpperCase"])(fileName) + 'Component';
+    return {
+        selector: 'app-' + fileName.toLowerCase(),
+        htmlFileName: htmlFileName,
+        compFileName: compFileName,
+        compClassName: compClassName
+    };
 }
 
 
@@ -1473,17 +1547,18 @@ function ZorroTmplBuilder(registry, formProperty) {
     var col_gutter = grid.col_gutter || 0;
     // let span = col_num ? 24 / col_num : 0;
     if (fieldsets && fieldsets.length) {
-        templ = "<form nz-form " + (layout ? "[nzLayout]=\"'" + layout + "'\"" : '') + " " + (style ? "style=\"" + style + "\"" : '') + ">";
+        templ = "\n        <form nz-form" + (layout ? " [nzLayout]=\"'" + layout + "'\"" : '') + (style ? " style=\"" + style + "\"" : '') + ">\n        ";
         for (var _i = 0, fieldsets_1 = fieldsets; _i < fieldsets_1.length; _i++) {
             var fieldset = fieldsets_1[_i];
             templ += fieldset.title ? ('<legend style="margin-top:20px;">' + fieldset.title + '</legend>') : '';
-            templ += "<div nz-row [nzGutter]=\"" + col_gutter + "\">";
+            templ +=
+                "<div nz-row [nzGutter]=\"" + col_gutter + "\">";
             for (var _a = 0, _b = fieldset.fields; _a < _b.length; _a++) {
                 var fieldId = _b[_a];
                 var property = formProperty.getProperty(fieldId);
                 var widgetInfo = property.schema.widget;
                 var WidgetClass = registry.getWidgetType(widgetInfo.id || widgetInfo);
-                templ += "<div nz-col " + gridLayout(grid) + ">";
+                templ += "\n            <div nz-col " + gridLayout(grid) + ">";
                 if (widgetInfo.id === 'array') {
                     // TODO array widget not support yet
                     templ += new WidgetClass(formProperty, registry).getTemplate(property.schema);
@@ -1493,7 +1568,7 @@ function ZorroTmplBuilder(registry, formProperty) {
                 }
                 templ += '</div>';
             }
-            templ += '</div>';
+            templ += "\n        </div>";
         }
     }
     if (formProperty.schema.button !== undefined) {
@@ -1503,10 +1578,10 @@ function ZorroTmplBuilder(registry, formProperty) {
         for (var _c = 0, _d = button.items; _c < _d.length; _c++) {
             var btn = _d[_c];
             btnWidget = new WidgetClass();
-            btnHtml += btnWidget.getTemplate(formProperty.schema, btn);
+            btnHtml += btnWidget.getTemplate(formProperty.schema, btn) + '\n\t\t';
         }
         var listOfClassName = btnWidget.getLayoutClass({ grid: btnGrid, _prefixCls: 'ant-col' });
-        templ += "\n        <nz-form-item nz-row>\n            <nz-form-control  [nzOffset]=\"7\" [nzSpan]=\"12\" class=\"" + listOfClassName.join(' ') + "\">\n                " + btnHtml + "\n            </nz-form-control>\n        </nz-form-item>\n        ";
+        templ += "\n            <nz-form-item nz-row>\n                <nz-form-control  [nzOffset]=\"7\" [nzSpan]=\"12\" class=\"" + listOfClassName.join(' ') + "\">\n                    " + btnHtml + "\n                </nz-form-control>\n            </nz-form-item>\n        ";
     }
     templ += '</form>';
     templ += buildTable(formProperty, registry);
@@ -1514,7 +1589,7 @@ function ZorroTmplBuilder(registry, formProperty) {
 }
 function gridLayout(grid) {
     var _a = grid.sm, sm = _a === void 0 ? {} : _a, _b = grid.xs, xs = _b === void 0 ? {} : _b, _c = grid.md, md = _c === void 0 ? {} : _c, _d = grid.lg, lg = _d === void 0 ? {} : _d, _e = grid.xl, xl = _e === void 0 ? {} : _e, _f = grid.xxl, xxl = _f === void 0 ? {} : _f;
-    var result = (xs.span ? "nzXS=\"" + xs.span + "\"" : '') + " " + (sm.span ? "nzSm=\"" + sm.span + "\"" : '') + " " + (md.span ? "nzMd=\"" + md.span + "\"" : '') + " " + (lg.span ? "nzLg=\"" + lg.span + "\"" : '') + " " + (xl.span ? "nzXl=\"" + xl.span + "\"" : '') + " " + (xxl.span ? "nzXXl=\"" + xxl.span + "\"" : '');
+    var result = "" + (xs.span ? "nzXS=\"" + xs.span + "\"" : '') + (sm.span ? " nzSm=\"" + sm.span + "\"" : '') + (md.span ? " nzMd=\"" + md.span + "\"" : '') + (lg.span ? " nzLg=\"" + lg.span + "\"" : '') + (xl.span ? " nzXl=\"" + xl.span + "\"" : '') + (xxl.span ? " nzXXl=\"" + xxl.span + "\"" : '');
     return result;
 }
 function buildTable(formProperty, registry) {
@@ -2013,6 +2088,7 @@ var ZorroFormBuilderComponent = /** @class */ (function () {
         // let widgetTemplate = this.registry.getWidgetType(widgetInfo.id);
         var template = widgetTemplate;
         var schema = this.rootProperty.schema;
+        var fileName = schema.fileName || 'template';
         var properties = (_a = {
                 "formProperty": this.rootProperty,
                 "control": this.control,
@@ -2022,9 +2098,18 @@ var ZorroFormBuilderComponent = /** @class */ (function () {
             },
             _a[schema.modelName || 'model'] = this.rootProperty.value || {},
             _a);
-        properties[properties['modelName']]['checkOptions'] = schema.checkOptions || {}; //nz-checkbox-group
+        properties[properties['modelName']]['checkOptions'] = schema.checkOptions || {}; // nz-checkbox-group
+        var opts = {
+            fileName: fileName,
+            template: template,
+            modelName: properties.modelName
+        };
         if (schema.table) {
             Object.assign(properties, {
+                "columns": schema.table.columns,
+                "data": schema.table.data
+            });
+            Object.assign(opts, {
                 "columns": schema.table.columns,
                 "data": schema.table.data
             });
@@ -2036,7 +2121,7 @@ var ZorroFormBuilderComponent = /** @class */ (function () {
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
         this.cdr.detectChanges();
-        this.onBuilderFinish.emit(schema.table ? Object(_builder_template_zorro_component_template__WEBPACK_IMPORTED_MODULE_2__["getTableCode"])(template) : Object(_builder_template_zorro_component_template__WEBPACK_IMPORTED_MODULE_2__["getFormCode"])(template));
+        this.onBuilderFinish.emit(schema.table ? Object(_builder_template_zorro_component_template__WEBPACK_IMPORTED_MODULE_2__["getTableCode"])(opts) : Object(_builder_template_zorro_component_template__WEBPACK_IMPORTED_MODULE_2__["getFormCode"])(opts));
         var _a;
     };
     ZorroFormBuilderComponent.counter = 0;
@@ -4860,6 +4945,25 @@ function generateClass(widget) {
 
 /***/ }),
 
+/***/ "./src/lib/utils/firstUpperCase.ts":
+/*!*****************************************!*\
+  !*** ./src/lib/utils/firstUpperCase.ts ***!
+  \*****************************************/
+/*! exports provided: firstUpperCase */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "firstUpperCase", function() { return firstUpperCase; });
+function firstUpperCase(v) {
+    return v.toLowerCase().replace(/\b[a-z]/g, function (s) {
+        return s.toUpperCase();
+    });
+}
+
+
+/***/ }),
+
 /***/ "./src/lib/widget-factory.ts":
 /*!***********************************!*\
   !*** ./src/lib/widget-factory.ts ***!
@@ -6749,7 +6853,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! H:\GitHub\ng-form-builder\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! e:\1zitonFE\ngx-form-builder\src\main.ts */"./src/main.ts");
 
 
 /***/ })

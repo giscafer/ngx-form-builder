@@ -1,20 +1,20 @@
 # ngx-form-builder
 
-Angular form generation,dynamic template support primeng/zorro/bootstrap UI，support for ng6.x
+Angular Form generation base on ng6.x,dynamic template support ng-zorro-antd/BootStrap UI
 
 Online Demo: http://form.giscafer.com
 
 ## TODO List
 
-- [x] Form generation based on JSON schema
-- [x] Support download & copy the generated code
-- [x] Support ngModel auto-binding
-- [x] Support `BootStrap` template
-- [x] Support `ng-zorro-antd` template 
-- [ ] Support `PrimeNG` template
+- [x] Form generation based on JSON schema `v0.1.0`
+- [x] Support download & copy the generated code `v0.1.0`
+- [x] Support ngModel auto-binding `v0.1.0`
+- [x] Support `BootStrap` template `v0.1.0`
+- [x] Support `ng-zorro-antd` template  `v0.1.0`
+- [x] Support `ng-zorro-antd` template code edit on StackBlitz `v0.1.3`
 - [ ] Support `Java vo` —> `json schema` —> generate-> `ng template` 
 - [ ] Support DND (drag and drop)
-- [ ] Support form validator
+- [ ] Support Form Validator
 
 
 ## Usage
@@ -33,7 +33,6 @@ __the project is under developing__
 
 - [angular2-schema-form](https://github.com/makinacorpus/angular2-schema-form) `ngx-form-builder` base on angular2-schema-form
 - [formBuilder](https://github.com/kevinchappell/formBuilder)
-- [primeng](https://github.com/primefaces/primeng)
 - [ng-zorro-antd](https://github.com/NG-ZORRO/ng-zorro-antd)
 
 ## Issues
