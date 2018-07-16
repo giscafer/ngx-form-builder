@@ -11,6 +11,7 @@ import { RadioWidget } from "./radio/radio.widget";
 import { TextAreaWidget } from "./textarea/textarea.widget";
 import { SelectWidget } from "./select/select.widget";
 import { TableWidget } from "./table/table.widget";
+import { TreeSelectWidget } from "./tree-select/tree-select.widget";
 
 export class ZorroDefaultWidgetRegistry extends WidgetRegistry {
   constructor() {
@@ -28,6 +29,7 @@ export class ZorroDefaultWidgetRegistry extends WidgetRegistry {
     this.register('array', ArrayWidget);
     this.register('select', SelectWidget);
     this.register('table', TableWidget);
+    this.register('tree-select', TreeSelectWidget);
 
     //   this.register('search', StringWidget);
     //   this.register('tel', StringWidget);

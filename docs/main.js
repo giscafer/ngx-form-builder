@@ -84,7 +84,7 @@ module.exports = "---\r\nwidget: radio\r\ntitle: 单选框\r\ninherit: true\r\n-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "---\nwidget: select\ntitle: 选择器\ninherit: true\n---\n\n选择器小部件，一般用于选择操作。`\"widget\":\"select\"`\n\n\n## Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\ntype | 等同 input 的 `type` 值，如果用密码框则`\"widget\":\"password\"`  | `string` | -\nplaceholder | 在文字框中显示提示信息  | `string` | -\nmaxLength | 表单最大长度  | `number` | -\nminLength | 表单最小长度  | `number` | -\nreadOnly | 是否只读状态  | `boolean` | -\n\n## Demo\n\n**配置举例**\n\n```json\n {\n       \"categories\": {\n        \"type\": \"string\",\n        \"widget\": \"select\",\n        \"title\": \"Categories\",\n        \"items\": {\n            \"type\": \"string\",\n            \"oneOf\": [\n                {\n                    \"description\": \"Dog\",\n                    \"enum\": [\n                        \"dog\"\n                    ]\n                },\n                {\n                    \"description\": \"Cat\",\n                    \"enum\": [\n                        \"cat\"\n                    ]\n                },\n                {\n                    \"description\": \"Daulphin\",\n                    \"enum\": [\n                        \"daulphin\"\n                    ]\n                }\n            ]\n        },\n        \"widget\": \"checkbox\"\n    }\n }\n```\n"
+module.exports = "---\nwidget: select\ntitle: 选择器\ninherit: true\n---\n\n选择器小部件，一般用于选择操作。`\"widget\":\"select\"`\n\n\n## Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\nplaceholder | 在文字框中显示提示信息  | `string` | -\nitems | 选项数据对象（见demo）  | `object` | -\nreadOnly | 是否只读状态  | `boolean` | -\ndescription | 描述文字 | `string` | - \n\n## Demo\n\n**配置举例**\n\n```json\n {\n       \"categories\": {\n        \"type\": \"string\",\n        \"widget\": \"select\",\n        \"title\": \"Categories\",\n        \"items\": {\n            \"type\": \"string\",\n            \"oneOf\": [\n                {\n                    \"description\": \"Dog\",\n                    \"enum\": [\n                        \"dog\"\n                    ]\n                },\n                {\n                    \"description\": \"Cat\",\n                    \"enum\": [\n                        \"cat\"\n                    ]\n                },\n                {\n                    \"description\": \"Daulphin\",\n                    \"enum\": [\n                        \"daulphin\"\n                    ]\n                }\n            ]\n        }\n    }\n }\n```\n"
 
 /***/ }),
 
@@ -129,6 +129,17 @@ module.exports = "---\nwidget: textarea\ntitle: 多行文本框\ninherit: true\n
 /***/ (function(module, exports) {
 
 module.exports = "---\nwidget: time\ntitle: 时间选择器\ninherit: true\n---\n\n一般用于时间选择。`\"widget\":\"time\"`\n\n## Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\ntype | 值类型  | `string` | - \nplaceholder | 在文字框中显示提示讯息  | `string` | -\nreadOnly | 是否禁用选择状态  | `boolean` | -\nwidget | 组件  | `time` | - \nformat | 日期格式  | `string` | \"HH:mm:ss\"、\"HH:mm\"、\"mm:ss\" |\n\n \n## Demo\n\n**配置举例**\n\n```json\n\n{\n\t\"datetime\": {\n\t\t\"type\": \"string\",\n\t\t\"widget\": \"time\",\n\t\t\"title\": \"时间选择\",\n\t\t\"placeholder\": \"请选择\"\n    }\n}\n```\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/tree-select/index.md":
+/*!******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/tree-select/index.md ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\nwidget: tree-select\ntitle: 树形选择器\ninherit: true\n---\n\n树型选择控件。`\"widget\":\"tree-select\" (暂不支持数据渲染)` \n\n\n## Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\ntype | `\"widget\":\"tree-select\"`  | `string` | -\nplaceholder | 在文字框中显示提示信息  | `string` | -\nreadOnly | 是否只读状态  | `boolean` | -\ndescription | 描述文字 | `string` | - \n\n## Demo\n\n**配置举例**\n\n```json\n {\n       \"categories\": {\n        \"type\": \"string\",\n        \"widget\": \"tree-select\",\n        \"title\": \"Categories\"\n    }\n }\n```\n"
 
 /***/ }),
 
@@ -482,6 +493,11 @@ var DATA = {
             id: 'select',
             title: '选择器',
             content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/select/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/select/index.md"))
+        },
+        {
+            id: 'tree-select',
+            title: '树形选择器',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/tree-select/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/tree-select/index.md"))
         }, {
             id: 'table',
             title: '表格',
@@ -6481,6 +6497,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _textarea_textarea_widget__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./textarea/textarea.widget */ "./src/lib/widgets/zorro/textarea/textarea.widget.ts");
 /* harmony import */ var _select_select_widget__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./select/select.widget */ "./src/lib/widgets/zorro/select/select.widget.ts");
 /* harmony import */ var _table_table_widget__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./table/table.widget */ "./src/lib/widgets/zorro/table/table.widget.ts");
+/* harmony import */ var _tree_select_tree_select_widget__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./tree-select/tree-select.widget */ "./src/lib/widgets/zorro/tree-select/tree-select.widget.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -6491,6 +6508,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+
 
 
 
@@ -6520,6 +6538,7 @@ var ZorroDefaultWidgetRegistry = /** @class */ (function (_super) {
         _this.register('array', _array_array_widget__WEBPACK_IMPORTED_MODULE_8__["ArrayWidget"]);
         _this.register('select', _select_select_widget__WEBPACK_IMPORTED_MODULE_11__["SelectWidget"]);
         _this.register('table', _table_table_widget__WEBPACK_IMPORTED_MODULE_12__["TableWidget"]);
+        _this.register('tree-select', _tree_select_tree_select_widget__WEBPACK_IMPORTED_MODULE_13__["TreeSelectWidget"]);
         //   this.register('search', StringWidget);
         //   this.register('tel', StringWidget);
         //   this.register('url', StringWidget);
@@ -6870,6 +6889,53 @@ var TimeWidget = /** @class */ (function (_super) {
         return templ;
     };
     return TimeWidget;
+}(_widget__WEBPACK_IMPORTED_MODULE_0__["ControlWidget"]));
+
+
+
+/***/ }),
+
+/***/ "./src/lib/widgets/zorro/tree-select/tree-select.widget.ts":
+/*!*****************************************************************!*\
+  !*** ./src/lib/widgets/zorro/tree-select/tree-select.widget.ts ***!
+  \*****************************************************************/
+/*! exports provided: TreeSelectWidget */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TreeSelectWidget", function() { return TreeSelectWidget; });
+/* harmony import */ var _widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../widget */ "./src/lib/widget.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var TreeSelectWidget = /** @class */ (function (_super) {
+    __extends(TreeSelectWidget, _super);
+    function TreeSelectWidget() {
+        return _super.call(this) || this;
+    }
+    TreeSelectWidget.prototype.getTemplate = function (schema) {
+        var listOfClassName = this.getLayoutClass(schema);
+        var templ = "\n        <nz-form-item>\n            <nz-form-label for=\"" + schema.formId + "\" [nzSpan]=\"" + schema.span_label + "\" " + (schema.require ? "nzRequired" : '') + ">\n                <span> " + (schema.title || '') + " " + (schema.description ? "<nz-tooltip [nzTitle]=\"'" + schema.description + "'\"> <i nz-tooltip class=\"anticon anticon-question-circle-o\"></i> </nz-tooltip>" : '') + "</span>\n            </nz-form-label>\n            <nz-form-control \n                " + (schema.span_control ? "[nzSpan]=\"" + schema.span_control + "\"" : "") + "\n                " + (schema.offset_control ? "[nzOffset]=\"" + schema.offset_control + "\"" : "") + ">\n                <nz-tree-select nzShowSearch nzAllowClear\n                [nzNodes]=\"[]\"\n                [(ngModel)]=\"" + schema.modelName + "." + schema.name + "\"\n                id=\"" + schema.formId + "\"\n                name=\"" + schema.name + "\"\n                " + (schema.readOnly ? "[nzDisabled]=\"true\"" : "") + "\n                nzPlaceHolder=\"" + (schema.placeholder ? schema.placeholder : ' ') + "\">\n                </nz-tree-select>\n            </nz-form-control>\n        </nz-form-item>\n        ";
+        return templ;
+    };
+    TreeSelectWidget.prototype.iterateOptions = function (schema) {
+        var htmlStr = '', options = (schema.items && schema.items.oneOf) || schema.oneOf;
+        for (var _i = 0, options_1 = options; _i < options_1.length; _i++) {
+            var option = options_1[_i];
+            htmlStr += "<nz-option nzValue=\"" + option.enum[0] + "\" nzLabel=\"" + option.description + "\"></nz-option>\n            ";
+        }
+        return htmlStr;
+    };
+    return TreeSelectWidget;
 }(_widget__WEBPACK_IMPORTED_MODULE_0__["ControlWidget"]));
 
 

@@ -62,6 +62,11 @@ export const DATA = {
             id: 'select',
             title: '选择器',
             content: getMd(require('!!raw-loader!../../lib/widgets/zorro/select/index.md'))
+        }, 
+        {
+            id: 'tree-select',
+            title: '树形选择器',
+            content: getMd(require('!!raw-loader!../../lib/widgets/zorro/tree-select/index.md'))
         }, {
             id: 'table',
             title: '表格',
