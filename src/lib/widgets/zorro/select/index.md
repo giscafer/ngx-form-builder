@@ -4,7 +4,7 @@ title: 选择器
 inherit: true
 ---
 
-选择器小部件，一般用于选择操作。
+选择器小部件，一般用于选择操作。`"widget":"select"`
 
 
 ## Schema

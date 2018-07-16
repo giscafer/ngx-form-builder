@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 // third part libs
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { NgxMdModule } from 'ngx-md';
 import { DndModule } from '../lib/dnd/dnd.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,7 +33,8 @@ import { StartUpService } from './services/startup.service';
     AppRoutingModule,
     NgZorroAntdModule.forRoot(),
     DndModule.forRoot(),
-    LayoutModule
+    LayoutModule,
+    NgxMdModule.forRoot(),
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }, StartUpService],
   bootstrap: [AppComponent]

@@ -1,5 +1,137 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/document/guide/getting-started.md":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/document/guide/getting-started.md ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\norder: 1\ntitle: 开始使用\ntype: Basic\n---\n\n[ngx-form-builder](https://github.com/giscafer/ngx-form-builder) 是一个基于 [JSON Schema](http://json-schema.org/) 标准的动态构建表单。支持 `[ng-zorro-antd](https://ng.ant.design/)` 和 `BootStrap` 两种样式。\n\n## 特性\n\n- 符合 `JSON Schema` 标准\n- 支持 `ng-zorro-antd` 基础组件库\n- 支持 `BootStrap` 样式\n- 支持模板代码在线编辑和复制下载\n- ……\n\n## 如何使用？\n\n**步骤简单**\n\n* 编辑 JSON Schema，点击运行即可（schema 属性特点和小部件特点请详细阅读文档 ）\n* 复制或者下载代码放到工程（支持 StackBlitz 在线编辑模板代码）\n\n\n## License\n\nMIT by [@giscafer](https://github.com/giscafer)\n\n\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/document/guide/schema.md":
+/*!********************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/document/guide/schema.md ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\norder: 5\ntitle: Schema\ntype: Basic\n---\n\n## 常规Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\ndebug | 会在控制台打印相关校验过程 | `boolean` | -\ntype | 数据类型，支持 JavaScript 基础类型 | `number,string,boolean,object,array` | `object`\nstyle | 自定义样式，等同 `[ngStyle]` 值  | `object` | -\ngrid | 响应式属性  | `SFGrid` | -\nmodelName | 双向数据绑定值的model对象名称 | `string` | `testModel`\nfileName | 自定义模板文件名称 | `string` | `template`\n\n<br>\n\n**type注意事项**\n\n- JSON 中 `date` 等同 `string` 类型\n- 指定 `format` 标准参数可以自动适配渲染小部件\n- 指定 `widget` 参数强制渲染小部件\n<br>\n\n## 渲染Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\nwidget | 指定采用什么小部件渲染数据  | `string,WidgetData` | -\ntitle | 表单标题，等同 `label`  | `string` | -\ndescription | 表单描述  | `string` | -\nshowDescription | 是否展示 `description`  | `boolean` | `false`\ndefault | 默认值  | `any` | -\nsize | 控件大小  | `large,default,small` | `large`\ndisabled | 是否禁用状态  | `boolean` | -\n\n\n## 小部件Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\nid | 小部件名称  | `string` | -\nplaceholder | 文字框中显示提示信息  | `string` | -\nextra | 用于显示表单额外提示信息  | `string` | -\n\n> 每一个小部件会有相应UI参数，请参考相应小部件文档。\n\n## 响应式Schema\n\n`grid` 属性等同完整的 [Grid栅格系统](http://ng.ant.design/components/grid/zh)，透过 `grid` 可以决定表单如何渲染。\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\nmode |  垂直、水平、和内嵌模式:`vertical` `horizontal` `inline`  | `vertical` | -\noffset | 栅格左侧的间隔格数，间隔内不可以有栅格  | `number` | -\ngutter | 栅格间隔  | `number` | -\nspan | 每个表单元素栅格占位格数，为 `0` 时相当于 `display: none`  | `number` | -\nxs | `<576px` 响应式栅格，可为栅格数或一个包含其他属性的对象  | `number, Object` | -\nsm | `≥576px` 响应式栅格，可为栅格数或一个包含其他属性的对象  | `number, Object` | -\nmd | `≥768px` 响应式栅格，可为栅格数或一个包含其他属性的对象  | `number, Object` | -\nlg | `≥992px` 响应式栅格，可为栅格数或一个包含其他属性的对象  | `number, Object` | -\nxl | `1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象  | `number, Object` | -\nxxl |  `≥1600px`响应式栅格，可为栅格数或一个包含其他属性的对象 | `number, Object` | -\n\n## 水平布局Schema\n\n> 务必二者总和为 `24`\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\nspan_label | `label` 所占栅格数  | `number` | 5\nspan_control | 表单控件所占栅格数  | `number` | 19\noffset_control | `control` 栅格左侧的间隔格数，间隔内不可以有栅格  | `number` | -\nspan_label_fixed | `label` 固定宽度  | `number` | -\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/button/index.md":
+/*!*************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/button/index.md ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\nwidget: button\ntitle: 按钮\n---\n\n按钮用于提交或重置操作。\n\n## `button` Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\nitems | 按钮组  | `any[]` | -\n\n### `items` 参数\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\nid | 编号  | `string` | -\nlabel | 按钮文本  | `string` | -\nsubmit | 是否提交按钮，`true` 时校验结果 `invalid` 时为禁止状态且类型为 `primary`  | `boolean` | -\ntype | 按钮类型  | `primary,default,dashed,danger` | -\n\n## Demo\n\n**基础**\n\n```ts\n\"button\": {\n    \"grid\": {\n        \"md\": {\n            \"offset\": 20,\n            \"span\": 4\n        }\n    },\n    \"items\": [{\n            \"label\": \"查询\",\n            \"id\": \"query\",\n            \"type\": \"primary\",\n            \"submit\": true\n        },\n        {\n            \"label\": \"清空\",\n            \"id\": \"reset\"\n        }\n    ]\n}\n```\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/checkbox/index.md":
+/*!***************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/checkbox/index.md ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\r\nwidget: checkbox\r\ntitle: 多选框\r\ninherit: true\r\n---\r\n\r\n\r\n## Schema\r\n\r\n参数 | 说明 | 类型 | 默认值\r\n----|------|-----|------\r\ntype | 值类型，如果`type:\"array\"`则使用`nz-checkbox-group`渲染 | `boolean` | - \r\nreadOnly | 是否为禁用状态  | `boolean` | -\r\nwidget | 组件  | `checkbox` | - \r\ndescription | 描述文字 | `string` | - \r\ndefault | 默认值 | `boolean` | - \r\n\r\n \r\n## Demo\r\n\r\n**配置举例**，`categories`配置为`nz-checkbox-group`渲染\r\n\r\n```json\r\n\r\n{\r\n\t\"checked\": {\r\n        \"type\": \"boolean\",\r\n        \"widget\": \"checkbox\",\r\n\t\t\"description\": \"I agree to the Terms of Service and the Privacy Policy?\"\r\n\t},\r\n\t\"checked1\": {\r\n        \"type\": \"boolean\",\r\n        \"widget\": \"checkbox\",\r\n\t\t\"readOnly\": true,\r\n\t\t\"description\": \"不可选 - Disabled.\"\r\n    },\r\n    \"categories\": {\r\n        \"type\": \"array\",\r\n        \"title\": \"Categories\",\r\n        \"items\": {\r\n            \"type\": \"string\",\r\n            \"oneOf\": [\r\n                {\r\n                    \"description\": \"Dog\",\r\n                    \"enum\": [\r\n                        \"dog\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"Cat\",\r\n                    \"enum\": [\r\n                        \"cat\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"description\": \"Daulphin\",\r\n                    \"enum\": [\r\n                        \"daulphin\"\r\n                    ]\r\n                }\r\n            ]\r\n        },\r\n        \"widget\": \"checkbox\"\r\n    }\r\n}\r\n\r\n```\r\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/date-range/index.md":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/date-range/index.md ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\nwidget: date-range\ntitle: 日期选择器\ninherit: true\n---\n\n默认小部件，一般用于日期选择。`\"widget\":\"date-range\"`\n\n## Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\ntype | 值类型  | `string` | - \nstart | 开始placeholder  | `string` | -\nend | 结束placeholder  | `string` | -\nreadOnly | 是否为禁用状态  | `boolean` | -\nwidget | 组件  | `date-range` | - \nformat | 日期格式  | `string` | \"YYYY-MM-DD\" | \nshowTime | 是否显示时间选择器 | `boolean` | `false`\n\n \n## Demo\n\n**配置举例**\n\n```json\n\n{\n\t\"daterange\": {\n\t\t\"type\": \"string\",\n\t\t\"widget\": \"date-range\",\n\t\t\"title\": \"日期段\",\n\t\t\"start\": \"Select start date\",\n\t\t\"end\": \"Select end date\"\n\t},\n\t\"daterange2\": {\n\t\t\"type\": \"string\",\n\t\t\"widget\": \"date-range\",\n\t\t\"showTime\": true,\n\t\t\"title\": \"日期段\",\n\t\t\"start\": \"Select start date\",\n\t\t\"end\": \"Select end date\"\n\t},\n}\n```\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/date/index.md":
+/*!***********************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/date/index.md ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\nwidget: date\ntitle: 日期选择器\ninherit: true\n---\n\n一般用于日期选择。`\"widget\":\"date\"`\n\n## Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\ntype | 值类型  | `string` | - \nplaceholder | 在文字框中显示提示讯息  | `string` | -\nreadOnly | 是否只读状态  | `boolean` | -\nwidget | 组件  | `date` | - \nformat | 日期格式  | `string` | \"YYYY-MM-DD\" \nshowTime | 是否显示时间选择器 | `boolean` | `false`\n\n \n## Demo\n\n**配置举例**\n\n```json\n\n{\n\t\"birthday\": {\n\t\t\"type\": \"string\",\n\t\t\"title\": \"日期\",\n\t\t\"widget\":\"date\",\n\t\t\"format\": \"YYYY/MM/DD\"\n\t},\n\t\"date1\": {\n\t\t\"type\": \"number\",\n\t\t\"title\": \"时间戳\",\n\t\t\"default\": 1519787043107,\n\t\t\"widget\":\"date\",\n\t\t\"format\": \"YYYY/MM/DD\"\n\t},\n\t\"date2\": {\n\t\t\"type\": \"string\",\n\t\t\"title\": \"ISO日期\",\n\t\t\"default\": \"2018-02-28T17:16:27.113Z\",\n\t\t\"widget\":\"date\",\n\t\t\"format\": \"YYYY/MM/DD\"\n\t},\n\t\"date3\": {\n\t\t\"type\": \"string\",\n\t\t\"title\": \"年月日\",\n\t\t\"default\": \"2018/02/28\",\n\t\t\"widget\":\"date\",\n\t\t\"format\": \"YYYY/MM/DD\"\n\t}\n}\n```\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/radio/index.md":
+/*!************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/radio/index.md ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\r\nwidget: radio\r\ntitle: 单选框\r\ninherit: true\r\n---\r\n\r\n单选框 `\"widget\":\"radio\"`\r\n\r\n## Schema\r\n\r\n参数 | 说明 | 类型 | 默认值\r\n----|------|-----|------\r\ntype | 值类型，如果`oneOf`为多项选择，则使用`nz-radio-group`渲染 | `boolean` | - \r\nreadOnly | 是否为禁用状态  | `boolean` | -\r\nwidget | 组件  | `radio` | - \r\noneOf | 选项内容  | `array` | - \r\ndescription | 描述文字 | `string` | - \r\ndefault | 默认值 | `boolean` | - \r\n\r\n \r\n## Demo\r\n\r\n**配置举例**，`promotions`属性配置为`nz-radio-group`渲染\r\n\r\n```json\r\n\r\n{\r\n    \"promotion\": {\r\n        \"type\": \"string\",\r\n        \"description\": \"独立使用 true\",\r\n        \"default\":true,\r\n        \"widget\": \"radio\"\r\n    },\r\n    \"promotions\": {\r\n        \"type\": \"string\",\r\n        \"description\": \"Promotion\",\r\n        \"widget\": \"radio\",\r\n        \"oneOf\": [\r\n            {\r\n                \"description\": \"Student discount (20%)\",\r\n                \"enum\": [\r\n                    \"student\"\r\n                ]\r\n            },\r\n            {\r\n                \"description\": \"Summer 2016 discount (15%)\",\r\n                \"enum\": [\r\n                    \"summer\"\r\n                ]\r\n            },\r\n            {\r\n                \"description\": \"None\",\r\n                \"enum\": [\r\n                    \"none\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}\r\n\r\n```\r\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/select/index.md":
+/*!*************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/select/index.md ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\nwidget: select\ntitle: 选择器\ninherit: true\n---\n\n选择器小部件，一般用于选择操作。`\"widget\":\"select\"`\n\n\n## Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\ntype | 等同 input 的 `type` 值，如果用密码框则`\"widget\":\"password\"`  | `string` | -\nplaceholder | 在文字框中显示提示信息  | `string` | -\nmaxLength | 表单最大长度  | `number` | -\nminLength | 表单最小长度  | `number` | -\nreadOnly | 是否只读状态  | `boolean` | -\n\n## Demo\n\n**配置举例**\n\n```json\n {\n       \"categories\": {\n        \"type\": \"string\",\n        \"widget\": \"select\",\n        \"title\": \"Categories\",\n        \"items\": {\n            \"type\": \"string\",\n            \"oneOf\": [\n                {\n                    \"description\": \"Dog\",\n                    \"enum\": [\n                        \"dog\"\n                    ]\n                },\n                {\n                    \"description\": \"Cat\",\n                    \"enum\": [\n                        \"cat\"\n                    ]\n                },\n                {\n                    \"description\": \"Daulphin\",\n                    \"enum\": [\n                        \"daulphin\"\n                    ]\n                }\n            ]\n        },\n        \"widget\": \"checkbox\"\n    }\n }\n```\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/string/index.md":
+/*!*************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/string/index.md ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\nwidget: string\ntitle: 文本框\ninherit: true\n---\n\n文本框小部件，一般用于字符串元素。`\"widget\":\"string\"` 或省略不写\n\n\n## Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\ntype | 等同 input 的 `type` 值，如果用密码框则`\"widget\":\"password\"`  | `string` | -\nplaceholder | 在文字框中显示提示信息  | `string` | -\nmaxLength | 表单最大长度  | `number` | -\nminLength | 表单最小长度  | `number` | -\nreadOnly | 是否只读状态  | `boolean` | -\n\n## Demo\n\n**配置举例**\n\n```json\n {\n        \"name\": {\n            \"type\": \"string\",\n            \"title\": \"用户名\",\n            \"placeholder\": \"请输入用户名，且2位以上\",\n            \"minLength\": 2\n        },\n        \"password\": {\n            \"type\": \"string\",\n            \"widget\": \"password\",\n            \"title\": \"密码\",\n            \"placeholder\": \"请输入密码，且6位以上\",\n            \"minLength\": 6\n        },\n        \"email\": {\n            \"type\": \"string\",\n            \"placeholder\": \"请输入邮箱，最多20个字符\",\n            \"maxLength\": 20 \n        }\n }\n```\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/table/index.md":
+/*!************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/table/index.md ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\r\nwidget: table\r\ntitle: 表格table\r\ninherit: true\r\n---\r\n\r\n展示行列数据。表格小部件使用的方式和别的不一样，表格单独作为 schema 的属性，不是放在 properties 下\r\n\r\n\r\n## Schema\r\n\r\n参数 | 说明 | 类型 | 默认值\r\n----|------|-----|------\r\ncolumns | 字段展示，用`-`间隔，为`字段展示名称label-字段名`  | `string` | -\r\ndata | 展示数据，是一个对象数组 | `Array` | -\r\n\r\n\r\n## Demo\r\n\r\n**配置举例**\r\n\r\n```json\r\n \"table\": {\r\n        \"columns\": [\r\n            \"Name-name\",\r\n            \"Age-age\",\r\n            \"Address-address\",\r\n            \"Checked-checked\"\r\n        ],\r\n        \"data\": [\r\n            {\r\n                \"name\": \"John Brown\",\r\n                \"age\": 32,\r\n                \"address\": \"New York No. 1 Lake Park\",\r\n                \"checked\": false,\r\n                \"disabled\": false\r\n            },\r\n            {\r\n                \"name\": \"Jim Green\",\r\n                \"age\": 42,\r\n                \"address\": \"London No. 1 Lake Park\",\r\n                \"checked\": false,\r\n                \"disabled\": false\r\n            },\r\n            {\r\n                \"name\": \"Joe Black\",\r\n                \"age\": 32,\r\n                \"address\": \"Sidney No. 1 Lake Park\",\r\n                \"checked\": false,\r\n                \"disabled\": false\r\n            },\r\n            {\r\n                \"name\": \"Disabled User\",\r\n                \"age\": 32,\r\n                \"address\": \"Sidney No. 1 Lake Park\",\r\n                \"checked\": false,\r\n                \"disabled\": true\r\n            }\r\n        ]\r\n    }\r\n```\r\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/textarea/index.md":
+/*!***************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/textarea/index.md ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\nwidget: textarea\ntitle: 多行文本框\ninherit: true\n---\n\n文本框小部件，一般用于字符串元素。`\"widget\":\"textarea\"`\n\n\n## Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\nplaceholder | 在文字框中显示提示信息  | `string` | -\nautosize | 自适应内容高度，可设置为 `true|false` 或对象：`{ minRows: 2, maxRows: 6 }`  | `Boolean|Object` | `false`\nreadOnly | 是否只读状态  | `boolean` | -\n\n## Demo\n\n**配置举例**\n\n```json\n {\n        \"remark\": {\n            \"type\": \"string\",\n            \"widget\": \"textarea\",\n            \"title\": \"备注\",\n            \"placeholder\": \"Autosize height with minimum and maximum number of lines\"\n        }\n }\n```\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/time/index.md":
+/*!***********************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/time/index.md ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\nwidget: time\ntitle: 时间选择器\ninherit: true\n---\n\n一般用于时间选择。`\"widget\":\"time\"`\n\n## Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\ntype | 值类型  | `string` | - \nplaceholder | 在文字框中显示提示讯息  | `string` | -\nreadOnly | 是否禁用选择状态  | `boolean` | -\nwidget | 组件  | `time` | - \nformat | 日期格式  | `string` | \"HH:mm:ss\"、\"HH:mm\"、\"mm:ss\" |\n\n \n## Demo\n\n**配置举例**\n\n```json\n\n{\n\t\"datetime\": {\n\t\t\"type\": \"string\",\n\t\t\"widget\": \"time\",\n\t\t\"title\": \"时间选择\",\n\t\t\"placeholder\": \"请选择\"\n    }\n}\n```\n"
+
+/***/ }),
+
 /***/ "./src/$$_lazy_route_resource lazy recursive":
 /*!**********************************************************!*\
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
@@ -40,6 +172,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_zorro_form_zorro_form_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/zorro-form/zorro-form.component */ "./src/app/pages/zorro-form/zorro-form.component.ts");
 /* harmony import */ var _pages_bootstrap_form_bootstrap_form_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/bootstrap-form/bootstrap-form.component */ "./src/app/pages/bootstrap-form/bootstrap-form.component.ts");
 /* harmony import */ var _pages_dnd_form_dnd_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/dnd-form/dnd.component */ "./src/app/pages/dnd-form/dnd.component.ts");
+/* harmony import */ var _document_document_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./document/document.component */ "./src/app/document/document.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -53,11 +186,17 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     { path: '', redirectTo: 'zorro', pathMatch: 'full' },
     { path: 'dnd', component: _pages_dnd_form_dnd_component__WEBPACK_IMPORTED_MODULE_6__["DndComponent"] },
     { path: 'bootstrap', component: _pages_bootstrap_form_bootstrap_form_component__WEBPACK_IMPORTED_MODULE_5__["BootstrapFormComponent"] },
-    { path: 'zorro', component: _pages_zorro_form_zorro_form_component__WEBPACK_IMPORTED_MODULE_4__["ZorroFormComponent"] }
+    { path: 'zorro', component: _pages_zorro_form_zorro_form_component__WEBPACK_IMPORTED_MODULE_4__["ZorroFormComponent"] },
+    { path: 'document', redirectTo: 'document/getting-started', pathMatch: 'full' },
+    {
+        path: 'document/:id',
+        component: _document_document_component__WEBPACK_IMPORTED_MODULE_7__["DocumentComponent"]
+    }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -67,7 +206,8 @@ var AppRoutingModule = /** @class */ (function () {
             declarations: [
                 _pages_bootstrap_form_bootstrap_form_component__WEBPACK_IMPORTED_MODULE_5__["BootstrapFormComponent"],
                 _pages_zorro_form_zorro_form_component__WEBPACK_IMPORTED_MODULE_4__["ZorroFormComponent"],
-                _pages_dnd_form_dnd_component__WEBPACK_IMPORTED_MODULE_6__["DndComponent"]
+                _pages_dnd_form_dnd_component__WEBPACK_IMPORTED_MODULE_6__["DndComponent"],
+                _document_document_component__WEBPACK_IMPORTED_MODULE_7__["DocumentComponent"]
             ],
             imports: [
                 _shared_shared_module__WEBPACK_IMPORTED_MODULE_2__["SharedModule"],
@@ -209,11 +349,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
-/* harmony import */ var _lib_dnd_dnd_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../lib/dnd/dnd.module */ "./src/lib/dnd/dnd.module.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _layout_layout_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./layout/layout.module */ "./src/app/layout/layout.module.ts");
-/* harmony import */ var _services_startup_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/startup.service */ "./src/app/services/startup.service.ts");
+/* harmony import */ var ngx_md__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-md */ "./node_modules/ngx-md/fesm5/ngx-md.js");
+/* harmony import */ var _lib_dnd_dnd_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../lib/dnd/dnd.module */ "./src/lib/dnd/dnd.module.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _layout_layout_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./layout/layout.module */ "./src/app/layout/layout.module.ts");
+/* harmony import */ var _services_startup_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/startup.service */ "./src/app/services/startup.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -235,13 +376,14 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["BrowserModule"],
@@ -251,16 +393,226 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
                 _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
                 ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["NgZorroAntdModule"].forRoot(),
-                _lib_dnd_dnd_module__WEBPACK_IMPORTED_MODULE_9__["DndModule"].forRoot(),
-                _layout_layout_module__WEBPACK_IMPORTED_MODULE_12__["LayoutModule"]
+                _lib_dnd_dnd_module__WEBPACK_IMPORTED_MODULE_10__["DndModule"].forRoot(),
+                _layout_layout_module__WEBPACK_IMPORTED_MODULE_13__["LayoutModule"],
+                ngx_md__WEBPACK_IMPORTED_MODULE_9__["NgxMdModule"].forRoot(),
             ],
-            providers: [{ provide: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["NZ_I18N"], useValue: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["zh_CN"] }, _services_startup_service__WEBPACK_IMPORTED_MODULE_13__["StartUpService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]]
+            providers: [{ provide: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["NZ_I18N"], useValue: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["zh_CN"] }, _services_startup_service__WEBPACK_IMPORTED_MODULE_14__["StartUpService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/document/data.ts":
+/*!**********************************!*\
+  !*** ./src/app/document/data.ts ***!
+  \**********************************/
+/*! exports provided: DATA */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DATA", function() { return DATA; });
+function getMd(md) {
+    var arr = md.split('---');
+    return arr.length > 2 && arr[0] === '' ? arr.slice(2).join('---') : md;
+}
+var DATA = {
+    basic: [
+        {
+            id: 'getting-started',
+            title: '开始使用',
+            content: getMd(__webpack_require__(/*! !raw-loader!./guide/getting-started.md */ "./node_modules/raw-loader/index.js!./src/app/document/guide/getting-started.md"))
+        },
+        {
+            id: 'schema',
+            title: 'Schema',
+            content: getMd(__webpack_require__(/*! !raw-loader!./guide/schema.md */ "./node_modules/raw-loader/index.js!./src/app/document/guide/schema.md"))
+        }
+    ],
+    widgets: [
+        {
+            id: 'string',
+            title: '字符串',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/string/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/string/index.md"))
+        },
+        {
+            id: 'button',
+            title: '按钮',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/button/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/button/index.md"))
+        },
+        {
+            id: 'textarea',
+            title: '多行文本框',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/textarea/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/textarea/index.md"))
+        },
+        {
+            id: 'checkbox',
+            title: '多选框',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/checkbox/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/checkbox/index.md"))
+        },
+        {
+            id: 'radio',
+            title: '单选框',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/radio/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/radio/index.md"))
+        },
+        {
+            id: 'date',
+            title: '日期',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/date/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/date/index.md"))
+        },
+        {
+            id: 'date-range',
+            title: '日期范围',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/date-range/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/date-range/index.md"))
+        },
+        {
+            id: 'time',
+            title: '时间',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/time/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/time/index.md"))
+        },
+        {
+            id: 'select',
+            title: '选择器',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/select/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/select/index.md"))
+        }, {
+            id: 'table',
+            title: '表格',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/table/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/table/index.md"))
+        } /* ,
+        {
+            id: 'rate',
+            title: '评分',
+            content: getMd(require('!!raw-loader!../../lib/widgets/zorro/rate/index.md'))
+        },
+        {
+            id: 'range',
+            title: '滑动输入条',
+            content: getMd(require('!!raw-loader!../../lib/widgets/zorro/range/index.md'))
+        },
+        {
+            id: 'file',
+            title: '文件上传',
+            content: getMd(require('!!raw-loader!../../lib/widgets/zorro/file/index.md'))
+        },
+        {
+            id: 'cascader',
+            title: '级联选择',
+            content: getMd(require('!!raw-loader!../../lib/widgets/zorro/cascader/index.md'))
+        },
+        {
+            id: 'transfer',
+            title: '穿梭框',
+            content: getMd(require('!!raw-loader!../../lib/widgets/zorro/transfer/index.md'))
+        },
+        {
+            id: 'tag',
+            title: '热门标签',
+            content: getMd(require('!!raw-loader!../../lib/widgets/zorro/tag/index.md'))
+        } */
+    ]
+};
+
+
+/***/ }),
+
+/***/ "./src/app/document/document.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/document/document.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<nz-layout>\n    <nz-sider [nzWidth]=\"200\">\n        <ul nz-menu [nzMode]=\"'inline'\" style=\"height:100%\">\n            <li nz-menu-group>\n                <div title>入门</div>\n                <ul>\n                    <li nz-menu-item *ngFor=\"let i of data.basic\" [routerLink]=\"'/document/' + i.id\" routerLinkActive=\"ant-menu-item-selected\">{{i.title}}</li>\n                </ul>\n            </li>\n            <li nz-menu-group>\n                <div title>小部件</div>\n                <ul>\n                    <li nz-menu-item *ngFor=\"let i of data.widgets\" [routerLink]=\"'/document/' + i.id\" routerLinkActive=\"ant-menu-item-selected\">{{i.id}}-{{i.title}}</li>\n                </ul>\n            </li>\n        </ul>\n    </nz-sider>\n    <nz-content class=\"markdown\" *ngIf=\"item\" class=\"bg-white doc\">\n        <h1>{{item.title}}</h1>\n        <markdown [data]=\"item.content\"></markdown>\n    </nz-content>\n</nz-layout>"
+
+/***/ }),
+
+/***/ "./src/app/document/document.component.scss":
+/*!**************************************************!*\
+  !*** ./src/app/document/document.component.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "code[class*=language-],\npre[class*=language-] {\n  color: #000;\n  background: 0 0;\n  text-shadow: 0 1px #fff;\n  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;\n  text-align: left;\n  white-space: pre;\n  word-spacing: normal;\n  word-break: normal;\n  word-wrap: normal;\n  line-height: 1.5;\n  -moz-tab-size: 4;\n  -o-tab-size: 4;\n  tab-size: 4;\n  -webkit-hyphens: none;\n  -ms-hyphens: none;\n  hyphens: none; }\n\ncode[class*=language-] ::-moz-selection,\ncode[class*=language-]::-moz-selection,\npre[class*=language-] ::-moz-selection,\npre[class*=language-]::-moz-selection {\n  text-shadow: none;\n  background: #b3d4fc; }\n\ncode[class*=language-] ::selection,\ncode[class*=language-]::selection,\npre[class*=language-] ::selection,\npre[class*=language-]::selection {\n  text-shadow: none;\n  background: #b3d4fc; }\n\n@media print {\n  code[class*=language-],\n  pre[class*=language-] {\n    text-shadow: none; } }\n\npre[class*=language-] {\n  padding: 1em;\n  margin: .5em 0;\n  overflow: auto; }\n\n:not(pre) > code[class*=language-],\npre[class*=language-] {\n  background: #f5f2f0; }\n\n:not(pre) > code[class*=language-] {\n  padding: .1em;\n  border-radius: .3em;\n  white-space: normal; }\n\n.token.cdata,\n.token.comment,\n.token.doctype,\n.token.prolog {\n  color: #708090; }\n\n.token.punctuation {\n  color: #999; }\n\n.namespace {\n  opacity: .7; }\n\n.token.boolean,\n.token.constant,\n.token.deleted,\n.token.number,\n.token.property,\n.token.symbol,\n.token.tag {\n  color: #905; }\n\n.token.attr-name,\n.token.builtin,\n.token.char,\n.token.inserted,\n.token.selector,\n.token.string {\n  color: #690; }\n\n.language-css .token.string,\n.style .token.string,\n.token.entity,\n.token.operator,\n.token.url {\n  color: #a67f59;\n  background: rgba(255, 255, 255, 0.5); }\n\n.token.atrule,\n.token.attr-value,\n.token.keyword {\n  color: #07a; }\n\n.token.function {\n  color: #DD4A68; }\n\n.token.important,\n.token.regex,\n.token.variable {\n  color: #e90; }\n\n.token.bold,\n.token.important {\n  font-weight: 700; }\n\n.token.italic {\n  font-style: italic; }\n\n.token.entity {\n  cursor: help; }\n\n/*# sourceMappingURL=prism.min.css.map */\n\n.doc {\n  padding: 10px 20px 40px 40px !important; }\n\n:host ::ng-deep li {\n  outline: none; }\n\n:host ::ng-deep table {\n  width: 100%;\n  border-collapse: separate;\n  border-spacing: 0;\n  text-align: left;\n  border-color: grey;\n  border-radius: 4px 4px 0 0; }\n\n:host ::ng-deep table tr {\n    transition: all .3s; }\n\n:host ::ng-deep table tr td,\n    :host ::ng-deep table tr th {\n      padding: 12px;\n      word-break: break-word; }\n\n:host ::ng-deep table thead tr th {\n    background: #fafafa;\n    text-align: left;\n    color: rgba(0, 0, 0, 0.85);\n    font-weight: 600;\n    border-bottom: 1px solid #e8e8e8; }\n\n:host ::ng-deep table tbody tr td {\n    border-bottom: 1px solid #e8e8e8;\n    transition: all .3s; }\n"
+
+/***/ }),
+
+/***/ "./src/app/document/document.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/document/document.component.ts ***!
+  \************************************************/
+/*! exports provided: DocumentComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentComponent", function() { return DocumentComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./data */ "./src/app/document/data.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var DocumentComponent = /** @class */ (function () {
+    function DocumentComponent(route, activatedRoute, doc) {
+        this.route = route;
+        this.activatedRoute = activatedRoute;
+        this.doc = doc;
+        this.data = _data__WEBPACK_IMPORTED_MODULE_3__["DATA"];
+        this.item = null;
+    }
+    DocumentComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var element = this.doc.getElementsByTagName('body')[0];
+        this.activatedRoute.params.subscribe(function (params) {
+            var id = params.id || 'getting-started';
+            var item;
+            Object.keys(_data__WEBPACK_IMPORTED_MODULE_3__["DATA"]).forEach(function (key) {
+                if (!item)
+                    item = _data__WEBPACK_IMPORTED_MODULE_3__["DATA"][key].find(function (w) { return w.id === id; });
+            });
+            if (!item) {
+                _this.route.navigateByUrl('/document/getting-started');
+                return;
+            }
+            if (!item.content)
+                item.content = "\u672A\u5B9E\u73B0";
+            _this.item = item;
+            element.scrollIntoView();
+        });
+    };
+    DocumentComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-document',
+            template: __webpack_require__(/*! ./document.component.html */ "./src/app/document/document.component.html"),
+            styles: [__webpack_require__(/*! ./document.component.scss */ "./src/app/document/document.component.scss")],
+        }),
+        __param(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"])),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], Object])
+    ], DocumentComponent);
+    return DocumentComponent;
 }());
 
 
@@ -319,7 +671,7 @@ var LayoutModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"logo\">\r\n    <!--  <img  *ngIf=\"_builder_type==='bootstrap'\" title=\"bootstrap form builder\" src=\"data:image/webp;base64,UklGRpQWAABXRUJQVlA4WAoAAAAQAAAAWwMA8QAAQUxQSKQKAAABf8egbSNJ6yx/2O8dgYjI4bfcJNcJpjWUXciaXS5yymfwdtu2adu2teXaWutjec1l27Zt27Zt27Zt27Ztm6Oh5vQjxtqac4z6ofZwzozo/wRorP/H+n+s/8f6f6z/x/p/rExD6GfpTw1hyLib3rLvlP8Q+kdCIUkTLn/hd8Df9284eU9SGfpCylLSpIsc8x7/+qfLV5m6kIoq9HkUvSBNuNg+jwDR/xyBN09afhpJvbJ/I1Q9SQvtev3v0LbRNmDjrgEeOnTF8aSyV/RlFAOSZt/5svfAdWfMv7bd1Q38csuhS0oaKPsuykKaYPNLXgGaJhrz79u4rYGPbtp3VilUob9CWun8V38D152x+S/ajk0L3Qc3bDeu+ivnOP6ln4C2Mzb/bRt3LfDHRxev2A8RwpDJdnn8T4O7aMz/1thdBP7+8Jg5wpDQrxBKSdWUG970N4BtbP73NnZk6Is7zzy+pLLoPwhlKWnqFc74FsC2MaOrjW2A+paNZh6QQhX6CoqepClXOeploIvGmNHbGLuL8NmF688qqVf1C4SqksoVD7nP0LTGZsy0cVcDz5+6weRS2Sv6AIqepIX2v/lr6OrOmDHZJjY1NA+cuKqkXhnyvkLSNHvc+j5QNwYzptu4rQ3fPHDMIpLKkPOp2vDa9wYhNtHYDIs2sW2BL+7bdwrl+eEflrjwwz+BtjM2w6hxbIH6+9s26g0JOV0RJPVmPviNDnC0McOtjWMEuu/PXnJcSSpCFleUksabafuHGGobm+HYxjZD3z9w/lGSqiJ3C1Uhhdk3ufov8D9ihm8bDwUe22WBiSX1ioyt7EmacYPT34fYRmMzAhrcdvDr9VvOJ6mqQpYWeqU08fonPwvUrbEZKW3c1YZ3Ltt+Zin0iuysqCStePxDv0Jbd7YZWW1iUwPPXbTJgFSVIScrJM1x6EOfA3VrzEhs3NURfnnm7BUlFRmZRu143xeGro3GjNQ2blvgx+ePnUM5eBgyzhrXfdUAXTQ2I7px7Azxt4d3nXRICLlWKIKkCRc+4zMAR9tm5LdxjAB/X7vOpEFSEXKsUtKoBfZ7iaG2sUlDG9sG+P7EZaeWVGZYGneh3e4AumjbmJS0se0OePXgZadSfh02ueJr6JpoTJoa3DbQ3L97kV2N8zbUrbFJVxt3deSv8bOr8hpa26SuTce9vexKp9ORxpHzQn61P52TyB0nKr/elDaZ9suwlqIljVvWzK6CZqRzErllVoXsatofiWnUMVN2JU32eiJFfpgmw5rwHrok6nhilPLrgUtok6jlmnEzLB1L4wRyy4W9HGs3alKo4Wjl10FrM5hC1GymkF0VWorGCeRBllWRYS3wq2MKtSyVYQXN9i5dAkV+nj/LmvpR2gTqeG56hQxroutoEqjljskyLKk8i8bJ44ZrJ8yydAg16VNzalCGXWo7Bp08DLKLiixrfZr08SCbqsqyVvyTmD4t66vMsAot8gld8kR+XS7TmvUF2uTpeH0uFRlW0OT3JlDLE9MrZFm9q2icOG65Z/IsS4VOpyZ1ai4JyrJ7OoRBJw6DHKUq09qNNnVcc6B6WValTf4mpk7HbplWqZW/okucyK/rqcqyCi3wVvJ0vLuoykxruqdok+e1eVRkWUHj3knrpHHLk9NlWip1JQ1p03CzQsizBnQmjdOm5jwNKM/u6XBi4jScmm1V2qUhcSKHqZdtrf8jMWkif2ypKtMqteQnyfPF8iozrUKzvEnntPl48WwraPxn0sYdb8ysItNSpQdpSdmWx1Qo1x7QDXROGLfcoYFsq6czcdJ0XJtxVTq4I2nM6eplW6W2/j1t+Hs3VRnXKt8TEyby03oqs61C83xGdLI48t1KKrKtoFHvJs6nc2ZcqvRqyhB5Q4Xy7Z4eShlHnlMv46p0BSTNA1lXqeOTBi5SlXXt3iRNu6/KjKvQen8lzeA2KjKuoIV/xU4Umz/XzbqkyX7ApMsv8yrkXEFfYicK5lsF5dyFXk4Xm09UZF1Bt0PCvJR9nZswcL1C5nVQ0hyZeUlbOmX2yb6W6xLGWyr3niFluoWzr+qPhKkHsq/wXsL8UmRfeihh3gn512UJc5vy72OJiRI5OQPblegkceSIDGzNhNk5A5ubSJpGls7AJiU6SRyZMgMb9RmJ4mbyDGz8p4lpwiejMrCB6+mSJHLnuBlYcVqidFxQZmA6gNYJ4o5TQg62KQ0p0rKv8u+gpWmcIDSsmoXNSZsibphHIQOb6TtiinTMlYVN/SpdgkS+mjEDkya+izZBOh6ZNAsb52KaBGm5fgJl4cfRODnccPE4edge1KRHzZHKwQttwKCTg0E2VpGFrUCbHh5kdZVZ2GI/EdOjZQUVWdicb9MlR+SbhbKwoGkfpU2OlqdnVMjCJrqeJkHumSILk8LZ1E4MN1w/UR4WdDiDpGbNKcrDK+3EoBPDg+ypKhPbmC45arbLxEqt+hsxNTo2zsQKLfYxXWJEvltOZSY22wu0idHx6lwqsrCgye5PjpZnZs7GimtonBRuuW8yhSxMpc6hJi1rLlVQHj6go6mdFK45QQOZWE97ExOj4fBsrNLmfxLTIrKXeplYqZU/JzohHPlhXVWZWKEF36MGJ4JNy4dLqczEgia5DWrjJDBuOp6eXkUmpqA5jvyW2GGPeDaxIZ6xsDLyIC1wNnTG9ghmjDu4aRkpZGQqgsKStwE2eISysYFn1xhXKpWXF1JvrReBaDwiGUfDhztMKJXKz4NU7vIRxGh7xLGJHXxz3Cjl7KNO/gLaiD2i2LiBn66eSVl7kGa/9DtojD1yGNqOP+9YTgpZm1RJq95YU7fgEcImDsJDW0k9Ze9FT9riPqgj9ghg4xpe3mt8VaVy+KrQqF1eh8542LPpOr49aAapp1y+J01/4I/YNvbwZWxHOGUOqQrK50MhzXxmBBs8TNnYwI3zS6FQXl9IWuAOIBo8DNk4As+uWkiF8vsgafVngc542DF0HbyzS6F8P0h7vQ5thz2s2MQGPjp+fIWMT6HUqOM/gNrYw4dxA99ePJuKQnl/Jc135nd0DXiYMHQNg1etIPWU/YcBacVLOuoIHgZsXMMdG0q9Qv2AZalivfuhNfYYZuMOXtt2QoVK/YKVNNEWb4Ft7DHH2IYf95pCqtRHGAppogN/Ahs8hhhsiKdNIxVB/YVB0pTn/AldBI8BNu6gvXkOSUH9ifPe8he0xh7djFvTPrWK+hiDtP6jka61PVrZdA28uJsU+hgUKmm3Z6CO2KOPcQ1vHzWBqqD+xrLUVIe+C7XxaGJoO747fW6FSv2PPWneY3+g6cCjgU1s6M5fRhoI6ocsKmmJi6Eztv8ntnEHd60mlaX6JUupWulhwMb+7xkbeGej8aRS/ZSFVG74NhCN/0vG0fDD3uNJRVD/5cCBX0OM4P+CTezgtzMmkRTUnznpmd9CE7H/Axs38NsNc6qPM0gLXvsrboz/LUPb0N29llT0cUg9af3boemw/4VNHIQndpJ6Qf2dRU/Vto9Dbewhxg28ecCkqkr1f1bSNHu9S+zA2MSW746eUxpQX2iopJkP+43ooRGfN79UBfWLFoU0z6UGA/cvEaRC/aSFpCUfBd5dT1KhftTNXtxf/zdrKIs+lrH+H+v/sf4f6///9yFWUDggygsAABBgAJ0BKlwD8gA+bTaaSSQjIqEiNSgYgA2JZ278fJlUDM/zO7wbN/ivxu/MDs/d6e5P5C84sgTqb/aevD9YPZv9x3uAfpL/cvzM/uvxO+u3zAfyj+Rf87/Ge6x+t3tE/UT2AP63/KvVd/svtB/z31AP2U9JP9ifgw/Yf9w/gN/n/9m/9/WAegB6q/VjtA/0mQULJ7z5QTn3dL4gOJPvN/sflO/5Hst/1v/q8on1z/6fcK/XL0lfYP6JP7QhLi5eL2QTzLxeyCeZeL2QTzLxeyCeZeL2QTzLxeyCeZeL2QTzLxeyCeZeL2QTzLxeyCeZeL2QTzLxex6XfVQgTT5Upkz7Nwg6OLsYSDImHR/wK80bPECgxpr4gUGNNfECgxpr4gUGM8v1+PEltvN1odWxcdy/URbKRr4LNUynlf9y1OE34s8vF7IJ5l4vZBPMvF7IJ5ejoJEgstaucKlics6C14vZBPMvF7IJ5l4vZBPMvF7HpnI4oFPkSlBUgK+69+kCeKAOl0QIe5EO0OwLZHEoxpr4gUGNNfECgxpr4gUGNNXgAAF5i5/r7+4j21Mwl+H/DefcyCasJ5l4vZBPMvF7IJ5l4vZBPMvDmHuwrZfMGgOld3PEzybVCDsOCxeyCeZeL2QTzLxeyCeZeL2PXHhGqTO6ETiKqBIRKV/DRYcK3FuDt6pRZCx/UuqnpWtMVNBreCcvamviBQY018QKDGmviBQY0wVm0q4WmmTugNZJ9wsXFa59tUrjXpPN77nL2pr4gUGNNfECgxpr4gUGNNebAEF5eL9SAOYfFDF7IJ5l4vZBPMvF7IJ5l4vZBPMqFevxsKxxaXR9Noo90FxqCKaK8M8vF7IJ5l4vZBPMvF7IJ5l4vZA5JITufijpqtN5DqRQTYGRdxcHF4MD7SDA+0gwPtIMD7SAuviBQY018QKDGmDJxKkKxq9/4uxGd2UqecWeXi9kE8y8XsgnmXi9kE8y8XsgnmX2cWeXi9kE8y8XsgnmXi9kE8y8XsgnmXi9kE8y8XsgnmXi9kE1AAD+/43UAAAAAAB6FkKsiV5kOnLSkO6GoNmtmE0jxoNovNSwEnZR4r+LH/4v/mk+thkHZ7icYfmMhxlnA8n4V3mJ0uTCsOdyvYYrfxskmA8OlyUK8pC4byVEgyF+hds4xLPBD3MqO6a9lO4rsBMX3Mzp1Fs7Xi3PSBq9LCszPIft0/CQw1l2UKE+bkDQbeSZIkYM9Ttn0F3FvDgxkiwHRE/PYu4wWp0SU3d1D7+vyRd5oUqI3G+a1RWJHcowuTmOOpikfLeywVRtDE5M2SQG9M9wUjlYQ8txNx2kL53I8GcXIyCuxDCiPXzPY3zc6rrc7GW/smyLJAXyqCIpMevZMNEyHyojQRrH/qHAaGi/tnpkXMHGmntHztWMnnwVdlBm8ItpWdg2cYXEjbXVrIqRyWj3t1kCLG4jthF66Ez0AgAHaypN0Rk+AKd0w6/Bdx5xG4b/y2xP1D5YOTHvtO/zo4doLoFEJ5l3dYkGZwenlNa0RP/6NvvB//UeXSfgEBvy3EukLHoTsEcFLIr4dvxAJ5lbx5JnQk7DyMykjPCms3oU9QHJeQamgKyBF3UsAFpg2U7gBF6GtdMj/77SLTuIdAtr8/wOgr/mKkJYVqk4iV6/rXTXonYg4WNdIj8eoUW6peNp39/n/j7+4w1y24OL30YJYDCZ6Jg6w6RamQmcE0p7iSEQaIYKRaDewfYm8Zt3cB/S9WWLBB2G9JfN4YAio9D/reOUxZ50L2OPSPxXjaaLWw60sE01tP6xvvY6xIMmV3VeQlg+u5cuBSlqfwbMzwBS9eDdAK3odr9E15hX5uBZ9fG06wC0G47xkoMJOw8jMcrKK6bxtI0mUik0+1LS2kS4L0EHc+paQElx71EAIabov8CV5r66I4D4msMdBh6tddiYZp94grQdIGW7Imo725+IPCuECMIqOFUbGrZL80JXWNGLH4SUl5ch4IaAATj+4XwvCSgxhwb/wc90bPBeLqoDm6Lud6YWLEmFXP/ICZ7y/dwc/kPsOyBh6LZ/lDJVqXrJDGJVTB+n+0j8z3Edm0jjel0A0vO3j401B7RMiF7NR3p/o54LxTKZFIMoHpD+B0XDu4JRqfCTcawk3agjGZL0P32tGgInwGrwNrVlvNTWBf+jsS2htqxt4jjSfMdigk9Km13wg+M6GrZvJCUXFaYhT2gB9oINhV7EOiqIMogMwaWhrA8D7+/2EWWZiYQ3Xk/xkzUaYVAbOxGHlfC//ua61QADclgz9cLmF1bVMO9tynw4YV6WCi6c+QG7KYDH6XE+IoikKZMm2PRDCADO9IkCCUWSuEjlv/ElFJIJ7R1whWvNqLbgIrq7DpUKPsvtT571CS97SUV8wWP7/1bXTyFnKzLMZf9/y394zVqIp9ULKZq/51oQyxF3ckMKAFYSRD2D5EI43PjJkSr4g1cbbPUHwLjZCno4N73KCe/4Hz2xF3trOaOEb9b0+WClk/VJerI+8VT/mNgVs3hRWiGcVHMaPDxFfJ/qqHtM4wknRVylapqiiABcTyzUN991AQoEOWL/R2iiQFPDsEKl/lTJ+IgGeqIiGyx6nvf22+Ir4x70kea/wGM7Fxwyl26NIdbuGoQX//wXI7pGSY6D2NGh9ICRbE6X+vZkaOHIqn2zgSirDwmJK86TsOHL34fwTi3UCoQAQYv5LenCDTIFHJKUf73aWxqBud6xOfcaSIaXSgR8OPHmkSUUwIVaSmdxMhcjYMNExIprK3q1MMRLMLDIvbYnzZmvNLe0sCryc3ZsYMRn2zsN4rMVlOGkDTAv/ACokBAADVU+/NCndofQomrp7Epo+b9lZrrzDUwEfhVRtDx1n+4NzMtYW88kZHRBv+/hmDljIK2gGzgPHE8PAa7//GLQsNGFrR6lST7yddpVDz71zebbNDih20wJfKUP4jEu7/B318sMVV6GCeVxdMPuZCh7AJ6cP/KudtOh02Mat1qwuW3cufZpdLMY+PgoYSzywY1wvzq0trrblLPhcHGs5PSc+eByLJOQIY5gyzdmsOO0EjgM8SX0K5x++5mWTV+BSa8BPiJVYHc2ysUcEnygASli4zHWUH12usqGjhdw4SKcytVxN3S2Cc5jRZJ6Txq8XZ/X/pQ4Z16+vNXwdSsMxtvFx4wLmoM98U7Y33Id/uN8IS6sAnOy45QfLL6z4EAALgqgVmlH334EBOrPEVacDzRvv9cUpJ64Mmpvk4QlSBjzMygD+yTp2T0fepPcxv2NtWv9PCNEgIOQ6i/k/aQimcE7m6TgZLytJwrn5gtdZcB1I3NAyuiwyySp+M6N+hm554wV3FaMQ/SKzDG1xC/eWNf0btqe1CQYsOTlUNhKGvf3CgyCDz2WeTwaTSHLUiN1RrPEpSuVqDEyAlMM9mxMRt/zttWXDHJ6JlUDwoPHn0BhNdv4bCdusTtP4tSdtt3OgZWW325cICgwdfbVmsDPboUAAQk4WpgsMqOi53p4hjT410B9qHDEND8XLPuJqDgG7thHCiNwGJMWswYUN9ze4EYNGjOryvvZn3KG+iz+wUGeC52ovDYY+jpV58S9oXOKCTt9G3jW2nEurKeYaqD5U9yIwZS29wH9TKtzZ4YzX/z3YLy/RsVIIa3N5wDouVJTo5T+uxObVWvs5rm6LDvKGvc91V1viz48xfvBkAH9IHciOUPFdxef2+7XM4jh1HOC0y4pLuzsDC3/avJxszmgzuqykor09LaEzB+Mg/kVVlenz92TnwAAA5Le1IimbXscxonIXuNqf5tzO71Q98zEtmhkuNJsCuC3dklxPExW5oCggSoyxy+ij5uBYn4JU/tnlHnzNmAPW6KjabjW6qcy4A51AIKy9rB7wk1twDH8sqUkqslAeyJ2/GkWTSXGt+iH+5TRP3fMapYm1p5861lj5rUEC9NszmgzuqrPV8sRpfMasf3qDLdKf0z/WZyIF0OXP1gLfXqja9Dkzw5pZs0KWxhkGjcOgLaAAC2rq6wAAAAAAA==\"\r\n  /> -->\r\n    <img *ngIf=\"_builder_type==='bootstrap'\" style=\"margin-left: 50px;\" src=\"./assets/images/bootstrap-stack.png\" alt=\"bootstrap form builder\" />\r\n    <img *ngIf=\"_builder_type==='zorro'\" style=\"margin-left: 50px;\" title=\"zorro form builder\" src=\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwMHB4IiBoZWlnaHQ9IjIwMHB4IiB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNDcuMSAoNDU0MjIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPkdyb3VwIDI4IENvcHkgNTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNjIuMTAyMzI3MyUiIHkxPSIwJSIgeDI9IjEwOC4xOTcxOCUiIHkyPSIzNy44NjM1NzY0JSIgaWQ9ImxpbmVhckdyYWRpZW50LTEiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNDI4NUVCIiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyRUM3RkYiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI2OS42NDQxMTYlIiB5MT0iMCUiIHgyPSI1NC4wNDI4OTc1JSIgeTI9IjEwOC40NTY3MTQlIiBpZD0ibGluZWFyR3JhZGllbnQtMiI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyOUNERkYiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzE0OEVGRiIgb2Zmc2V0PSIzNy44NjAwNjg3JSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMEE2MEZGIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNjkuNjkwODE2NSUiIHkxPSItMTIuOTc0MzU4NyUiIHgyPSIxNi43MjI4OTgxJSIgeTI9IjExNy4zOTEyNDglIiBpZD0ibGluZWFyR3JhZGllbnQtMyI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGQTgxNkUiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0Y3NEE1QyIgb2Zmc2V0PSI0MS40NzI2MDYlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGNTFEMkMiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI2OC4xMjc5ODcyJSIgeTE9Ii0zNS42OTA1NzM3JSIgeDI9IjMwLjQ0MDA5MTQlIiB5Mj0iMTE0Ljk0MjY3OSUiIGlkPSJsaW5lYXJHcmFkaWVudC00Ij4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ZBOEU3RCIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRjc0QTVDIiBvZmZzZXQ9IjUxLjI2MzUxOTElIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGNTFEMkMiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0ibG9nbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwLjAwMDAwMCwgLTIwLjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0iR3JvdXAtMjgtQ29weS01IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMC4wMDAwMDAsIDIwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTI3LUNvcHktMyI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTI1IiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iMiI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOTEuNTg4MDg2Myw0LjE3NjUyODIzIEw0LjE3OTk2NTQ0LDkxLjUxMjc3MjggQy0wLjUxOTI0MDYwNSw5Ni4yMDgxMTQ2IC0wLjUxOTI0MDYwNSwxMDMuNzkxODg1IDQuMTc5OTY1NDQsMTA4LjQ4NzIyNyBMOTEuNTg4MDg2MywxOTUuODIzNDcyIEM5Ni4yODcyOTIzLDIwMC41MTg4MTQgMTAzLjg3NzMwNCwyMDAuNTE4ODE0IDEwOC41NzY1MSwxOTUuODIzNDcyIEwxNDUuMjI1NDg3LDE1OS4yMDQ2MzIgQzE0OS40MzM5NjksMTU0Ljk5OTYxMSAxNDkuNDMzOTY5LDE0OC4xODE5MjQgMTQ1LjIyNTQ4NywxNDMuOTc2OTAzIEMxNDEuMDE3MDA1LDEzOS43NzE4ODEgMTM0LjE5MzcwNywxMzkuNzcxODgxIDEyOS45ODUyMjUsMTQzLjk3NjkwMyBMMTAyLjIwMTkzLDE3MS43MzczNTIgQzEwMS4wMzIzMDUsMTcyLjkwNjAxNSA5OS4yNTcxNjA5LDE3Mi45MDYwMTUgOTguMDg3NTM1OSwxNzEuNzM3MzUyIEwyOC4yODU5MDgsMTAxLjk5MzEyMiBDMjcuMTE2MjgzMSwxMDAuODI0NDU5IDI3LjExNjI4MzEsOTkuMDUwNzc1IDI4LjI4NTkwOCw5Ny44ODIxMTE4IEw5OC4wODc1MzU5LDI4LjEzNzg4MjMgQzk5LjI1NzE2MDksMjYuOTY5MjE5MSAxMDEuMDMyMzA1LDI2Ljk2OTIxOTEgMTAyLjIwMTkzLDI4LjEzNzg4MjMgTDEyOS45ODUyMjUsNTUuODk4MzMxNCBDMTM0LjE5MzcwNyw2MC4xMDMzNTI4IDE0MS4wMTcwMDUsNjAuMTAzMzUyOCAxNDUuMjI1NDg3LDU1Ljg5ODMzMTQgQzE0OS40MzM5NjksNTEuNjkzMzEgMTQ5LjQzMzk2OSw0NC44NzU2MjMyIDE0NS4yMjU0ODcsNDAuNjcwNjAxOCBMMTA4LjU4MDU1LDQuMDU1NzQ1OTIgQzEwMy44NjIwNDksLTAuNTM3OTg2ODQ2IDk2LjI2OTI2MTgsLTAuNTAwNzk3OTA2IDkxLjU4ODA4NjMsNC4xNzY1MjgyMyBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMSkiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik05MS41ODgwODYzLDQuMTc2NTI4MjMgTDQuMTc5OTY1NDQsOTEuNTEyNzcyOCBDLTAuNTE5MjQwNjA1LDk2LjIwODExNDYgLTAuNTE5MjQwNjA1LDEwMy43OTE4ODUgNC4xNzk5NjU0NCwxMDguNDg3MjI3IEw5MS41ODgwODYzLDE5NS44MjM0NzIgQzk2LjI4NzI5MjMsMjAwLjUxODgxNCAxMDMuODc3MzA0LDIwMC41MTg4MTQgMTA4LjU3NjUxLDE5NS44MjM0NzIgTDE0NS4yMjU0ODcsMTU5LjIwNDYzMiBDMTQ5LjQzMzk2OSwxNTQuOTk5NjExIDE0OS40MzM5NjksMTQ4LjE4MTkyNCAxNDUuMjI1NDg3LDE0My45NzY5MDMgQzE0MS4wMTcwMDUsMTM5Ljc3MTg4MSAxMzQuMTkzNzA3LDEzOS43NzE4ODEgMTI5Ljk4NTIyNSwxNDMuOTc2OTAzIEwxMDIuMjAxOTMsMTcxLjczNzM1MiBDMTAxLjAzMjMwNSwxNzIuOTA2MDE1IDk5LjI1NzE2MDksMTcyLjkwNjAxNSA5OC4wODc1MzU5LDE3MS43MzczNTIgTDI4LjI4NTkwOCwxMDEuOTkzMTIyIEMyNy4xMTYyODMxLDEwMC44MjQ0NTkgMjcuMTE2MjgzMSw5OS4wNTA3NzUgMjguMjg1OTA4LDk3Ljg4MjExMTggTDk4LjA4NzUzNTksMjguMTM3ODgyMyBDMTAwLjk5OTg2NCwyNS42MjcxODM2IDEwNS43NTE2NDIsMjAuNTQxODI0IDExMi43Mjk2NTIsMTkuMzUyNDQ4NyBDMTE3LjkxNTU4NSwxOC40Njg1MjYxIDEyMy41ODUyMTksMjAuNDE0MDIzOSAxMjkuNzM4NTU0LDI1LjE4ODk0MjQgQzEyNS42MjQ2NjMsMjEuMDc4NDI5MiAxMTguNTcxOTk1LDE0LjAzNDAzMDQgMTA4LjU4MDU1LDQuMDU1NzQ1OTIgQzEwMy44NjIwNDksLTAuNTM3OTg2ODQ2IDk2LjI2OTI2MTgsLTAuNTAwNzk3OTA2IDkxLjU4ODA4NjMsNC4xNzY1MjgyMyBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMikiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTUzLjY4NTYzMywxMzUuODU0NTc5IEMxNTcuODk0MTE1LDE0MC4wNTk2IDE2NC43MTc0MTIsMTQwLjA1OTYgMTY4LjkyNTg5NCwxMzUuODU0NTc5IEwxOTUuOTU5OTc3LDEwOC44NDI3MjYgQzIwMC42NTkxODMsMTA0LjE0NzM4NCAyMDAuNjU5MTgzLDk2LjU2MzYxMzMgMTk1Ljk2MDUyNyw5MS44Njg4MTk0IEwxNjguNjkwNzc3LDY0LjcxODExNTkgQzE2NC40NzIzMzIsNjAuNTE4MDg1OCAxNTcuNjQ2ODY4LDYwLjUyNDE0MjUgMTUzLjQzNTg5NSw2NC43MzE2NTI2IEMxNDkuMjI3NDEzLDY4LjkzNjY3NCAxNDkuMjI3NDEzLDc1Ljc1NDM2MDcgMTUzLjQzNTg5NSw3OS45NTkzODIxIEwxNzEuODU0MDM1LDk4LjM2MjM3NjUgQzE3My4wMjM2Niw5OS41MzEwMzk2IDE3My4wMjM2NiwxMDEuMzA0NzI0IDE3MS44NTQwMzUsMTAyLjQ3MzM4NyBMMTUzLjY4NTYzMywxMjAuNjI2ODQ5IEMxNDkuNDc3MTUsMTI0LjgzMTg3IDE0OS40NzcxNSwxMzEuNjQ5NTU3IDE1My42ODU2MzMsMTM1Ljg1NDU3OSBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMykiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPGVsbGlwc2UgaWQ9IkNvbWJpbmVkLVNoYXBlIiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTQpIiBjeD0iMTAwLjUxOTMzOSIgY3k9IjEwMC40MzY2ODEiIHJ4PSIyMy42MDAxOTI2IiByeT0iMjMuNTgwNzg2Ij48L2VsbGlwc2U+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==\"\r\n    />\r\n</div>\r\n<div class=\"logo-title\"><a href=\"./\" title=\"ng-form-builder\">NgFormBuilder</a></div>\r\n<ul nz-menu [nzMode]=\"'horizontal'\" [nzTheme]=\"'dark'\" style=\"padding-left: 280px;\">\r\n    <li nz-submenu>\r\n        <span title>\r\n      <i class=\"anticon anticon-setting\"></i> Form Type Builder</span>\r\n        <ul>\r\n            <li nz-menu-item [nzSelected]=\"true\" [routerLink]=\"'/zorro'\">Zorro Builder</li>\r\n            <li nz-menu-item [routerLink]=\"'/bootstrap'\">BootStrap Builder</li>\r\n            <li nz-menu-item [nzDisabled]=\"true\">PrimeNG Builder</li>\r\n            <li nz-menu-item [nzDisabled]=\"true\">Ionic Builder</li>\r\n        </ul>\r\n    </li>\r\n    <li nz-menu-item [routerLink]=\"'/dnd'\">\r\n        <i class=\"anticon anticon-layout\"></i> Drag&Drop\r\n    </li>\r\n    <li nz-submenu>\r\n        <span title>\r\n      <i class=\"anticon anticon-folder\"></i> Document</span>\r\n        <ul>\r\n            <li nz-submenu>\r\n                <span title>Form</span>\r\n                <ul>\r\n                    <li nz-menu-item [nzDisabled]=\"true\">How-To Guide</li>\r\n                    <li nz-menu-item [nzDisabled]=\"true\">Api Reference</li>\r\n                </ul>\r\n            </li>\r\n            <li nz-submenu>\r\n                <span title>Other</span>\r\n                <ul>\r\n                    <li nz-menu-item>\r\n                        <a href=\"http://json-schema.org/specification.html\" target=\"_blank\">JSON Schema Specification</a>\r\n                    </li>\r\n                </ul>\r\n            </li>\r\n        </ul>\r\n    </li>\r\n\r\n    <li nz-menu-item>\r\n        <i class=\"anticon anticon-github\"></i> <a href=\"https://github.com/giscafer/ng-form-builder\" style=\"display:inline;color:#fff;\" target=\"_blank\">Github</a></li>\r\n    <li nz-menu-item>\r\n        <a href=\"https://ng.ant.design\" target=\"_blank\" rel=\"noopener noreferrer\"></a>\r\n    </li>\r\n</ul>"
+module.exports = "<div id=\"logo\">\r\n    <!--  <img  *ngIf=\"_builder_type==='bootstrap'\" title=\"bootstrap form builder\" src=\"data:image/webp;base64,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\"\r\n  /> -->\r\n    <img *ngIf=\"_builder_type==='bootstrap'\" style=\"margin-left: 50px;\" src=\"./assets/images/bootstrap-stack.png\" alt=\"bootstrap form builder\" />\r\n    <img *ngIf=\"_builder_type==='zorro'\" style=\"margin-left: 50px;\" title=\"zorro form builder\" src=\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwMHB4IiBoZWlnaHQ9IjIwMHB4IiB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNDcuMSAoNDU0MjIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPkdyb3VwIDI4IENvcHkgNTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNjIuMTAyMzI3MyUiIHkxPSIwJSIgeDI9IjEwOC4xOTcxOCUiIHkyPSIzNy44NjM1NzY0JSIgaWQ9ImxpbmVhckdyYWRpZW50LTEiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNDI4NUVCIiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyRUM3RkYiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI2OS42NDQxMTYlIiB5MT0iMCUiIHgyPSI1NC4wNDI4OTc1JSIgeTI9IjEwOC40NTY3MTQlIiBpZD0ibGluZWFyR3JhZGllbnQtMiI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyOUNERkYiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzE0OEVGRiIgb2Zmc2V0PSIzNy44NjAwNjg3JSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMEE2MEZGIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNjkuNjkwODE2NSUiIHkxPSItMTIuOTc0MzU4NyUiIHgyPSIxNi43MjI4OTgxJSIgeTI9IjExNy4zOTEyNDglIiBpZD0ibGluZWFyR3JhZGllbnQtMyI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGQTgxNkUiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0Y3NEE1QyIgb2Zmc2V0PSI0MS40NzI2MDYlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGNTFEMkMiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI2OC4xMjc5ODcyJSIgeTE9Ii0zNS42OTA1NzM3JSIgeDI9IjMwLjQ0MDA5MTQlIiB5Mj0iMTE0Ljk0MjY3OSUiIGlkPSJsaW5lYXJHcmFkaWVudC00Ij4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ZBOEU3RCIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRjc0QTVDIiBvZmZzZXQ9IjUxLjI2MzUxOTElIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGNTFEMkMiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0ibG9nbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwLjAwMDAwMCwgLTIwLjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0iR3JvdXAtMjgtQ29weS01IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMC4wMDAwMDAsIDIwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTI3LUNvcHktMyI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTI1IiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iMiI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOTEuNTg4MDg2Myw0LjE3NjUyODIzIEw0LjE3OTk2NTQ0LDkxLjUxMjc3MjggQy0wLjUxOTI0MDYwNSw5Ni4yMDgxMTQ2IC0wLjUxOTI0MDYwNSwxMDMuNzkxODg1IDQuMTc5OTY1NDQsMTA4LjQ4NzIyNyBMOTEuNTg4MDg2MywxOTUuODIzNDcyIEM5Ni4yODcyOTIzLDIwMC41MTg4MTQgMTAzLjg3NzMwNCwyMDAuNTE4ODE0IDEwOC41NzY1MSwxOTUuODIzNDcyIEwxNDUuMjI1NDg3LDE1OS4yMDQ2MzIgQzE0OS40MzM5NjksMTU0Ljk5OTYxMSAxNDkuNDMzOTY5LDE0OC4xODE5MjQgMTQ1LjIyNTQ4NywxNDMuOTc2OTAzIEMxNDEuMDE3MDA1LDEzOS43NzE4ODEgMTM0LjE5MzcwNywxMzkuNzcxODgxIDEyOS45ODUyMjUsMTQzLjk3NjkwMyBMMTAyLjIwMTkzLDE3MS43MzczNTIgQzEwMS4wMzIzMDUsMTcyLjkwNjAxNSA5OS4yNTcxNjA5LDE3Mi45MDYwMTUgOTguMDg3NTM1OSwxNzEuNzM3MzUyIEwyOC4yODU5MDgsMTAxLjk5MzEyMiBDMjcuMTE2MjgzMSwxMDAuODI0NDU5IDI3LjExNjI4MzEsOTkuMDUwNzc1IDI4LjI4NTkwOCw5Ny44ODIxMTE4IEw5OC4wODc1MzU5LDI4LjEzNzg4MjMgQzk5LjI1NzE2MDksMjYuOTY5MjE5MSAxMDEuMDMyMzA1LDI2Ljk2OTIxOTEgMTAyLjIwMTkzLDI4LjEzNzg4MjMgTDEyOS45ODUyMjUsNTUuODk4MzMxNCBDMTM0LjE5MzcwNyw2MC4xMDMzNTI4IDE0MS4wMTcwMDUsNjAuMTAzMzUyOCAxNDUuMjI1NDg3LDU1Ljg5ODMzMTQgQzE0OS40MzM5NjksNTEuNjkzMzEgMTQ5LjQzMzk2OSw0NC44NzU2MjMyIDE0NS4yMjU0ODcsNDAuNjcwNjAxOCBMMTA4LjU4MDU1LDQuMDU1NzQ1OTIgQzEwMy44NjIwNDksLTAuNTM3OTg2ODQ2IDk2LjI2OTI2MTgsLTAuNTAwNzk3OTA2IDkxLjU4ODA4NjMsNC4xNzY1MjgyMyBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMSkiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik05MS41ODgwODYzLDQuMTc2NTI4MjMgTDQuMTc5OTY1NDQsOTEuNTEyNzcyOCBDLTAuNTE5MjQwNjA1LDk2LjIwODExNDYgLTAuNTE5MjQwNjA1LDEwMy43OTE4ODUgNC4xNzk5NjU0NCwxMDguNDg3MjI3IEw5MS41ODgwODYzLDE5NS44MjM0NzIgQzk2LjI4NzI5MjMsMjAwLjUxODgxNCAxMDMuODc3MzA0LDIwMC41MTg4MTQgMTA4LjU3NjUxLDE5NS44MjM0NzIgTDE0NS4yMjU0ODcsMTU5LjIwNDYzMiBDMTQ5LjQzMzk2OSwxNTQuOTk5NjExIDE0OS40MzM5NjksMTQ4LjE4MTkyNCAxNDUuMjI1NDg3LDE0My45NzY5MDMgQzE0MS4wMTcwMDUsMTM5Ljc3MTg4MSAxMzQuMTkzNzA3LDEzOS43NzE4ODEgMTI5Ljk4NTIyNSwxNDMuOTc2OTAzIEwxMDIuMjAxOTMsMTcxLjczNzM1MiBDMTAxLjAzMjMwNSwxNzIuOTA2MDE1IDk5LjI1NzE2MDksMTcyLjkwNjAxNSA5OC4wODc1MzU5LDE3MS43MzczNTIgTDI4LjI4NTkwOCwxMDEuOTkzMTIyIEMyNy4xMTYyODMxLDEwMC44MjQ0NTkgMjcuMTE2MjgzMSw5OS4wNTA3NzUgMjguMjg1OTA4LDk3Ljg4MjExMTggTDk4LjA4NzUzNTksMjguMTM3ODgyMyBDMTAwLjk5OTg2NCwyNS42MjcxODM2IDEwNS43NTE2NDIsMjAuNTQxODI0IDExMi43Mjk2NTIsMTkuMzUyNDQ4NyBDMTE3LjkxNTU4NSwxOC40Njg1MjYxIDEyMy41ODUyMTksMjAuNDE0MDIzOSAxMjkuNzM4NTU0LDI1LjE4ODk0MjQgQzEyNS42MjQ2NjMsMjEuMDc4NDI5MiAxMTguNTcxOTk1LDE0LjAzNDAzMDQgMTA4LjU4MDU1LDQuMDU1NzQ1OTIgQzEwMy44NjIwNDksLTAuNTM3OTg2ODQ2IDk2LjI2OTI2MTgsLTAuNTAwNzk3OTA2IDkxLjU4ODA4NjMsNC4xNzY1MjgyMyBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMikiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTUzLjY4NTYzMywxMzUuODU0NTc5IEMxNTcuODk0MTE1LDE0MC4wNTk2IDE2NC43MTc0MTIsMTQwLjA1OTYgMTY4LjkyNTg5NCwxMzUuODU0NTc5IEwxOTUuOTU5OTc3LDEwOC44NDI3MjYgQzIwMC42NTkxODMsMTA0LjE0NzM4NCAyMDAuNjU5MTgzLDk2LjU2MzYxMzMgMTk1Ljk2MDUyNyw5MS44Njg4MTk0IEwxNjguNjkwNzc3LDY0LjcxODExNTkgQzE2NC40NzIzMzIsNjAuNTE4MDg1OCAxNTcuNjQ2ODY4LDYwLjUyNDE0MjUgMTUzLjQzNTg5NSw2NC43MzE2NTI2IEMxNDkuMjI3NDEzLDY4LjkzNjY3NCAxNDkuMjI3NDEzLDc1Ljc1NDM2MDcgMTUzLjQzNTg5NSw3OS45NTkzODIxIEwxNzEuODU0MDM1LDk4LjM2MjM3NjUgQzE3My4wMjM2Niw5OS41MzEwMzk2IDE3My4wMjM2NiwxMDEuMzA0NzI0IDE3MS44NTQwMzUsMTAyLjQ3MzM4NyBMMTUzLjY4NTYzMywxMjAuNjI2ODQ5IEMxNDkuNDc3MTUsMTI0LjgzMTg3IDE0OS40NzcxNSwxMzEuNjQ5NTU3IDE1My42ODU2MzMsMTM1Ljg1NDU3OSBaIiBpZD0iU2hhcGUiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMykiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPGVsbGlwc2UgaWQ9IkNvbWJpbmVkLVNoYXBlIiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTQpIiBjeD0iMTAwLjUxOTMzOSIgY3k9IjEwMC40MzY2ODEiIHJ4PSIyMy42MDAxOTI2IiByeT0iMjMuNTgwNzg2Ij48L2VsbGlwc2U+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==\"\r\n    />\r\n</div>\r\n<div class=\"logo-title\"><a href=\"./\" title=\"ng-form-builder\">NgxFormBuilder</a></div>\r\n<ul nz-menu [nzMode]=\"'horizontal'\" [nzTheme]=\"'dark'\" class=\"menu\">\r\n    <li nz-submenu [routerLinkActive]=\"['menu-selected']\">\r\n        <span title> <i class=\"anticon anticon-setting\"></i> Form Type Builder</span>\r\n        <ul>\r\n            <li nz-menu-item [nzSelected]=\"true\" [routerLink]=\"'/zorro'\">Zorro Builder</li>\r\n            <li nz-menu-item [routerLink]=\"'/bootstrap'\">BootStrap Builder</li>\r\n            <li nz-menu-item [nzDisabled]=\"true\">PrimeNG Builder</li>\r\n            <li nz-menu-item [nzDisabled]=\"true\">Ionic Builder</li>\r\n        </ul>\r\n    </li>\r\n    <li nz-menu-item [routerLink]=\"'/dnd'\" [routerLinkActive]=\"['menu-selected']\">\r\n        <span title> <i class=\"anticon anticon-layout\"></i> Drag&Drop</span>\r\n    </li>\r\n    <li nz-menu-item [routerLink]=\"'/document'\" [routerLinkActive]=\"['menu-selected']\">\r\n        <span title> <i class=\"anticon anticon-folder\"></i> Document</span>\r\n        <!-- <ul>\r\n            <li nz-submenu>\r\n                <span title>Form</span>\r\n                <ul>\r\n                    <li nz-menu-item [nzDisabled]=\"true\">How-To Guide</li>\r\n                    <li nz-menu-item [nzDisabled]=\"true\">Api Reference</li>\r\n                </ul>\r\n            </li>\r\n            <li nz-submenu>\r\n                <span title>Other</span>\r\n                <ul>\r\n                    <li nz-menu-item>\r\n                        <a href=\"http://json-schema.org/specification.html\" target=\"_blank\">JSON Schema Specification</a>\r\n                    </li>\r\n                </ul>\r\n            </li>\r\n        </ul> -->\r\n    </li>\r\n\r\n    <li nz-menu-item>\r\n        <i class=\"anticon anticon-github\"></i> <a href=\"https://github.com/giscafer/ng-form-builder\" style=\"display:inline;color:#fff;\" target=\"_blank\">Github</a></li>\r\n    <li nz-menu-item>\r\n        <a href=\"https://ng.ant.design\" target=\"_blank\" rel=\"noopener noreferrer\"></a>\r\n    </li>\r\n</ul>"
 
 /***/ }),
 
@@ -330,7 +682,7 @@ module.exports = "<div id=\"logo\">\r\n    <!--  <img  *ngIf=\"_builder_type==='
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".menu {\n  padding-left: 320px; }\n"
 
 /***/ }),
 
@@ -1238,9 +1590,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var ng_ace_tern__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-ace-tern */ "./node_modules/ng-ace-tern/ng-ace-tern.es5.js");
 /* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
-/* harmony import */ var ngx_highlightjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-highlightjs */ "./node_modules/ngx-highlightjs/fesm5/ngx-highlightjs.js");
-/* harmony import */ var _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib/schema-form.module */ "./src/lib/schema-form.module.ts");
-/* harmony import */ var _components_code_slider_code_slider_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/code-slider/code-slider.component */ "./src/app/shared/components/code-slider/code-slider.component.ts");
+/* harmony import */ var ngx_md__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-md */ "./node_modules/ngx-md/fesm5/ngx-md.js");
+/* harmony import */ var ngx_highlightjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-highlightjs */ "./node_modules/ngx-highlightjs/fesm5/ngx-highlightjs.js");
+/* harmony import */ var _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib/schema-form.module */ "./src/lib/schema-form.module.ts");
+/* harmony import */ var _components_code_slider_code_slider_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/code-slider/code-slider.component */ "./src/app/shared/components/code-slider/code-slider.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1255,8 +1608,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var COMPONENTS = [
-    _components_code_slider_code_slider_component__WEBPACK_IMPORTED_MODULE_7__["CodeSliderComponent"]
+    _components_code_slider_code_slider_component__WEBPACK_IMPORTED_MODULE_8__["CodeSliderComponent"]
 ];
 var SharedModule = /** @class */ (function () {
     function SharedModule() {
@@ -1276,15 +1630,17 @@ var SharedModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 ng_zorro_antd__WEBPACK_IMPORTED_MODULE_4__["NgZorroAntdModule"].forRoot(),
                 ng_ace_tern__WEBPACK_IMPORTED_MODULE_3__["AceEditorModule"],
-                _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_6__["SchemaFormModule"],
-                ngx_highlightjs__WEBPACK_IMPORTED_MODULE_5__["HighlightModule"].forRoot({ theme: 'googlecode' }),
+                _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_7__["SchemaFormModule"],
+                ngx_highlightjs__WEBPACK_IMPORTED_MODULE_6__["HighlightModule"].forRoot({ theme: 'googlecode' }),
+                ngx_md__WEBPACK_IMPORTED_MODULE_5__["NgxMdModule"].forRoot(),
             ],
             exports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 ng_zorro_antd__WEBPACK_IMPORTED_MODULE_4__["NgZorroAntdModule"],
                 ng_ace_tern__WEBPACK_IMPORTED_MODULE_3__["AceEditorModule"],
-                _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_6__["SchemaFormModule"]
+                _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_7__["SchemaFormModule"],
+                ngx_md__WEBPACK_IMPORTED_MODULE_5__["NgxMdModule"]
             ].concat(COMPONENTS)
         })
     ], SharedModule);
@@ -6853,7 +7209,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! e:\1zitonFE\ngx-form-builder\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! E:\1zitonFE\ngx-form-builder\src\main.ts */"./src/main.ts");
 
 
 /***/ })

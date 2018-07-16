@@ -4,7 +4,7 @@ title: 日期选择器
 inherit: true
 ---
 
-默认小部件，一般用于日期选择。
+默认小部件，一般用于日期选择。`"widget":"date-range"`
 
 ## Schema
 

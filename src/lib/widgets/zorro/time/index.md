@@ -4,7 +4,7 @@ title: 时间选择器
 inherit: true
 ---
 
-一般用于时间选择。
+一般用于时间选择。`"widget":"time"`
 
 ## Schema
 

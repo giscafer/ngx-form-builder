@@ -4,7 +4,7 @@ title: 多行文本框
 inherit: true
 ---
 
-文本框小部件，一般用于字符串元素。
+文本框小部件，一般用于字符串元素。`"widget":"textarea"`
 
 
 ## Schema

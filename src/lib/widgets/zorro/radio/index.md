@@ -4,6 +4,7 @@ title: 单选框
 inherit: true
 ---
 
+单选框 `"widget":"radio"`
 
 ## Schema
 

@@ -1,0 +1,22 @@
+<nz-layout>
+    <nz-sider [nzWidth]="200">
+        <ul nz-menu [nzMode]="'inline'" style="height:100%">
+            <li nz-menu-group>
+                <div title>入门</div>
+                <ul>
+                    <li nz-menu-item *ngFor="let i of data.basic" [routerLink]="'/document/' + i.id" routerLinkActive="ant-menu-item-selected">{{i.title}}</li>
+                </ul>
+            </li>
+            <li nz-menu-group>
+                <div title>小部件</div>
+                <ul>
+                    <li nz-menu-item *ngFor="let i of data.widgets" [routerLink]="'/document/' + i.id" routerLinkActive="ant-menu-item-selected">{{i.id}}-{{i.title}}</li>
+                </ul>
+            </li>
+        </ul>
+    </nz-sider>
+    <nz-content class="markdown" *ngIf="item" class="bg-white doc">
+        <h1>{{item.title}}</h1>
+        <markdown [data]="item.content"></markdown>
+    </nz-content>
+</nz-layout>
