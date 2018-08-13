@@ -36,6 +36,7 @@ __the project is under developing__
 
 - [angular2-schema-form](https://github.com/makinacorpus/angular2-schema-form) `ngx-form-builder` base on angular2-schema-form
 - [formBuilder](https://github.com/kevinchappell/formBuilder)
+- [ngx-formly](https://github.com/formly-js/ngx-formly) JSON powered / Dynamic forms in Angular
 - [nz-schema-form](https://github.com/cipchk/nz-schema-form)
 - [ng-zorro-antd](https://github.com/NG-ZORRO/ng-zorro-antd)
 

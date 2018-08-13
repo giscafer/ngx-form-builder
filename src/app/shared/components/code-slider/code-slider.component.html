@@ -7,7 +7,14 @@
         <nz-col>
             <div class="code-box-actions">
                 <nz-tooltip [nzTitle]="'Edit On StackBlitz'" nzPlacement="right">
-                    <i nz-tooltip class="anticon anticon-form code-box-code-copy" style="cursor: pointer;" (click)="openOnStackBlitz()"></i>
+                    <div style="cursor: pointer; width: 22px;" title="Edit in StackBlitz" (click)="openOnStackBlitz()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184.4 150.8">
+                            <g>
+                                <path d="M119.8.3L49 76.1h37l-21.3 53.4 70.8-75.8H98.3z" />
+                                <path d="M123 4l-8.8 21 40 40-34.4 34.7v29.8L184.2 65zM64.7.3v29.8L30.2 65l40 39.8-8.7 21.3L.2 65z" />
+                            </g>
+                        </svg>
+                    </div>
                 </nz-tooltip>
                 <nz-tooltip [nzTitle]="'Copy Generate Command'" *ngIf="nzGenerateCommand" nzPlacement="right">
                     <i nz-tooltip class="anticon anticon-code-o code-box-code-copy" [class.anticon-code-o]="!_commandCopied" [class.anticon-check]="_commandCopied" [class.ant-tooltip-open]="_commandCopied" (click)="copyGenerateCommand(nzGenerateCommand)"></i>
