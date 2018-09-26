@@ -2,11 +2,12 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 import { SharedModule } from "./shared/shared.module";
-import { DndModule } from "../lib/dnd/dnd.module";
 import { ZorroFormComponent } from "./pages/zorro-form/zorro-form.component";
 import { BootstrapFormComponent } from "./pages/bootstrap-form/bootstrap-form.component";
 import { DndComponent } from "./pages/dnd-form/dnd.component";
 import { DocumentComponent } from "./document/document.component";
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DndService } from "./pages/dnd-form/dnd.service";
 
 const routes: Routes = [
     { path: '', redirectTo: 'zorro', pathMatch: 'full' },
@@ -29,9 +30,10 @@ const routes: Routes = [
     ],
     imports: [
         SharedModule,
-        DndModule.forRoot(),
-        RouterModule.forRoot(routes, { useHash: true })
+        RouterModule.forRoot(routes, { useHash: true }),
+        DragDropModule,
     ],
-    exports: []
+    exports: [],
+    providers: [DndService]
 })
 export class AppRoutingModule { }

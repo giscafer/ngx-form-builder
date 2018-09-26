@@ -9,34 +9,33 @@ import { RouterModule } from '@angular/router';
 // third part libs
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { NgxMdModule } from 'ngx-md';
-import { DndModule } from '../lib/dnd/dnd.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { StartUpService } from './services/startup.service';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpModule,
-    HttpClientModule,
-    CommonModule,
-    RouterModule,
-    AppRoutingModule,
-    NgZorroAntdModule.forRoot(),
-    DndModule.forRoot(),
-    LayoutModule,
-    NgxMdModule.forRoot(),
-  ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }, StartUpService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpModule,
+        HttpClientModule,
+        CommonModule,
+        RouterModule,
+        AppRoutingModule,
+        NgZorroAntdModule.forRoot(),
+        LayoutModule,
+        NgxMdModule.forRoot(),
+        DragDropModule,
+    ],
+    providers: [{ provide: NZ_I18N, useValue: zh_CN }, StartUpService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

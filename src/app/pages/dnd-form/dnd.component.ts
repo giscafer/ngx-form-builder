@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FRMB_CONTROL_LIST, Grid, ColNumList } from './frmb-controls';
+import { FRMB_CONTROL_LIST, Grid, ColNumList, text } from './frmb-controls';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { DndService } from './dnd.service';
 
 @Component({
   selector: 'app-dnd',
@@ -23,10 +25,19 @@ export class DndComponent implements OnInit {
   listCtrls = FRMB_CONTROL_LIST;
   targetList: Array<string> = [];
 
-  constructor() { }
+  // from
+  formBuilderValue: Object;
+  schemaJson: Object;
+  htmlCode = '';
+  componentCode = '';
+  schemaString = '';
+
+
+  constructor(private dndSrv: DndService) { }
 
   ngOnInit() {
     this.resetColumns();
+    this.run(text);
   }
 
 
@@ -50,4 +61,45 @@ export class DndComponent implements OnInit {
     console.log($event);
     this.resetColumns();
   }
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
+    const schemaObj = this.dndSrv.genSchemaByControl(event.container.data[event.currentIndex]);
+    console.log(schemaObj)
+    this.schemaJson = JSON.parse(schemaObj);
+  }
+
+
+
+  /* form builder */
+  logErrors(errors) {
+    console.log('ERRORS', errors);
+  }
+
+
+
+  onBuilderFinish($event) {
+    this.htmlCode = $event.htmlCode;
+    this.componentCode = $event.componentCode;
+  }
+
+  run(text: string) {
+    this.schemaJson = JSON.parse(text);
+  }
+
+  onAceChange(data) {
+    console.log('~~~编辑器内容变化~~~');
+  }
+
+  setValue(value) {
+    this.formBuilderValue = value;
+  }
+
 }
