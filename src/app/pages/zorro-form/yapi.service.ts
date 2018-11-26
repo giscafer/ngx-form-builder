@@ -6,8 +6,8 @@ import { of } from 'rxjs';
 
 @Injectable()
 export class YapiService {
-
-    private loginUrl = 'https://yapi.1ziton.com/api/user/login';
+    private BASEURL = 'http://localhost:3000';
+    private loginUrl = this.BASEURL + '/api/user/login';
     private TOKEN = '7f200d9bbc87e6e9440b';
 
     constructor(private http: HttpClient, private msg: NzMessageService) {
@@ -32,7 +32,7 @@ export class YapiService {
             this.msg.error('请输入正确的yapi接口url地址')
             return;
         }
-        url = `https://yapi.1ziton.com/api/interface/get?id=${interfaceId}`
+        url = `${this.BASEURL}/api/interface/get?id=${interfaceId}`
         return new Promise((resolve, reject) => {
             this.http.get(url, { params: { token: this.TOKEN } }).subscribe(json => {
                 console.log(json);
@@ -58,7 +58,7 @@ export class YapiService {
         const { req_query, res_body } = data;
         const properties = this.queryParamsToProperties(req_query);
         const tableProperties = this.tableProperties(JSON.parse(res_body));
-
+        
 
         return this.gridSchema(properties, tableProperties);
     }
@@ -93,26 +93,16 @@ export class YapiService {
             content = [{}];
             this.msg.error('该接口不是列表接口！', { nzDuration: 4000 });
         }
-
-        tableProperties['columns'] = Object.keys(content[0]);
+        let columnsHeader = [];
+        const columns = Object.keys(content[0]);
+        for (let c of columns) {
+            if(c!=='id' && c!=='_id'){
+                columnsHeader.push(`${c}-${c}-100px`);
+            }
+        }
+        tableProperties['columns'] = columnsHeader;
         tableProperties['data'] = content;
-        tableProperties['data'].push({
-            "_id": "5aed10d9f770063f7cb66de0",
-            "consignorCode": "admin",
-            "name": "测试",
-            "telephone": "13640512731",
-            "type": "ordinary",
-            "typeName": "普通",
-            "isVip": false,
-            "remarks": "",
-            "createTime": "2018-05-05 10:03:05",
-            "lastUpdateTime": "2018-05-05 10:03:05",
-            "version": 1,
-            "creator": "guest",
-            "creatorName": "访客",
-            "modifier": "guest",
-            "modifierName": "访客"
-        });
+
         return tableProperties;
     }
 

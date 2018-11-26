@@ -1,7 +1,6 @@
-
-
 {
     "提示": "以下token和接口url必填",
-    "token":"这里粘贴项目的token（获取方式：项目——>设置——>token配置）",
-    "url": "https://yapi.1ziton.com/project/11/interface/api/27"
+    "tableComponent": "yzt-grid",
+    "token": "7f200d9bbc87e6e9440b",
+    "url": "https://localhost:3000/project/11/interface/api/30"
 }

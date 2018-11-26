@@ -1,0 +1,159 @@
+<div class="grid-border">
+    <nz-table [attr.class]="customClass" [nzScroll]="_scroll" #nzTable [nzShowPagination]="showPagination" nzShowSizeChanger [nzPageSizeOptions]="pageSizeValues" [nzData]="_displayData" [nzTotal]="_data.totalElements" [nzLoading]="_loading" [nzLoadingDelay]="10" [(nzPageIndex)]="pageIndex"
+        [(nzPageSize)]="pageSize" (nzPageSizeChange)="pageSizeChange($event)" (nzPageIndexChange)="nzPageIndexChange($event)" [nzSize]="'middle'" [nzFrontPagination]="false" [nzTitle]="_title?_title:(_titleTpl||null)" [nzShowTotal]="totalTemplate" nzNoResult="没有记录">
+        <!-- <div class="table-title" nz-table-title *ngIf="_title || _titleTpl || buttonGather.showEditColumn || buttonGather.enableExport">
+            <ng-template #defaultTitle>
+                <div>
+                    <button class="btn-editcol" nz-button [nzType]="'primary'" *ngIf="buttonGather.showEditColumn" (click)="editCol = !_editCol">
+                        <i class="anticon anticon-edit"></i>
+                        编辑列
+                    </button>
+                    <button class="btn-export" nz-button [nzType]="'primary'" [nzLoading]="_exportLoading" *ngIf="buttonGather.enableExport"
+                        (click)="exportCSVIntenal()">
+                        <i class="anticon anticon-export"></i>
+                        导出
+                    </button>
+                </div>
+            </ng-template>
+            <ng-template [ngIf]="_title">{{_title}}</ng-template>
+            <ng-template [ngTemplateOutlet]="!_title && (_titleTpl || defaultTitle)"></ng-template>
+        </div> -->
+        <thead (nzSortChange)="sort($event)" nzSingleSort>
+            <tr>
+                <ng-template [ngIf]="!hideCheck">
+                    <th nzCheckbox *ngIf="mulitipy" style="width: 50px; text-align: center;">
+                        <label nz-checkbox [(ngModel)]="_allChecked" [nzIndeterminate]="_indeterminate" (ngModelChange)="checkAll($event, nzTable.data)"></label>
+                    </th>
+                    <th nzCheckbox *ngIf="!mulitipy" style="width: 50px; text-align: center;">
+                        <span></span>
+                    </th>
+                </ng-template>
+
+                <!--遍历字段渲染内容-->
+                <ng-container *ngFor="let column of columns">
+                    <!-- 右侧冻结列 -->
+                    <th *ngIf="column['frozenRight']" nzRight="0px" class="header-title" [nzWidth]="column['width'] || '120px'">
+                        <ng-template [ngTemplateOutlet]="thHeaderTempl" [ngTemplateOutletContext]="column"></ng-template>
+                    </th>
+                    <!-- 左侧冻结列 -->
+                    <th [nzShowSort]="column['showSort']" [nzSortKey]="column.field" *ngIf="column['frozenLeft']" nzLeft="0px" class="header-title" [nzWidth]="column['width'] || '120px'">
+                        <ng-template [ngTemplateOutlet]="thHeaderTempl" [ngTemplateOutletContext]="column"></ng-template>
+                    </th>
+                    <!-- 正常 -->
+                    <th [ngClass]="column['showSort']" [nzShowSort]="column['showSort']" [nzSortKey]="column.field" *ngIf="!column['frozenLeft'] && !column['frozenRight']" class="header-title" [nzWidth]="column['width'] || '120px'">
+                        <ng-template [ngTemplateOutlet]="thHeaderTempl" [ngTemplateOutletContext]="column"></ng-template>
+                    </th>
+                </ng-container>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="_extraTitleTpl" style="background-color: #fcfcfc">
+                <th colspan="30">
+                  <ng-template [ngTemplateOutlet]="_extraTitleTpl"></ng-template>
+                </th>
+            </tr>
+            <tr [style.color]="getColColor(data[colColor.field])" *ngFor="let data of nzTable.data; let ri = index" (click)="onRowSelectChange(data, ri, nzTable.data)" [class.selected]="data.checked">
+                <!-- 选择框 -->
+                <ng-template [ngIf]="!hideCheck && data['operate'] !== '没有记录'">
+                    <td nzCheckbox *ngIf="mulitipy" style="width: 50px; text-align: center;">
+                        <label #checkbox_item nz-checkbox [(ngModel)]="data.checked" (click)="refreshStatus($event)"></label>
+                    </td>
+                    <td nzCheckbox *ngIf="!mulitipy" style="width: 50px; text-align: center;">
+                        <label #checkbox_item nz-checkbox class="custom-select" [disabled]="data.checked" [(ngModel)]="data.checked" (click)="refreshSingleStatus($event, nzTable.data, ri)"></label>
+                    </td>
+                </ng-template>
+                <!--遍历字段渲染内容-->
+                <ng-container *ngFor="let column of columns">
+                    <!-- 右侧冻结列 -->
+                    <td *ngIf="column['frozenRight']" nzRight="0px">
+                        <ng-template [ngTemplateOutlet]="default_cell" [ngTemplateOutletContext]="column"></ng-template>
+                    </td>
+                    <!-- 左侧冻结列 -->
+                    <td *ngIf="column['frozenLeft']" nzLeft="0px">
+                        <ng-template [ngTemplateOutlet]="default_cell" [ngTemplateOutletContext]="column"></ng-template>
+                    </td>
+                    <!-- 正常 -->
+                    <td *ngIf="!column['frozenLeft'] && !column['frozenRight']">
+                        <ng-template [ngTemplateOutlet]="default_cell" [ngTemplateOutletContext]="column"></ng-template>
+                    </td>
+                </ng-container>
+                <!-- td的模板 -->
+                <ng-template #default_cell let-field="field" let-popover="popover" let-link="link" let-thumbnail="thumbnail" let-header="header" let-textLength="textLength">
+                    <ng-container *ngIf="field === _iconComp[field]?.outField" [ngTemplateOutlet]="_iconComp[field].iconTemplate" [ngTemplateOutletContext]="data"></ng-container>
+                    <a href="javascript:;" *ngIf="link" class="column-link">
+                        <span (click)="onCellClick($event,data,field)">{{data[field]}}</span>
+                    </a>
+                    <!-- 一般文本 -->
+                    <ng-container *ngIf="!link && !popover && !thumbnail">
+                        <!-- 默认小于20的文本无popover -->
+                        <nz-popover *ngIf="(data[field]?.length>(textLength?textLength: 20)); else elseTextBlock" [nzTrigger]="'hover'">
+                            <span nz-popover>{{data[field+'_short_']}}</span>
+                            <ng-template #nzTemplate>
+                                <div>
+                                    <p style="max-width: 300px;">{{data[field]}}</p>
+                                </div>
+                            </ng-template>
+                        </nz-popover>
+                        <ng-template #elseTextBlock>
+                            <span>{{data[field]}}</span>
+                        </ng-template>
+                    </ng-container>
+                    <!-- 卡片弹框 start-->
+                    <div (mouseenter)="onCellMouseEnter($event, data, field)">
+                        <nz-popover *ngIf="popover" [nzTitle]="header" [nzTrigger]="'hover'">
+                            <span class="column-popover-text" nz-popover>{{data[field+ '_popover_']}}</span>
+                            <ng-template #nzTemplate>
+                                <!-- <p class="popover-panel popover-content" [class.popover-panel-last]="i === data[field+ '_popover_arr_'].length-1" *ngFor="let name of data[field+ '_popover_arr_']; let i = index;">{{name}}</p> -->
+                                <ng-template #default_popover>
+                                    <p class="popover-panel popover-content" [class.popover-panel-last]="i === splitName(data[field], popover).length-1" *ngFor="let name of splitName(data[field], popover); let i = index;">{{name}}</p>
+                                </ng-template>
+                                <ng-container>
+                                    <!-- 由于外层有popover控制，所以这里不会有性能问题 -->
+                                    <div class="yzt-grid-popover-content" [style.width.px]="popover.split('@')[1]?popover.split('@')[1]:'auto'">
+                                        <ng-template [ngTemplateOutlet]="(popover.indexOf('_customTpl') !== -1 && _custom_popoverTpl) || default_popover"></ng-template>
+                                    </div>
+                                </ng-container>
+                            </ng-template>
+                        </nz-popover>
+                    </div>
+                    <!-- 卡片弹框 end-->
+                    <!--图片附件 start-->
+                    <div *ngIf="thumbnail && data[field] && !popover">
+                        <i class="anticon anticon-picture thumbnail" *ngFor="let addr of data[field]" target="_blank">
+                            <img style="opacity: 0;position: absolute;left: 0;top: 0;" name="{{addr}}" src="{{addr}}">
+                        </i>
+                    </div>
+                    <!--图片附件 end-->
+                    <ng-container *ngIf="field === _customComp[field]?.outField && data['operate'] !== '没有记录'" [ngTemplateOutlet]="_customComp[field].customTemplate" [ngTemplateOutletContext]="data"></ng-container>
+                </ng-template>
+            </tr>
+        </tbody>
+    </nz-table>
+
+    <ng-template #thHeaderTempl let-header="header" let-field="field" let-frozenRight="frozenRight" let-frozenLeft="frozenLeft">
+        <span>{{header}}</span>
+        <div *ngIf="_hasSearch && !frozenRight && !frozenLeft" [ngClass]="_hasSearch? 'templ': ''">
+            <ng-template #default_search>
+                <input nz-input [(ngModel)]="_fieldGather[field]" (ngModelChange)="search(field, $event)"/>
+            </ng-template>
+            <ng-container [ngTemplateOutlet]=" _searchCustom[field] || default_search"></ng-container>
+        </div>
+    </ng-template>
+    <ng-template #totalTemplate let-total>
+        总 {{total}} 条数据
+    </ng-template>
+</div>
+
+<!-- <div #edit_box class="edit-wrap" *ngIf="_editCol">
+    <div drag-box [box]="edit_box" class="edit-title ant-modal-header">
+        <div class="ant-modal-title">编辑列</div>
+        <button aria-label="Close" class="ant-modal-close ng-star-inserted" (click)="editCol=false">
+            <span class="ant-modal-close-x"></span>
+        </button>
+    </div>
+    <div class="edit-content ant-modal-body">
+        <nz-transfer [nzDataSource]="editColumns" [nzTitles]="['Source', 'Target']" (nzSelectChange)="select($event)" [nzListStyle]="{'width.px': 230, 'height.px': 300, 'text-align': 'left'}" (nzChange)="editChange($event)">
+        </nz-transfer>
+    </div>
+    <div class="edit-footer ant-modal-footer"></div>
+</div> -->

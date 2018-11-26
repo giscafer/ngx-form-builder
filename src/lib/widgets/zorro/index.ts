@@ -9,6 +9,7 @@ export { CheckboxWidget } from './checkbox/checkbox.widget';
 export { TextAreaWidget } from './textarea/textarea.widget';
 export { SelectWidget } from './select/select.widget';
 export { TableWidget } from './table/table.widget';
+export { YztGridWidget } from './yzt-grid/yzt-grid.widget';
 
 /* export { IntegerWidget } from './integer/integer.widget';
 export { RangeWidget } from './range/range.widget';

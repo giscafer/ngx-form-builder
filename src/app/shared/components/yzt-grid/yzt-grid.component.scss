@@ -1,0 +1,136 @@
+$table-selected-row-bg: #fcf5f0;
+:host ::ng-deep .ant-table-thead>tr>th.ant-table-selection-column,
+:host ::ng-deep .ant-table-tbody>tr>td.ant-table-selection-column {
+    width: 20px;
+    min-width: 20px;
+}
+
+//  :host ::ng-deep .ant-table-tbody>tr>td {
+//     position: relative;
+// }
+.grid-border {
+    border: 1px solid #e9e9e9;
+}
+
+// 覆盖原来的title padding
+:host /deep/ .ant-table {
+    border-radius: 0;
+    // .ant-table-title {
+    //     padding: 0 !important;
+    //     top: 0;
+    //     border-radius: 0;
+    // }
+}
+
+:host ::ng-deep .custom-select {
+    .ant-checkbox-disabled {
+        cursor: pointer;
+    } .ant-checkbox-input {
+        cursor: pointer;
+    }
+    .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner:after {
+        border-color: #fff;
+    }
+}
+
+.selected {
+    background-color: $table-selected-row-bg !important;
+    .ant-table-td-left-sticky, .ant-table-td-right-sticky {
+        background-color: $table-selected-row-bg
+    }
+}
+
+.table-title {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 8px; // 扩展的title padding
+    .btn-editcol {
+        float: left;
+    }
+    .btn-export {
+        float: right;
+    }
+}
+
+:host .header-title {//, :host .header-title:not(.ant-table-th-left-sticky)
+    position: relative;
+    >span:first-child {
+        display: block;
+    }
+    .templ {
+        width: 100%;
+        height: 30px;
+        max-width: 120px;
+        position: relative;
+        z-index: 1;
+         ::ng-deep nz-select,
+         ::ng-deep nz-input {
+            width: 100%;
+        }
+    }
+    ::ng-deep .ant-table-column-sorter {
+      position: absolute;
+      top: 16px;
+      left: 55px;
+    }
+}
+
+:host ::ng-deep .sorter3 {
+  .ant-table-column-sorter {
+    left: 40px !important;
+  }
+}
+
+:host ::ng-deep .sorter4 {
+  .ant-table-column-sorter {
+    left: 55px !important;
+  }
+}
+
+:host ::ng-deep .sorter5 {
+  .ant-table-column-sorter {
+    left: 70px !important;
+  }
+}
+
+:host .ant-table-th-left-sticky, :host .ant-table-th-right-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+:host ::ng-deep .deliveryTable .ant-table-placeholder {
+  top: 70px !important;
+}
+
+.column-link {
+    text-decoration: underline; // color: rgba(0, 0, 0, 0.65);
+    color: #EE7F25
+}
+
+.edit-wrap {
+    width: 600px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.thumbnail {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.popover-panel {
+    border-bottom: 1px solid #e9e9e9;
+    padding: 8px 16px;
+}
+
+.popover-panel-last {
+    border: 0;
+}
+
+.column-popover-text {
+    color: #108ee9;
+    cursor: default;
+}

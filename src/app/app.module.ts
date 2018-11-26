@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { YapiService } from './pages/zorro-form/yapi.service';
 import { StartUpService } from './services/startup.service';
+import { UIGridModule } from './shared/components/yzt-grid/yzt-grid.component';
 
 
 
@@ -36,6 +37,7 @@ import { StartUpService } from './services/startup.service';
     DndModule.forRoot(),
     LayoutModule,
     NgxMdModule.forRoot(),
+    UIGridModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },

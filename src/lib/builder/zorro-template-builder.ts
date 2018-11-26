@@ -82,7 +82,12 @@ function buildTable(formProperty, registry) {
 
     let schema = formProperty.schema;
     if (!schema.table) return '';
-    let WidgetClass = registry.getWidgetType('table');
+    let WidgetClass = null;
+    if (schema.tableComponent === 'yzt-grid') {
+        WidgetClass = registry.getWidgetType('yzt-grid');
+    } else {
+        WidgetClass = registry.getWidgetType('table');
+    }
     let tableHtml = new WidgetClass().getTemplate()
 
     return tableHtml;

@@ -129,7 +129,7 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
         this.schemaString = JSON.stringify(this.service.getData('zorroFullWidgetMockData'), null, 4);
         break;
       case 'yapi':
-        this.demoName = 'Yapi列表自动生成';
+        this.demoName = 'Yapi 列表自动生成';
         this.schemaString = JSON.stringify(this.service.getData('yapiMockData'), null, 4);
         break;
     }
@@ -191,6 +191,7 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
 
       this.yapiSrv.genSchemaByInterface(json).then(schema => {
         console.log(schema);
+        schema['tableComponent'] = json.tableComponent || 'nz-table';
         this.schemaJson = schema;
       });
 

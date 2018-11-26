@@ -250,11 +250,11 @@ export class ZorroFormBuilderComponent implements OnChanges {
         if (schema.table) {
             Object.assign(properties, {
                 "columns": schema.table.columns,
-                "data": schema.table.data
+                "data": schema.tableComponent === 'yzt-grid' ? { content: schema.table.data } :schema.table.data
             });
             Object.assign(opts, {
                 "columns": schema.table.columns,
-                "data": schema.table.data
+                "data": schema.tableComponent === 'yzt-grid' ? { content: schema.table.data } : schema.table.data
             });
             this.ref = this.ZorroWidgetFactory.createTableComponent(this.container, template, properties, this);
         } else {
