@@ -13,6 +13,7 @@ import { DndModule } from '../lib/dnd/dnd.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
+import { YapiService } from './pages/zorro-form/yapi.service';
 import { StartUpService } from './services/startup.service';
 
 
@@ -36,7 +37,10 @@ import { StartUpService } from './services/startup.service';
     LayoutModule,
     NgxMdModule.forRoot(),
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }, StartUpService],
+  providers: [
+    { provide: NZ_I18N, useValue: zh_CN },
+    StartUpService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

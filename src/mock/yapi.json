@@ -1,0 +1,7 @@
+
+
+{
+    "提示": "以下token和接口url必填",
+    "token":"这里粘贴项目的token（获取方式：项目——>设置——>token配置）",
+    "url": "https://yapi.1ziton.com/project/11/interface/api/27"
+}

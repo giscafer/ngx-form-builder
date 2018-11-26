@@ -47,6 +47,14 @@ __the project is under developing__
 - [JIT Complier needed with AOT Build for Dynamic Component9](https://github.com/angular/angular/issues/20875)
 - [Angular's integration example](https://github.com/angular/angular/blob/d7a727cc0728a61a707f2c109636c1fa077042c2/integration/dynamic-compiler/src/app.module.ts#L16)
 
+## Contributing
+
+- Fork it!
+- Create your feature branch: git checkout -b my-new-feature
+- Commit your changes: git commit -m 'Add some feature'
+- Push to the branch: git push origin my-new-feature
+- Submit a pull request :D
+
 ## License
 
 MIT

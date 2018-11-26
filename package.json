@@ -37,7 +37,7 @@
         "ng-ace-tern": "^1.1.0",
         "ng-zorro-antd": "^1.1.1",
         "ngx-highlightjs": "^2.1.1",
-        "ngx-md": "^6.0.0",
+        "ngx-md": "^6.0.9",
         "rxjs": "^6.2.1",
         "rxjs-compat": "^6.0.0-rc.0",
         "z-schema": "^3.19.0",

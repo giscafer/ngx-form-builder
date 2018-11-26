@@ -246,7 +246,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
             template,
             modelName: properties.modelName
         }
-
+        this.container.clear();
         if (schema.table) {
             Object.assign(properties, {
                 "columns": schema.table.columns,

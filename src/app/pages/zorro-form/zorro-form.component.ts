@@ -7,13 +7,15 @@ import { StartUpService } from '../../services/startup.service';
 import { funDownload } from '../../utils/download';
 import { formatTime } from '../../utils/formatTime';
 import { initSplitEventHandler } from '../../utils/setSplitPosition';
+import { YapiService } from './yapi.service';
 
 
 
 @Component({
   selector: 'app-zorro-form',
   templateUrl: './zorro-form.component.html',
-  styleUrls: []
+  styleUrls: [],
+  viewProviders: [YapiService,]
 })
 export class ZorroFormComponent implements AfterViewInit, OnDestroy {
 
@@ -58,9 +60,12 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
 
   subject: Subscription;
 
+  private demoType: string;
+
   constructor(
     private _message: NzMessageService,
-    private service: StartUpService
+    private service: StartUpService,
+    private yapiSrv: YapiService,
   ) {
 
     this.subject = this.service.mockChanged.subscribe(evt => {
@@ -89,7 +94,7 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
   }
 
   toggleSchema(type) {
-
+    this.demoType = type;
     switch (type) {
       case 'horizontal-layout':
         this.demoName = 'Horizontal Layout Example';
@@ -122,6 +127,10 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
       case 'full':
         this.demoName = 'Full Widget Example';
         this.schemaString = JSON.stringify(this.service.getData('zorroFullWidgetMockData'), null, 4);
+        break;
+      case 'yapi':
+        this.demoName = 'Yapi列表自动生成';
+        this.schemaString = JSON.stringify(this.service.getData('yapiMockData'), null, 4);
         break;
     }
 
@@ -165,8 +174,33 @@ export class ZorroFormComponent implements AfterViewInit, OnDestroy {
     }
     let text = this.editorDirective.editor.getValue();
     this.builderInfo._startTime = new Date().getTime();
+
+    if (this.demoType === 'yapi') {
+
+      const json = JSON.parse(text);
+      const keys = Object.keys(json);
+
+      if (!keys.includes('token')) {
+        this._message.warning('请填写授权访问项目的token串');
+        return;
+      }
+      if (!keys.includes('url')) {
+        this._message.warning('请输入YAPI的接口url');
+        return;
+      }
+
+      this.yapiSrv.genSchemaByInterface(json).then(schema => {
+        console.log(schema);
+        this.schemaJson = schema;
+      });
+
+      return;
+    }
+
     this.schemaJson = JSON.parse(text);
   }
+
+
   onAceChange(data) {
     console.log('~~~编辑器内容变化~~~');
   }

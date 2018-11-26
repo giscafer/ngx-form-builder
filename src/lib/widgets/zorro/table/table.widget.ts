@@ -8,7 +8,7 @@ export class TableWidget extends ControlWidget {
 
 	getTemplate(schema) {
 		return `
-<nz-table
+<nz-table [nzScroll]="{ x: '1800px', y: '400px' }"
 	#rowSelectionTable
 	[nzData]="data"
 	(nzCurrentPageDataChange)="currentPageDataChange($event)"
