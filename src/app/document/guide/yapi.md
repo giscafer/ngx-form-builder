@@ -4,7 +4,7 @@ title: Yapi 列表接口自动生成页面
 type: Advanced
 ---
 
-支持 **Yapi 列表分页查询接口** 自动生成前端模板页面。
+接口文档采用 [YMFE/yapi](https://github.com/YMFE/yapi) 来管理，支持 **Yapi 列表分页查询接口** 自动化生成前端页面模板。
 
 
 ### 如何使用？
