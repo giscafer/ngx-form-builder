@@ -74,7 +74,7 @@ export class YapiService {
         for (let item of req_query) {
             qryProperties[item.name] = {
                 "type": "string",
-                "title": item.desc,
+                "title": item.desc || item.name,
                 "default": item.example
             }
         }

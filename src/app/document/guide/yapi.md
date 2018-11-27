@@ -44,6 +44,17 @@ type: Advanced
 - `tableComponent` 指定渲染的表格组件，目前支持 `yzt-grid` 和 `nz-table` 两种
 
 
+### demo截图
+
+运行结果：
+
+![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/demo2.png)
+
+
+接口文档：
+
+![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/demo1.png)
+
 ### 欢迎反馈
 
 提建议或参与贡献代码：https://github.com/giscafer/ngx-form-builder
