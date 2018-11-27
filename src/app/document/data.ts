@@ -15,6 +15,11 @@ export const DATA = {
             id: 'schema',
             title: 'Schema',
             content: getMd(require('!!raw-loader!./guide/schema.md'))
+        },
+        {
+            id: 'yapi',
+            title: 'Yapi 接口自动生成页面',
+            content: getMd(require('!!raw-loader!./guide/yapi.md'))
         }
     ],
     widgets: [
@@ -62,7 +67,7 @@ export const DATA = {
             id: 'select',
             title: '选择器',
             content: getMd(require('!!raw-loader!../../lib/widgets/zorro/select/index.md'))
-        }, 
+        },
         {
             id: 'tree-select',
             title: '树形选择器',
@@ -71,7 +76,12 @@ export const DATA = {
             id: 'table',
             title: '表格',
             content: getMd(require('!!raw-loader!../../lib/widgets/zorro/table/index.md'))
-        }/* ,
+        }, {
+            id: 'yzt-grid',
+            title: 'YZT表格',
+            content: getMd(require('!!raw-loader!../../lib/widgets/zorro/yzt-grid/index.md'))
+        }
+        /* ,
         {
             id: 'rate',
             title: '评分',

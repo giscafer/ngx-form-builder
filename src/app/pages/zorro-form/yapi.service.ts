@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { promiseHandler } from '../../utils/promiseHandler';
 import { NzMessageService } from 'ng-zorro-antd';
-import { of } from 'rxjs';
+const stripJsonComments = require('strip-json-comments');
+
 
 @Injectable()
 export class YapiService {
-    private BASEURL = 'http://localhost:3000';
+    private BASEURL = 'https://yapi.1ziton.com';
     private loginUrl = this.BASEURL + '/api/user/login';
-    private TOKEN = '7f200d9bbc87e6e9440b';
 
     constructor(private http: HttpClient, private msg: NzMessageService) {
 
@@ -25,7 +25,7 @@ export class YapiService {
     }
 
     /* 获取接口信息 */
-    getInterfaceInfo({ url }) {
+    getInterfaceInfo({ url, token }) {
         const arr = url.split('/');
         let interfaceId = arr[arr.length - 1];
         if (isNaN(Number(interfaceId))) {
@@ -34,7 +34,7 @@ export class YapiService {
         }
         url = `${this.BASEURL}/api/interface/get?id=${interfaceId}`
         return new Promise((resolve, reject) => {
-            this.http.get(url, { params: { token: this.TOKEN } }).subscribe(json => {
+            this.http.get(url, { params: { token } }).subscribe(json => {
                 console.log(json);
                 return resolve(json);
             }, err => reject(err));
@@ -42,23 +42,28 @@ export class YapiService {
     }
 
     /*根据接口生成json schema*/
-    async genSchemaByInterface({ url }) {
+    async genSchemaByInterface(qryParams) {
 
-        const [err, result] = await promiseHandler(this.getInterfaceInfo({ url }));
+        const [err, result] = await promiseHandler(this.getInterfaceInfo(qryParams));
 
         if (err || !result) {
             this.msg.error(err);
             return null;
         }
         if (result.errcode !== 0) {
-            this.msg.error(result.errmsg);
+            let errmsg = result.errmsg.indexOf('请登录') !== -1 ? 'token值不正确，请确认' : result.errmsg
+            this.msg.error(errmsg, { nzDuration: 3000 });
             return null;
         }
         const data = result.data;
         const { req_query, res_body } = data;
         const properties = this.queryParamsToProperties(req_query);
-        const tableProperties = this.tableProperties(JSON.parse(res_body));
-        
+        let tableProperties = {}
+        try {
+            tableProperties = this.tableProperties(JSON.parse(stripJsonComments(res_body)));
+        } catch (e) {
+            this.msg.error('json格式化出错，请检查接口返回值json格式')
+        }
 
         return this.gridSchema(properties, tableProperties);
     }
@@ -96,7 +101,7 @@ export class YapiService {
         let columnsHeader = [];
         const columns = Object.keys(content[0]);
         for (let c of columns) {
-            if(c!=='id' && c!=='_id'){
+            if (c !== 'id' && c !== '_id') {
                 columnsHeader.push(`${c}-${c}-100px`);
             }
         }

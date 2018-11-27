@@ -41,6 +41,7 @@
         "ngx-md": "^6.0.9",
         "rxjs": "^6.2.1",
         "rxjs-compat": "^6.0.0-rc.0",
+        "strip-json-comments": "^2.0.1",
         "z-schema": "^3.19.0",
         "zone.js": "^0.8.26"
     },

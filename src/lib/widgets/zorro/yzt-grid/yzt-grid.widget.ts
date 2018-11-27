@@ -2,14 +2,14 @@ import { ControlWidget } from '../../../widget';
 
 export class YztGridWidget extends ControlWidget {
 
-	constructor() {
-		super();
-	}
+    constructor() {
+        super();
+    }
 
-	getTemplate(schema) {
-		return `
+    getTemplate(schema) {
+        return `
 	<yzt-grid
-		[scroll]="{ x: '2300px', y: '800px' }"
+		[scroll]="{ x: '2400px', y: '800px' }"
 		#grid_basic
 		[data]="data"
 		[columns]="_columns"
@@ -17,7 +17,7 @@ export class YztGridWidget extends ControlWidget {
 		[hideCheck]="true"
 		(load)="load($event)">
 	</yzt-grid>`;
-	}
+    }
 }
 
 
