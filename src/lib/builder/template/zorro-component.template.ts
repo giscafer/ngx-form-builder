@@ -30,7 +30,7 @@ export function getTableCode(opts) {
             allChecked = false;
             indeterminate = false;
             displayData = [];
-
+            selection = [];
             _columns = [];
             columns = ${JSON.stringify(opts.columns, null, 4)};
             data = ${JSON.stringify(opts.data, null, 4)};
@@ -51,6 +51,8 @@ export function getTableCode(opts) {
                     });
             }
         }
+
+        load($event){}
 
         currentPageDataChange($event: Array<{ name: string; age: number; address: string; checked: boolean; disabled: boolean; }>): void {
             this.displayData = $event;
@@ -79,16 +81,16 @@ export function getTableCode(opts) {
 export function getCompCode(names, variableSnippet, OnInitSnippet, methodSnippet) {
     let rawCode = `
     import { Component, OnInit } from '@angular/core';
-    
-    @Component({ 
+
+    @Component({
         selector: 'app-template',
         templateUrl: './template.html'
      })
     export class TemplateComponent implements OnInit {
-     
+
         ${variableSnippet}
         constructor(
-           
+
         ) {
 
         }
