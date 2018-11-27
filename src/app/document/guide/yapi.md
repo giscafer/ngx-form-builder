@@ -48,12 +48,12 @@ type: Advanced
 
 运行结果：
 
-![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/demo2.png)
+<img src="https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/demo2.png" width="1000px"/>
 
 
 接口文档：
 
-![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/demo1.png)
+<img src="https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/demo1.png" width="1000px"/>
 
 ### 欢迎反馈
 
