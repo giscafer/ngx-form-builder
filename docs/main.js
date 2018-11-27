@@ -22,6 +22,17 @@ module.exports = "---\norder: 5\ntitle: Schema\ntype: Basic\n---\n\n## 常规Sch
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/document/guide/yapi.md":
+/*!******************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/document/guide/yapi.md ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\r\norder: 2\r\ntitle: Yapi 列表接口自动生成页面\r\ntype: Advanced\r\n---\r\n\r\n支持 **Yapi 列表分页查询接口** 自动生成前端模板页面。\r\n\r\n\r\n### 如何使用？\r\n\r\n\r\n`Zorro Builder` 下，选择`yapi列表自动生成`:\r\n\r\n![](https://github.com/giscafer/ngx-form-builder/blob/master/src/app/document/images/yapi-sample.png)\r\n\r\n复制下边json粘贴到编辑器，点击 `RUN` 运行即可\r\n\r\n```js\r\n{\r\n    \"提示\": \"以下token和接口url必填\",\r\n    \"tableComponent\": \"yzt-grid\",\r\n    \"token\": \"cd54325e00db4aa131f6\",\r\n    \"url\": \"https://yapi.1ziton.com/project/11/interface/api/27\"\r\n}\r\n\r\n```\r\n\r\n修改自己项目的token和接口url地址，即可快速创建列表查询页面\r\n\r\n\r\n**跨域问题注意**\r\n\r\n由于域名跨域请求yapi网站接口的缘故，建议安装chrome扩展程序[Allow-Control-Allow-Origin: *](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)，并启用，这样就没问题了。\r\n\r\n![](https://github.com/giscafer/ngx-form-builder/blob/master/src/app/document/images/cors.png)\r\n\r\n\r\n\r\n### json参数说明\r\n\r\n- `token` 项目的token，有OPEN API权限。在YAPI上，选择`项目——>设置——>token配置`中获取token\r\n- `url` 接口地址。打开接口预览页面，复制 `地址栏url` 即可\r\n- `tableComponent` 指定渲染的表格组件，目前支持 `yzt-grid` 和 `nz-table` 两种\r\n\r\n\r\n### 欢迎反馈\r\n\r\n提建议或参与贡献代码：https://github.com/giscafer/ngx-form-builder\r\n\r\n### License\r\n\r\nMIT by [@giscafer](https://github.com/giscafer)\r\n\r\n\r\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/button/index.md":
 /*!*************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/button/index.md ***!
@@ -140,6 +151,17 @@ module.exports = "---\nwidget: time\ntitle: 时间选择器\ninherit: true\n---\
 /***/ (function(module, exports) {
 
 module.exports = "---\nwidget: tree-select\ntitle: 树形选择器\ninherit: true\n---\n\n树型选择控件。`\"widget\":\"tree-select\" (暂不支持数据渲染)` \n\n\n## Schema\n\n参数 | 说明 | 类型 | 默认值\n----|------|-----|------\ntype | `\"widget\":\"tree-select\"`  | `string` | -\nplaceholder | 在文字框中显示提示信息  | `string` | -\nreadOnly | 是否只读状态  | `boolean` | -\ndescription | 描述文字 | `string` | - \n\n## Demo\n\n**配置举例**\n\n```json\n {\n       \"categories\": {\n        \"type\": \"string\",\n        \"widget\": \"tree-select\",\n        \"title\": \"Categories\"\n    }\n }\n```\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/yzt-grid/index.md":
+/*!***************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/lib/widgets/zorro/yzt-grid/index.md ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "---\r\nwidget: yzt-grid\r\ntitle: 表格 yzt-grid\r\ninherit: true\r\n---\r\n\r\n该组件用来配合yapi接口自动生成页面\r\n\r\n\r\n## Schema\r\n\r\n\r\n## Demo\r\n\r\n详细见文档：http://form.giscafer.com/#/document/yapi\r\n"
 
 /***/ }),
 
@@ -366,6 +388,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _layout_layout_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./layout/layout.module */ "./src/app/layout/layout.module.ts");
 /* harmony import */ var _services_startup_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/startup.service */ "./src/app/services/startup.service.ts");
+/* harmony import */ var _shared_components_yzt_grid_yzt_grid_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./shared/components/yzt-grid/yzt-grid.component */ "./src/app/shared/components/yzt-grid/yzt-grid.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -381,6 +404,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // third part libs
+
 
 
 
@@ -409,8 +433,12 @@ var AppModule = /** @class */ (function () {
                 _lib_dnd_dnd_module__WEBPACK_IMPORTED_MODULE_10__["DndModule"].forRoot(),
                 _layout_layout_module__WEBPACK_IMPORTED_MODULE_13__["LayoutModule"],
                 ngx_md__WEBPACK_IMPORTED_MODULE_9__["NgxMdModule"].forRoot(),
+                _shared_components_yzt_grid_yzt_grid_component__WEBPACK_IMPORTED_MODULE_15__["UIGridModule"],
             ],
-            providers: [{ provide: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["NZ_I18N"], useValue: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["zh_CN"] }, _services_startup_service__WEBPACK_IMPORTED_MODULE_14__["StartUpService"]],
+            providers: [
+                { provide: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["NZ_I18N"], useValue: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_8__["zh_CN"] },
+                _services_startup_service__WEBPACK_IMPORTED_MODULE_14__["StartUpService"],
+            ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]]
         })
     ], AppModule);
@@ -446,6 +474,11 @@ var DATA = {
             id: 'schema',
             title: 'Schema',
             content: getMd(__webpack_require__(/*! !raw-loader!./guide/schema.md */ "./node_modules/raw-loader/index.js!./src/app/document/guide/schema.md"))
+        },
+        {
+            id: 'yapi',
+            title: 'Yapi 接口自动生成页面',
+            content: getMd(__webpack_require__(/*! !raw-loader!./guide/yapi.md */ "./node_modules/raw-loader/index.js!./src/app/document/guide/yapi.md"))
         }
     ],
     widgets: [
@@ -502,7 +535,12 @@ var DATA = {
             id: 'table',
             title: '表格',
             content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/table/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/table/index.md"))
-        } /* ,
+        }, {
+            id: 'yzt-grid',
+            title: 'YZT表格',
+            content: getMd(__webpack_require__(/*! !raw-loader!../../lib/widgets/zorro/yzt-grid/index.md */ "./node_modules/raw-loader/index.js!./src/lib/widgets/zorro/yzt-grid/index.md"))
+        }
+        /* ,
         {
             id: 'rate',
             title: '评分',
@@ -1075,6 +1113,249 @@ var ColNumList = [
 
 /***/ }),
 
+/***/ "./src/app/pages/zorro-form/yapi.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/pages/zorro-form/yapi.service.ts ***!
+  \**************************************************/
+/*! exports provided: YapiService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "YapiService", function() { return YapiService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _utils_promiseHandler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/promiseHandler */ "./src/app/utils/promiseHandler.ts");
+/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+var stripJsonComments = __webpack_require__(/*! strip-json-comments */ "./node_modules/strip-json-comments/index.js");
+var YapiService = /** @class */ (function () {
+    function YapiService(http, msg) {
+        this.http = http;
+        this.msg = msg;
+        this.BASEURL = 'https://yapi.1ziton.com';
+        this.loginUrl = this.BASEURL + '/api/user/login';
+    }
+    /* 登录yapi 获取session */
+    YapiService.prototype.login = function (_a) {
+        var email = _a.email, password = _a.password;
+        this.http.post(this.loginUrl, {
+            email: email,
+            password: password
+        }).subscribe(function (json) {
+            console.log(json);
+        });
+    };
+    /* 获取接口信息 */
+    YapiService.prototype.getInterfaceInfo = function (_a) {
+        var _this = this;
+        var url = _a.url, token = _a.token;
+        var arr = url.split('/');
+        var interfaceId = arr[arr.length - 1];
+        if (isNaN(Number(interfaceId))) {
+            this.msg.error('请输入正确的yapi接口url地址');
+            return;
+        }
+        url = this.BASEURL + "/api/interface/get?id=" + interfaceId;
+        return new Promise(function (resolve, reject) {
+            _this.http.get(url, { params: { token: token } }).subscribe(function (json) {
+                console.log(json);
+                return resolve(json);
+            }, function (err) { return reject(err); });
+        });
+    };
+    /*根据接口生成json schema*/
+    YapiService.prototype.genSchemaByInterface = function (qryParams) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, err, result, errmsg, data, req_query, res_body, properties, tableProperties;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, Object(_utils_promiseHandler__WEBPACK_IMPORTED_MODULE_2__["promiseHandler"])(this.getInterfaceInfo(qryParams))];
+                    case 1:
+                        _a = _b.sent(), err = _a[0], result = _a[1];
+                        if (err || !result) {
+                            this.msg.error(err);
+                            return [2 /*return*/, null];
+                        }
+                        if (result.errcode !== 0) {
+                            errmsg = result.errmsg.indexOf('请登录') !== -1 ? 'token值不正确，请确认' : result.errmsg;
+                            this.msg.error(errmsg, { nzDuration: 3000 });
+                            return [2 /*return*/, null];
+                        }
+                        data = result.data;
+                        req_query = data.req_query, res_body = data.res_body;
+                        properties = this.queryParamsToProperties(req_query);
+                        tableProperties = {};
+                        try {
+                            tableProperties = this.tableProperties(JSON.parse(stripJsonComments(res_body)));
+                        }
+                        catch (e) {
+                            this.msg.error('json格式化出错，请检查接口返回值json格式');
+                        }
+                        return [2 /*return*/, this.gridSchema(properties, tableProperties)];
+                }
+            });
+        });
+    };
+    /* 根据req_query 参数生成查询表单 */
+    YapiService.prototype.queryParamsToProperties = function (req_query) {
+        var qryProperties = {};
+        for (var _i = 0, req_query_1 = req_query; _i < req_query_1.length; _i++) {
+            var item = req_query_1[_i];
+            qryProperties[item.name] = {
+                "type": "string",
+                "title": item.desc,
+                "default": item.example
+            };
+        }
+        return qryProperties;
+    };
+    /* 根据req_body来生成表格 */
+    YapiService.prototype.tableProperties = function (res_body) {
+        var tableProperties = {};
+        var content = [];
+        // 兼容后端几种格式
+        if (res_body.content && res_body.content.content && res_body.content.content.length) {
+            content = res_body.content.content;
+        }
+        else if (res_body.content && res_body.content.length) {
+            content = res_body.content;
+        }
+        else if (res_body.result && res_body.result.content && res_body.result.content.length) {
+            content = res_body.result.content;
+        }
+        else if (res_body.result && res_body.result.length) {
+            content = res_body.result;
+        }
+        else {
+            content = [{}];
+            this.msg.error('该接口不是列表接口！', { nzDuration: 4000 });
+        }
+        var columnsHeader = [];
+        var columns = Object.keys(content[0]);
+        for (var _i = 0, columns_1 = columns; _i < columns_1.length; _i++) {
+            var c = columns_1[_i];
+            if (c !== 'id' && c !== '_id') {
+                columnsHeader.push(c + "-" + c + "-100px");
+            }
+        }
+        tableProperties['columns'] = columnsHeader;
+        tableProperties['data'] = content;
+        return tableProperties;
+    };
+    YapiService.prototype.gridSchema = function (properties, tableProperties) {
+        var baseSchema = {
+            "debug": "true",
+            "modelName": "qryParams",
+            "fileName": "tableDemo",
+            "grid": {
+                "xs": {
+                    "span": 24
+                },
+                "sm": {
+                    "span": 24
+                },
+                "md": {
+                    "span": 12
+                },
+                "lg": {
+                    "span": 8
+                },
+                "xl": {
+                    "span": 8
+                },
+                "xxl": {
+                    "span": 8
+                },
+                "col_gutter": 10,
+                "span_label": 8,
+                "span_control": 15
+            },
+            "properties": {},
+            "table": {},
+            "button": {
+                "grid": {
+                    "md": {
+                        "offset": 20,
+                        "span": 4
+                    }
+                },
+                "items": [
+                    {
+                        "label": "查询",
+                        "id": "query",
+                        "type": "primary",
+                        "submit": true
+                    },
+                    {
+                        "label": "清空",
+                        "id": "reset"
+                    }
+                ]
+            }
+        };
+        baseSchema['properties'] = properties;
+        baseSchema['table'] = tableProperties;
+        return baseSchema;
+    };
+    YapiService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__["NzMessageService"]])
+    ], YapiService);
+    return YapiService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/zorro-form/zorro-form.component.html":
 /*!************************************************************!*\
   !*** ./src/app/pages/zorro-form/zorro-form.component.html ***!
@@ -1082,7 +1363,7 @@ var ColNumList = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-container\">\r\n    <div id=\"code-container\">\r\n        <div id=\"control-panel\">\r\n            <div id=\"code-info\">\r\n                <span class=\"code-type\">JSON</span>\r\n                <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n                <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n            </div>\r\n            <div class=\"control-btn-panel\">\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n                        <span>{{demoName}}</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                    </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"水平布局\" (click)=\"toggleSchema('horizontal-layout')\">Horizontal Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"垂直布局\" (click)=\"toggleSchema('vertical-layout')\">Vertical Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"注册Form 表单\" (click)=\"toggleSchema('register-form')\">Register Form</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('layout')\">Grid Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"列表查询例子\" (click)=\"toggleSchema('table')\">Table Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"Fieldsets 例子\" (click)=\"toggleSchema('other')\">Fieldsets Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n                <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n                <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n            </div>\r\n        </div>\r\n        <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\" (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 90vh; width:100%\"></div>\r\n    </div>\r\n    <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n    <div id=\"view-container\">\r\n        <div id=\"control-panel\">\r\n            <div class=\"control-btn-panel\">\r\n                <button nz-button nzType=\"primary\" class=\"btn btn-default btn-sm\" (click)=\"viewCode()\">\r\n                    <span>View Code</span>\r\n                </button>\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown nzType=\"primary\" class=\"btn btn-default btn-sm\">\r\n                        <span>Copy / Download</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                        </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyCode(1)\">Download HTML</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyCode(2)\">Copy HTML code</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyCode(1,'ts')\">Download TypeScript</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyCode(2,'ts')\">Copy TypeScript code</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n            </div>\r\n        </div>\r\n        <br>\r\n        <div style=\"height: 90vh;padding: 24px;background: inherit;overflow-y: auto;\">\r\n            <zorro-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\" (onBuilderFinish)=\"onBuilderFinish($event)\"></zorro-form-builder>\r\n        </div>\r\n    </div>\r\n</div>\r\n<code-slider [(show)]=\"showCode\" *ngIf=\"showCode\" [htmlCode]=\"htmlCode\" [fileNames]=\"fileNames\" [jsCode]=\"componentCode\"></code-slider>"
+module.exports = "<div id=\"main-container\">\r\n    <div id=\"code-container\">\r\n        <div id=\"control-panel\">\r\n            <div id=\"code-info\">\r\n                <span class=\"code-type\">JSON</span>\r\n                <span class=\"code-info-time\">{{builderInfo.finishTime}}</span>\r\n                <span [ngClass]=\"{'info':builderInfo.msgType=='info','error':builderInfo.msgType!=='info'}\">{{builderInfo.msg}}</span>\r\n            </div>\r\n            <div class=\"control-btn-panel\">\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown [nzType]=\"'primary'\" class=\"btn btn-default btn-sm\">\r\n                        <span>{{demoName}}</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                    </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"水平布局\" (click)=\"toggleSchema('horizontal-layout')\">Horizontal Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"垂直布局\" (click)=\"toggleSchema('vertical-layout')\">Vertical Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"注册Form 表单\" (click)=\"toggleSchema('register-form')\">Register Form</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"栅格布局例子\" (click)=\"toggleSchema('layout')\">Grid Layout Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"列表查询例子\" (click)=\"toggleSchema('table')\">Table Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"Fieldsets 例子\" (click)=\"toggleSchema('other')\">Fieldsets Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"全部 widget 例子\" (click)=\"toggleSchema('full')\">Full Widget Example</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"Yapi列表自动生成\" (click)=\"toggleSchema('yapi')\">Yapi 列表自动生成</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n                <!-- <a href=\"javascript:;\" (click)=\"toggleSchema()\" title=\"点击切换schema\" class=\"btn btn-default btn-sm\">Test：Toggle schema</a> -->\r\n                <a href=\"javascript:;\" (click)=\"run(editor)\" class=\"btn btn-default btn-sm\" title=\"执行代码\">RUN</a>\r\n            </div>\r\n        </div>\r\n        <div #editor id=\"code-panel\" ace-editor [text]=\"schemaString\" [mode]=\"'json'\" [theme]=\"'chrome'\" [options]=\"aceOptions\" [readOnly]=\"false\" (textChanged)=\"onAceChange($event)\" style=\"display:block; height: 90vh; width:100%\"></div>\r\n    </div>\r\n    <div id=\"h-handler\" class=\"handler\" style=\"left: 40%;\"></div>\r\n    <div id=\"view-container\">\r\n        <div id=\"control-panel\">\r\n            <div class=\"control-btn-panel\">\r\n                <button nz-button nzType=\"primary\" class=\"btn btn-default btn-sm\" (click)=\"viewCode()\">\r\n                    <span>View Code</span>\r\n                </button>\r\n                <nz-dropdown>\r\n                    <button nz-button nz-dropdown nzType=\"primary\" class=\"btn btn-default btn-sm\">\r\n                        <span>Copy / Download</span>\r\n                        <i class=\"anticon anticon-down\"></i>\r\n                        </button>\r\n                    <ul nz-menu>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyCode(1)\">Download HTML</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyCode(2)\">Copy HTML code</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"下载HTML模板\" (click)=\"copyCode(1,'ts')\">Download TypeScript</a>\r\n                        </li>\r\n                        <li nz-menu-item>\r\n                            <a href=\"javascript:;\" title=\"复制HTML模板代码\" (click)=\"copyCode(2,'ts')\">Copy TypeScript code</a>\r\n                        </li>\r\n                    </ul>\r\n                </nz-dropdown>\r\n            </div>\r\n        </div>\r\n        <br>\r\n        <div style=\"height: 90vh;padding: 24px;background: inherit;overflow-y: auto;\">\r\n            <zorro-form-builder [schema]=\"schemaJson\" [model]=\"model\" [actions]=\"actions\" (onErrorChange)=\"logErrors($event.value)\" (onChange)=\"setValue($event.value)\" (onBuilderFinish)=\"onBuilderFinish($event)\"></zorro-form-builder>\r\n        </div>\r\n    </div>\r\n</div>\r\n<code-slider [(show)]=\"showCode\" *ngIf=\"showCode\" [htmlCode]=\"htmlCode\" [fileNames]=\"fileNames\" [jsCode]=\"componentCode\"></code-slider>"
 
 /***/ }),
 
@@ -1105,6 +1386,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_download__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/download */ "./src/app/utils/download.ts");
 /* harmony import */ var _utils_formatTime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/formatTime */ "./src/app/utils/formatTime.ts");
 /* harmony import */ var _utils_setSplitPosition__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/setSplitPosition */ "./src/app/utils/setSplitPosition.ts");
+/* harmony import */ var _yapi_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./yapi.service */ "./src/app/pages/zorro-form/yapi.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1122,11 +1404,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ZorroFormComponent = /** @class */ (function () {
-    function ZorroFormComponent(_message, service) {
+    function ZorroFormComponent(_message, service, yapiSrv) {
         var _this = this;
         this._message = _message;
         this.service = service;
+        this.yapiSrv = yapiSrv;
         // schema
         this.actions = {};
         this.fileNames = {
@@ -1177,6 +1461,7 @@ var ZorroFormComponent = /** @class */ (function () {
         });
     };
     ZorroFormComponent.prototype.toggleSchema = function (type) {
+        this.demoType = type;
         switch (type) {
             case 'horizontal-layout':
                 this.demoName = 'Horizontal Layout Example';
@@ -1210,6 +1495,10 @@ var ZorroFormComponent = /** @class */ (function () {
                 this.demoName = 'Full Widget Example';
                 this.schemaString = JSON.stringify(this.service.getData('zorroFullWidgetMockData'), null, 4);
                 break;
+            case 'yapi':
+                this.demoName = 'Yapi 列表自动生成';
+                this.schemaString = JSON.stringify(this.service.getData('yapiMockData'), null, 4);
+                break;
         }
         this.schemaJson = JSON.parse(this.schemaString);
         this.builderInfo._startTime = new Date().getTime();
@@ -1239,12 +1528,35 @@ var ZorroFormComponent = /** @class */ (function () {
         this.log("build success\uFF0C" + (this.builderInfo._endTime - this.builderInfo._startTime) + "ms", 'info');
     };
     ZorroFormComponent.prototype.run = function (editor) {
+        var _this = this;
         if (this.hasEditorError()) {
             this.log('json error', 'error');
             return;
         }
         var text = this.editorDirective.editor.getValue();
         this.builderInfo._startTime = new Date().getTime();
+        if (this.demoType === 'yapi') {
+            var json_1 = JSON.parse(text);
+            var keys = Object.keys(json_1);
+            if (!keys.includes('token')) {
+                this._message.warning('请填写授权访问项目的token串');
+                return;
+            }
+            if (!keys.includes('url')) {
+                this._message.warning('请输入YAPI的接口url');
+                return;
+            }
+            this.yapiSrv.genSchemaByInterface(json_1).then(function (schema) {
+                console.log(schema);
+                if (!schema) {
+                    _this._message.error('获取接口信息错误！');
+                    return;
+                }
+                schema['tableComponent'] = json_1.tableComponent || 'nz-table';
+                _this.schemaJson = schema;
+            });
+            return;
+        }
         this.schemaJson = JSON.parse(text);
     };
     ZorroFormComponent.prototype.onAceChange = function (data) {
@@ -1298,10 +1610,12 @@ var ZorroFormComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-zorro-form',
             template: __webpack_require__(/*! ./zorro-form.component.html */ "./src/app/pages/zorro-form/zorro-form.component.html"),
-            styleUrls: []
+            styleUrls: [],
+            viewProviders: [_yapi_service__WEBPACK_IMPORTED_MODULE_8__["YapiService"],]
         }),
         __metadata("design:paramtypes", [ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__["NzMessageService"],
-            _services_startup_service__WEBPACK_IMPORTED_MODULE_4__["StartUpService"]])
+            _services_startup_service__WEBPACK_IMPORTED_MODULE_4__["StartUpService"],
+            _yapi_service__WEBPACK_IMPORTED_MODULE_8__["YapiService"]])
     ], ZorroFormComponent);
     return ZorroFormComponent;
 }());
@@ -1386,14 +1700,14 @@ var StartUpService = /** @class */ (function () {
     StartUpService.prototype.initData = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["zip"])(_this.httpClient.get('./mock/horizontal-layout.json'), _this.httpClient.get('./mock/vertical-layout.json'), _this.httpClient.get('./mock/person-info.json'), _this.httpClient.get('./mock/person-info-grid.json'), _this.httpClient.get('./mock/otherschema.json'), _this.httpClient.get('./mock/sampleschema.json'), _this.httpClient.get('./mock/zorro-layout.json'), _this.httpClient.get('./mock/zorro-full-widget.json'), _this.httpClient.get('./mock/register-form.json'), _this.httpClient.get('./mock/zorro-table.json')).pipe(
+            Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["zip"])(_this.httpClient.get('./mock/horizontal-layout.json'), _this.httpClient.get('./mock/vertical-layout.json'), _this.httpClient.get('./mock/person-info.json'), _this.httpClient.get('./mock/person-info-grid.json'), _this.httpClient.get('./mock/otherschema.json'), _this.httpClient.get('./mock/sampleschema.json'), _this.httpClient.get('./mock/zorro-layout.json'), _this.httpClient.get('./mock/zorro-full-widget.json'), _this.httpClient.get('./mock/register-form.json'), _this.httpClient.get('./mock/zorro-table.json'), _this.httpClient.get('./mock/yapi.json')).pipe(
             // 接收其他拦截器后产生的异常消息
             Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (_a) {
                 var langData = _a[0], appData = _a[1];
                 resolve(null);
                 return [langData, appData];
             })).subscribe(function (_a) {
-                var horizontalMockData = _a[0], verticalMockData = _a[1], personInfoMockData = _a[2], personInfoGridMockData = _a[3], otherschemaMockData = _a[4], sampleschemaMockData = _a[5], zorroGridMockData = _a[6], zorroFullWidgetMockData = _a[7], registerFormMockData = _a[8], tableMockData = _a[9];
+                var horizontalMockData = _a[0], verticalMockData = _a[1], personInfoMockData = _a[2], personInfoGridMockData = _a[3], otherschemaMockData = _a[4], sampleschemaMockData = _a[5], zorroGridMockData = _a[6], zorroFullWidgetMockData = _a[7], registerFormMockData = _a[8], tableMockData = _a[9], yapiMockData = _a[10];
                 Object.assign(_this.mockData, {
                     horizontalMockData: horizontalMockData,
                     verticalMockData: verticalMockData,
@@ -1404,7 +1718,8 @@ var StartUpService = /** @class */ (function () {
                     zorroGridMockData: zorroGridMockData,
                     zorroFullWidgetMockData: zorroFullWidgetMockData,
                     registerFormMockData: registerFormMockData,
-                    tableMockData: tableMockData
+                    tableMockData: tableMockData,
+                    yapiMockData: yapiMockData,
                 });
                 // console.log(this.mockData);
             }, function (err) { reject(err); }, function () {
@@ -1433,7 +1748,7 @@ var StartUpService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" [class.hide]=\"hide\" [class.show]=\"show\">\r\n    <img class=\"collapse\" src=\"./assets/images/close-r.png\" alt=\"折叠\" title=\"折叠\" (click)=\"collapse()\" />\r\n    <nz-row>\r\n        <nz-col>\r\n            <h3>Generated Code</h3>\r\n        </nz-col>\r\n        <nz-col>\r\n            <div class=\"code-box-actions\">\r\n                <nz-tooltip [nzTitle]=\"'Edit On StackBlitz'\" nzPlacement=\"right\">\r\n                    <i nz-tooltip class=\"anticon anticon-form code-box-code-copy\" style=\"cursor: pointer;\" (click)=\"openOnStackBlitz()\"></i>\r\n                </nz-tooltip>\r\n                <nz-tooltip [nzTitle]=\"'Copy Generate Command'\" *ngIf=\"nzGenerateCommand\" nzPlacement=\"right\">\r\n                    <i nz-tooltip class=\"anticon anticon-code-o code-box-code-copy\" [class.anticon-code-o]=\"!_commandCopied\" [class.anticon-check]=\"_commandCopied\" [class.ant-tooltip-open]=\"_commandCopied\" (click)=\"copyGenerateCommand(nzGenerateCommand)\"></i>\r\n                </nz-tooltip>\r\n            </div>\r\n        </nz-col>\r\n    </nz-row>\r\n    <nz-tabset>\r\n        <nz-tab nzTitle=\"HTML ({{fileNames.htmlFileName}})\">\r\n            <pre class=\"code\"><code highlight [code]=\"htmlCode\" [language]=\"['HTML']\" (highlighted)=\"onHighlight($event)\"></code></pre>\r\n        </nz-tab>\r\n        <nz-tab nzTitle=\"TypeScript ({{fileNames.compFileName}})\" style=\"overflow-y: auto\">\r\n            <pre class=\"code\"><code highlight [code]=\"jsCode\" [language]=\"['TypeScript']\" (highlighted)=\"onHighlight($event)\"></code></pre>\r\n        </nz-tab>\r\n    </nz-tabset>\r\n</div>"
+module.exports = "<div class=\"container\" [class.hide]=\"hide\" [class.show]=\"show\">\r\n    <img class=\"collapse\" src=\"./assets/images/close-r.png\" alt=\"折叠\" title=\"折叠\" (click)=\"collapse()\" />\r\n    <nz-row>\r\n        <nz-col>\r\n            <h3>Generated Code</h3>\r\n        </nz-col>\r\n        <nz-col>\r\n            <div class=\"code-box-actions\">\r\n                <nz-tooltip [nzTitle]=\"'Edit On StackBlitz'\" nzPlacement=\"right\">\r\n                    <div style=\"cursor: pointer; width: 22px;\" title=\"Edit in StackBlitz\" (click)=\"openOnStackBlitz()\">\r\n                        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 184.4 150.8\">\r\n                            <g>\r\n                                <path d=\"M119.8.3L49 76.1h37l-21.3 53.4 70.8-75.8H98.3z\" />\r\n                                <path d=\"M123 4l-8.8 21 40 40-34.4 34.7v29.8L184.2 65zM64.7.3v29.8L30.2 65l40 39.8-8.7 21.3L.2 65z\" />\r\n                            </g>\r\n                        </svg>\r\n                    </div>\r\n                </nz-tooltip>\r\n                <nz-tooltip [nzTitle]=\"'Copy Generate Command'\" *ngIf=\"nzGenerateCommand\" nzPlacement=\"right\">\r\n                    <i nz-tooltip class=\"anticon anticon-code-o code-box-code-copy\" [class.anticon-code-o]=\"!_commandCopied\" [class.anticon-check]=\"_commandCopied\" [class.ant-tooltip-open]=\"_commandCopied\" (click)=\"copyGenerateCommand(nzGenerateCommand)\"></i>\r\n                </nz-tooltip>\r\n            </div>\r\n        </nz-col>\r\n    </nz-row>\r\n    <nz-tabset>\r\n        <nz-tab nzTitle=\"HTML ({{fileNames.htmlFileName}})\">\r\n            <pre class=\"code\"><code highlight [code]=\"htmlCode\" [language]=\"['HTML']\" (highlighted)=\"onHighlight($event)\"></code></pre>\r\n        </nz-tab>\r\n        <nz-tab nzTitle=\"TypeScript ({{fileNames.compFileName}})\" style=\"overflow-y: auto\">\r\n            <pre class=\"code\"><code highlight [code]=\"jsCode\" [language]=\"['TypeScript']\" (highlighted)=\"onHighlight($event)\"></code></pre>\r\n        </nz-tab>\r\n    </nz-tabset>\r\n</div>"
 
 /***/ }),
 
@@ -1591,6 +1906,1276 @@ var CodeSliderComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/components/yzt-grid/share/grid-util.service.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/shared/components/yzt-grid/share/grid-util.service.ts ***!
+  \***********************************************************************/
+/*! exports provided: GridUtilService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GridUtilService", function() { return GridUtilService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GridUtilService = /** @class */ (function () {
+    function GridUtilService() {
+    }
+    /**
+     * 关键字数组分解成含'|'的字符串
+     * @param arr 分解的数组
+     */
+    GridUtilService.prototype.generateColumnKey = function (columns) {
+        var fields = [];
+        for (var _i = 0, columns_1 = columns; _i < columns_1.length; _i++) {
+            var column = columns_1[_i];
+            fields.push(column.field);
+        }
+        fields.sort();
+        var key = "";
+        for (var _a = 0, fields_1 = fields; _a < fields_1.length; _a++) {
+            var field = fields_1[_a];
+            if (key.length > 0) {
+                key += "|";
+            }
+            key += field;
+        }
+        return key;
+    };
+    /**
+     * 深克隆
+     * @param obj 传入需要克隆的对象
+     */
+    GridUtilService.prototype.cloneDeep = function (obj) {
+        var str, newobj = obj.constructor === Array ? [] : {};
+        if (typeof obj !== 'object') {
+            return;
+        }
+        else if (window.JSON) {
+            str = JSON.stringify(obj), //序列化对象
+                newobj = JSON.parse(str); //还原
+        }
+        else {
+            for (var i in obj) {
+                newobj[i] = typeof obj[i] === 'object' ? this.cloneDeep(obj[i]) : obj[i];
+            }
+        }
+        return newobj;
+    };
+    ;
+    /**
+     * isEqual：判断两个对象是否键值对应相等
+     * @param a
+     * @param b
+     */
+    GridUtilService.prototype.isEqual = function (a, b) {
+        //如果a和b本来就全等
+        if (a === b) {
+            //判断是否为0和-0
+            return a !== 0 || 1 / a === 1 / b;
+        }
+        //判断是否为null和undefined
+        if (a == null || b == null) {
+            return a === b;
+        }
+        //接下来判断a和b的数据类型
+        var classNameA = toString.call(a), classNameB = toString.call(b);
+        //如果数据类型不相等，则返回false
+        if (classNameA !== classNameB) {
+            return false;
+        }
+        //如果数据类型相等，再根据不同数据类型分别判断
+        switch (classNameA) {
+            case '[object RegExp]':
+            case '[object String]':
+                //进行字符串转换比较
+                return '' + a === '' + b;
+            case '[object Number]':
+                //进行数字转换比较,判断是否为NaN
+                if (+a !== +a) {
+                    return +b !== +b;
+                }
+                //判断是否为0或-0
+                return +a === 0 ? 1 / +a === 1 / b : +a === +b;
+            case '[object Date]':
+            case '[object Boolean]':
+                return +a === +b;
+        }
+        //如果是对象类型
+        if (classNameA == '[object Object]') {
+            return this.objectIsEqual(a, b);
+        }
+        //如果是数组类型
+        if (classNameA == '[object Array]') {
+            if (a.length !== b.length)
+                return false;
+            if (a.toString() === '[object Object]' && b.toString() === '[object Object]') {
+                for (var i = 0; i < a.length; i++) {
+                    var item1 = a[i];
+                    var item2 = b[i];
+                    if (this.objectIsEqual(item1, item2)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else if (a.toString() == b.toString()) {
+                return true;
+            }
+            return false;
+        }
+    };
+    GridUtilService.prototype.objectIsEqual = function (a, b) {
+        //获取a和b的属性长度
+        var propsA = Object.getOwnPropertyNames(a), propsB = Object.getOwnPropertyNames(b);
+        if (propsA.length != propsB.length) {
+            return false;
+        }
+        for (var i = 0; i < propsA.length; i++) {
+            var propName = propsA[i];
+            //如果对应属性对应值不相等，则返回false
+            if (a[propName] !== b[propName]) {
+                return false;
+            }
+        }
+        return true;
+    };
+    GridUtilService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
+    ], GridUtilService);
+    return GridUtilService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/components/yzt-grid/yzt-grid.component.html":
+/*!********************************************************************!*\
+  !*** ./src/app/shared/components/yzt-grid/yzt-grid.component.html ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"grid-border\">\r\n    <nz-table [attr.class]=\"customClass\" [nzScroll]=\"_scroll\" #nzTable [nzShowPagination]=\"showPagination\" nzShowSizeChanger [nzPageSizeOptions]=\"pageSizeValues\" [nzData]=\"_displayData\" [nzTotal]=\"_data.totalElements\" [nzLoading]=\"_loading\" [nzLoadingDelay]=\"10\" [(nzPageIndex)]=\"pageIndex\"\r\n        [(nzPageSize)]=\"pageSize\" (nzPageSizeChange)=\"pageSizeChange($event)\" (nzPageIndexChange)=\"nzPageIndexChange($event)\" [nzSize]=\"'middle'\" [nzFrontPagination]=\"false\" [nzTitle]=\"_title?_title:(_titleTpl||null)\" [nzShowTotal]=\"totalTemplate\" nzNoResult=\"没有记录\">\r\n        <!-- <div class=\"table-title\" nz-table-title *ngIf=\"_title || _titleTpl || buttonGather.showEditColumn || buttonGather.enableExport\">\r\n            <ng-template #defaultTitle>\r\n                <div>\r\n                    <button class=\"btn-editcol\" nz-button [nzType]=\"'primary'\" *ngIf=\"buttonGather.showEditColumn\" (click)=\"editCol = !_editCol\">\r\n                        <i class=\"anticon anticon-edit\"></i>\r\n                        编辑列\r\n                    </button>\r\n                    <button class=\"btn-export\" nz-button [nzType]=\"'primary'\" [nzLoading]=\"_exportLoading\" *ngIf=\"buttonGather.enableExport\"\r\n                        (click)=\"exportCSVIntenal()\">\r\n                        <i class=\"anticon anticon-export\"></i>\r\n                        导出\r\n                    </button>\r\n                </div>\r\n            </ng-template>\r\n            <ng-template [ngIf]=\"_title\">{{_title}}</ng-template>\r\n            <ng-template [ngTemplateOutlet]=\"!_title && (_titleTpl || defaultTitle)\"></ng-template>\r\n        </div> -->\r\n        <thead (nzSortChange)=\"sort($event)\" nzSingleSort>\r\n            <tr>\r\n                <ng-template [ngIf]=\"!hideCheck\">\r\n                    <th nzCheckbox *ngIf=\"mulitipy\" style=\"width: 50px; text-align: center;\">\r\n                        <label nz-checkbox [(ngModel)]=\"_allChecked\" [nzIndeterminate]=\"_indeterminate\" (ngModelChange)=\"checkAll($event, nzTable.data)\"></label>\r\n                    </th>\r\n                    <th nzCheckbox *ngIf=\"!mulitipy\" style=\"width: 50px; text-align: center;\">\r\n                        <span></span>\r\n                    </th>\r\n                </ng-template>\r\n\r\n                <!--遍历字段渲染内容-->\r\n                <ng-container *ngFor=\"let column of columns\">\r\n                    <!-- 右侧冻结列 -->\r\n                    <th *ngIf=\"column['frozenRight']\" nzRight=\"0px\" class=\"header-title\" [nzWidth]=\"column['width'] || '120px'\">\r\n                        <ng-template [ngTemplateOutlet]=\"thHeaderTempl\" [ngTemplateOutletContext]=\"column\"></ng-template>\r\n                    </th>\r\n                    <!-- 左侧冻结列 -->\r\n                    <th [nzShowSort]=\"column['showSort']\" [nzSortKey]=\"column.field\" *ngIf=\"column['frozenLeft']\" nzLeft=\"0px\" class=\"header-title\" [nzWidth]=\"column['width'] || '120px'\">\r\n                        <ng-template [ngTemplateOutlet]=\"thHeaderTempl\" [ngTemplateOutletContext]=\"column\"></ng-template>\r\n                    </th>\r\n                    <!-- 正常 -->\r\n                    <th [ngClass]=\"column['showSort']\" [nzShowSort]=\"column['showSort']\" [nzSortKey]=\"column.field\" *ngIf=\"!column['frozenLeft'] && !column['frozenRight']\" class=\"header-title\" [nzWidth]=\"column['width'] || '120px'\">\r\n                        <ng-template [ngTemplateOutlet]=\"thHeaderTempl\" [ngTemplateOutletContext]=\"column\"></ng-template>\r\n                    </th>\r\n                </ng-container>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr *ngIf=\"_extraTitleTpl\" style=\"background-color: #fcfcfc\">\r\n                <th colspan=\"30\">\r\n                  <ng-template [ngTemplateOutlet]=\"_extraTitleTpl\"></ng-template>\r\n                </th>\r\n            </tr>\r\n            <tr [style.color]=\"getColColor(data[colColor.field])\" *ngFor=\"let data of nzTable.data; let ri = index\" (click)=\"onRowSelectChange(data, ri, nzTable.data)\" [class.selected]=\"data.checked\">\r\n                <!-- 选择框 -->\r\n                <ng-template [ngIf]=\"!hideCheck && data['operate'] !== '没有记录'\">\r\n                    <td nzCheckbox *ngIf=\"mulitipy\" style=\"width: 50px; text-align: center;\">\r\n                        <label #checkbox_item nz-checkbox [(ngModel)]=\"data.checked\" (click)=\"refreshStatus($event)\"></label>\r\n                    </td>\r\n                    <td nzCheckbox *ngIf=\"!mulitipy\" style=\"width: 50px; text-align: center;\">\r\n                        <label #checkbox_item nz-checkbox class=\"custom-select\" [disabled]=\"data.checked\" [(ngModel)]=\"data.checked\" (click)=\"refreshSingleStatus($event, nzTable.data, ri)\"></label>\r\n                    </td>\r\n                </ng-template>\r\n                <!--遍历字段渲染内容-->\r\n                <ng-container *ngFor=\"let column of columns\">\r\n                    <!-- 右侧冻结列 -->\r\n                    <td *ngIf=\"column['frozenRight']\" nzRight=\"0px\">\r\n                        <ng-template [ngTemplateOutlet]=\"default_cell\" [ngTemplateOutletContext]=\"column\"></ng-template>\r\n                    </td>\r\n                    <!-- 左侧冻结列 -->\r\n                    <td *ngIf=\"column['frozenLeft']\" nzLeft=\"0px\">\r\n                        <ng-template [ngTemplateOutlet]=\"default_cell\" [ngTemplateOutletContext]=\"column\"></ng-template>\r\n                    </td>\r\n                    <!-- 正常 -->\r\n                    <td *ngIf=\"!column['frozenLeft'] && !column['frozenRight']\">\r\n                        <ng-template [ngTemplateOutlet]=\"default_cell\" [ngTemplateOutletContext]=\"column\"></ng-template>\r\n                    </td>\r\n                </ng-container>\r\n                <!-- td的模板 -->\r\n                <ng-template #default_cell let-field=\"field\" let-popover=\"popover\" let-link=\"link\" let-thumbnail=\"thumbnail\" let-header=\"header\" let-textLength=\"textLength\">\r\n                    <ng-container *ngIf=\"field === _iconComp[field]?.outField\" [ngTemplateOutlet]=\"_iconComp[field].iconTemplate\" [ngTemplateOutletContext]=\"data\"></ng-container>\r\n                    <a href=\"javascript:;\" *ngIf=\"link\" class=\"column-link\">\r\n                        <span (click)=\"onCellClick($event,data,field)\">{{data[field]}}</span>\r\n                    </a>\r\n                    <!-- 一般文本 -->\r\n                    <ng-container *ngIf=\"!link && !popover && !thumbnail\">\r\n                        <!-- 默认小于20的文本无popover -->\r\n                        <nz-popover *ngIf=\"(data[field]?.length>(textLength?textLength: 20)); else elseTextBlock\" [nzTrigger]=\"'hover'\">\r\n                            <span nz-popover>{{data[field+'_short_']}}</span>\r\n                            <ng-template #nzTemplate>\r\n                                <div>\r\n                                    <p style=\"max-width: 300px;\">{{data[field]}}</p>\r\n                                </div>\r\n                            </ng-template>\r\n                        </nz-popover>\r\n                        <ng-template #elseTextBlock>\r\n                            <span>{{data[field]}}</span>\r\n                        </ng-template>\r\n                    </ng-container>\r\n                    <!-- 卡片弹框 start-->\r\n                    <div (mouseenter)=\"onCellMouseEnter($event, data, field)\">\r\n                        <nz-popover *ngIf=\"popover\" [nzTitle]=\"header\" [nzTrigger]=\"'hover'\">\r\n                            <span class=\"column-popover-text\" nz-popover>{{data[field+ '_popover_']}}</span>\r\n                            <ng-template #nzTemplate>\r\n                                <!-- <p class=\"popover-panel popover-content\" [class.popover-panel-last]=\"i === data[field+ '_popover_arr_'].length-1\" *ngFor=\"let name of data[field+ '_popover_arr_']; let i = index;\">{{name}}</p> -->\r\n                                <ng-template #default_popover>\r\n                                    <p class=\"popover-panel popover-content\" [class.popover-panel-last]=\"i === splitName(data[field], popover).length-1\" *ngFor=\"let name of splitName(data[field], popover); let i = index;\">{{name}}</p>\r\n                                </ng-template>\r\n                                <ng-container>\r\n                                    <!-- 由于外层有popover控制，所以这里不会有性能问题 -->\r\n                                    <div class=\"yzt-grid-popover-content\" [style.width.px]=\"popover.split('@')[1]?popover.split('@')[1]:'auto'\">\r\n                                        <ng-template [ngTemplateOutlet]=\"(popover.indexOf('_customTpl') !== -1 && _custom_popoverTpl) || default_popover\"></ng-template>\r\n                                    </div>\r\n                                </ng-container>\r\n                            </ng-template>\r\n                        </nz-popover>\r\n                    </div>\r\n                    <!-- 卡片弹框 end-->\r\n                    <!--图片附件 start-->\r\n                    <div *ngIf=\"thumbnail && data[field] && !popover\">\r\n                        <i class=\"anticon anticon-picture thumbnail\" *ngFor=\"let addr of data[field]\" target=\"_blank\">\r\n                            <img style=\"opacity: 0;position: absolute;left: 0;top: 0;\" name=\"{{addr}}\" src=\"{{addr}}\">\r\n                        </i>\r\n                    </div>\r\n                    <!--图片附件 end-->\r\n                    <ng-container *ngIf=\"field === _customComp[field]?.outField && data['operate'] !== '没有记录'\" [ngTemplateOutlet]=\"_customComp[field].customTemplate\" [ngTemplateOutletContext]=\"data\"></ng-container>\r\n                </ng-template>\r\n            </tr>\r\n        </tbody>\r\n    </nz-table>\r\n\r\n    <ng-template #thHeaderTempl let-header=\"header\" let-field=\"field\" let-frozenRight=\"frozenRight\" let-frozenLeft=\"frozenLeft\">\r\n        <span>{{header}}</span>\r\n        <div *ngIf=\"_hasSearch && !frozenRight && !frozenLeft\" [ngClass]=\"_hasSearch? 'templ': ''\">\r\n            <ng-template #default_search>\r\n                <input nz-input [(ngModel)]=\"_fieldGather[field]\" (ngModelChange)=\"search(field, $event)\"/>\r\n            </ng-template>\r\n            <ng-container [ngTemplateOutlet]=\" _searchCustom[field] || default_search\"></ng-container>\r\n        </div>\r\n    </ng-template>\r\n    <ng-template #totalTemplate let-total>\r\n        总 {{total}} 条数据\r\n    </ng-template>\r\n</div>\r\n\r\n<!-- <div #edit_box class=\"edit-wrap\" *ngIf=\"_editCol\">\r\n    <div drag-box [box]=\"edit_box\" class=\"edit-title ant-modal-header\">\r\n        <div class=\"ant-modal-title\">编辑列</div>\r\n        <button aria-label=\"Close\" class=\"ant-modal-close ng-star-inserted\" (click)=\"editCol=false\">\r\n            <span class=\"ant-modal-close-x\"></span>\r\n        </button>\r\n    </div>\r\n    <div class=\"edit-content ant-modal-body\">\r\n        <nz-transfer [nzDataSource]=\"editColumns\" [nzTitles]=\"['Source', 'Target']\" (nzSelectChange)=\"select($event)\" [nzListStyle]=\"{'width.px': 230, 'height.px': 300, 'text-align': 'left'}\" (nzChange)=\"editChange($event)\">\r\n        </nz-transfer>\r\n    </div>\r\n    <div class=\"edit-footer ant-modal-footer\"></div>\r\n</div> -->\r\n"
+
+/***/ }),
+
+/***/ "./src/app/shared/components/yzt-grid/yzt-grid.component.scss":
+/*!********************************************************************!*\
+  !*** ./src/app/shared/components/yzt-grid/yzt-grid.component.scss ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host ::ng-deep .ant-table-thead > tr > th.ant-table-selection-column,\n:host ::ng-deep .ant-table-tbody > tr > td.ant-table-selection-column {\n  width: 20px;\n  min-width: 20px; }\n\n.grid-border {\n  border: 1px solid #e9e9e9; }\n\n:host /deep/ .ant-table {\n  border-radius: 0; }\n\n:host ::ng-deep .custom-select .ant-checkbox-disabled {\n  cursor: pointer; }\n\n:host ::ng-deep .custom-select .ant-checkbox-input {\n  cursor: pointer; }\n\n:host ::ng-deep .custom-select .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner:after {\n  border-color: #fff; }\n\n.selected {\n  background-color: #fcf5f0 !important; }\n\n.selected .ant-table-td-left-sticky, .selected .ant-table-td-right-sticky {\n    background-color: #fcf5f0; }\n\n.table-title {\n  width: 100%;\n  overflow: hidden;\n  padding: 10px 8px; }\n\n.table-title .btn-editcol {\n    float: left; }\n\n.table-title .btn-export {\n    float: right; }\n\n:host .header-title {\n  position: relative; }\n\n:host .header-title > span:first-child {\n    display: block; }\n\n:host .header-title .templ {\n    width: 100%;\n    height: 30px;\n    max-width: 120px;\n    position: relative;\n    z-index: 1; }\n\n:host .header-title .templ ::ng-deep nz-select,\n    :host .header-title .templ ::ng-deep nz-input {\n      width: 100%; }\n\n:host .header-title ::ng-deep .ant-table-column-sorter {\n    position: absolute;\n    top: 16px;\n    left: 55px; }\n\n:host ::ng-deep .sorter3 .ant-table-column-sorter {\n  left: 40px !important; }\n\n:host ::ng-deep .sorter4 .ant-table-column-sorter {\n  left: 55px !important; }\n\n:host ::ng-deep .sorter5 .ant-table-column-sorter {\n  left: 70px !important; }\n\n:host .ant-table-th-left-sticky, :host .ant-table-th-right-sticky {\n  position: -webkit-sticky;\n  position: sticky; }\n\n:host ::ng-deep .deliveryTable .ant-table-placeholder {\n  top: 70px !important; }\n\n.column-link {\n  text-decoration: underline;\n  color: #EE7F25; }\n\n.edit-wrap {\n  width: 600px;\n  background: #fff;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  text-align: center; }\n\n.thumbnail {\n  position: relative;\n  overflow: hidden;\n  cursor: zoom-in; }\n\n.popover-panel {\n  border-bottom: 1px solid #e9e9e9;\n  padding: 8px 16px; }\n\n.popover-panel-last {\n  border: 0; }\n\n.column-popover-text {\n  color: #108ee9;\n  cursor: default; }\n"
+
+/***/ }),
+
+/***/ "./src/app/shared/components/yzt-grid/yzt-grid.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/shared/components/yzt-grid/yzt-grid.component.ts ***!
+  \******************************************************************/
+/*! exports provided: UIGridComponent, UIGridModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UIGridComponent", function() { return UIGridComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UIGridModule", function() { return UIGridModule; });
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
+/* harmony import */ var _directives_yzt_directives_modules__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../directives/yzt-directives.modules */ "./src/app/shared/directives/yzt-directives.modules.ts");
+/* harmony import */ var _share_grid_util_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./share/grid-util.service */ "./src/app/shared/components/yzt-grid/share/grid-util.service.ts");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
+var __assign = (undefined && undefined.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var GridIconIF = /** @class */ (function () {
+    function GridIconIF() {
+    }
+    return GridIconIF;
+}());
+var UIGridComponent = /** @class */ (function () {
+    function UIGridComponent(util, _vcr) {
+        this.util = util;
+        this._vcr = _vcr;
+        this._scroll = { x: null, y: null };
+        this._data = { content: [], numberOfElements: 0 };
+        this._dataSet = [];
+        this._loading = false;
+        this._title = '';
+        this._extraTitleTpl = null; // 表格thead和tbody之间
+        this._exportLoading = false;
+        this._editCol = false;
+        //用于存放可选列
+        this.targetColumns = [];
+        //备份完整columns
+        this.editColumns = [];
+        //grid表格按钮控制
+        this.buttonGather = {
+            showEditColumn: false,
+            enableExport: false,
+        };
+        // 排序
+        this._sortName = null;
+        this._sortValue = null;
+        this._page = 1;
+        this._size = 10;
+        // 缓存上一次分页信息，控制避免多次请求接口
+        this._pageIndex = 1;
+        this._pageSize = 1;
+        /**
+         * 控制多选
+         */
+        this._allChecked = false;
+        this._indeterminate = false;
+        this._displayData = [];
+        // 自定义图片实例
+        this._iconComp = {};
+        // 自定义单元格
+        this._customComp = {};
+        // 表头搜索
+        this._searchCustom = {};
+        // 存储转换后的卡片字符串
+        this._popoverStr = '';
+        this._popoverArr = [];
+        this._fieldGather = {};
+        this.load = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.selectionChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.cellClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.cellOver = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.exportCSV = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.filterData = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"](); // 过滤后数据输出
+        this.columns = [];
+        this.showSizeChanger = false; // 未知用途
+        this.showPagination = true; // 是否显示分页
+        this.pageSizeValues = [10, 30, 50, 100];
+        this.showTitle = true;
+        this.mulitipy = false; // 是否多选
+        this.hideCheck = false; // 是否有全选选择框
+        this.isSyncData = true;
+        // 根据行状态更换行颜色，usage: {field: "status", normal: "normal"},
+        // normal对应的值是数据中status的值
+        this.colColor = {
+            field: "",
+            normal: "",
+            unnormal: "",
+            // 时效预警
+            prewarning: "",
+            warning: "",
+            timeOut: "",
+            // 删除
+            delete: ""
+        };
+        this.exportDisable = false;
+    }
+    Object.defineProperty(UIGridComponent.prototype, "loading", {
+        set: function (v) {
+            this._loading = !!v;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UIGridComponent.prototype, "pageIndex", {
+        get: function () {
+            return this._page;
+        },
+        set: function (num) {
+            if (this._page === num)
+                return;
+            this._page = num;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UIGridComponent.prototype, "pageSize", {
+        get: function () {
+            return this._size;
+        },
+        // 支持双向数据绑定
+        set: function (num) {
+            if (this._size === num)
+                return;
+            this._size = num;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UIGridComponent.prototype, "editCol", {
+        set: function (show) {
+            if (show) {
+                this.editColumns = this.columns.concat(this.targetColumns);
+            }
+            this._editCol = show;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UIGridComponent.prototype, "scroll", {
+        set: function (value) {
+            if (value) {
+                this._scroll = value;
+            }
+            else {
+                this._scroll = { x: null, y: null };
+            }
+            //   this.cdr.detectChanges();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UIGridComponent.prototype, "data", {
+        get: function () {
+            return this._data;
+        },
+        set: function (value) {
+            var _this = this;
+            setTimeout(function (_) {
+                _this._loading = false;
+            });
+            if (!value)
+                return;
+            // 手动调用查询，解决分页问题
+            if (value.size) {
+                this.pageSize = value.size;
+                this.pageIndex = value.number + 1;
+                this._pageIndex = this.pageIndex; // 控制查询的时候，引起的pageIndexChange事件造成走两次接口
+                this._pageSize = this.pageSize; // 控制查询的时候，引起的pageSizeChange事件造成走两次接口
+            }
+            var content = value['content'] || [];
+            // 优化性能。避免鼠标事件触发表格数据重复计算或者赋值
+            for (var _i = 0, content_1 = content; _i < content_1.length; _i++) {
+                var row = content_1[_i];
+                var columns = [].concat(this.columns).concat(this.targetColumns);
+                for (var _a = 0, columns_1 = columns; _a < columns_1.length; _a++) {
+                    var c = columns_1[_a];
+                    var fieldValue = lodash__WEBPACK_IMPORTED_MODULE_6__["get"](row, c.field, ""); // 兼容后端返回数据结构，eg:c.field="shipper.clientType"
+                    if (!c.field) {
+                        continue;
+                    }
+                    row[c.field] = fieldValue;
+                    var textLen = Number(c.textLength) ? c.textLength : 20;
+                    // 字段过长缩写
+                    if (fieldValue.length > textLen) {
+                        row[c.field + '_short_'] = this.replaceTextOmit(fieldValue, textLen, '');
+                    }
+                    // mergeName 数组合并
+                    if (c.popover) {
+                        row[c.field + '_popover_'] = this.replaceTextOmit(fieldValue, textLen, c.popover);
+                        // _.set(row, c.field + '_popover_arr_', this.splitName(fieldValue, c.popover));
+                    }
+                }
+            }
+            this._displayData = value['content'] = content;
+            this._data = __assign({}, value);
+            // 如果用户有进行排序动作，后续查询也该按当前排序记录进行排序
+            if (this._sortName && this._sortValue)
+                this.search();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UIGridComponent.prototype, "fixScroll", {
+        /*  get fieldValue(row:Object,fieldName:string){
+            if()
+         } */
+        set: function (height) {
+            this._fixScrollY = parseInt(height) + "px";
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UIGridComponent.prototype, "title", {
+        // 设置头部
+        set: function (value) {
+            if (value instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]) {
+                this._titleTpl = value;
+            }
+            else {
+                this._title = value;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UIGridComponent.prototype, "extraTitle", {
+        // 设置表格行下方区域,表格thead和tbody之间
+        set: function (value) {
+            if (value instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]) {
+                this._extraTitleTpl = value;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UIGridComponent.prototype, "csPopover", {
+        // 设置卡片
+        set: function (value) {
+            this._custom_popoverTpl = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UIGridComponent.prototype, "searchTmpl", {
+        // 设置搜索
+        set: function (templs) {
+            var _this = this;
+            if (Array.isArray(templs)) {
+                var ref_1;
+                templs.forEach(function (templ, i) {
+                    ref_1 = Object.keys(templ._def.references)[0].split('_')[1].toString();
+                    Object.defineProperty(_this._searchCustom, ref_1, {
+                        value: templ
+                    });
+                });
+            }
+            this._hasSearch = arguments ? true : false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UIGridComponent.prototype, "selection", {
+        set: function (value) {
+            // 单选接受一个对象多选接受数组
+            if (!this.util.isEqual(this._selections, value)) {
+                if (!value.length) {
+                    this._displayData.forEach(function (data) {
+                        data.checked = false;
+                    });
+                    this._indeterminate = false;
+                    this._allChecked = false;
+                }
+                this._selections = value;
+                this.selectionChange.emit(value);
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    UIGridComponent.prototype.ngOnInit = function () {
+        if (this.id) {
+            var columnsMap = localStorage[this.id];
+            if (columnsMap) {
+                columnsMap = JSON.parse(columnsMap);
+                var sourceColumns = columnsMap["sourceColumns"];
+                var targetColumns = columnsMap["targetColumns"];
+                if (sourceColumns && targetColumns && this.util.generateColumnKey(sourceColumns.concat(targetColumns)) === this.util.generateColumnKey(this.columns)) {
+                    this.columns = sourceColumns;
+                    this.targetColumns = targetColumns;
+                }
+            }
+        }
+        this.editColumns = this.columns;
+        this.editColumns.forEach(function (column, i) {
+            Object.defineProperties(column, {
+                title: { value: column.header },
+                disabled: { value: column.transferVisabled || false }
+            });
+        });
+    };
+    UIGridComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        setTimeout(function (_) {
+            _this.onLazyLoad();
+        });
+    };
+    UIGridComponent.prototype.ngOnChanges = function () {
+    };
+    UIGridComponent.prototype.ngOnDestroy = function () {
+        if (this.id) {
+            localStorage[this.id] = JSON.stringify({
+                sourceColumns: this.columns,
+                targetColumns: this.targetColumns
+            });
+        }
+    };
+    /**page index change event handler */
+    UIGridComponent.prototype.nzPageIndexChange = function ($event) {
+        var _this = this;
+        setTimeout(function () {
+            if (_this._pageIndex === $event) {
+                return;
+            }
+            _this.onLazyLoad();
+            _this._pageIndex = $event;
+        });
+    };
+    UIGridComponent.prototype.pageSizeChange = function ($event) {
+        var _this = this;
+        // 控制size改变，引起pageIndex变化而产生多次请求
+        if (this._pageIndex !== this.pageIndex) {
+            return;
+        }
+        setTimeout(function () {
+            if (_this._pageSize === $event) {
+                return;
+            }
+            _this.onLazyLoad();
+        });
+    };
+    UIGridComponent.prototype.isNeedSearch = function (column) {
+        for (var value in column) {
+            if (column[value] && column[value].indexOf('search_') !== -1)
+                return column[value].split('_')[1];
+        }
+        return 0;
+    };
+    UIGridComponent.prototype.editChange = function (change) {
+        var _this = this;
+        var originChange = change, items = originChange.list;
+        items.forEach(function (item, index) {
+            if (change.from === 'left') {
+                _this.editColumns.forEach(function (column) {
+                    if (item['field'] === column['field'] && column.direction !== 'right')
+                        column.direction = 'right';
+                });
+            }
+            else {
+                _this.targetColumns.forEach(function (column) {
+                    if (item['field'] === column['field'] && column.direction === 'right')
+                        column.direction = 'left';
+                });
+            }
+        });
+        this.columns = this.editColumns.filter(function (column) { return column.direction !== 'right'; });
+        this.targetColumns = this.editColumns.filter(function (column) { return column.direction === 'right'; });
+        // 重新赋值，保证穿梭框排序保持最新一次
+        this.editColumns = this.columns.concat(this.targetColumns);
+    };
+    UIGridComponent.prototype.onLazyLoad = function (page) {
+        if (page === void 0) { page = { page: this.pageIndex, size: this.pageSize }; }
+        /*   if (this.isSyncData) {
+            this._loading = true;
+          } */
+        this.load.emit(page);
+    };
+    UIGridComponent.prototype.getIconInstance = function (_a) {
+        var outField = _a.outField, outProp = _a.outProp, iconTemplate = _a.iconTemplate;
+        this._iconComp[outField] = {
+            outField: outField || '',
+            outProp: outProp || '',
+            iconTemplate: iconTemplate || '',
+        };
+    };
+    UIGridComponent.prototype.getCusTmplInstance = function (_a) {
+        var outField = _a.outField, customTemplate = _a.customTemplate;
+        this._customComp[outField] = {
+            outField: outField || '',
+            customTemplate: customTemplate || ''
+        };
+    };
+    /**
+     * 记录选择事件
+     * @param rows
+     */
+    UIGridComponent.prototype.onRowSelectChange = function (data, index, pageData) {
+        if (this.mulitipy) {
+            pageData.map(function (item) {
+                item.checked = false;
+            });
+            data.checked = !data.checked;
+        }
+        else {
+            for (var i = 0; i < pageData.length; ++i) {
+                if (i === index && data.checked)
+                    return;
+            }
+            data.checked = !data.checked;
+        }
+        this.mulitipy ? this.refreshStatus() : this.refreshSingleStatus(null, this._data.content, index);
+        return false;
+    };
+    /**
+     * 选择checkbox
+     */
+    UIGridComponent.prototype.refreshStatus = function (event) {
+        if (event) {
+            event.stopPropagation();
+        }
+        var selections = this._displayData.filter(function (value) { return value.checked === true; });
+        var allChecked = this._displayData.every(function (value) { return value.checked === true; });
+        var allUnChecked = this._displayData.every(function (value) { return !value.checked; });
+        this._allChecked = allChecked;
+        this._indeterminate = (!allChecked) && (!allUnChecked);
+        this.selection = selections;
+    };
+    UIGridComponent.prototype.refreshSingleStatus = function (event, data, index) {
+        if (event) {
+            event.stopPropagation();
+        }
+        data.forEach(function (val, i) {
+            if (index === i)
+                return;
+            val.checked = false;
+        });
+        this.selection = data.filter(function (v) { return v.checked; });
+    };
+    /**
+     * 全选和反选
+     * @param value
+     * @param data
+     */
+    UIGridComponent.prototype.checkAll = function (value, data) {
+        if (value) {
+            this._displayData.forEach(function (data) {
+                data.checked = true;
+            });
+        }
+        else {
+            this._displayData.forEach(function (data) {
+                data.checked = false;
+            });
+        }
+        this.refreshStatus();
+    };
+    /**
+     * cell点击事件
+     * @param event
+     * @param row
+     * @param field
+     */
+    UIGridComponent.prototype.onCellClick = function (event, row, field) {
+        event.stopPropagation();
+        var value = row[field];
+        this.cellClick.emit({
+            row: row,
+            field: field,
+            value: value,
+            originalEvent: event
+        });
+    };
+    /**
+     * 鼠标mouseenter事件
+     */
+    UIGridComponent.prototype.onCellMouseEnter = function (event, row, field) {
+        event.stopPropagation();
+        // let value = this.value(row, field);
+        var value = row[field];
+        this.cellOver.emit({
+            row: row,
+            field: field,
+            value: value,
+            originalEvent: event
+        });
+    };
+    /**
+     * 数据转为字符串
+     * @param val
+     * @returns {any}
+     * @constructor
+     */
+    UIGridComponent.prototype.dataToStr = function (val) {
+        var resultData;
+        if (typeof val == 'number') {
+            resultData = val.toString();
+        }
+        else if (typeof val == 'undefined') {
+            resultData = '';
+        }
+        else if (val == null) {
+            resultData = '';
+        }
+        else if (typeof val == 'object') {
+            resultData = JSON.stringify(val);
+        }
+        else if (typeof val == 'boolean') {
+            resultData = val ? '是' : '否';
+        }
+        else {
+            resultData = val;
+        }
+        return resultData;
+    };
+    /**
+     * 对有textLength属性的column进行字节数量控制
+     * @param val
+     * @param textLength
+     * @param mergeName 控制popover弹窗,传需要合并的key,eg: [{a: '床'},{a: '被子'}] ,此处mergeName传'a'
+     * @returns {string|void|any}
+     */
+    UIGridComponent.prototype.replaceTextOmit = function (val, textLength, mergeName) {
+        if (textLength === void 0) { textLength = 20; }
+        if (mergeName === void 0) { mergeName = ''; }
+        var resultData, temp;
+        resultData = this.dataToStr(val);
+        if (Object.prototype.toString.call(val) === '[object Array]') {
+            var namesArr = lodash__WEBPACK_IMPORTED_MODULE_6__["map"](val, mergeName), namesStr = namesArr.join(',');
+            temp = namesStr.slice(0, textLength);
+            return namesStr.length > textLength ? temp + "..." : namesStr;
+        }
+        if (typeof resultData === 'string') {
+            temp = resultData.slice(0, textLength);
+            return resultData.length > textLength ? temp + "..." : resultData;
+        }
+        else {
+            return resultData;
+        }
+    };
+    /**
+     * 字符串转数组，逗号隔开, popover在表格中有性能问题，
+     * 会触发两次导致第一次会显示表格中最后一个单元格的值再显示想显示的popover数组
+     * 临时解决办法必须在html模板中传val值，估计是多次触发表格的变化检测
+     */
+    UIGridComponent.prototype.splitName = function (val, mergeName) {
+        if (mergeName === void 0) { mergeName = ''; }
+        var result;
+        if (Object.prototype.toString.call(val) === '[object Array]') {
+            var namesArr = lodash__WEBPACK_IMPORTED_MODULE_6__["map"](val, mergeName), namesStr = namesArr.join(',');
+            result = namesStr;
+        }
+        else if (typeof val === 'string') {
+            result = val;
+        }
+        var reg = /[,，]/g;
+        result = result.replace(reg, ',');
+        return lodash__WEBPACK_IMPORTED_MODULE_6__["compact"](result.split(',')) || [];
+    };
+    /**
+     *
+     * @param grid
+     * @param data
+     * @param isFailed 失败了
+     */
+    UIGridComponent.prototype.doExportCSV = function (grid, data, isFailed) {
+        grid.exportDisable = false;
+        if (isFailed) {
+            return;
+        }
+        var columns = grid.columns;
+        var csv = '\ufeff';
+        //headers
+        for (var i = 0; i < columns.length; i++) {
+            if (columns[i].field && !columns[i].hidden) {
+                csv += '"' + (columns[i].header || columns[i].field) + '"';
+                if (i < (columns.length - 1)) {
+                    csv += ",";
+                }
+            }
+        }
+        //body
+        data.forEach(function (record, i) {
+            csv += '\n';
+            for (var i_1 = 0; i_1 < columns.length; i_1++) {
+                if (columns[i_1].field && !columns[i_1].hidden) {
+                    var value = Object.defineProperty(record, columns[i_1].field, null);
+                    if (typeof value === 'string') {
+                        value = value.replace('"', '""');
+                    }
+                    else if (value === null || value === 'null' || value === 'undefined') {
+                        value = "";
+                    }
+                    if (!isNaN(Number(value)) && value.length > 12) {
+                        csv += '"' + value + '\ufeff"';
+                    }
+                    else {
+                        csv += '"' + value + '"';
+                    }
+                    if (i_1 < (columns.length - 1)) {
+                        csv += ",";
+                    }
+                }
+            }
+        });
+        var blob = new Blob([csv], {
+            type: 'text/csv;charset=utf-8;'
+        });
+        if (window.navigator.msSaveOrOpenBlob) {
+            navigator.msSaveOrOpenBlob(blob, '导出.csv');
+        }
+        else {
+            var link = document.createElement("a");
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            if (link.download !== undefined) {
+                link.setAttribute('href', URL.createObjectURL(blob));
+                link.setAttribute('download', '导出.csv');
+                link.click();
+            }
+            else {
+                csv = 'data:text/csv;charset=utf-8,' + csv;
+                window.open(encodeURI(csv));
+            }
+            document.body.removeChild(link);
+        }
+    };
+    UIGridComponent.prototype.exportCSVIntenal = function () {
+        var $this = this;
+        this.exportDisable = true;
+        this.exportCSV.emit({
+            done: $this.doExportCSV,
+            grid: $this
+        });
+    };
+    /**
+     * 根据状态判断行颜色，配合colColor属性
+     * @param status 对应数据属性
+     */
+    UIGridComponent.prototype.getColColor = function (status) {
+        if (!this.colColor.field)
+            return;
+        switch (status) {
+            case this.colColor.normal:
+                return "#000000a6";
+            case this.colColor.delete:
+                return "#f04134";
+            // case this.colColor.prewarning:
+            //     return "origin";
+            // case this.colColor.warning:
+            //     return "green";
+            // case this.colColor.timeOut:
+            //     return "#000";
+            default:
+                return "#000000a6";
+        }
+    };
+    // 前端过滤
+    UIGridComponent.prototype.search = function () {
+        var _this = this;
+        var searchObj = {};
+        for (var field in this._fieldGather) {
+            if (this._fieldGather[field].trim()) {
+                Object.defineProperty(searchObj, field, {
+                    value: this._fieldGather[field],
+                    writable: true,
+                    enumerable: true,
+                    configurable: true
+                });
+            }
+        }
+        if (!Object.keys(searchObj).length) {
+            this._displayData = this.data['content'].slice();
+        }
+        else {
+            this._displayData = this.data['content'].filter(function (item) {
+                var flag = false;
+                for (var key in searchObj) {
+                    if (item[key].toString().indexOf(searchObj[key]) !== -1) {
+                        flag = !flag;
+                        break;
+                    }
+                }
+                return flag;
+            });
+        }
+        // 具体参考https://ng-zorro.github.io/components/table/zh#components-table-demo-head
+        if (this._sortName && this._sortValue) {
+            this._displayData = this._displayData.sort(function (a, b) { return (_this._sortValue === 'ascend') ? (a[_this._sortName] > b[_this._sortName] ? 1 : -1) : (b[_this._sortName] > a[_this._sortName] ? 1 : -1); });
+        }
+        this.filterData.emit({ content: this._displayData });
+    };
+    // 列表排序
+    UIGridComponent.prototype.sort = function (sort) {
+        this._sortName = sort.key;
+        this._sortValue = sort.value;
+        this.search();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('gridImg', { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] }),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"])
+    ], UIGridComponent.prototype, "gridImg", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('nzTable'),
+        __metadata("design:type", Object)
+    ], UIGridComponent.prototype, "nzTable", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], UIGridComponent.prototype, "pageSize", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+    ], UIGridComponent.prototype, "load", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+    ], UIGridComponent.prototype, "selectionChange", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+    ], UIGridComponent.prototype, "cellClick", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+    ], UIGridComponent.prototype, "cellOver", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+    ], UIGridComponent.prototype, "exportCSV", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+    ], UIGridComponent.prototype, "filterData", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", String)
+    ], UIGridComponent.prototype, "id", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", String)
+    ], UIGridComponent.prototype, "customClass", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object)
+    ], UIGridComponent.prototype, "columns", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object)
+    ], UIGridComponent.prototype, "showSizeChanger", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object)
+    ], UIGridComponent.prototype, "showPagination", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object)
+    ], UIGridComponent.prototype, "pageSizeValues", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object)
+    ], UIGridComponent.prototype, "showTitle", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object)
+    ], UIGridComponent.prototype, "mulitipy", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object)
+    ], UIGridComponent.prototype, "hideCheck", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object)
+    ], UIGridComponent.prototype, "isSyncData", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object)
+    ], UIGridComponent.prototype, "colColor", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], UIGridComponent.prototype, "scroll", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], UIGridComponent.prototype, "data", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], UIGridComponent.prototype, "fixScroll", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], UIGridComponent.prototype, "title", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], UIGridComponent.prototype, "extraTitle", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]])
+    ], UIGridComponent.prototype, "csPopover", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], UIGridComponent.prototype, "searchTmpl", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], UIGridComponent.prototype, "selection", null);
+    UIGridComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: "yzt-grid",
+            template: __webpack_require__(/*! ./yzt-grid.component.html */ "./src/app/shared/components/yzt-grid/yzt-grid.component.html"),
+            styles: [__webpack_require__(/*! ./yzt-grid.component.scss */ "./src/app/shared/components/yzt-grid/yzt-grid.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_share_grid_util_service__WEBPACK_IMPORTED_MODULE_5__["GridUtilService"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]])
+    ], UIGridComponent);
+    return UIGridComponent;
+}());
+
+var UIGridModule = /** @class */ (function () {
+    function UIGridModule() {
+    }
+    UIGridModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__["NgZorroAntdModule"],
+                _directives_yzt_directives_modules__WEBPACK_IMPORTED_MODULE_4__["DirectivesModule"]
+            ],
+            declarations: [
+                UIGridComponent
+            ],
+            providers: [
+                _share_grid_util_service__WEBPACK_IMPORTED_MODULE_5__["GridUtilService"]
+            ],
+            exports: [UIGridComponent]
+        })
+    ], UIGridModule);
+    return UIGridModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/directives/drag-box.directive.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/shared/directives/drag-box.directive.ts ***!
+  \*********************************************************/
+/*! exports provided: DragBoxDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DragBoxDirective", function() { return DragBoxDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DragBoxDirective = /** @class */ (function () {
+    function DragBoxDirective(rd2, el) {
+        this.rd2 = rd2;
+        this.el = el;
+    }
+    DragBoxDirective.prototype.ngOnInit = function () {
+        var _a = this.center(this.box), x = _a.x, y = _a.y;
+        this.center(this.box);
+    };
+    DragBoxDirective.prototype.ngOnDestroy = function () {
+        this.dragging = false;
+    };
+    DragBoxDirective.prototype.mousedown = function (event, target) {
+        if (target.className.indexOf('ant-modal-close-x') !== -1)
+            return;
+        event.stopPropagation();
+        this.dragging = true;
+        this.pageSize = event;
+    };
+    DragBoxDirective.prototype.mousemove = function (_a) {
+        var pageX = _a.pageX, pageY = _a.pageY;
+        var dom = this.box;
+        if (this.dragging) {
+            var deltaX = pageX - this.pageSize.pageX, deltaY = pageY - this.pageSize.pageY, distanceX = document.documentElement.offsetWidth - dom.offsetWidth, distanceY = document.documentElement.offsetHeight - dom.offsetHeight, leftPos = parseInt(dom.offsetLeft), topPos = parseInt(dom.offsetTop);
+            dom.style.left = (leftPos >= 0 ? (leftPos <= distanceX ? leftPos + deltaX : distanceX) : 0) + 'px';
+            dom.style.top = (topPos >= 0 ? (topPos <= distanceY ? topPos + deltaY : distanceY) : 0) + 'px';
+            this.pageSize = { pageX: pageX, pageY: pageY };
+        }
+        return false;
+    };
+    DragBoxDirective.prototype.mouseup = function (event) {
+        this.dragging = false;
+    };
+    DragBoxDirective.prototype.resize = function (event) {
+        this.center(this.box);
+    };
+    DragBoxDirective.prototype.getViewport = function () {
+        var win = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0], w = win.innerWidth || e.clientWidth || g.clientWidth, h = win.innerHeight || e.clientHeight || g.clientHeight;
+        return { width: w, height: h };
+    };
+    DragBoxDirective.prototype.center = function (ele) {
+        var viewport = this.getViewport(), x = Math.max((viewport.width - ele.offsetWidth) / 2, 0), y = Math.max((viewport.height - ele.offsetHeight) / 2, 0);
+        this.box.style.position = "fixed";
+        this.box.style.zIndex = 1000;
+        this.box.style.left = x + 'px';
+        this.box.style.top = y + 'px';
+        return { x: x, y: y };
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], DragBoxDirective.prototype, "box", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('mousedown', ['$event', '$event.target']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [MouseEvent, Object]),
+        __metadata("design:returntype", void 0)
+    ], DragBoxDirective.prototype, "mousedown", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('document:mousemove', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DragBoxDirective.prototype, "mousemove", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('document:mouseup', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [MouseEvent]),
+        __metadata("design:returntype", void 0)
+    ], DragBoxDirective.prototype, "mouseup", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('window:resize', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [MouseEvent]),
+        __metadata("design:returntype", void 0)
+    ], DragBoxDirective.prototype, "resize", null);
+    DragBoxDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: '[drag-box]'
+        })
+        /**
+         * 常规Hostlistener监听事件
+         */
+        ,
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]])
+    ], DragBoxDirective);
+    return DragBoxDirective;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/directives/key-enter.directive.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/shared/directives/key-enter.directive.ts ***!
+  \**********************************************************/
+/*! exports provided: KeyEnterDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KeyEnterDirective", function() { return KeyEnterDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var KeyEnterDirective = /** @class */ (function () {
+    function KeyEnterDirective(el) {
+        this.el = el;
+    }
+    KeyEnterDirective.prototype.keydown = function (event) {
+        var e = event || window.event;
+        if (e && e.keyCode == 13) {
+        }
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('key-enter'),
+        __metadata("design:type", Object)
+    ], KeyEnterDirective.prototype, "nzContent", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('keydown', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], KeyEnterDirective.prototype, "keydown", null);
+    KeyEnterDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: '[key-enter]'
+        })
+        /**
+         * 常规Hostlistener监听事件
+         */
+        ,
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]])
+    ], KeyEnterDirective);
+    return KeyEnterDirective;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/directives/yzt-directives.modules.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/shared/directives/yzt-directives.modules.ts ***!
+  \*************************************************************/
+/*! exports provided: DirectivesModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DirectivesModule", function() { return DirectivesModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _drag_box_directive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./drag-box.directive */ "./src/app/shared/directives/drag-box.directive.ts");
+/* harmony import */ var _key_enter_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./key-enter.directive */ "./src/app/shared/directives/key-enter.directive.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var DirectivesModule = /** @class */ (function () {
+    function DirectivesModule() {
+    }
+    DirectivesModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            declarations: [
+                _drag_box_directive__WEBPACK_IMPORTED_MODULE_1__["DragBoxDirective"],
+                _key_enter_directive__WEBPACK_IMPORTED_MODULE_2__["KeyEnterDirective"]
+            ],
+            exports: [
+                _drag_box_directive__WEBPACK_IMPORTED_MODULE_1__["DragBoxDirective"],
+                _key_enter_directive__WEBPACK_IMPORTED_MODULE_2__["KeyEnterDirective"]
+            ]
+        })
+    ], DirectivesModule);
+    return DirectivesModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/shared.module.ts":
 /*!*****************************************!*\
   !*** ./src/app/shared/shared.module.ts ***!
@@ -1606,8 +3191,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var ng_ace_tern__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-ace-tern */ "./node_modules/ng-ace-tern/ng-ace-tern.es5.js");
 /* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
-/* harmony import */ var ngx_md__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-md */ "./node_modules/ngx-md/fesm5/ngx-md.js");
-/* harmony import */ var ngx_highlightjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-highlightjs */ "./node_modules/ngx-highlightjs/fesm5/ngx-highlightjs.js");
+/* harmony import */ var ngx_highlightjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-highlightjs */ "./node_modules/ngx-highlightjs/fesm5/ngx-highlightjs.js");
+/* harmony import */ var ngx_md__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-md */ "./node_modules/ngx-md/fesm5/ngx-md.js");
 /* harmony import */ var _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib/schema-form.module */ "./src/lib/schema-form.module.ts");
 /* harmony import */ var _components_code_slider_code_slider_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/code-slider/code-slider.component */ "./src/app/shared/components/code-slider/code-slider.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -1647,8 +3232,8 @@ var SharedModule = /** @class */ (function () {
                 ng_zorro_antd__WEBPACK_IMPORTED_MODULE_4__["NgZorroAntdModule"].forRoot(),
                 ng_ace_tern__WEBPACK_IMPORTED_MODULE_3__["AceEditorModule"],
                 _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_7__["SchemaFormModule"],
-                ngx_highlightjs__WEBPACK_IMPORTED_MODULE_6__["HighlightModule"].forRoot({ theme: 'googlecode' }),
-                ngx_md__WEBPACK_IMPORTED_MODULE_5__["NgxMdModule"].forRoot(),
+                ngx_highlightjs__WEBPACK_IMPORTED_MODULE_5__["HighlightModule"].forRoot({ theme: 'googlecode' }),
+                ngx_md__WEBPACK_IMPORTED_MODULE_6__["NgxMdModule"].forRoot(),
             ],
             exports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
@@ -1656,7 +3241,7 @@ var SharedModule = /** @class */ (function () {
                 ng_zorro_antd__WEBPACK_IMPORTED_MODULE_4__["NgZorroAntdModule"],
                 ng_ace_tern__WEBPACK_IMPORTED_MODULE_3__["AceEditorModule"],
                 _lib_schema_form_module__WEBPACK_IMPORTED_MODULE_7__["SchemaFormModule"],
-                ngx_md__WEBPACK_IMPORTED_MODULE_5__["NgxMdModule"]
+                ngx_md__WEBPACK_IMPORTED_MODULE_6__["NgxMdModule"]
             ].concat(COMPONENTS)
         })
     ], SharedModule);
@@ -1723,6 +3308,22 @@ function formatTime(time) {
     }
     return time.getFullYear() + '/' + (time.getMonth() + 1) + '/' + time.getDate() + ' ' + timeStr;
 }
+
+
+/***/ }),
+
+/***/ "./src/app/utils/promiseHandler.ts":
+/*!*****************************************!*\
+  !*** ./src/app/utils/promiseHandler.ts ***!
+  \*****************************************/
+/*! exports provided: promiseHandler */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "promiseHandler", function() { return promiseHandler; });
+/* promise handler ,async/await no need try catch */
+var promiseHandler = function (promise) { return promise.then(function (res) { return [null, res]; }).catch(function (err) { return [err, null]; }); };
 
 
 /***/ }),
@@ -1968,7 +3569,13 @@ function buildTable(formProperty, registry) {
     var schema = formProperty.schema;
     if (!schema.table)
         return '';
-    var WidgetClass = registry.getWidgetType('table');
+    var WidgetClass = null;
+    if (schema.tableComponent === 'yzt-grid') {
+        WidgetClass = registry.getWidgetType('yzt-grid');
+    }
+    else {
+        WidgetClass = registry.getWidgetType('table');
+    }
     var tableHtml = new WidgetClass().getTemplate();
     return tableHtml;
 }
@@ -2476,14 +4083,15 @@ var ZorroFormBuilderComponent = /** @class */ (function () {
             template: template,
             modelName: properties.modelName
         };
+        this.container.clear();
         if (schema.table) {
             Object.assign(properties, {
                 "columns": schema.table.columns,
-                "data": schema.table.data
+                "data": schema.tableComponent === 'yzt-grid' ? { content: schema.table.data } : schema.table.data
             });
             Object.assign(opts, {
                 "columns": schema.table.columns,
-                "data": schema.table.data
+                "data": schema.tableComponent === 'yzt-grid' ? { content: schema.table.data } : schema.table.data
             });
             this.ref = this.ZorroWidgetFactory.createTableComponent(this.container, template, properties, this);
         }
@@ -6498,6 +8106,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _select_select_widget__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./select/select.widget */ "./src/lib/widgets/zorro/select/select.widget.ts");
 /* harmony import */ var _table_table_widget__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./table/table.widget */ "./src/lib/widgets/zorro/table/table.widget.ts");
 /* harmony import */ var _tree_select_tree_select_widget__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./tree-select/tree-select.widget */ "./src/lib/widgets/zorro/tree-select/tree-select.widget.ts");
+/* harmony import */ var _yzt_grid_yzt_grid_widget__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./yzt-grid/yzt-grid.widget */ "./src/lib/widgets/zorro/yzt-grid/yzt-grid.widget.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -6508,6 +8117,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+
 
 
 
@@ -6538,6 +8148,7 @@ var ZorroDefaultWidgetRegistry = /** @class */ (function (_super) {
         _this.register('array', _array_array_widget__WEBPACK_IMPORTED_MODULE_8__["ArrayWidget"]);
         _this.register('select', _select_select_widget__WEBPACK_IMPORTED_MODULE_11__["SelectWidget"]);
         _this.register('table', _table_table_widget__WEBPACK_IMPORTED_MODULE_12__["TableWidget"]);
+        _this.register('yzt-grid', _yzt_grid_yzt_grid_widget__WEBPACK_IMPORTED_MODULE_14__["YztGridWidget"]);
         _this.register('tree-select', _tree_select_tree_select_widget__WEBPACK_IMPORTED_MODULE_13__["TreeSelectWidget"]);
         //   this.register('search', StringWidget);
         //   this.register('tel', StringWidget);
@@ -6566,7 +8177,7 @@ var ZorroDefaultWidgetRegistry = /** @class */ (function (_super) {
 /*!****************************************!*\
   !*** ./src/lib/widgets/zorro/index.ts ***!
   \****************************************/
-/*! exports provided: ZorroDefaultWidgetRegistry, ButtonWidget, DateWidget, TimeWidget, DateRangeWidget, CheckboxWidget, TextAreaWidget, SelectWidget, TableWidget */
+/*! exports provided: ZorroDefaultWidgetRegistry, ButtonWidget, DateWidget, TimeWidget, DateRangeWidget, CheckboxWidget, TextAreaWidget, SelectWidget, TableWidget, YztGridWidget */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6597,6 +8208,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _table_table_widget__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./table/table.widget */ "./src/lib/widgets/zorro/table/table.widget.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TableWidget", function() { return _table_table_widget__WEBPACK_IMPORTED_MODULE_8__["TableWidget"]; });
+
+/* harmony import */ var _yzt_grid_yzt_grid_widget__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./yzt-grid/yzt-grid.widget */ "./src/lib/widgets/zorro/yzt-grid/yzt-grid.widget.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "YztGridWidget", function() { return _yzt_grid_yzt_grid_widget__WEBPACK_IMPORTED_MODULE_9__["YztGridWidget"]; });
+
 
 
 
@@ -6804,7 +8419,7 @@ var TableWidget = /** @class */ (function (_super) {
         return _super.call(this) || this;
     }
     TableWidget.prototype.getTemplate = function (schema) {
-        return "\n<nz-table\n\t#rowSelectionTable\n\t[nzData]=\"data\"\n\t(nzCurrentPageDataChange)=\"currentPageDataChange($event)\"\n\t(nzPageIndexChange)=\"refreshStatus()\"\n\t(nzPageSizeChange)=\"refreshStatus()\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th nzShowCheckbox [(nzChecked)]=\"allChecked\" [nzIndeterminate]=\"indeterminate\" (nzCheckedChange)=\"checkAll($event)\"></th>\n\t\t\t<th *ngFor=\"let c of _columns\">{{c.header}}</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr *ngFor=\"let data of rowSelectionTable.data\">\n\t\t\t<td nzShowCheckbox [(nzChecked)]=\"data.checked\" [nzDisabled]=\"data.disabled\" (nzCheckedChange)=\"refreshStatus($event)\"></td>\n\t\t\t<td  *ngFor=\"let c of _columns\">{{data[c.field]}}</td>\n\t\t</tr>\n\t</tbody>\n</nz-table>";
+        return "\n<nz-table [nzScroll]=\"{ x: '1800px', y: '400px' }\"\n\t#rowSelectionTable\n\t[nzData]=\"data\"\n\t(nzCurrentPageDataChange)=\"currentPageDataChange($event)\"\n\t(nzPageIndexChange)=\"refreshStatus()\"\n\t(nzPageSizeChange)=\"refreshStatus()\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th nzShowCheckbox [(nzChecked)]=\"allChecked\" [nzIndeterminate]=\"indeterminate\" (nzCheckedChange)=\"checkAll($event)\"></th>\n\t\t\t<th *ngFor=\"let c of _columns\">{{c.header}}</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr *ngFor=\"let data of rowSelectionTable.data\">\n\t\t\t<td nzShowCheckbox [(nzChecked)]=\"data.checked\" [nzDisabled]=\"data.disabled\" (nzCheckedChange)=\"refreshStatus($event)\"></td>\n\t\t\t<td  *ngFor=\"let c of _columns\">{{data[c.field]}}</td>\n\t\t</tr>\n\t</tbody>\n</nz-table>";
     };
     return TableWidget;
 }(_widget__WEBPACK_IMPORTED_MODULE_0__["ControlWidget"]));
@@ -6942,6 +8557,43 @@ var TreeSelectWidget = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/lib/widgets/zorro/yzt-grid/yzt-grid.widget.ts":
+/*!***********************************************************!*\
+  !*** ./src/lib/widgets/zorro/yzt-grid/yzt-grid.widget.ts ***!
+  \***********************************************************/
+/*! exports provided: YztGridWidget */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "YztGridWidget", function() { return YztGridWidget; });
+/* harmony import */ var _widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../widget */ "./src/lib/widget.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var YztGridWidget = /** @class */ (function (_super) {
+    __extends(YztGridWidget, _super);
+    function YztGridWidget() {
+        return _super.call(this) || this;
+    }
+    YztGridWidget.prototype.getTemplate = function (schema) {
+        return "\n\t<yzt-grid\n\t\t[scroll]=\"{ x: '2400px', y: '800px' }\"\n\t\t#grid_basic\n\t\t[data]=\"data\"\n\t\t[columns]=\"_columns\"\n\t\t[(selection)]=\"selection\"\n\t\t[hideCheck]=\"true\"\n\t\t(load)=\"load($event)\">\n\t</yzt-grid>";
+    };
+    return YztGridWidget;
+}(_widget__WEBPACK_IMPORTED_MODULE_0__["ControlWidget"]));
+
+
+
+/***/ }),
+
 /***/ "./src/lib/zorro-widget-factory.ts":
 /*!*****************************************!*\
   !*** ./src/lib/zorro-widget-factory.ts ***!
@@ -6958,6 +8610,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
 /* harmony import */ var _model_actionregistry__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./model/actionregistry */ "./src/lib/model/actionregistry.ts");
 /* harmony import */ var _widget_registry__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./widget-registry */ "./src/lib/widget-registry.ts");
+/* harmony import */ var _app_shared_components_yzt_grid_yzt_grid_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../app/shared/components/yzt-grid/yzt-grid.component */ "./src/app/shared/components/yzt-grid/yzt-grid.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6967,6 +8620,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -7085,6 +8739,153 @@ var ZorroWidgetFactory = /** @class */ (function () {
         return component;
     };
     ZorroWidgetFactory.prototype.createTableComponent = function (container, template, properties, context) {
+        if (properties === void 0) { properties = {}; }
+        var TemplateComponent = /** @class */ (function () {
+            function TemplateComponent(_differs, actionRegistry, changeDetectorRef) {
+                this._differs = _differs;
+                this.actionRegistry = actionRegistry;
+                this.changeDetectorRef = changeDetectorRef;
+                this.buttons = [];
+                // table
+                this.allChecked = false;
+                this.indeterminate = false;
+                this.displayData = [];
+                this._columns = [];
+                this.columns = [];
+                this.data = [];
+            }
+            TemplateComponent.prototype.load = function ($event) {
+                var schema = properties.formProperty.schema;
+                if (schema.tableComponent === 'yzt-grid') {
+                    this.data = this.data;
+                }
+            };
+            TemplateComponent.prototype.ngOnInit = function () {
+                this.initCloumn();
+                this._differ = this._differs.find(this[this['modelName']]).create();
+                if (this.interval) {
+                    clearInterval(this.interval);
+                    this.interval = null;
+                }
+                this._parseButtons();
+            };
+            TemplateComponent.prototype.ngDoCheck = function () {
+                if (this._differ) {
+                    var changes = this._differ.diff(this[this['modelName']]);
+                    if (changes) {
+                        // debug code
+                        this._applyChanges(changes);
+                        if (this['_debug_']) {
+                            console.warn('model changes', this[this['modelName']]);
+                        }
+                    }
+                }
+            };
+            TemplateComponent.prototype._parseButtons = function () {
+                var schema = properties.formProperty.schema;
+                if (schema.buttons !== undefined) {
+                    this.buttons = schema.buttons;
+                    for (var _i = 0, _a = this.buttons; _i < _a.length; _i++) {
+                        var button = _a[_i];
+                        this._createButtonCallback(button);
+                    }
+                }
+            };
+            TemplateComponent.prototype._createButtonCallback = function (button) {
+                var _this = this;
+                this.action = function (e, id) {
+                    var action;
+                    if (id && (action = _this.actionRegistry.get(id))) {
+                        if (action) {
+                            action(properties.formProperty, _this._getBtnParameters(id));
+                            // TODO，临时解决方案
+                            if (id === 'reset') {
+                                _this[_this['modelName']] = {};
+                            }
+                        }
+                    }
+                    e.preventDefault();
+                };
+            };
+            // debug code
+            TemplateComponent.prototype._applyChanges = function (changes) {
+                context.onChange.emit({ value: this[this['modelName']] });
+                context.modelChanged.emit(this[this['modelName']]);
+            };
+            TemplateComponent.prototype._getBtnParameters = function (id) {
+                for (var _i = 0, _a = this.buttons; _i < _a.length; _i++) {
+                    var btn = _a[_i];
+                    if (id === btn.id) {
+                        return btn.parameters;
+                    }
+                }
+            };
+            // table
+            TemplateComponent.prototype.initCloumn = function () {
+                for (var i = 0; i < this.columns.length; i++) {
+                    var arr = this.columns[i].split('-');
+                    this._columns[i] = {};
+                    Object.assign(this._columns[i], {
+                        header: arr[0],
+                        field: arr[1],
+                        width: arr[2]
+                    });
+                }
+            };
+            TemplateComponent.prototype.currentPageDataChange = function ($event) {
+                this.displayData = $event;
+                this.refreshStatus();
+            };
+            TemplateComponent.prototype.refreshStatus = function () {
+                var allChecked = this.displayData.filter(function (value) { return !value.disabled; }).every(function (value) { return value.checked === true; });
+                var allUnChecked = this.displayData.filter(function (value) { return !value.disabled; }).every(function (value) { return !value.checked; });
+                this.allChecked = allChecked;
+                this.indeterminate = (!allChecked) && (!allUnChecked);
+            };
+            TemplateComponent.prototype.checkAll = function (value) {
+                this.displayData.forEach(function (data) {
+                    if (!data.disabled) {
+                        data.checked = value;
+                    }
+                });
+                this.refreshStatus();
+            };
+            TemplateComponent.prototype.ngOnDestroy = function () {
+                if (this.interval) {
+                    clearInterval(this.interval);
+                    this.interval = null;
+                }
+            };
+            TemplateComponent = __decorate([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({ template: template }),
+                __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["KeyValueDiffers"],
+                    _model_actionregistry__WEBPACK_IMPORTED_MODULE_4__["ActionRegistry"],
+                    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+            ], TemplateComponent);
+            return TemplateComponent;
+        }());
+        var TemplateModule = /** @class */ (function () {
+            function TemplateModule() {
+            }
+            TemplateModule = __decorate([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+                    declarations: [TemplateComponent],
+                    imports: [_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__["NgZorroAntdModule"], _app_shared_components_yzt_grid_yzt_grid_component__WEBPACK_IMPORTED_MODULE_6__["UIGridModule"],],
+                    providers: [_model_actionregistry__WEBPACK_IMPORTED_MODULE_4__["ActionRegistry"]]
+                })
+            ], TemplateModule);
+            return TemplateModule;
+        }());
+        var mod = this.compiler.compileModuleAndAllComponentsSync(TemplateModule);
+        var factory = mod.componentFactories.find(function (comp) {
+            return comp.componentType === TemplateComponent;
+        });
+        var component = container.createComponent(factory);
+        Object.assign(component.instance, properties);
+        return component;
+    };
+    /* yapi yzt-grid */
+    ZorroWidgetFactory.prototype.createYztGridComponent = function (container, template, properties, context) {
         if (properties === void 0) { properties = {}; }
         var TemplateComponent = /** @class */ (function () {
             function TemplateComponent(_differs, actionRegistry, changeDetectorRef) {
