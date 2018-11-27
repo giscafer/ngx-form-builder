@@ -12,7 +12,7 @@ type: Advanced
 
 `Zorro Builder` 下，选择`yapi列表自动生成`:
 
-![](https://github.com/giscafer/ngx-form-builder/blob/master/src/app/document/images/yapi-sample.png)
+![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/yapi-sample.png)
 
 复制下边json粘贴到编辑器，点击 `RUN` 运行即可
 
@@ -33,7 +33,7 @@ type: Advanced
 
 由于域名跨域请求yapi网站接口的缘故，建议安装chrome扩展程序[Allow-Control-Allow-Origin: *](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)，并启用，这样就没问题了。
 
-![](https://github.com/giscafer/ngx-form-builder/blob/master/src/app/document/images/cors.png)
+![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/cors.png)
 
 
 
