@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "---\norder: 1\ntitle: 开始使用\ntype: Basic\n---\n\n[ngx-form-builder](https://github.com/giscafer/ngx-form-builder) 是一个基于 [JSON Schema](http://json-schema.org/) 标准的动态构建表单。支持 `[ng-zorro-antd](https://ng.ant.design/)` 和 `BootStrap` 两种样式。\n\n## 特性\n\n- 符合 `JSON Schema` 标准\n- 支持 `ng-zorro-antd` 基础组件库\n- 支持 `BootStrap` 样式\n- 支持模板代码在线编辑和复制下载\n- ……\n\n## 如何使用？\n\n**步骤简单**\n\n* 编辑 JSON Schema，点击运行即可（schema 属性特点和小部件特点请详细阅读文档 ）\n* 复制或者下载代码放到工程（支持 StackBlitz 在线编辑模板代码）\n\n\n## License\n\nMIT by [@giscafer](https://github.com/giscafer)\n\n\n"
+module.exports = "---\norder: 1\ntitle: 开始使用\ntype: Basic\n---\n\n[ngx-form-builder](https://github.com/giscafer/ngx-form-builder) 是一个基于 [JSON Schema](http://json-schema.org/) 标准的动态构建表单。支持 [ng-zorro-antd](https://ng.ant.design/) 和 `BootStrap` 两种样式。\n\n## 特性\n\n-   符合 `JSON Schema` 标准\n-   支持 `ng-zorro-antd` 基础组件库\n-   支持 `BootStrap` 样式\n-   支持模板代码在线编辑和复制下载\n-   ……\n\n## 如何使用？\n\n**步骤简单**\n\n-   编辑 JSON Schema，点击运行即可（schema 属性特点和小部件特点请详细阅读文档 ）\n-   复制或者下载代码放到工程（支持 StackBlitz 在线编辑模板代码）\n\n## License\n\nMIT by [@giscafer](https://github.com/giscafer)\n"
 
 /***/ }),
 
@@ -29,7 +29,7 @@ module.exports = "---\norder: 5\ntitle: Schema\ntype: Basic\n---\n\n## 常规Sch
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "---\r\norder: 2\r\ntitle: Yapi 列表接口自动生成页面\r\ntype: Advanced\r\n---\r\n\r\n支持 **Yapi 列表分页查询接口** 自动生成前端模板页面。\r\n\r\n\r\n### 如何使用？\r\n\r\n\r\n`Zorro Builder` 下，选择`yapi列表自动生成`:\r\n\r\n![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/yapi-sample.png)\r\n\r\n复制下边json粘贴到编辑器，点击 `RUN` 运行即可\r\n\r\n```js\r\n{\r\n    \"提示\": \"以下token和接口url必填\",\r\n    \"tableComponent\": \"yzt-grid\",\r\n    \"token\": \"cd54325e00db4aa131f6\",\r\n    \"url\": \"https://yapi.1ziton.com/project/11/interface/api/27\"\r\n}\r\n\r\n```\r\n\r\n修改自己项目的token和接口url地址，即可快速创建列表查询页面\r\n\r\n\r\n**跨域问题注意**\r\n\r\n由于域名跨域请求yapi网站接口的缘故，建议安装chrome扩展程序[Allow-Control-Allow-Origin: *](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)，并启用，这样就没问题了。\r\n\r\n![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/cors.png)\r\n\r\n\r\n\r\n### json参数说明\r\n\r\n- `token` 项目的token，有OPEN API权限。在YAPI上，选择`项目——>设置——>token配置`中获取token\r\n- `url` 接口地址。打开接口预览页面，复制 `地址栏url` 即可\r\n- `tableComponent` 指定渲染的表格组件，目前支持 `yzt-grid` 和 `nz-table` 两种\r\n\r\n\r\n### demo截图\r\n\r\n运行结果：\r\n\r\n![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/demo2.png)\r\n\r\n\r\n接口文档：\r\n\r\n![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/demo1.png)\r\n\r\n### 欢迎反馈\r\n\r\n提建议或参与贡献代码：https://github.com/giscafer/ngx-form-builder\r\n\r\n### License\r\n\r\nMIT by [@giscafer](https://github.com/giscafer)\r\n\r\n\r\n"
+module.exports = "---\r\norder: 2\r\ntitle: Yapi 列表接口自动生成页面\r\ntype: Advanced\r\n---\r\n\r\n接口文档采用 [YMFE/yapi](https://github.com/YMFE/yapi) 来管理，支持 **Yapi 列表分页查询接口** 自动化生成前端页面模板。\r\n\r\n\r\n### 如何使用？\r\n\r\n\r\n`Zorro Builder` 下，选择`yapi列表自动生成`:\r\n\r\n![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/yapi-sample.png)\r\n\r\n复制下边json粘贴到编辑器，点击 `RUN` 运行即可\r\n\r\n```js\r\n{\r\n    \"提示\": \"以下token和接口url必填\",\r\n    \"tableComponent\": \"yzt-grid\",\r\n    \"token\": \"cd54325e00db4aa131f6\",\r\n    \"url\": \"https://yapi.1ziton.com/project/11/interface/api/27\"\r\n}\r\n\r\n```\r\n\r\n修改自己项目的token和接口url地址，即可快速创建列表查询页面\r\n\r\n\r\n**跨域问题注意**\r\n\r\n由于域名跨域请求yapi网站接口的缘故，建议安装chrome扩展程序[Allow-Control-Allow-Origin: *](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)，并启用，这样就没问题了。\r\n\r\n![](https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/cors.png)\r\n\r\n\r\n\r\n### json参数说明\r\n\r\n- `token` 项目的token，有OPEN API权限。在YAPI上，选择`项目——>设置——>token配置`中获取token\r\n- `url` 接口地址。打开接口预览页面，复制 `地址栏url` 即可\r\n- `tableComponent` 指定渲染的表格组件，目前支持 `yzt-grid` 和 `nz-table` 两种\r\n\r\n\r\n### demo截图\r\n\r\n运行结果：\r\n\r\n<img src=\"https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/demo2.png\" width=\"1000px\"/>\r\n\r\n\r\n接口文档：\r\n\r\n<img src=\"https://raw.githubusercontent.com/giscafer/ngx-form-builder/master/src/app/document/images/demo1.png\" width=\"1000px\"/>\r\n\r\n### 欢迎反馈\r\n\r\n提建议或参与贡献代码：https://github.com/giscafer/ngx-form-builder\r\n\r\n### License\r\n\r\nMIT by [@giscafer](https://github.com/giscafer)\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -8871,147 +8871,6 @@ var ZorroWidgetFactory = /** @class */ (function () {
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
                     declarations: [TemplateComponent],
                     imports: [_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__["NgZorroAntdModule"], _app_shared_components_yzt_grid_yzt_grid_component__WEBPACK_IMPORTED_MODULE_6__["UIGridModule"],],
-                    providers: [_model_actionregistry__WEBPACK_IMPORTED_MODULE_4__["ActionRegistry"]]
-                })
-            ], TemplateModule);
-            return TemplateModule;
-        }());
-        var mod = this.compiler.compileModuleAndAllComponentsSync(TemplateModule);
-        var factory = mod.componentFactories.find(function (comp) {
-            return comp.componentType === TemplateComponent;
-        });
-        var component = container.createComponent(factory);
-        Object.assign(component.instance, properties);
-        return component;
-    };
-    /* yapi yzt-grid */
-    ZorroWidgetFactory.prototype.createYztGridComponent = function (container, template, properties, context) {
-        if (properties === void 0) { properties = {}; }
-        var TemplateComponent = /** @class */ (function () {
-            function TemplateComponent(_differs, actionRegistry, changeDetectorRef) {
-                this._differs = _differs;
-                this.actionRegistry = actionRegistry;
-                this.changeDetectorRef = changeDetectorRef;
-                this.buttons = [];
-                // table
-                this.allChecked = false;
-                this.indeterminate = false;
-                this.displayData = [];
-                this._columns = [];
-                this.columns = [];
-                this.data = [];
-            }
-            TemplateComponent.prototype.ngOnInit = function () {
-                this.initCloumn();
-                this._differ = this._differs.find(this[this['modelName']]).create();
-                if (this.interval) {
-                    clearInterval(this.interval);
-                    this.interval = null;
-                }
-                this._parseButtons();
-            };
-            TemplateComponent.prototype.ngDoCheck = function () {
-                if (this._differ) {
-                    var changes = this._differ.diff(this[this['modelName']]);
-                    if (changes) {
-                        // debug code
-                        this._applyChanges(changes);
-                        if (this['_debug_']) {
-                            console.warn('model changes', this[this['modelName']]);
-                        }
-                    }
-                }
-            };
-            TemplateComponent.prototype._parseButtons = function () {
-                var schema = properties.formProperty.schema;
-                if (schema.buttons !== undefined) {
-                    this.buttons = schema.buttons;
-                    for (var _i = 0, _a = this.buttons; _i < _a.length; _i++) {
-                        var button = _a[_i];
-                        this._createButtonCallback(button);
-                    }
-                }
-            };
-            TemplateComponent.prototype._createButtonCallback = function (button) {
-                var _this = this;
-                this.action = function (e, id) {
-                    var action;
-                    if (id && (action = _this.actionRegistry.get(id))) {
-                        if (action) {
-                            action(properties.formProperty, _this._getBtnParameters(id));
-                            // TODO，临时解决方案
-                            if (id === 'reset') {
-                                _this[_this['modelName']] = {};
-                            }
-                        }
-                    }
-                    e.preventDefault();
-                };
-            };
-            // debug code
-            TemplateComponent.prototype._applyChanges = function (changes) {
-                context.onChange.emit({ value: this[this['modelName']] });
-                context.modelChanged.emit(this[this['modelName']]);
-            };
-            TemplateComponent.prototype._getBtnParameters = function (id) {
-                for (var _i = 0, _a = this.buttons; _i < _a.length; _i++) {
-                    var btn = _a[_i];
-                    if (id === btn.id) {
-                        return btn.parameters;
-                    }
-                }
-            };
-            // table
-            TemplateComponent.prototype.initCloumn = function () {
-                for (var i = 0; i < this.columns.length; i++) {
-                    var arr = this.columns[i].split('-');
-                    this._columns[i] = {};
-                    Object.assign(this._columns[i], {
-                        header: arr[0],
-                        field: arr[1],
-                        width: arr[2]
-                    });
-                }
-            };
-            TemplateComponent.prototype.currentPageDataChange = function ($event) {
-                this.displayData = $event;
-                this.refreshStatus();
-            };
-            TemplateComponent.prototype.refreshStatus = function () {
-                var allChecked = this.displayData.filter(function (value) { return !value.disabled; }).every(function (value) { return value.checked === true; });
-                var allUnChecked = this.displayData.filter(function (value) { return !value.disabled; }).every(function (value) { return !value.checked; });
-                this.allChecked = allChecked;
-                this.indeterminate = (!allChecked) && (!allUnChecked);
-            };
-            TemplateComponent.prototype.checkAll = function (value) {
-                this.displayData.forEach(function (data) {
-                    if (!data.disabled) {
-                        data.checked = value;
-                    }
-                });
-                this.refreshStatus();
-            };
-            TemplateComponent.prototype.ngOnDestroy = function () {
-                if (this.interval) {
-                    clearInterval(this.interval);
-                    this.interval = null;
-                }
-            };
-            TemplateComponent = __decorate([
-                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({ template: template }),
-                __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["KeyValueDiffers"],
-                    _model_actionregistry__WEBPACK_IMPORTED_MODULE_4__["ActionRegistry"],
-                    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
-            ], TemplateComponent);
-            return TemplateComponent;
-        }());
-        var TemplateModule = /** @class */ (function () {
-            function TemplateModule() {
-            }
-            TemplateModule = __decorate([
-                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-                    declarations: [TemplateComponent],
-                    imports: [_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], ng_zorro_antd__WEBPACK_IMPORTED_MODULE_3__["NgZorroAntdModule"]],
                     providers: [_model_actionregistry__WEBPACK_IMPORTED_MODULE_4__["ActionRegistry"]]
                 })
             ], TemplateModule);
