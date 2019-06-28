@@ -19,15 +19,18 @@
                         "assets": [
                             "src/assets",
                             "src/mock",
-                            "src/favicon.ico"
+                            "src/favicon.ico",
+                            {
+                                "glob": "**/*",
+                                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                                "output": "/assets/"
+                            }
                         ],
                         "styles": [
                             "node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css",
                             "src/styles.scss"
                         ],
-                        "scripts": [
-                            "node_modules/jquery/dist/jquery.min.js"
-                        ]
+                        "scripts": ["node_modules/jquery/dist/jquery.min.js"]
                     },
                     "configurations": {
                         "production": {
@@ -40,10 +43,12 @@
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
-                            "fileReplacements": [{
-                                "replace": "src/environments/environment.ts",
-                                "with": "src/environments/environment.prod.ts"
-                            }]
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ]
                         }
                     }
                 },
@@ -71,18 +76,12 @@
                         "karmaConfig": "./karma.conf.js",
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "src/tsconfig.spec.json",
-                        "scripts": [
-                            "node_modules/jquery/dist/jquery.min.js"
-                        ],
+                        "scripts": ["node_modules/jquery/dist/jquery.min.js"],
                         "styles": [
                             "node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css",
                             "src/styles.scss"
                         ],
-                        "assets": [
-                            "src/assets",
-                            "src/mock",
-                            "src/favicon.ico"
-                        ]
+                        "assets": ["src/assets", "src/mock", "src/favicon.ico"]
                     }
                 },
                 "lint": {
@@ -92,9 +91,7 @@
                             "src/tsconfig.app.json",
                             "src/tsconfig.spec.json"
                         ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }
@@ -114,12 +111,8 @@
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
-                        "tsConfig": [
-                            "e2e/tsconfig.e2e.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "tsConfig": ["e2e/tsconfig.e2e.json"],
+                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }

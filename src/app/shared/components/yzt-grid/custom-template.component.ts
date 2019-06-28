@@ -1,49 +1,42 @@
 import {
-  Component,
-  Input,
-  OnInit,
-  NgModule,
-  ContentChild,
-  TemplateRef,
-  ViewChild,
+    Component,
+    Input,
+    OnInit,
+    NgModule,
+    ContentChild,
+    TemplateRef,
+    ViewChild
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UIGridComponent } from './yzt-grid.component';
 
 @Component({
-  selector: 'custom-template',
-  template: `
-    <ng-container></ng-container>
-  `,
-  styles: []
+    selector: 'custom-template',
+    template: `
+        <ng-container></ng-container>
+    `
 })
 export class CustomTemplateComponent {
+    @ContentChild('customTemplate', { static: false })
+    customTemplate: TemplateRef<any>;
+    @Input() outField = '';
+    @Input('ui_grid') uiGrid: UIGridComponent;
 
-  @ContentChild('customTemplate') customTemplate: TemplateRef<any>;
-  @Input() outField = '';
-  @Input('ui_grid') uiGrid: UIGridComponent;
+    constructor() {}
 
-  constructor() { }
+    ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  ngOnChanges(simple) {
-    if(this.uiGrid && simple['outField']) {
-      this.uiGrid.getCusTmplInstance(this);
+    ngOnChanges(simple) {
+        if (this.uiGrid && simple['outField']) {
+            this.uiGrid.getCusTmplInstance(this);
+        }
     }
-  }
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-  ],
-  declarations: [
-    CustomTemplateComponent
-  ],
-  exports: [CustomTemplateComponent]
+    imports: [CommonModule, FormsModule],
+    declarations: [CustomTemplateComponent],
+    exports: [CustomTemplateComponent]
 })
-export class CustomTemplateModule { }
+export class CustomTemplateModule {}
