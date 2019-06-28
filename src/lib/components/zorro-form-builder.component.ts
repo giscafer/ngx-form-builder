@@ -3,12 +3,34 @@
  *  Licensed under the MIT License.
  *-------------------------------------------------------------*/
 
-import { ChangeDetectorRef, Component, ComponentRef, EventEmitter, Input, OnChanges, Output, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import {
+    ChangeDetectorRef,
+    Component,
+    ComponentRef,
+    EventEmitter,
+    Input,
+    OnChanges,
+    Output,
+    ViewChild,
+    ViewContainerRef,
+    ViewEncapsulation
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { getFormCode, getTableCode } from '../builder/template/zorro-component.template';
+import {
+    getFormCode,
+    getTableCode
+} from '../builder/template/zorro-component.template';
 import { ZorroTmplBuilder } from '../builder/zorro-template-builder';
 import { ZorroDefaultWidgetRegistry } from '../index';
-import { Action, ActionRegistry, FormProperty, FormPropertyFactory, SchemaPreprocessor, Validator, ValidatorRegistry } from '../model';
+import {
+    Action,
+    ActionRegistry,
+    FormProperty,
+    FormPropertyFactory,
+    SchemaPreprocessor,
+    Validator,
+    ValidatorRegistry
+} from '../model';
 import { ISchema } from '../schema/index';
 import { SchemaValidatorFactory } from '../schemavalidator.factory';
 import { TerminatorService } from '../terminator.service';
@@ -16,19 +38,16 @@ import { Widget } from '../widget';
 import { WidgetRegistry } from '../widget-registry';
 import { ZorroWidgetFactory } from '../zorro-widget-factory';
 
-
-
-
-
-
 export function useFactory(schemaValidatorFactory, validatorRegistry) {
     return new FormPropertyFactory(schemaValidatorFactory, validatorRegistry);
-};
+}
 
 @Component({
     selector: 'zorro-form-builder',
     encapsulation: ViewEncapsulation.None,
-    template: `<div #target></div>`,
+    template: `
+        <div #target></div>
+    `,
     providers: [
         ZorroWidgetFactory,
         SchemaPreprocessor,
@@ -40,15 +59,16 @@ export function useFactory(schemaValidatorFactory, validatorRegistry) {
             useFactory: useFactory,
             deps: [SchemaValidatorFactory, ValidatorRegistry]
         },
-        { provide: WidgetRegistry, useClass: ZorroDefaultWidgetRegistry }]
+        { provide: WidgetRegistry, useClass: ZorroDefaultWidgetRegistry }
+    ]
 })
 export class ZorroFormBuilderComponent implements OnChanges {
-
     @Input() widgetInfo: any;
 
     @Output() widgetInstanciated = new EventEmitter<any>();
 
-    @ViewChild('target', { read: ViewContainerRef }) container: ViewContainerRef;
+    @ViewChild('target', { read: ViewContainerRef, static: false })
+    container: ViewContainerRef;
 
     @Input() validators: { [path: string]: Validator } = {};
 
@@ -57,7 +77,6 @@ export class ZorroFormBuilderComponent implements OnChanges {
     @Input() model: any;
 
     @Input() actions: { [actionId: string]: Action } = {};
-
 
     @Output() onChange = new EventEmitter<{ value: any }>();
 
@@ -70,7 +89,6 @@ export class ZorroFormBuilderComponent implements OnChanges {
     @Output() onErrorsChange = new EventEmitter<{ value: any }>();
 
     @Output() onBuilderFinish = new EventEmitter<Object>();
-
 
     control: FormControl = new FormControl('', () => null);
     rootProperty: FormProperty = null;
@@ -89,7 +107,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
         private validatorRegistry: ValidatorRegistry,
         private ZorroWidgetFactory: ZorroWidgetFactory = null,
         private cdr: ChangeDetectorRef,
-        private terminator: TerminatorService,
+        private terminator: TerminatorService
     ) {
         this.registry = registry;
     }
@@ -127,9 +145,12 @@ export class ZorroFormBuilderComponent implements OnChanges {
                 this.terminator.destroy();
             }
             SchemaPreprocessor.preprocess(this.schema);
-            this.rootProperty = this.formPropertyFactory.createProperty(this.schema);
+            this.rootProperty = this.formPropertyFactory.createProperty(
+                this.schema
+            );
             this.rootProperty.valueChanges.subscribe(value => {
-                if (this.modelChanged.observers.length > 0) { // two way binding is used
+                if (this.modelChanged.observers.length > 0) {
+                    // two way binding is used
                     if (this.model) {
                         Object.assign(this.model, value);
                     } else {
@@ -152,19 +173,21 @@ export class ZorroFormBuilderComponent implements OnChanges {
         }
 
         this._createForm(this.rootProperty.schema.widget);
-
     }
 
     private coverProperty(schema: ISchema) {
-
         Object.keys(schema.properties).forEach(key => {
             let p = schema.properties[key];
             p['name'] = p['name'] ? p['name'] : key;
-            p['formId'] = 'field' + (ZorroFormBuilderComponent.counter++);
+            p['formId'] = 'field' + ZorroFormBuilderComponent.counter++;
             p['modelName'] = schema.modelName || 'model';
             p['_prefixCls'] = 'ant-col';
             if (schema.grid) {
-                Object.assign(p, { grid: schema.grid }, p.grid ? { grid: p.grid } : {});
+                Object.assign(
+                    p,
+                    { grid: schema.grid },
+                    p.grid ? { grid: p.grid } : {}
+                );
             }
             if (p.type === 'array' && p.widget === 'checkbox') {
                 if (p.items && p.items.oneOf) {
@@ -191,7 +214,10 @@ export class ZorroFormBuilderComponent implements OnChanges {
         if (this.validators) {
             for (let validatorId in this.validators) {
                 if (this.validators.hasOwnProperty(validatorId)) {
-                    this.validatorRegistry.register(validatorId, this.validators[validatorId]);
+                    this.validatorRegistry.register(
+                        validatorId,
+                        this.validators[validatorId]
+                    );
                 }
             }
         }
@@ -202,7 +228,10 @@ export class ZorroFormBuilderComponent implements OnChanges {
         if (this.actions) {
             for (let actionId in this.actions) {
                 if (this.actions.hasOwnProperty(actionId)) {
-                    this.actionRegistry.register(actionId, this.actions[actionId]);
+                    this.actionRegistry.register(
+                        actionId,
+                        this.actions[actionId]
+                    );
                 }
             }
         }
@@ -210,7 +239,7 @@ export class ZorroFormBuilderComponent implements OnChanges {
 
     onWidgetInstanciated(widget: Widget<any>) {
         this.widget = widget;
-        let id = 'field' + (ZorroFormBuilderComponent.counter++);
+        let id = 'field' + ZorroFormBuilderComponent.counter++;
 
         this.widget.formProperty = this.rootProperty;
         this.widget.schema = this.rootProperty.schema;
@@ -224,7 +253,6 @@ export class ZorroFormBuilderComponent implements OnChanges {
     }
 
     private _createForm(widgetInfo: any) {
-
         let widgetTemplate = ZorroTmplBuilder(this.registry, this.rootProperty);
         // let widgetTemplate = this.registry.getWidgetType(widgetInfo.id);
 
@@ -232,38 +260,57 @@ export class ZorroFormBuilderComponent implements OnChanges {
         let schema = this.rootProperty.schema;
         let fileName = schema.fileName || 'template';
         let properties = {
-            "formProperty": this.rootProperty,
-            "control": this.control,
-            "property": { visible: true },
-            "_debug_": schema.debug,
-            "modelName": schema.modelName || 'model',
-            [schema.modelName || 'model']: this.rootProperty.value || {},
-        }
-        properties[properties['modelName']]['checkOptions'] = schema.checkOptions || {}; // nz-checkbox-group
+            formProperty: this.rootProperty,
+            control: this.control,
+            property: { visible: true },
+            _debug_: schema.debug,
+            modelName: schema.modelName || 'model',
+            [schema.modelName || 'model']: this.rootProperty.value || {}
+        };
+        properties[properties['modelName']]['checkOptions'] =
+            schema.checkOptions || {}; // nz-checkbox-group
 
         let opts = {
             fileName,
             template,
             modelName: properties.modelName
-        }
+        };
         this.container.clear();
         if (schema.table) {
             Object.assign(properties, {
-                "columns": schema.table.columns,
-                "data": schema.tableComponent === 'yzt-grid' ? { content: schema.table.data } :schema.table.data
+                columns: schema.table.columns,
+                data:
+                    schema.tableComponent === 'yzt-grid'
+                        ? { content: schema.table.data }
+                        : schema.table.data
             });
             Object.assign(opts, {
-                "columns": schema.table.columns,
-                "data": schema.tableComponent === 'yzt-grid' ? { content: schema.table.data } : schema.table.data
+                columns: schema.table.columns,
+                data:
+                    schema.tableComponent === 'yzt-grid'
+                        ? { content: schema.table.data }
+                        : schema.table.data
             });
-            this.ref = this.ZorroWidgetFactory.createTableComponent(this.container, template, properties, this);
+            this.ref = this.ZorroWidgetFactory.createTableComponent(
+                this.container,
+                template,
+                properties,
+                this
+            );
         } else {
-            this.ref = this.ZorroWidgetFactory.addWidget(this.container, template, properties, this);
+            this.ref = this.ZorroWidgetFactory.addWidget(
+                this.container,
+                template,
+                properties,
+                this
+            );
         }
         this.widgetInstanciated.emit(this.ref.instance);
         this.widgetInstance = this.ref.instance;
         this.cdr.detectChanges();
 
-        this.onBuilderFinish.emit(schema.table ? getTableCode(opts) : getFormCode(opts));
+        this.onBuilderFinish.emit(
+            schema.table ? getTableCode(opts) : getFormCode(opts)
+        );
     }
 }
